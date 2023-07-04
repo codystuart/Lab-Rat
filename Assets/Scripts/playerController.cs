@@ -3,24 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
+
 public class playerController : MonoBehaviour
 {
-    [Header ("----- Player -----")]
+    [Header("----- Player -----")]
     [SerializeField] CharacterController controller;
 
     [Header("----- Player Stats -----")]
-    [Range(1,100)][SerializeField] int hp;
+    [Range(1, 100)][SerializeField] int hp;
     [Range(1, 10)][SerializeField] float playerSpeed;
+    [Range(1,3)] [SerializeField] int sprintDuration;
     [Range(5,10)][SerializeField] float jumpHeight;
     [SerializeField] float gravity;
     [SerializeField] int jumpMax;
 
     [Header("----- Gun Stats -----")]
-    [Range(0.01f,0.99f)][SerializeField] float shootRate;
+    [Range(0.1f,1.0f)][SerializeField] float shootRate;
     [Range(1, 10)][SerializeField] int shootDamage;
     [Range(10, 100)][SerializeField] int shootDist;
-    //test cube for shooting
-    [SerializeField] GameObject cube;
+
 
     //class objects
     private Vector3 move;
@@ -28,6 +29,12 @@ public class playerController : MonoBehaviour
     private int jumpCount;
     private bool playerGrounded;
     private bool isShooting;
+    private float playerSpeedOrig;
+
+    private void Start()
+    {
+        playerSpeedOrig = playerSpeed;
+    }
 
     private void Update()
     {
@@ -36,6 +43,11 @@ public class playerController : MonoBehaviour
         if (Input.GetButton("Shoot") && !isShooting)
         {
             StartCoroutine(shoot());
+        }
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            StartCoroutine(sprint());
         }
     }
 
@@ -91,5 +103,13 @@ public class playerController : MonoBehaviour
         controller.enabled = false;
         transform.position = gameManager.instance.playerSpawnPos.transform.position;
         controller.enabled = true;
+    }
+
+    IEnumerator sprint()
+    {
+        playerSpeed = 10;
+        yield return new WaitForSeconds(sprintDuration);
+        playerSpeed = playerSpeedOrig;
+
     }
 }
