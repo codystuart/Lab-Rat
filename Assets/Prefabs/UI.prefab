@@ -1006,7 +1006,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7465198032658673284}
-  - component: {fileID: 4479363114464069323}
+  - component: {fileID: 9054654097037428139}
   - component: {fileID: 3142093768559191839}
   - component: {fileID: 9060198712676163451}
   - component: {fileID: 8297817749406177366}
@@ -1042,7 +1042,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &4479363114464069323
+--- !u!114 &9054654097037428139
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1060,7 +1060,7 @@ MonoBehaviour:
   activeMenu: {fileID: 0}
   pauseMenu: {fileID: 6722468002905550003}
   playerFlashDamagePanel: {fileID: 8686029592264274925}
-  reticle: {fileID: 0}
+  reticle: {fileID: 2032934440612089847}
 --- !u!114 &3142093768559191839
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -24,6 +24,7 @@ public class gameManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+        timescaleOrig = Time.timeScale;
 
     }
 
