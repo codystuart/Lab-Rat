@@ -14,15 +14,28 @@ public class playerController : MonoBehaviour
     [SerializeField] float gravity;
     [SerializeField] int jumpMax;
 
+    [Header("----- Gun Stats -----")]
+    [SerializeField] float shootRate;
+    [SerializeField] int shootDamage;
+    [SerializeField] int shootDist;
+    //test cube for shooting
+    [SerializeField] GameObject cube;
+
     //class objects
     private Vector3 move;
     private Vector3 velocity;
     private int jumpCount;
     private bool playerGrounded;
+    private bool isShooting;
 
     private void Update()
     {
         Movement();
+
+        if (Input.GetButton("Shoot") && !isShooting)
+        {
+            StartCoroutine(shoot());
+        }
     }
 
     //movement function
@@ -50,5 +63,21 @@ public class playerController : MonoBehaviour
 
         velocity.y -= gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    IEnumerator shoot()
+    {
+        isShooting = true;
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
+        {
+            //after IDamage is created, change this bit here to damage enemies
+            Instantiate(cube, hit.point, cube.transform.rotation);
+        }
+
+        yield return new WaitForSeconds(shootRate);
+        isShooting = false;
     }
 }
