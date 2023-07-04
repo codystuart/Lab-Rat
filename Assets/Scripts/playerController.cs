@@ -10,9 +10,9 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] CharacterController controller;
 
     [Header("----- Player Stats -----")]
-    [Range(1, 100)][SerializeField] int HP;
+    [Range(1, 50)][SerializeField] int HP;
     [Range(1, 10)][SerializeField] float playerSpeed;
-    [Range(1,3)] [SerializeField] int sprintDuration;
+    [Range(3,3)] [SerializeField] int sprintDuration;
     [Range(5,10)][SerializeField] float jumpHeight;
     [SerializeField] float gravity;
     [SerializeField] int jumpMax;
@@ -36,6 +36,7 @@ public class playerController : MonoBehaviour, IDamage
     {
         originalHP = HP;
         playerSpeedOrig = playerSpeed;
+        spawnPlayer();
     }
 
     private void Update()
@@ -104,6 +105,7 @@ public class playerController : MonoBehaviour, IDamage
     {
         HP -= amount;
         StartCoroutine(gameManager.instance.playerFlashDamage());
+        updatePlayerUI();
 
 
         if (HP <= 0)
@@ -126,5 +128,10 @@ public class playerController : MonoBehaviour, IDamage
         yield return new WaitForSeconds(sprintDuration);
         playerSpeed = playerSpeedOrig;
 
+    }
+
+    public void updatePlayerUI()
+    {
+        gameManager.instance.playerHpBar.fillAmount = (float)HP / originalHP;
     }
 }
