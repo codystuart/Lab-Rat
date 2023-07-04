@@ -5,11 +5,12 @@ using UnityEngine;
 public class tankZombie : MonoBehaviour, IDamage
 {
     [Header("Components")]
-    [SerializeField] Renderer model; 
+    [SerializeField] Renderer model;
 
     [Header("Tank Zombie Stats")]
-    [SerializeField] int hp;
-    [SerializeField] int speed;
+    [SerializeField] int hp = 50;
+    [SerializeField] int speed = 3;
+    [SerializeField] int damage;
 
     void Start()
     {

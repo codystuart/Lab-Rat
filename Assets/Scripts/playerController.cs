@@ -19,8 +19,6 @@ public class playerController : MonoBehaviour
     [Range(0.01f,0.99f)][SerializeField] float shootRate;
     [Range(1, 10)][SerializeField] int shootDamage;
     [Range(10, 100)][SerializeField] int shootDist;
-    //test cube for shooting
-    [SerializeField] GameObject cube;
 
     //class objects
     private Vector3 move;
