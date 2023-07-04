@@ -19,8 +19,7 @@ public class playerController : MonoBehaviour
     [SerializeField] float shootRate;
     [SerializeField] int shootDamage;
     [SerializeField] int shootDist;
-    //test cube for shooting
-    [SerializeField] GameObject cube;
+    
 
     //class objects
     private Vector3 move;
@@ -74,8 +73,12 @@ public class playerController : MonoBehaviour
 
         if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
         {
-            //after IDamage is created, change this bit here to damage enemies
-            Instantiate(cube, hit.point, cube.transform.rotation);
+            IDamage damageable= hit.collider.GetComponent<IDamage>();
+
+            if(damageable != null)
+            {
+                damageable.TakeDamage(shootDamage);
+            }
         }
 
         yield return new WaitForSeconds(shootRate);
