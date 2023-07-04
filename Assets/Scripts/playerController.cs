@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.Rendering;
 
 
-public class playerController : MonoBehaviour
+public class playerController : MonoBehaviour, IDamage
 {
     [Header("----- Player -----")]
     [SerializeField] CharacterController controller;
 
     [Header("----- Player Stats -----")]
-    [Range(1, 100)][SerializeField] int hp;
+    [Range(1, 100)][SerializeField] int HP;
     [Range(1, 10)][SerializeField] float playerSpeed;
     [Range(1,3)] [SerializeField] int sprintDuration;
     [Range(5,10)][SerializeField] float jumpHeight;
@@ -26,6 +26,7 @@ public class playerController : MonoBehaviour
     //class objects
     private Vector3 move;
     private Vector3 velocity;
+    private int originalHP;
     private int jumpCount;
     private bool playerGrounded;
     private bool isShooting;
@@ -33,6 +34,7 @@ public class playerController : MonoBehaviour
 
     private void Start()
     {
+        originalHP = HP;
         playerSpeedOrig = playerSpeed;
     }
 
@@ -98,11 +100,24 @@ public class playerController : MonoBehaviour
         isShooting = false;
     }
 
+    public void TakeDamage(int amount)
+    {
+        HP -= amount;
+        StartCoroutine(gameManager.instance.playerFlashDamage());
+
+
+        if (HP <= 0)
+        {
+            gameManager.instance.youLose();
+        }
+    }
+
     public void spawnPlayer()
     {
         controller.enabled = false;
         transform.position = gameManager.instance.playerSpawnPos.transform.position;
         controller.enabled = true;
+        HP = originalHP;
     }
 
     IEnumerator sprint()

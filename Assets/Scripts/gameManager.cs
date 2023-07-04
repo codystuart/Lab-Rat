@@ -14,22 +14,20 @@ public class gameManager : MonoBehaviour
     [Header("----- UI Stuff -----")]
     public GameObject activeMenu;
     public GameObject pauseMenu;
+    public GameObject loseMenu;
     public GameObject playerFlashDamagePanel;
     public GameObject reticle;
 
     bool isPaused;
     float timescaleOrig;
 
-    // Start is called before the first frame update
     void Awake()
     {
         instance = this;
         player = GameObject.FindGameObjectWithTag("Player");
         timescaleOrig = Time.timeScale;
-
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetButtonDown("Cancel") && activeMenu == null)
@@ -64,5 +62,12 @@ public class gameManager : MonoBehaviour
         playerFlashDamagePanel.SetActive(true);
         yield return new WaitForSeconds(0.1f);
         playerFlashDamagePanel.SetActive(false);
+    }
+
+    public void youLose()
+    {
+        statePaused();
+        activeMenu = loseMenu;
+        activeMenu.SetActive(true);
     }
 }
