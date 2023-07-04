@@ -157,6 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 72211241}
+  hp: 100
   playerSpeed: 8
   jumpHeight: 12
   gravity: 20
