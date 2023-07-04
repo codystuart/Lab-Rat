@@ -80,4 +80,11 @@ public class playerController : MonoBehaviour
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
     }
+
+    public void spawnPlayer()
+    {
+        controller.enabled = false;
+        transform.position = gameManager.instance.playerSpawnPos.transform.position;
+        controller.enabled = true;
+    }
 }
