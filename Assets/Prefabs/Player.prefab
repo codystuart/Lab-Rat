@@ -52,12 +52,13 @@ MonoBehaviour:
   controller: {fileID: 5105460330003665063}
   hp: 0
   playerSpeed: 8
-  jumpHeight: 12
+  jumpHeight: 10
   gravity: 20
   jumpMax: 2
   shootRate: 0.5
   shootDamage: 1
   shootDist: 100
+  cube: {fileID: 0}
 --- !u!143 &5105460330003665063
 CharacterController:
   m_ObjectHideFlags: 0

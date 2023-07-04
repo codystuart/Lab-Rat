@@ -9,17 +9,25 @@ public class playerController : MonoBehaviour
     [SerializeField] CharacterController controller;
 
     [Header("----- Player Stats -----")]
-    [SerializeField] int hp;
-    [SerializeField] float playerSpeed;
-    [SerializeField] float jumpHeight;
+    [Range(1,100)][SerializeField] int hp;
+    [Range(1, 10)][SerializeField] float playerSpeed;
+    [Range(5,10)][SerializeField] float jumpHeight;
     [SerializeField] float gravity;
     [SerializeField] int jumpMax;
 
     [Header("----- Gun Stats -----")]
+<<<<<<< Updated upstream
     [SerializeField] float shootRate;
     [SerializeField] int shootDamage;
     [SerializeField] int shootDist;
     
+=======
+    [Range(0.01f,0.99f)][SerializeField] float shootRate;
+    [Range(1, 10)][SerializeField] int shootDamage;
+    [Range(10, 100)][SerializeField] int shootDist;
+    //test cube for shooting
+    [SerializeField] GameObject cube;
+>>>>>>> Stashed changes
 
     //class objects
     private Vector3 move;
