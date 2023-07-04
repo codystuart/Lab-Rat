@@ -8,8 +8,9 @@ public class crawlerZombie : MonoBehaviour, IDamage
     [SerializeField] Renderer model;
 
     [Header("Crawler Zombie Stats")]
-    [SerializeField] int hp;
-    [SerializeField] int speed;
+    [SerializeField] int hp = 2;
+    [SerializeField] int speed = 3;
+    [SerializeField] int damage;
 
     void Start()
     {

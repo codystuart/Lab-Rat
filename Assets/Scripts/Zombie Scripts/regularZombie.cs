@@ -1,15 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class regularZombie : MonoBehaviour, IDamage
 {
     [Header("Components")]
     [SerializeField] Renderer model;
+    [SerializeField] NavMeshAgent agent;
 
     [Header("Regular Zombie Stats")]
-    [SerializeField] int hp;
-    [SerializeField] int speed;
+    [SerializeField] int hp = 5;
+    [SerializeField] int speed = 5;
+    [SerializeField] int damage;
+
+
 
     void Start()
     {

@@ -8,8 +8,9 @@ public class rangedZombie : MonoBehaviour, IDamage
     [SerializeField] Renderer model;
 
     [Header("Ranged Zombie Stats")]
-    [SerializeField] int hp;
-    [SerializeField] int speed;
+    [SerializeField] int hp = 10;
+    [SerializeField] int speed = 7;
+    [SerializeField] int damage;
 
     void Start()
     {
