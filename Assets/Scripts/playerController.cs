@@ -16,18 +16,11 @@ public class playerController : MonoBehaviour
     [SerializeField] int jumpMax;
 
     [Header("----- Gun Stats -----")]
-<<<<<<< Updated upstream
-    [SerializeField] float shootRate;
-    [SerializeField] int shootDamage;
-    [SerializeField] int shootDist;
-    
-=======
     [Range(0.01f,0.99f)][SerializeField] float shootRate;
     [Range(1, 10)][SerializeField] int shootDamage;
     [Range(10, 100)][SerializeField] int shootDist;
     //test cube for shooting
     [SerializeField] GameObject cube;
->>>>>>> Stashed changes
 
     //class objects
     private Vector3 move;
