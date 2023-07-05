@@ -149,7 +149,7 @@ public class playerController : MonoBehaviour, IDamage
         if (other.gameObject.CompareTag("Cure"))
         {
             other.gameObject.SetActive(false);
-            //gameManager.instance.updateCureGameGoal(1);
+            gameManager.instance.updateCureGameGoal(1);
         }
     }
 
