@@ -36,7 +36,7 @@ public class playerController : MonoBehaviour, IDamage
     {
         originalHP = HP;
         playerSpeedOrig = playerSpeed;
-        //spawnPlayer();
+        spawnPlayer();
     }
 
     private void Update()
@@ -48,7 +48,7 @@ public class playerController : MonoBehaviour, IDamage
             StartCoroutine(shoot());
         }
 
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             StartCoroutine(sprint());
         }
@@ -120,6 +120,7 @@ public class playerController : MonoBehaviour, IDamage
         transform.position = gameManager.instance.playerSpawnPos.transform.position;
         controller.enabled = true;
         HP = originalHP;
+        updatePlayerUI();
     }
 
     IEnumerator sprint()
