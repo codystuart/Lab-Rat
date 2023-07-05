@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class crawlerZombie : MonoBehaviour, IDamage
+
+public class regularZombie : MonoBehaviour, IDamage
 {
     [Header("Components")]
     [SerializeField] Renderer model;
@@ -11,14 +13,14 @@ public class crawlerZombie : MonoBehaviour, IDamage
     [SerializeField] Transform headPos;
     [SerializeField] Material material;
 
-    [Header("Crawler Zombie Stats")]
-    [SerializeField] int hp = 2;
-    [SerializeField] int damage;
+    [Header("Regular Zombie Stats")]
+    [SerializeField] int hp = 5;
+    [SerializeField] int damage = 10;
 
     [Header("Regular Zombie Navigation")]
     [Range(10, 360)][SerializeField] int viewAngle = 90;
-    [Range(1, 8)][SerializeField] int playerFaceSpeed = 2;
-    [SerializeField] int roamTimer = 2;
+    [Range(1, 8)][SerializeField] int playerFaceSpeed = 8;
+    [SerializeField] int roamTimer = 3;
     [SerializeField] int roamDist = 10;
 
     bool playerInRange;
@@ -38,7 +40,6 @@ public class crawlerZombie : MonoBehaviour, IDamage
 
     void Update()
     {
-       
         if (playerInRange && !canSeePlayer())
         {
             StartCoroutine(roam());
@@ -46,6 +47,7 @@ public class crawlerZombie : MonoBehaviour, IDamage
         else if (agent.destination != gameManager.instance.player.transform.position)
             StartCoroutine(roam());
     }
+
     IEnumerator roam()
     {
         if (agent.remainingDistance < 0.05f && !destinationChosen)
@@ -78,7 +80,6 @@ public class crawlerZombie : MonoBehaviour, IDamage
         angleToPlayer = Vector3.Angle(new Vector3(playerDir.x, 0, playerDir.z), transform.forward);
 
         Debug.DrawRay(headPos.position, playerDir);
-        Debug.Log(angleToPlayer);
 
         RaycastHit hit;
         if (Physics.Raycast(headPos.position, playerDir, out hit))
@@ -87,18 +88,18 @@ public class crawlerZombie : MonoBehaviour, IDamage
             {
                 agent.SetDestination(gameManager.instance.player.transform.position);
 
+
                 // If the agent reached their stopping distance
                 if (agent.remainingDistance <= agent.stoppingDistance)
                 {
                     facePlayer();
 
                     // Deal damage to the player
-                    if (!isHitting)
+                    if(!isHitting)
                     {
                         StartCoroutine(dealDamage());
                     }
                 }
-
                 return true;
             }
         }
@@ -112,6 +113,7 @@ public class crawlerZombie : MonoBehaviour, IDamage
         {
             playerInRange = true;
         }
+
     }
 
     void OnTriggerExit(Collider other)
@@ -121,6 +123,7 @@ public class crawlerZombie : MonoBehaviour, IDamage
             playerInRange = false;
         }
     }
+
     public void TakeDamage(int amount)
     {
         hp -= amount;
@@ -150,7 +153,9 @@ public class crawlerZombie : MonoBehaviour, IDamage
         //gameManager.instance.player.transform.position =
         //    new Vector3(gameManager.instance.player.transform.position.x, gameManager.instance.player.transform.position.y, (gameManager.instance.player.transform.position.z - 1f));
 
+
         yield return new WaitForSeconds(1f);
         isHitting = false;
     }
+
 }

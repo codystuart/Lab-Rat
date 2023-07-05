@@ -62,7 +62,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5232303627088882608}
-  - component: {fileID: 2005987550550884078}
+  - component: {fileID: 5918624182987595213}
   - component: {fileID: 4756912749055153199}
   - component: {fileID: 3340084413605466245}
   - component: {fileID: 1072058885361639482}
@@ -91,7 +91,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2005987550550884078
+--- !u!114 &5918624182987595213
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2050544914036235851}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39a38e17ed1970743a38ed15a0560e50, type: 3}
+  m_Script: {fileID: 11500000, guid: cae5c56e1e04bd84bb4e9438af25f2da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 3340084413605466245}
@@ -108,9 +108,9 @@ MonoBehaviour:
   headPos: {fileID: 6324214156829951077}
   material: {fileID: 2100000, guid: 122651d025fca0c4997eaf696f39f546, type: 2}
   hp: 2
-  damage: 0
+  damage: 2
   viewAngle: 90
-  playerFaceSpeed: 0
+  playerFaceSpeed: 1
   roamTimer: 2
   roamDist: 10
 --- !u!33 &4756912749055153199

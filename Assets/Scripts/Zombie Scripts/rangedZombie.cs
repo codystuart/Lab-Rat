@@ -13,7 +13,7 @@ public class rangedZombie : MonoBehaviour, IDamage
 
     [Header("Crawler Zombie Stats")]
     [SerializeField] int hp = 10;
-    [SerializeField] int damage;
+    //[SerializeField] int damage;
 
     [Header("Regular Zombie Navigation")]
     [Range(10, 360)][SerializeField] int viewAngle = 90;
@@ -81,9 +81,6 @@ public class rangedZombie : MonoBehaviour, IDamage
         agent.stoppingDistance = stoppingDistanceOrig;
         playerDir = gameManager.instance.player.transform.position - headPos.position;
         angleToPlayer = Vector3.Angle(new Vector3(playerDir.x, 0, playerDir.z), transform.forward);
-
-        Debug.DrawRay(headPos.position, playerDir);
-        Debug.Log(angleToPlayer);
 
         RaycastHit hit;
         if (Physics.Raycast(headPos.position, playerDir, out hit))
@@ -153,8 +150,6 @@ public class rangedZombie : MonoBehaviour, IDamage
 
         isShooting = false;
     }
-
-
 
 }
 
