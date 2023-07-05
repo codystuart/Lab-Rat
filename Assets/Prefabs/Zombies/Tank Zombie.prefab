@@ -55,8 +55,7 @@ MonoBehaviour:
   agent: {fileID: 5485332707150715131}
   headPos: {fileID: 8500163825927619858}
   material: {fileID: 2100000, guid: cc30e0d3aec0cf1468f93858d413898b, type: 2}
-  hp: 50
-  damage: 10
+  hp: 15
   viewAngle: 180
   playerFaceSpeed: 3
   roamTimer: 2

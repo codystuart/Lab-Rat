@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 
 public class playerController : MonoBehaviour, IDamage
@@ -32,11 +33,13 @@ public class playerController : MonoBehaviour, IDamage
     private bool isShooting;
     private float playerSpeedOrig;
 
+
     private void Start()
     {
         originalHP = HP;
         playerSpeedOrig = playerSpeed;
         spawnPlayer();
+
     }
 
     private void Update()
@@ -138,6 +141,16 @@ public class playerController : MonoBehaviour, IDamage
     public void updatePlayerUI()
     {
         gameManager.instance.playerHpBar.fillAmount = (float)HP / originalHP;
+    }
+
+    // Player can pick up cure bottles
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Cure"))
+        {
+            other.gameObject.SetActive(false);
+            gameManager.instance.updateCureGameGoal(1);
+        }
     }
 
 }
