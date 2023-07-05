@@ -53,7 +53,7 @@ MonoBehaviour:
   HP: 50
   playerSpeed: 8
   sprintDuration: 0
-  jumpHeight: 10
+  jumpHeight: 7
   gravity: 20
   jumpMax: 2
   shootRate: 0.5
