@@ -12,6 +12,15 @@ public class rangedZombie : MonoBehaviour, IDamage
     [SerializeField] int speed = 7;
     [SerializeField] int damage;
 
+    [Header("Spitball Stats")]
+    [SerializeField] float shootRate;
+    [SerializeField] GameObject spitBall;
+    [SerializeField] Transform shootPos;
+
+    private bool playerInRange;
+    private bool isShooting;
+    
+
     void Start()
     {
 
@@ -19,6 +28,10 @@ public class rangedZombie : MonoBehaviour, IDamage
 
     void Update()
     {
+        if (playerInRange) 
+        {
+            StartCoroutine(shoot());  
+        }
 
     }
 
@@ -39,5 +52,33 @@ public class rangedZombie : MonoBehaviour, IDamage
         yield return new WaitForSeconds(0.1f);
         model.material.color = Color.white;
     }
+
+    IEnumerator shoot()
+    {
+        isShooting = true;
+
+        Instantiate(spitBall, shootPos.position, transform.rotation);
+
+        yield return new WaitForSeconds(shootRate);
+
+        isShooting = false;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = true;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = false;
+        }
+    }
+
 }
 
