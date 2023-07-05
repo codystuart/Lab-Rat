@@ -125,6 +125,7 @@ public class regularZombie : MonoBehaviour, IDamage
         if (hp <= 0)
         {
             Destroy(gameObject);
+            gameManager.instance.updateGameGoal(-1);
         }
     }
 
