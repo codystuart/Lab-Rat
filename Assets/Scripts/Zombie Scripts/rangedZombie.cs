@@ -151,8 +151,6 @@ public class rangedZombie : MonoBehaviour, IDamage
         isShooting = false;
     }
 
-
-
 }
 
 

@@ -90,7 +90,7 @@ Transform:
   - {fileID: 8832974692658878109}
   - {fileID: 4248564376477297400}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3574178241072584174
 MonoBehaviour:
@@ -109,7 +109,7 @@ MonoBehaviour:
   headPos: {fileID: 8832974692658878109}
   material: {fileID: 2100000, guid: 299c6a536d827db4aba335d7cf313c3a, type: 2}
   hp: 10
-  damage: 0
+  damage: 5
   viewAngle: 90
   playerFaceSpeed: 6
   roamTimer: 5
@@ -257,7 +257,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8249834980372791618}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.87303925, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0.69}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
