@@ -31,13 +31,14 @@ public class crawlerZombie : MonoBehaviour, IDamage
 
     void Start()
     {
+        gameManager.instance.updateGameGoal(1);
         stoppingDistanceOrig = agent.stoppingDistance;
         startingPos = transform.position;
     }
 
     void Update()
     {
-        gameManager.instance.updateGameGoal(1);
+       
         if (playerInRange && !canSeePlayer())
         {
             StartCoroutine(roam());
