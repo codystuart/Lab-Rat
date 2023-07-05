@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class gameManager : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class gameManager : MonoBehaviour
     public GameObject loseMenu;
     public GameObject playerFlashDamagePanel;
     public GameObject reticle;
+    public Image playerHpBar;
 
     bool isPaused;
     float timescaleOrig;
