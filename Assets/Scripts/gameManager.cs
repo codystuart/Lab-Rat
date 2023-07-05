@@ -27,6 +27,7 @@ public class gameManager : MonoBehaviour
     {
         instance = this;
         player = GameObject.FindGameObjectWithTag("Player");
+        playerScript = player.GetComponent<playerController>();
         timescaleOrig = Time.timeScale;
     }
 
