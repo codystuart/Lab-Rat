@@ -17,7 +17,7 @@ public class cameraController : MonoBehaviour
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        transform.rotation = Quaternion.LookRotation(new Vector3 (0, 0, 0));
+        //transform.rotation = Quaternion.LookRotation(new Vector3 (0, 0, 0));
     }
 
 

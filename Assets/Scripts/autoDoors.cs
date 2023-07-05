@@ -30,14 +30,14 @@ public class autoDoors : MonoBehaviour
         {
             if (door.transform.position.x < maxOpenAmount)
             {
-                door.transform.Translate(speed * Time.deltaTime, 0f,  0f);
+                door.transform.Translate(1f * (speed * Time.deltaTime), 0f,  0f);
             }
         }
         else
         {
             if (door.transform.position.x > maxCloseAmount)
             {
-                door.transform.Translate(-speed * Time.deltaTime, 0f, 0f);
+                door.transform.Translate(1f * (-speed * Time.deltaTime), 0f, 0f);
             }
         }
     }

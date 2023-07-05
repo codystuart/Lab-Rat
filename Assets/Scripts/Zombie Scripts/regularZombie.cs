@@ -80,7 +80,6 @@ public class regularZombie : MonoBehaviour, IDamage
         angleToPlayer = Vector3.Angle(new Vector3(playerDir.x, 0, playerDir.z), transform.forward);
 
         Debug.DrawRay(headPos.position, playerDir);
-        Debug.Log(angleToPlayer);
 
         RaycastHit hit;
         if (Physics.Raycast(headPos.position, playerDir, out hit))
@@ -151,8 +150,8 @@ public class regularZombie : MonoBehaviour, IDamage
         gameManager.instance.player.GetComponent<playerController>().TakeDamage(damage);
 
         // Knock back the player by a space
-        //gameManager.instance.player.transform.position =
-        //    new Vector3(gameManager.instance.player.transform.position.x, gameManager.instance.player.transform.position.y, (gameManager.instance.player.transform.position.z - 1f));
+        gameManager.instance.player.transform.position =
+            new Vector3(gameManager.instance.player.transform.position.x, gameManager.instance.player.transform.position.y, (gameManager.instance.player.transform.position.z - 1f));
 
         yield return new WaitForSeconds(1f);
         isHitting = false;
