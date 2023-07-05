@@ -117,7 +117,10 @@ public class playerController : MonoBehaviour, IDamage
     public void spawnPlayer()
     {
         controller.enabled = false;
-        transform.position = gameManager.instance.playerSpawnPos.transform.position;
+        if (gameManager.instance.playerSpawnPos != null)
+        {
+            transform.position = gameManager.instance.playerSpawnPos.transform.position;
+        }
         controller.enabled = true;
         HP = originalHP;
         updatePlayerUI();
