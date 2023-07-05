@@ -1,32 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
 
 public class gameManager : MonoBehaviour
 {
     public static gameManager instance;
 
-    [Header("----- Player Stuff -----")]
+    [Header("----- Player Objects -----")]
     public GameObject player;
-    public playerController playerScript;
     public GameObject playerSpawnPos;
+    public playerController playerControl;
 
-    [Header("----- UI Stuff -----")]
+    [Header("----- UI Menus -----")]
     public GameObject activeMenu;
     public GameObject pauseMenu;
+    public GameObject winMenu;
     public GameObject loseMenu;
+
+    [Header("----- UI Objects -----")]
     public GameObject playerFlashDamagePanel;
     public GameObject reticle;
+    public TextMeshProUGUI remainingEnemiesText;
     public Image playerHpBar;
 
     bool isPaused;
+    int remainingEnemies;
     float timescaleOrig;
 
     void Awake()
     {
         instance = this;
         player = GameObject.FindGameObjectWithTag("Player");
+        playerControl = player.GetComponent<playerController>();
         timescaleOrig = Time.timeScale;
     }
 
@@ -59,6 +66,21 @@ public class gameManager : MonoBehaviour
         activeMenu.SetActive(false);
         activeMenu = null;
     }
+
+    public void updateGameGoal(int amount)
+    {
+        remainingEnemies += amount;
+        remainingEnemiesText.text = ("Remaining Enemies: " + remainingEnemies.ToString("f0"));
+
+        //change later
+        if (remainingEnemies <= 0)
+        {
+            activeMenu = winMenu;
+            activeMenu.SetActive(true);
+            statePaused();
+        }
+    }
+
     public IEnumerator playerFlashDamage()
     {
         playerFlashDamagePanel.SetActive(true);
