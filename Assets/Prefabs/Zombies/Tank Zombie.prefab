@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4274861496916855915}
   - component: {fileID: 5485332707150715131}
   - component: {fileID: 4636632637907764796}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tank Zombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
