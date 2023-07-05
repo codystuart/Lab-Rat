@@ -76,7 +76,6 @@ public class tankZombie : MonoBehaviour, IDamage
         angleToPlayer = Vector3.Angle(new Vector3(playerDir.x, 0, playerDir.z), transform.forward);
 
         Debug.DrawRay(headPos.position, playerDir);
-        Debug.Log(angleToPlayer);
 
         RaycastHit hit;
         if (Physics.Raycast(headPos.position, playerDir, out hit))

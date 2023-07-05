@@ -13,7 +13,7 @@ public class rangedZombie : MonoBehaviour, IDamage
 
     [Header("Crawler Zombie Stats")]
     [SerializeField] int hp = 10;
-    [SerializeField] int damage;
+    //[SerializeField] int damage;
 
     [Header("Regular Zombie Navigation")]
     [Range(10, 360)][SerializeField] int viewAngle = 90;
@@ -150,9 +150,4 @@ public class rangedZombie : MonoBehaviour, IDamage
 
         isShooting = false;
     }
-
-
-
 }
-
-

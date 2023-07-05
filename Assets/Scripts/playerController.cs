@@ -12,7 +12,7 @@ public class playerController : MonoBehaviour, IDamage
     [Header("----- Player Stats -----")]
     [Range(1, 50)][SerializeField] int HP;
     [Range(1, 10)][SerializeField] float playerSpeed;
-    [Range(3,3)] [SerializeField] int sprintDuration;
+    [Range(1, 5)] [SerializeField] int sprintDuration;
     [Range(5,10)][SerializeField] float jumpHeight;
     [SerializeField] float gravity;
     [SerializeField] int jumpMax;
@@ -50,6 +50,7 @@ public class playerController : MonoBehaviour, IDamage
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
+            Debug.Log("key pressed");
             StartCoroutine(sprint());
         }
     }
