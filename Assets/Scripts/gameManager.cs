@@ -9,6 +9,7 @@ public class gameManager : MonoBehaviour
 
     [Header("----- Player Stuff -----")]
     public GameObject player;
+    public GameObject meleeAttackTrigger;
     public playerController playerScript;
     public GameObject playerSpawnPos;
 
@@ -27,6 +28,7 @@ public class gameManager : MonoBehaviour
     {
         instance = this;
         player = GameObject.FindGameObjectWithTag("Player");
+        meleeAttackTrigger = GameObject.FindGameObjectWithTag("Can Hit Player");
         playerScript = player.GetComponent<playerController>();
         timescaleOrig = Time.timeScale;
     }

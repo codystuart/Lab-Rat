@@ -138,4 +138,5 @@ public class playerController : MonoBehaviour, IDamage
     {
         gameManager.instance.playerHpBar.fillAmount = (float)HP / originalHP;
     }
+
 }

@@ -15,7 +15,7 @@ public class regularZombie : MonoBehaviour, IDamage
 
     [Header("Regular Zombie Stats")]
     [SerializeField] int hp = 5;
-    [SerializeField] int damage;
+    [SerializeField] int damage = 10;
 
     [Header("Regular Zombie Navigation")]
     [Range(10, 360)][SerializeField] int viewAngle = 90;
@@ -29,6 +29,7 @@ public class regularZombie : MonoBehaviour, IDamage
     float stoppingDistanceOrig;
     Vector3 startingPos;
     bool destinationChosen;
+    private bool isHitting;
 
     void Start()
     {
@@ -87,11 +88,18 @@ public class regularZombie : MonoBehaviour, IDamage
             {
                 agent.SetDestination(gameManager.instance.player.transform.position);
 
+
+                // If the agent reached their stopping distance
                 if (agent.remainingDistance <= agent.stoppingDistance)
                 {
                     facePlayer();
-                }
 
+                    // Deal damage to the player
+                    if(!isHitting)
+                    {
+                        StartCoroutine(dealDamage());
+                    }
+                }
                 return true;
             }
         }
@@ -105,6 +113,7 @@ public class regularZombie : MonoBehaviour, IDamage
         {
             playerInRange = true;
         }
+
     }
 
     void OnTriggerExit(Collider other)
@@ -133,4 +142,18 @@ public class regularZombie : MonoBehaviour, IDamage
         yield return new WaitForSeconds(0.1f);
         model.material = material;
     }
+
+    IEnumerator dealDamage()
+    {
+        isHitting = true;
+        gameManager.instance.player.GetComponent<playerController>().TakeDamage(damage);
+
+        // Knock back the player by a space
+        //gameManager.instance.player.transform.position =
+        //    new Vector3(gameManager.instance.player.transform.position.x, gameManager.instance.player.transform.position.y, (gameManager.instance.player.transform.position.z - 1f));
+
+        yield return new WaitForSeconds(1f);
+        isHitting = false;
+    }
+
 }

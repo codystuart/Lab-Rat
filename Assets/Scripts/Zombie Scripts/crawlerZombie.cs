@@ -27,6 +27,7 @@ public class crawlerZombie : MonoBehaviour, IDamage
     float stoppingDistanceOrig;
     Vector3 startingPos;
     bool destinationChosen;
+    private bool isHitting;
 
     void Start()
     {
@@ -84,9 +85,16 @@ public class crawlerZombie : MonoBehaviour, IDamage
             {
                 agent.SetDestination(gameManager.instance.player.transform.position);
 
+                // If the agent reached their stopping distance
                 if (agent.remainingDistance <= agent.stoppingDistance)
                 {
                     facePlayer();
+
+                    // Deal damage to the player
+                    if (!isHitting)
+                    {
+                        StartCoroutine(dealDamage());
+                    }
                 }
 
                 return true;
@@ -128,5 +136,18 @@ public class crawlerZombie : MonoBehaviour, IDamage
         model.material.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         model.material = material;
+    }
+
+    IEnumerator dealDamage()
+    {
+        isHitting = true;
+        gameManager.instance.player.GetComponent<playerController>().TakeDamage(damage);
+
+        // Knock back the player by a space
+        //gameManager.instance.player.transform.position =
+        //    new Vector3(gameManager.instance.player.transform.position.x, gameManager.instance.player.transform.position.y, (gameManager.instance.player.transform.position.z - 1f));
+
+        yield return new WaitForSeconds(1f);
+        isHitting = false;
     }
 }
