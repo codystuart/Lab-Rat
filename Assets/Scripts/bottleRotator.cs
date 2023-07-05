@@ -9,7 +9,7 @@ public class bottleRotator : MonoBehaviour
 
     private void Start()
     {
-        gameManager.instance.totalCureCount += 1;
+        //gameManager.instance.totalCureCount += 1;
     }
     private void Update()
     {

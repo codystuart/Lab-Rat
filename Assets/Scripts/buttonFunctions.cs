@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class buttonFunctions : MonoBehaviour
 {
+    public void play()
+    {
+        //load next scene (make lab scene number one in hierarchy)
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
     public void resume()
     {
         gameManager.instance.stateUnpaused();
@@ -20,6 +26,12 @@ public class buttonFunctions : MonoBehaviour
     {
         gameManager.instance.stateUnpaused();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void mainMenu()
+    {
+        //load previous scene (make main menu number zero in hierarchy)
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
     public void quit()
