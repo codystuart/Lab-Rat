@@ -36,6 +36,7 @@ public class crawlerZombie : MonoBehaviour, IDamage
 
     void Update()
     {
+        gameManager.instance.updateGameGoal(1);
         if (playerInRange && !canSeePlayer())
         {
             StartCoroutine(roam());

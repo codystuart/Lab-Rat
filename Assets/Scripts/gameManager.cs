@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,10 +17,13 @@ public class gameManager : MonoBehaviour
     public GameObject activeMenu;
     public GameObject pauseMenu;
     public GameObject loseMenu;
+    public GameObject winMenu;
+    public TextMeshProUGUI enemiesRemainingText;
     public GameObject playerFlashDamagePanel;
     public GameObject reticle;
     public Image playerHpBar;
 
+    int enemiesRemaining;
     bool isPaused;
     float timescaleOrig;
 
@@ -65,6 +69,19 @@ public class gameManager : MonoBehaviour
         playerFlashDamagePanel.SetActive(true);
         yield return new WaitForSeconds(0.1f);
         playerFlashDamagePanel.SetActive(false);
+    }
+    public void updateGameGoal(int amount)
+    {
+        enemiesRemaining += amount;
+        enemiesRemainingText.text = enemiesRemaining.ToString("F0");
+
+        if (enemiesRemaining <= 0)
+        {
+            activeMenu = winMenu;
+            activeMenu.SetActive(true);
+            statePaused();
+        }
+
     }
 
     public void youLose()

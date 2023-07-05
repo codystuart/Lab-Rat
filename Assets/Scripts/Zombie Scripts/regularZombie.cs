@@ -32,6 +32,7 @@ public class regularZombie : MonoBehaviour, IDamage
 
     void Start()
     {
+        gameManager.instance.updateGameGoal(1);
         stoppingDistanceOrig = agent.stoppingDistance;
         startingPos = transform.position;
     }
