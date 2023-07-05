@@ -66,7 +66,8 @@ GameObject:
   - component: {fileID: 6075185912617399368}
   - component: {fileID: 4872072643252540318}
   - component: {fileID: 2780915405100196911}
-  - component: {fileID: 7452088337226566431}
+  - component: {fileID: 860071614960304882}
+  - component: {fileID: 6036237586963063902}
   m_Layer: 6
   m_Name: Ranged Zombie
   m_TagString: Untagged
@@ -87,8 +88,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8832974692658878109}
+  - {fileID: 4248564376477297400}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3574178241072584174
 MonoBehaviour:
@@ -112,9 +114,6 @@ MonoBehaviour:
   playerFaceSpeed: 6
   roamTimer: 5
   roamDist: 10
-  hp: 10
-  speed: 5
-  damage: 5
   shootRate: 1
   spitBall: {fileID: 6454628439606777596, guid: b5fd758870579b449b2338efbf733ab9, type: 3}
   shootPos: {fileID: 4248564376477297400}
@@ -191,6 +190,27 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &860071614960304882
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7953378145163327710}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &6036237586963063902
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -213,27 +233,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!135 &860071614960304882
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7953378145163327710}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 15
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8249834980372791618
 GameObject:
   m_ObjectHideFlags: 0
