@@ -21,18 +21,17 @@ public class rangedZombie : MonoBehaviour, IDamage
     [SerializeField] int roamTimer = 5;
     [SerializeField] int roamDist = 10;
 
+    [Header("Spitball Stats")]
+    [SerializeField] float shootRate;
+    [SerializeField] GameObject spitBall;
+    [SerializeField] Transform shootPos;
+
     bool playerInRange;
     Vector3 playerDir;
     float angleToPlayer;
     float stoppingDistanceOrig;
     Vector3 startingPos;
     bool destinationChosen;
-    [Header("Spitball Stats")]
-    [SerializeField] float shootRate;
-    [SerializeField] GameObject spitBall;
-    [SerializeField] Transform shootPos;
-
-    private bool playerInRange;
     private bool isShooting;
     
 
@@ -97,6 +96,10 @@ public class rangedZombie : MonoBehaviour, IDamage
                     facePlayer();
                 }
 
+                if (!isShooting)
+                {
+                    StartCoroutine(shoot());
+                }
                 return true;
             }
         }
@@ -147,22 +150,6 @@ public class rangedZombie : MonoBehaviour, IDamage
         yield return new WaitForSeconds(shootRate);
 
         isShooting = false;
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerInRange = true;
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerInRange = false;
-        }
     }
 
 }
