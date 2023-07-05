@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 1072058885361639482}
   - component: {fileID: 4641640016008621887}
   - component: {fileID: 2869258376344180542}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Crawler Zombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
