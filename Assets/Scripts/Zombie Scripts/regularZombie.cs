@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+
 
 public class regularZombie : MonoBehaviour, IDamage
 {
@@ -9,17 +11,17 @@ public class regularZombie : MonoBehaviour, IDamage
     [SerializeField] Renderer model;
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Transform headPos;
+    [SerializeField] Material material;
 
     [Header("Regular Zombie Stats")]
     [SerializeField] int hp = 5;
-    [SerializeField] int speed = 5;
     [SerializeField] int damage;
 
     [Header("Regular Zombie Navigation")]
-    [Range(10, 360)][SerializeField] int viewAngle;
-    [Range(1, 8)][SerializeField] int playerFaceSpeed;
-    [SerializeField] int roamTimer;
-    [SerializeField] int roamDist;
+    [Range(10, 360)][SerializeField] int viewAngle = 90;
+    [Range(1, 8)][SerializeField] int playerFaceSpeed = 8;
+    [SerializeField] int roamTimer = 3;
+    [SerializeField] int roamDist = 10;
 
     bool playerInRange;
     Vector3 playerDir;
@@ -116,6 +118,7 @@ public class regularZombie : MonoBehaviour, IDamage
     public void TakeDamage(int amount)
     {
         hp -= amount;
+        agent.SetDestination(gameManager.instance.player.transform.position);
         StartCoroutine(flashDamage());
 
         if (hp <= 0)
@@ -128,6 +131,6 @@ public class regularZombie : MonoBehaviour, IDamage
     {
         model.material.color = Color.red;
         yield return new WaitForSeconds(0.1f);
-        model.material.color = Color.white;
+        model.material = material;
     }
 }

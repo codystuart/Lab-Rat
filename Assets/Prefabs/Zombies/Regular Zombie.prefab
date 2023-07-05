@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 350407452373448168}
   - component: {fileID: 6091921449854917161}
   - component: {fileID: 4348885564879577714}
+  - component: {fileID: 6865876965714511919}
   m_Layer: 0
   m_Name: Regular Zombie
   m_TagString: Untagged
@@ -53,8 +54,8 @@ MonoBehaviour:
   model: {fileID: 6091921449854917161}
   agent: {fileID: 6945851275943935644}
   headPos: {fileID: 9192614773257399516}
-  hp: 3
-  speed: 8
+  material: {fileID: 2100000, guid: e6391ad0fcd643443a6c64a64f8f054f, type: 2}
+  hp: 5
   damage: 0
   viewAngle: 90
   playerFaceSpeed: 8
@@ -70,7 +71,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 7
   m_Acceleration: 60
   avoidancePriority: 50
   m_AngularSpeed: 600
@@ -133,7 +134,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e6391ad0fcd643443a6c64a64f8f054f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -174,8 +175,29 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 8
+  m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &6865876965714511919
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3261492088769334865}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2, z: 1.3447567}
+  m_Center: {x: 0, y: 0, z: 0.67237836}
 --- !u!1 &8912571524110967139
 GameObject:
   m_ObjectHideFlags: 0
