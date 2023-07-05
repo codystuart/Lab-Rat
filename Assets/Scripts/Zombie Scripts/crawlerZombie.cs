@@ -37,6 +37,7 @@ public class crawlerZombie : MonoBehaviour, IDamage
 
     void Update()
     {
+        gameManager.instance.updateGameGoal(1);
         if (playerInRange && !canSeePlayer())
         {
             StartCoroutine(roam());
@@ -128,6 +129,7 @@ public class crawlerZombie : MonoBehaviour, IDamage
         if (hp <= 0)
         {
             Destroy(gameObject);
+            gameManager.instance.updateGameGoal(-1);
         }
     }
 

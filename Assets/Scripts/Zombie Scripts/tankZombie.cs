@@ -30,6 +30,7 @@ public class tankZombie : MonoBehaviour, IDamage
 
     void Start()
     {
+        gameManager.instance.updateGameGoal(1);
         stoppingDistanceOrig = agent.stoppingDistance;
         startingPos = transform.position;
     }
@@ -120,6 +121,7 @@ public class tankZombie : MonoBehaviour, IDamage
         if (hp <= 0)
         {
             Destroy(gameObject);
+            gameManager.instance.updateGameGoal(-1);
         }
     }
 
