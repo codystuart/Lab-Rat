@@ -36,7 +36,7 @@ public class playerController : MonoBehaviour, IDamage
     {
         originalHP = HP;
         playerSpeedOrig = playerSpeed;
-        spawnPlayer();
+        //spawnPlayer();
     }
 
     private void Update()
