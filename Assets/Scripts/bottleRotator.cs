@@ -7,9 +7,14 @@ public class bottleRotator : MonoBehaviour
     [SerializeField] Vector3 rotation;
     [SerializeField] float speed;
 
+    public bool isCure;
+
     private void Start()
     {
-        gameManager.instance.totalCureCount += 1;
+        if (isCure)
+        {
+            gameManager.instance.totalCureCount += 1;
+        }
     }
     private void Update()
     {

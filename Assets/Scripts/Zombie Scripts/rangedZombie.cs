@@ -131,7 +131,7 @@ public class rangedZombie : MonoBehaviour, IDamage
         {
             if (cure != null)
             {
-                Instantiate(cure, transform.position, Quaternion.identity);
+                Instantiate(cure, transform.position , Quaternion.identity);
             }
             Destroy(gameObject);
             gameManager.instance.updateGameGoal(-1);

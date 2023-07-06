@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e5ff36beb481a0a40b4abd06164d7aa6, type: 2}
+  - {fileID: 2100000, guid: cf1f4a0273e98ec47b62d6b7b2644962, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,8 +98,8 @@ GameObject:
   - component: {fileID: 4698354944795617328}
   - component: {fileID: 286276706572108046}
   m_Layer: 0
-  m_Name: Bottle
-  m_TagString: Cure
+  m_Name: Bottle HP
+  m_TagString: HPBottle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,7 +119,7 @@ Transform:
   - {fileID: 1101347572417932428}
   - {fileID: 2726025692163015809}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5810397759535828759
 MeshFilter:
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: {x: 10, y: 25, z: 0}
   speed: 5
-  isCure: 1
+  isCure: 0
 --- !u!64 &4698354944795617328
 MeshCollider:
   m_ObjectHideFlags: 0

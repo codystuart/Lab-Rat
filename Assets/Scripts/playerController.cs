@@ -5,7 +5,7 @@ using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 
-public class playerController : MonoBehaviour, IDamage
+public class playerController : MonoBehaviour, IDamage, healthBottle
 {
     [Header("----- Player -----")]
     [SerializeField] CharacterController controller;
@@ -151,6 +151,21 @@ public class playerController : MonoBehaviour, IDamage
             other.gameObject.SetActive(false);
             gameManager.instance.updateCureGameGoal(1);
         }
+
+        if (other.gameObject.CompareTag("HPBottle"))
+        {
+            other.gameObject.SetActive(false);
+            giveHealth(50);
+           
+        }
     }
+
+    public void giveHealth(int amount)
+    {
+        HP += amount;
+        updatePlayerUI();
+    }
+
+
 
 }
