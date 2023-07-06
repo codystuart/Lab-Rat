@@ -23,6 +23,7 @@ public class gameManager : MonoBehaviour
     public GameObject playerFlashDamagePanel;
     public GameObject reticle;
     public Image playerHpBar;
+    public Image sprintMeter;
 
     [Header("----- Map Objects ------")]
     [SerializeField] GameObject secretWall;

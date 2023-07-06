@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
@@ -13,7 +14,8 @@ public class playerController : MonoBehaviour, IDamage, IHealth
     [Header("----- Player Stats -----")]
     [Range(1, 50)][SerializeField] int HP;
     [Range(1, 10)][SerializeField] float playerSpeed;
-    [Range(1, 5)] [SerializeField] int sprintDuration;
+    [Range(2, 5)] [SerializeField] int sprintDuration;
+    [Range(1, 5)][SerializeField] int sprintCooldownLength;
     [Range(5,10)][SerializeField] float jumpHeight;
     [SerializeField] float gravity;
     [SerializeField] int jumpMax;
@@ -32,6 +34,8 @@ public class playerController : MonoBehaviour, IDamage, IHealth
     private bool playerGrounded;
     private bool isShooting;
     private float playerSpeedOrig;
+    private bool sprintCooldown;
+    private int sprintDurationMeter;
 
 
     private void Start()
@@ -51,11 +55,8 @@ public class playerController : MonoBehaviour, IDamage, IHealth
             StartCoroutine(shoot());
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            Debug.Log("key pressed");
-            StartCoroutine(sprint());
-        }
+
+
     }
 
     //movement function
@@ -83,6 +84,17 @@ public class playerController : MonoBehaviour, IDamage, IHealth
 
         velocity.y -= gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
+        if (Input.GetButtonDown("Sprint"))
+        {
+            if (!sprintCooldown)
+            {
+                sprintDurationMeter = sprintDuration;
+                sprintDurationMeter -= (int)Time.deltaTime * sprintDuration;
+                StartCoroutine(sprint());
+                updatePlayerUI();
+            }
+        }
     }
 
     IEnumerator shoot()
@@ -135,12 +147,21 @@ public class playerController : MonoBehaviour, IDamage, IHealth
         playerSpeed = 10;
         yield return new WaitForSeconds(sprintDuration);
         playerSpeed = playerSpeedOrig;
+        StartCoroutine(sprintCooldownTimer());
 
+    }
+
+    IEnumerator sprintCooldownTimer()
+    {
+        sprintCooldown = true;
+        yield return new WaitForSeconds(sprintCooldownLength);
+        sprintCooldown = false;
     }
 
     public void updatePlayerUI()
     {
         gameManager.instance.playerHpBar.fillAmount = (float)HP / originalHP;
+        gameManager.instance.sprintMeter.fillAmount  = (float)sprintDuration;
     }
 
     // Player can pick up cure bottles
