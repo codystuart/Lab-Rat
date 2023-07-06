@@ -8,19 +8,18 @@ public class gameManager : MonoBehaviour
 {
     public static gameManager instance;
 
-    [Header("----- Player Objects -----")]
+    [Header("----- Player Stuff -----")]
     public GameObject player;
-    public GameObject playerSpawnPos;
     public playerController playerScript;
+    public GameObject playerSpawnPos;
 
-    [Header("----- UI Menus -----")]
+    [Header("----- UI Stuff -----")]
     public GameObject activeMenu;
     public GameObject pauseMenu;
     public GameObject loseMenu;
     public GameObject winMenu;
-
-    [Header("----- UI Objects -----")]
     public TextMeshProUGUI enemiesRemainingText;
+    public TextMeshProUGUI cureBottlesRemainingText;
     public GameObject playerFlashDamagePanel;
     public GameObject reticle;
     public Image playerHpBar;
@@ -28,6 +27,9 @@ public class gameManager : MonoBehaviour
     int enemiesRemaining;
     bool isPaused;
     float timescaleOrig;
+    public int totalCureCount;
+    int cureCollected;
+    bool collectedAllCures;
 
     void Awake()
     {
@@ -75,9 +77,9 @@ public class gameManager : MonoBehaviour
     public void updateGameGoal(int amount)
     {
         enemiesRemaining += amount;
-        enemiesRemainingText.text = enemiesRemaining.ToString("F0");
+        updateCounters();
 
-        if (enemiesRemaining <= 0)
+        if (enemiesRemaining <= 0 && collectedAllCures)
         {
             activeMenu = winMenu;
             activeMenu.SetActive(true);
@@ -86,10 +88,33 @@ public class gameManager : MonoBehaviour
 
     }
 
+    public void updateCureGameGoal(int amount) 
+    { 
+        cureCollected += amount;
+        updateCounters();
+
+        if (cureCollected == totalCureCount)
+        {
+            collectedAllCures = true;
+        }
+        if (collectedAllCures && enemiesRemaining <= 0)
+        {
+            activeMenu = winMenu;
+            activeMenu.SetActive(true);
+            statePaused();
+        }
+
+    }
     public void youLose()
     {
         statePaused();
         activeMenu = loseMenu;
         activeMenu.SetActive(true);
+    }
+
+    void updateCounters()
+    {
+        enemiesRemainingText.text = enemiesRemaining.ToString("F0");
+        cureBottlesRemainingText.text = cureCollected.ToString("F0") + "/" + totalCureCount.ToString("F0");
     }
 }
