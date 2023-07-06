@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5485332707150715131}
   - component: {fileID: 4636632637907764796}
   m_Layer: 6
-  m_Name: Tank Zombie
+  m_Name: Tank Alt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,7 +56,6 @@ MonoBehaviour:
   headPos: {fileID: 8500163825927619858}
   material: {fileID: 2100000, guid: cc30e0d3aec0cf1468f93858d413898b, type: 2}
   hp: 20
-  itemDrop: {fileID: 1991420744688600882, guid: 1b8b698bdbd8273438370801467eed99, type: 3}
   viewAngle: 180
   playerFaceSpeed: 3
   roamTimer: 2

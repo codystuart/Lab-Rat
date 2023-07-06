@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
-public class regularZombie : MonoBehaviour, IDamage
+public class slamTank : MonoBehaviour, IDamage
 {
     [Header("Components")]
     [SerializeField] Renderer model;
@@ -13,11 +13,13 @@ public class regularZombie : MonoBehaviour, IDamage
     [SerializeField] Transform headPos;
     [SerializeField] Material material;
 
-    [Header("Regular Zombie Stats")]
+    [Header("Tank Zombie Stats")]
     [SerializeField] int hp = 5;
     [SerializeField] int damage = 10;
+    [SerializeField] int jumpHeight;
+    [SerializeField] int cooldown;
 
-    [Header("Regular Zombie Navigation")]
+    [Header("Tank Zombie Navigation")]
     [Range(10, 360)][SerializeField] int viewAngle = 90;
     [Range(1, 8)][SerializeField] int playerFaceSpeed = 8;
     [SerializeField] int roamTimer = 3;
@@ -29,7 +31,9 @@ public class regularZombie : MonoBehaviour, IDamage
     float stoppingDistanceOrig;
     Vector3 startingPos;
     bool destinationChosen;
+    bool canSlam = true;
     private bool isHitting;
+    private Vector3 velocity;
 
     void Start()
     {
@@ -97,7 +101,7 @@ public class regularZombie : MonoBehaviour, IDamage
                     // Deal damage to the player
                     if(!isHitting)
                     {
-                        StartCoroutine(dealDamage());
+                        //StartCoroutine(dealDamage());
                     }
                 }
                 return true;
@@ -112,6 +116,9 @@ public class regularZombie : MonoBehaviour, IDamage
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
+            velocity = transform.position;
+            StartCoroutine(slam());
+
         }
 
     }
@@ -144,18 +151,37 @@ public class regularZombie : MonoBehaviour, IDamage
         model.material = material;
     }
 
-    IEnumerator dealDamage()
+    //IEnumerator dealDamage()
+    //{
+    //    isHitting = true;
+    //    gameManager.instance.player.GetComponent<playerController>().TakeDamage(damage);
+
+    //    // Knock back the player by a space
+    //    //gameManager.instance.player.transform.position =
+    //    //    new Vector3(gameManager.instance.player.transform.position.x, gameManager.instance.player.transform.position.y, (gameManager.instance.player.transform.position.z - 1f));
+
+
+    //    yield return new WaitForSeconds(1f);
+    //    isHitting = false;
+    //}
+
+    IEnumerator slam()
     {
-        isHitting = true;
-        gameManager.instance.playerScript.TakeDamage(damage);
+        yield return new WaitForSeconds(3);
 
-        // Knock back the player by a space
-        //gameManager.instance.player.transform.position =
-        //    new Vector3(gameManager.instance.player.transform.position.x, gameManager.instance.player.transform.position.y, (gameManager.instance.player.transform.position.z - 1f));
+        //jump 
 
+        //deal damage when touching ground
 
-        yield return new WaitForSeconds(1f);
-        isHitting = false;
+        StartCoroutine(slamCooldown());
+        
+    }
+
+    IEnumerator slamCooldown()
+    {
+        canSlam = false;
+        yield return new WaitForSeconds(cooldown);
+        canSlam = true;
     }
 
 }

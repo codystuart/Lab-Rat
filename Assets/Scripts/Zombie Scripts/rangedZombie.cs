@@ -13,7 +13,7 @@ public class rangedZombie : MonoBehaviour, IDamage
 
     [Header("Crawler Zombie Stats")]
     [SerializeField] int hp = 10;
-    [SerializeField] GameObject cure;
+    [SerializeField] GameObject itemDrop;
     //[SerializeField] int damage;
 
     [Header("Regular Zombie Navigation")]
@@ -129,9 +129,9 @@ public class rangedZombie : MonoBehaviour, IDamage
 
         if (hp <= 0)
         {
-            if (cure != null)
+            if (itemDrop != null)
             {
-                Instantiate(cure, transform.position , Quaternion.identity);
+                Instantiate(itemDrop, transform.position , Quaternion.identity);
             }
             Destroy(gameObject);
             gameManager.instance.updateGameGoal(-1);
