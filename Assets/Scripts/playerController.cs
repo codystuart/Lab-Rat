@@ -5,7 +5,7 @@ using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 
-public class playerController : MonoBehaviour, IDamage, healthBottle
+public class playerController : MonoBehaviour, IDamage, IHealth
 {
     [Header("----- Player -----")]
     [SerializeField] CharacterController controller;
