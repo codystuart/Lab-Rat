@@ -35,7 +35,6 @@ public class playerController : MonoBehaviour, IDamage, IHealth
     private bool isShooting;
     private float playerSpeedOrig;
     private bool sprintCooldown;
-    private int sprintDurationMeter;
 
 
     private void Start()
@@ -89,10 +88,7 @@ public class playerController : MonoBehaviour, IDamage, IHealth
         {
             if (!sprintCooldown)
             {
-                sprintDurationMeter = sprintDuration;
-                sprintDurationMeter -= (int)Time.deltaTime * sprintDuration;
                 StartCoroutine(sprint());
-                updatePlayerUI();
             }
         }
     }
