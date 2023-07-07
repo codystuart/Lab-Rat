@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 5105460330003665063}
-  HP: 50
+  HP: 10
   playerSpeed: 5
   sprintDuration: 3
   sprintCooldownLength: 3

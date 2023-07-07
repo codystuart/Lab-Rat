@@ -12,7 +12,7 @@ public class playerController : MonoBehaviour, IDamage, IHealth
     [SerializeField] CharacterController controller;
 
     [Header("----- Player Stats -----")]
-    [Range(1, 50)][SerializeField] int HP;
+    [Range(1, 10)][SerializeField] int HP;
     [Range(1, 10)][SerializeField] float playerSpeed;
     [Range(2, 5)] [SerializeField] float sprintDuration;
     [Range(1, 5)][SerializeField] int sprintCooldownLength;
@@ -139,7 +139,7 @@ public class playerController : MonoBehaviour, IDamage, IHealth
 
     IEnumerator sprint()
     {
-        playerSpeed = playerSpeed * 2;
+        playerSpeed = playerSpeed * 1.5f;
         yield return new WaitForSeconds(sprintDuration);
         playerSpeed = playerSpeedOrig;
         StartCoroutine(sprintCooldownTimer());

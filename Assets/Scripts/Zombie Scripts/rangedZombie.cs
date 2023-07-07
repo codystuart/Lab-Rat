@@ -12,7 +12,7 @@ public class rangedZombie : MonoBehaviour, IDamage
     [SerializeField] Material material;
 
     [Header("Crawler Zombie Stats")]
-    [SerializeField] int hp = 10;
+    [Range(1, 10)][SerializeField] int hp;
     [SerializeField] GameObject itemDrop;
     //[SerializeField] int damage;
 

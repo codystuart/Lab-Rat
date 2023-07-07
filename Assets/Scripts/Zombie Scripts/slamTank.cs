@@ -12,6 +12,7 @@ public class slamTank : MonoBehaviour, IDamage
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Transform headPos;
     [SerializeField] Material material;
+    [SerializeField] Rigidbody rb;
 
     [Header("Tank Zombie Stats")]
     [SerializeField] int hp = 5;
@@ -30,6 +31,7 @@ public class slamTank : MonoBehaviour, IDamage
     float angleToPlayer;
     float stoppingDistanceOrig;
     Vector3 startingPos;
+    Vector3 jumpPos;
     bool destinationChosen;
     bool canSlam = true;
     private bool isHitting;
@@ -50,6 +52,7 @@ public class slamTank : MonoBehaviour, IDamage
         }
         else if (agent.destination != gameManager.instance.player.transform.position)
             StartCoroutine(roam());
+
     }
 
     IEnumerator roam()
@@ -116,7 +119,6 @@ public class slamTank : MonoBehaviour, IDamage
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
-            velocity = transform.position;
             StartCoroutine(slam());
 
         }
@@ -166,10 +168,10 @@ public class slamTank : MonoBehaviour, IDamage
     //}
 
     IEnumerator slam()
-    {
+    { 
         yield return new WaitForSeconds(3);
 
-        //jump 
+        //Jump
 
         //deal damage when touching ground
 

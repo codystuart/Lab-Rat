@@ -90,7 +90,7 @@ Transform:
   - {fileID: 8832974692658878109}
   - {fileID: 4248564376477297400}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3574178241072584174
 MonoBehaviour:
@@ -108,7 +108,7 @@ MonoBehaviour:
   agent: {fileID: 6036237586963063902}
   headPos: {fileID: 8832974692658878109}
   material: {fileID: 2100000, guid: 299c6a536d827db4aba335d7cf313c3a, type: 2}
-  hp: 10
+  hp: 7
   itemDrop: {fileID: 0}
   viewAngle: 90
   shootAngle: 20

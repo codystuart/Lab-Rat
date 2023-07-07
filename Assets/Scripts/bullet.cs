@@ -5,9 +5,9 @@ using UnityEngine;
 public class bullet : MonoBehaviour
 {
     [SerializeField] Rigidbody rb;
-    [SerializeField] int damage;
+    [Range(1, 10)][SerializeField] int damage;
     [SerializeField] int speed;
-    [SerializeField] int destroyTime;
+    [Range(1, 10)][SerializeField] int destroyTime;
 
     void Start()
     {

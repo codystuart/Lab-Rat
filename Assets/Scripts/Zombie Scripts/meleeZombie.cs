@@ -14,8 +14,8 @@ public class regularZombie : MonoBehaviour, IDamage
     [SerializeField] Material material;
 
     [Header("Regular Zombie Stats")]
-    [SerializeField] int hp = 5;
-    [SerializeField] int damage = 10;
+    [Range(1, 10)][SerializeField] int hp;
+    [Range(1, 10)][SerializeField] int damage;
 
     [Header("Regular Zombie Navigation")]
     [Range(10, 360)][SerializeField] int viewAngle = 90;
