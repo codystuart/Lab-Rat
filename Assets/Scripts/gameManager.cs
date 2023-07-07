@@ -29,7 +29,7 @@ public class gameManager : MonoBehaviour
     float timescaleOrig;
     public int totalCureCount;
     int cureCollected;
-    bool collectedAllCures;
+    bool collectedAllCures; 
 
     void Awake()
     {
