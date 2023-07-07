@@ -14,7 +14,7 @@ public class playerController : MonoBehaviour, IDamage, IHealth
     [Header("----- Player Stats -----")]
     [Range(1, 50)][SerializeField] int HP;
     [Range(1, 10)][SerializeField] float playerSpeed;
-    [Range(2, 5)] [SerializeField] int sprintDuration;
+    [Range(2, 5)] [SerializeField] float sprintDuration;
     [Range(1, 5)][SerializeField] int sprintCooldownLength;
     [Range(5,10)][SerializeField] float jumpHeight;
     [SerializeField] float gravity;
@@ -53,7 +53,6 @@ public class playerController : MonoBehaviour, IDamage, IHealth
         {
             StartCoroutine(shoot());
         }
-
 
 
     }
@@ -140,11 +139,10 @@ public class playerController : MonoBehaviour, IDamage, IHealth
 
     IEnumerator sprint()
     {
-        playerSpeed = 10;
+        playerSpeed = playerSpeed * 2;
         yield return new WaitForSeconds(sprintDuration);
         playerSpeed = playerSpeedOrig;
         StartCoroutine(sprintCooldownTimer());
-
     }
 
     IEnumerator sprintCooldownTimer()
@@ -157,7 +155,6 @@ public class playerController : MonoBehaviour, IDamage, IHealth
     public void updatePlayerUI()
     {
         gameManager.instance.playerHpBar.fillAmount = (float)HP / originalHP;
-        gameManager.instance.sprintMeter.fillAmount  = (float)sprintDuration;
     }
 
     // Player can pick up cure bottles
