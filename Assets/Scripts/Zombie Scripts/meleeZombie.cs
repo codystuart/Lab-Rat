@@ -147,7 +147,7 @@ public class regularZombie : MonoBehaviour, IDamage
     IEnumerator dealDamage()
     {
         isHitting = true;
-        gameManager.instance.player.GetComponent<playerController>().TakeDamage(damage);
+        gameManager.instance.playerScript.TakeDamage(damage);
 
         // Knock back the player by a space
         //gameManager.instance.player.transform.position =

@@ -8,12 +8,12 @@ public class gameManager : MonoBehaviour
 {
     public static gameManager instance;
 
-    [Header("----- Player Stuff -----")]
+    [Header("----- Player Objects -----")]
     public GameObject player;
     public playerController playerScript;
     public GameObject playerSpawnPos;
 
-    [Header("----- UI Stuff -----")]
+    [Header("----- UI Objects -----")]
     public GameObject activeMenu;
     public GameObject pauseMenu;
     public GameObject loseMenu;
@@ -23,13 +23,21 @@ public class gameManager : MonoBehaviour
     public GameObject playerFlashDamagePanel;
     public GameObject reticle;
     public Image playerHpBar;
+    public Image sprintMeter;
+
+    [Header("----- Map Objects ------")]
+    [SerializeField] GameObject secretWall;
 
     int enemiesRemaining;
     bool isPaused;
     float timescaleOrig;
+
+    //Cure collection and counting variables
     public int totalCureCount;
     int cureCollected;
-    bool collectedAllCures; 
+
+    bool collectedAllCures;
+    private GameObject[] findCures;
 
     void Awake()
     {
@@ -37,6 +45,20 @@ public class gameManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<playerController>();
         timescaleOrig = Time.timeScale;
+        playerSpawnPos = GameObject.FindGameObjectWithTag("Player Spawn Pos");
+
+        //Alternate method to count total cures?
+        findCures = GameObject.FindGameObjectsWithTag("Cure");
+        for (int i = 0; i < findCures.Length; i++)
+        {
+            
+            if (findCures != null) 
+            {
+                totalCureCount++;
+            }
+            
+        }
+        
     }
 
     void Update()
@@ -78,6 +100,12 @@ public class gameManager : MonoBehaviour
     {
         enemiesRemaining += amount;
         updateCounters();
+
+        if (enemiesRemaining <= 0)
+        {
+            secretWall.GetComponent<Renderer>().enabled = false;
+            secretWall.GetComponent<Collider>().enabled = false;
+        }
 
         if (enemiesRemaining <= 0 && collectedAllCures)
         {

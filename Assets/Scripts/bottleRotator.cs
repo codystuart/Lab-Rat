@@ -11,11 +11,12 @@ public class bottleRotator : MonoBehaviour
 
     private void Start()
     {
-        if (isCure)
-        {
-            gameManager.instance.totalCureCount += 1;
-        }
+        //if (isCure)
+        //{
+        //    gameManager.instance.totalCureCount += 1;
+        //}
     }
+
     private void Update()
     {
         transform.Rotate(rotation * speed * Time.deltaTime, Space.World);

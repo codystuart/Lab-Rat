@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4703810254314007279}
   m_Layer: 0
   m_Name: Player Spawn Pos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_TagString: Player Spawn Pos
+  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -29,5 +29,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
