@@ -18,6 +18,7 @@ public class rangedZombie : MonoBehaviour, IDamage
 
     [Header("Regular Zombie Navigation")]
     [Range(10, 360)][SerializeField] int viewAngle = 90;
+    [Range(10, 360)][SerializeField] int shootAngle = 20;
     [Range(1, 8)][SerializeField] int playerFaceSpeed = 6;
     [SerializeField] int roamTimer = 5;
     [SerializeField] int roamDist = 10;
@@ -83,6 +84,8 @@ public class rangedZombie : MonoBehaviour, IDamage
         playerDir = gameManager.instance.player.transform.position - headPos.position;
         angleToPlayer = Vector3.Angle(new Vector3(playerDir.x, 0, playerDir.z), transform.forward);
 
+        Debug.DrawRay(headPos.position, playerDir);
+
         RaycastHit hit;
         if (Physics.Raycast(headPos.position, playerDir, out hit))
         {
@@ -95,7 +98,7 @@ public class rangedZombie : MonoBehaviour, IDamage
                     facePlayer();
                 }
 
-                if (!isShooting)
+                if(angleToPlayer < shootAngle && !isShooting)
                 {
                     StartCoroutine(shoot());
                 }
