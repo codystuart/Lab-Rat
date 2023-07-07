@@ -49,15 +49,7 @@ public class gameManager : MonoBehaviour
 
         //Alternate method to count total cures?
         findCures = GameObject.FindGameObjectsWithTag("Cure");
-        for (int i = 0; i < findCures.Length; i++)
-        {
-            
-            if (findCures != null) 
-            {
-                totalCureCount++;
-            }
-            
-        }
+        totalCureCount = findCures.Length;
         
     }
 
