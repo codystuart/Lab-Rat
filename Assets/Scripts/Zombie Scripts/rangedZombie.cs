@@ -11,7 +11,9 @@ public class rangedZombie : MonoBehaviour, IDamage
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Transform headPos;
     [SerializeField] Material material;
+    [SerializeField] GameObject canvas;
     [SerializeField] Image hpBar;
+    [Range(1, 10)][SerializeField] int hideHP;
 
     [Header("Crawler Zombie Stats")]
     [Range(1, 10)][SerializeField] int HP;
@@ -46,6 +48,7 @@ public class rangedZombie : MonoBehaviour, IDamage
         gameManager.instance.updateGameGoal(1);
         stoppingDistanceOrig = agent.stoppingDistance;
         startingPos = transform.position;
+        canvas.SetActive(false);
     }
 
     void Update()
@@ -56,7 +59,10 @@ public class rangedZombie : MonoBehaviour, IDamage
         }
         else if (agent.destination != gameManager.instance.player.transform.position)
             StartCoroutine(roam());
+
+        canvas.transform.LookAt(gameManager.instance.player.transform.position);
     }
+
     IEnumerator roam()
     {
         if (agent.remainingDistance < 0.05f && !destinationChosen)
@@ -148,7 +154,15 @@ public class rangedZombie : MonoBehaviour, IDamage
 
     public void updateUI()
     {
+        canvas.SetActive(true);
         hpBar.fillAmount = (float)HP / originalHP;
+        StartCoroutine(showHealth());
+    }
+
+    IEnumerator showHealth()
+    {
+        yield return new WaitForSeconds(hideHP);
+        canvas.SetActive(false);
     }
 
     IEnumerator flashDamage()

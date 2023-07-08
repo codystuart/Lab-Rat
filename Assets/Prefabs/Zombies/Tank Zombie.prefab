@@ -38,7 +38,7 @@ Transform:
   - {fileID: 8361640570434781790}
   - {fileID: 8820286762681626884}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &454584623440140068
 MonoBehaviour:
@@ -56,7 +56,9 @@ MonoBehaviour:
   agent: {fileID: 5485332707150715131}
   headPos: {fileID: 8500163825927619858}
   material: {fileID: 2100000, guid: cc30e0d3aec0cf1468f93858d413898b, type: 2}
+  canvas: {fileID: 4691278427739613233}
   hpBar: {fileID: 647760264151300108}
+  hideHP: 5
   HP: 10
   itemDrop: {fileID: 1991420744688600882, guid: 1b8b698bdbd8273438370801467eed99, type: 3}
   viewAngle: 180
@@ -401,6 +403,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4691278427739613233 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9205201254113597034, guid: 0a17e56cc84a73f46a26724f86c149bc, type: 3}
+  m_PrefabInstance: {fileID: 4514213329458478683}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &8820286762681626884 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4954594073748131679, guid: 0a17e56cc84a73f46a26724f86c149bc, type: 3}
