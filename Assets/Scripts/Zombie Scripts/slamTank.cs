@@ -15,6 +15,7 @@ public class slamTank : MonoBehaviour, IDamage
     [SerializeField] Material material;
     [SerializeField] Rigidbody rb;
     [SerializeField] Image hpBar;
+    [SerializeField] GameObject enemyUI;
 
     [Header("Tank Zombie Stats")]
     [SerializeField] int HP = 5;
@@ -56,6 +57,8 @@ public class slamTank : MonoBehaviour, IDamage
         }
         else if (agent.destination != gameManager.instance.player.transform.position)
             StartCoroutine(roam());
+        
+        enemyUI.transform.LookAt(gameManager.instance.player.transform.position);
 
     }
 
@@ -89,6 +92,7 @@ public class slamTank : MonoBehaviour, IDamage
         agent.stoppingDistance = stoppingDistanceOrig;
         playerDir = gameManager.instance.player.transform.position - headPos.position;
         angleToPlayer = Vector3.Angle(new Vector3(playerDir.x, 0, playerDir.z), transform.forward);
+        
 
         Debug.DrawRay(headPos.position, playerDir);
 
