@@ -25,7 +25,6 @@ public class playerController : MonoBehaviour, IDamage, IHealth
     [Range(1, 10)][SerializeField] int shootDamage;
     [Range(10, 100)][SerializeField] int shootDist;
 
-
     //class objects
     private Vector3 move;
     private Vector3 velocity;
