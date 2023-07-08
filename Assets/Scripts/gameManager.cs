@@ -154,17 +154,20 @@ public class gameManager : MonoBehaviour
     void updateTimerUI()
     {
         secondsCount += Time.deltaTime;
-        int secondsToInt = (int)secondsCount;
 
-        gameTimer.text = "Time " + minuteCount.ToString("00") + ":" + secondsToInt.ToString("00");
 
         if (secondsCount >= 60)
         {
             minuteCount++;
+            secondsCount = 0;
         }
         else if (minuteCount >= 60 && secondsCount >= 60)
         {
             youLose();
         }
+
+        int secondsToInt = (int)secondsCount;
+
+        gameTimer.text = "Time " + minuteCount.ToString("00") + ":" + secondsToInt.ToString("00");
     }
 }
