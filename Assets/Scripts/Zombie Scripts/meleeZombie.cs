@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 
 public class regularZombie : MonoBehaviour, IDamage
@@ -12,9 +13,10 @@ public class regularZombie : MonoBehaviour, IDamage
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Transform headPos;
     [SerializeField] Material material;
+    [SerializeField] Image hpBar;
 
     [Header("Regular Zombie Stats")]
-    [Range(1, 10)][SerializeField] int hp;
+    [Range(1, 10)][SerializeField] int HP;
     [Range(1, 10)][SerializeField] int damage;
 
     [Header("Regular Zombie Navigation")]
@@ -23,16 +25,18 @@ public class regularZombie : MonoBehaviour, IDamage
     [SerializeField] int roamTimer = 3;
     [SerializeField] int roamDist = 10;
 
-    bool playerInRange;
     Vector3 playerDir;
+    Vector3 startingPos;
+    int originalHP;
+    bool playerInRange;
+    bool destinationChosen;
+    bool isHitting;
     float angleToPlayer;
     float stoppingDistanceOrig;
-    Vector3 startingPos;
-    bool destinationChosen;
-    private bool isHitting;
 
     void Start()
     {
+        originalHP = HP;
         gameManager.instance.updateGameGoal(1);
         stoppingDistanceOrig = agent.stoppingDistance;
         startingPos = transform.position;
@@ -126,15 +130,21 @@ public class regularZombie : MonoBehaviour, IDamage
 
     public void TakeDamage(int amount)
     {
-        hp -= amount;
+        HP -= amount;
         agent.SetDestination(gameManager.instance.player.transform.position);
         StartCoroutine(flashDamage());
+        updateUI();
 
-        if (hp <= 0)
+        if (HP <= 0)
         {
             Destroy(gameObject);
             gameManager.instance.updateGameGoal(-1);
         }
+    }
+
+    public void updateUI()
+    {
+        hpBar.fillAmount = (float)HP / originalHP;
     }
 
     IEnumerator flashDamage()

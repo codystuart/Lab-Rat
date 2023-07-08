@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class rangedZombie : MonoBehaviour, IDamage
 {
@@ -10,9 +11,10 @@ public class rangedZombie : MonoBehaviour, IDamage
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Transform headPos;
     [SerializeField] Material material;
+    [SerializeField] Image hpBar;
 
     [Header("Crawler Zombie Stats")]
-    [Range(1, 10)][SerializeField] int hp;
+    [Range(1, 10)][SerializeField] int HP;
     [SerializeField] GameObject itemDrop;
     //[SerializeField] int damage;
 
@@ -28,17 +30,19 @@ public class rangedZombie : MonoBehaviour, IDamage
     [SerializeField] GameObject spitBall;
     [SerializeField] Transform shootPos;
 
-    bool playerInRange;
     Vector3 playerDir;
+    Vector3 startingPos;
+    int originalHP;
+    bool playerInRange;
+    bool destinationChosen;
+    bool isShooting;
     float angleToPlayer;
     float stoppingDistanceOrig;
-    Vector3 startingPos;
-    bool destinationChosen;
-    private bool isShooting;
     
 
     void Start()
     {
+        originalHP = HP;
         gameManager.instance.updateGameGoal(1);
         stoppingDistanceOrig = agent.stoppingDistance;
         startingPos = transform.position;
@@ -126,11 +130,12 @@ public class rangedZombie : MonoBehaviour, IDamage
     }
     public void TakeDamage(int amount)
     {
-        hp -= amount;
+        HP -= amount;
         agent.SetDestination(gameManager.instance.player.transform.position);
         StartCoroutine(flashDamage());
+        updateUI();
 
-        if (hp <= 0)
+        if (HP <= 0)
         {
             if (itemDrop != null)
             {
@@ -139,6 +144,11 @@ public class rangedZombie : MonoBehaviour, IDamage
             Destroy(gameObject);
             gameManager.instance.updateGameGoal(-1);
         }
+    }
+
+    public void updateUI()
+    {
+        hpBar.fillAmount = (float)HP / originalHP;
     }
 
     IEnumerator flashDamage()

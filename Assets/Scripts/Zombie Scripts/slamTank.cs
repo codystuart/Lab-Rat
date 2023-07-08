@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 
 public class slamTank : MonoBehaviour, IDamage
@@ -13,9 +14,10 @@ public class slamTank : MonoBehaviour, IDamage
     [SerializeField] Transform headPos;
     [SerializeField] Material material;
     [SerializeField] Rigidbody rb;
+    [SerializeField] Image hpBar;
 
     [Header("Tank Zombie Stats")]
-    [SerializeField] int hp = 5;
+    [SerializeField] int HP = 5;
     [SerializeField] int damage = 10;
     [SerializeField] int jumpHeight;
     [SerializeField] int cooldown;
@@ -26,19 +28,21 @@ public class slamTank : MonoBehaviour, IDamage
     [SerializeField] int roamTimer = 3;
     [SerializeField] int roamDist = 10;
 
-    bool playerInRange;
     Vector3 playerDir;
-    float angleToPlayer;
-    float stoppingDistanceOrig;
     Vector3 startingPos;
     Vector3 jumpPos;
+    Vector3 velocity;
+    int originalHP;
+    bool playerInRange;
     bool destinationChosen;
     bool canSlam = true;
-    private bool isHitting;
-    private Vector3 velocity;
+    bool isHitting;
+    float angleToPlayer;
+    float stoppingDistanceOrig;
 
     void Start()
     {
+        originalHP = HP;
         gameManager.instance.updateGameGoal(1);
         stoppingDistanceOrig = agent.stoppingDistance;
         startingPos = transform.position;
@@ -135,15 +139,21 @@ public class slamTank : MonoBehaviour, IDamage
 
     public void TakeDamage(int amount)
     {
-        hp -= amount;
+        HP -= amount;
         agent.SetDestination(gameManager.instance.player.transform.position);
         StartCoroutine(flashDamage());
+        updateUI();
 
-        if (hp <= 0)
+        if (HP <= 0)
         {
             Destroy(gameObject);
             gameManager.instance.updateGameGoal(-1);
         }
+    }
+
+    public void updateUI()
+    {
+        hpBar.fillAmount = (float)HP / originalHP;
     }
 
     IEnumerator flashDamage()
