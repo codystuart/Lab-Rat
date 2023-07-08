@@ -35,6 +35,7 @@ public class gameManager : MonoBehaviour
     float timescaleOrig;
     private float secondsCount;
     private int minuteCount;
+    private bool pauseTimer;
 
     //Cure collection and counting variables
     public int totalCureCount;
@@ -65,21 +66,27 @@ public class gameManager : MonoBehaviour
             activeMenu = pauseMenu;
             activeMenu.SetActive(isPaused);
         }
-
-        updateTimerUI();
+        if (!pauseTimer)
+        {
+            updateTimerUI();
+        }
+        
     }
 
     public void statePaused()
     {
+        pauseTimer = true;
         Time.timeScale = 0;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
         reticle.SetActive(false);
         isPaused = !isPaused;
+
     }
 
     public void stateUnpaused()
     {
+        pauseTimer = false;
         Time.timeScale = timescaleOrig;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
