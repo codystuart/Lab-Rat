@@ -20,10 +20,12 @@ public class gameManager : MonoBehaviour
     public GameObject winMenu;
     public TextMeshProUGUI enemiesRemainingText;
     public TextMeshProUGUI cureBottlesRemainingText;
+    public TextMeshProUGUI gameTimer;
     public GameObject playerFlashDamagePanel;
     public GameObject reticle;
     public Image playerHpBar;
     public Image sprintMeter;
+
 
     [Header("----- Map Objects ------")]
     [SerializeField] GameObject secretWall;
@@ -31,6 +33,8 @@ public class gameManager : MonoBehaviour
     int enemiesRemaining;
     bool isPaused;
     float timescaleOrig;
+    private float secondsCount;
+    private int minuteCount;
 
     //Cure collection and counting variables
     public int totalCureCount;
@@ -61,6 +65,8 @@ public class gameManager : MonoBehaviour
             activeMenu = pauseMenu;
             activeMenu.SetActive(isPaused);
         }
+
+        updateTimerUI();
     }
 
     public void statePaused()
@@ -136,5 +142,22 @@ public class gameManager : MonoBehaviour
     {
         enemiesRemainingText.text = enemiesRemaining.ToString("F0");
         cureBottlesRemainingText.text = cureCollected.ToString("F0") + "/" + totalCureCount.ToString("F0");
+    }
+
+    void updateTimerUI()
+    {
+        secondsCount += Time.deltaTime;
+        int secondsToInt = (int)secondsCount;
+
+        gameTimer.text = "Time " + minuteCount.ToString("00") + ":" + secondsToInt.ToString("00");
+
+        if (secondsCount >= 60)
+        {
+            minuteCount++;
+        }
+        else if (minuteCount >= 60 && secondsCount >= 60)
+        {
+            youLose();
+        }
     }
 }
