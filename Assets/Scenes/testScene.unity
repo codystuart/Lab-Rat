@@ -1117,6 +1117,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ed7582a785c54741b6a5a70db7c2903, type: 3}
+--- !u!1 &1792512336 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8073267706320853127, guid: 2659665719fc6aa4294a71a13877fae7, type: 3}
+  m_PrefabInstance: {fileID: 2136021019248822249}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1818646317
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1585,11 +1590,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3211193516776568164, guid: 2659665719fc6aa4294a71a13877fae7, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 800
+      value: 1500
       objectReference: {fileID: 0}
     - target: {fileID: 3211193516776568164, guid: 2659665719fc6aa4294a71a13877fae7, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3213315120905535365, guid: 2659665719fc6aa4294a71a13877fae7, type: 3}
       propertyPath: m_Name
@@ -1603,6 +1608,18 @@ PrefabInstance:
       propertyPath: hpBar
       value: 
       objectReference: {fileID: 68979008}
+    - target: {fileID: 4742608452633571075, guid: 2659665719fc6aa4294a71a13877fae7, type: 3}
+      propertyPath: enemyUI
+      value: 
+      objectReference: {fileID: 1792512336}
+    - target: {fileID: 5437871149000917426, guid: 2659665719fc6aa4294a71a13877fae7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1600
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437871149000917426, guid: 2659665719fc6aa4294a71a13877fae7, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 5437871149000917426, guid: 2659665719fc6aa4294a71a13877fae7, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.00000047683716
@@ -1615,13 +1632,17 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 1.25
       objectReference: {fileID: 0}
+    - target: {fileID: 5781208113073667970, guid: 2659665719fc6aa4294a71a13877fae7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7520084294071507101, guid: 2659665719fc6aa4294a71a13877fae7, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 800
+      value: 1500
       objectReference: {fileID: 0}
     - target: {fileID: 7520084294071507101, guid: 2659665719fc6aa4294a71a13877fae7, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7520084294071507101, guid: 2659665719fc6aa4294a71a13877fae7, type: 3}
       propertyPath: m_LocalScale.x
@@ -1629,6 +1650,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7520084294071507101, guid: 2659665719fc6aa4294a71a13877fae7, type: 3}
       propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8073267706320853127, guid: 2659665719fc6aa4294a71a13877fae7, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
