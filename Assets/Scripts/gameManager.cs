@@ -106,7 +106,7 @@ public class gameManager : MonoBehaviour
         enemiesRemaining += amount;
         updateCounters();
 
-        if (enemiesRemaining <= 0)
+        if (enemiesRemaining <= 0 && secretWall != null)
         {
             secretWall.GetComponent<Renderer>().enabled = false;
             secretWall.GetComponent<Collider>().enabled = false;
