@@ -165,10 +165,10 @@ public class playerController : MonoBehaviour, IDamage, IHealth
             gameManager.instance.updateCureGameGoal(1);
         }
 
-        if (other.gameObject.CompareTag("HPBottle"))
+        if (other.gameObject.CompareTag("HPBottle") && HP < originalHP)
         {
-            other.gameObject.SetActive(false);
-            giveHealth(50);
+                other.gameObject.SetActive(false);
+                giveHealth(50);
            
         }
     }
