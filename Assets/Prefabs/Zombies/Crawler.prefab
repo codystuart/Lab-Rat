@@ -90,7 +90,7 @@ Transform:
   - {fileID: 6324214156829951077}
   - {fileID: 861438773593447512}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5918624182987595213
 MonoBehaviour:
@@ -221,7 +221,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 1
+  m_Speed: 2
   m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 400
@@ -241,6 +241,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5232303627088882608}
     m_Modifications:
+    - target: {fileID: 2532430975049792393, guid: 0a17e56cc84a73f46a26724f86c149bc, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532430975049792393, guid: 0a17e56cc84a73f46a26724f86c149bc, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4954594073748131679, guid: 0a17e56cc84a73f46a26724f86c149bc, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -271,11 +279,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4954594073748131679, guid: 0a17e56cc84a73f46a26724f86c149bc, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1100
+      value: 1500
       objectReference: {fileID: 0}
     - target: {fileID: 4954594073748131679, guid: 0a17e56cc84a73f46a26724f86c149bc, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 514
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 4954594073748131679, guid: 0a17e56cc84a73f46a26724f86c149bc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -324,6 +332,14 @@ PrefabInstance:
     - target: {fileID: 4954594073748131679, guid: 0a17e56cc84a73f46a26724f86c149bc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7487734804384355952, guid: 0a17e56cc84a73f46a26724f86c149bc, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7487734804384355952, guid: 0a17e56cc84a73f46a26724f86c149bc, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 9205201254113597034, guid: 0a17e56cc84a73f46a26724f86c149bc, type: 3}
       propertyPath: m_Name

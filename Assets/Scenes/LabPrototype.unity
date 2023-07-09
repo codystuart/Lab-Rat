@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -485,9 +485,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3211193516776568164, guid: 2659665719fc6aa4294a71a13877fae7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211193516776568164, guid: 2659665719fc6aa4294a71a13877fae7, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3213315120905535365, guid: 2659665719fc6aa4294a71a13877fae7, type: 3}
       propertyPath: m_Name
       value: Tank Alt
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520084294071507101, guid: 2659665719fc6aa4294a71a13877fae7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520084294071507101, guid: 2659665719fc6aa4294a71a13877fae7, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -550,9 +566,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2125898684141749714, guid: ca284f0997f204649909ac9f573dee45, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2125898684141749714, guid: ca284f0997f204649909ac9f573dee45, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3213315120905535365, guid: ca284f0997f204649909ac9f573dee45, type: 3}
       propertyPath: m_Name
       value: Tank Zombie
+      objectReference: {fileID: 0}
+    - target: {fileID: 6434643557098465323, guid: ca284f0997f204649909ac9f573dee45, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6434643557098465323, guid: ca284f0997f204649909ac9f573dee45, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8820286762681626884, guid: ca284f0997f204649909ac9f573dee45, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8820286762681626884, guid: ca284f0997f204649909ac9f573dee45, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

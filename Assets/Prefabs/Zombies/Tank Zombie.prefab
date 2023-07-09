@@ -38,7 +38,7 @@ Transform:
   - {fileID: 8361640570434781790}
   - {fileID: 8820286762681626884}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &454584623440140068
 MonoBehaviour:
@@ -299,6 +299,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 932365199172942834}
     m_Modifications:
+    - target: {fileID: 2532430975049792393, guid: 0a17e56cc84a73f46a26724f86c149bc, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532430975049792393, guid: 0a17e56cc84a73f46a26724f86c149bc, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4954594073748131679, guid: 0a17e56cc84a73f46a26724f86c149bc, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -329,11 +337,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4954594073748131679, guid: 0a17e56cc84a73f46a26724f86c149bc, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1100
+      value: 1500
       objectReference: {fileID: 0}
     - target: {fileID: 4954594073748131679, guid: 0a17e56cc84a73f46a26724f86c149bc, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 514
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 4954594073748131679, guid: 0a17e56cc84a73f46a26724f86c149bc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -369,7 +377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4954594073748131679, guid: 0a17e56cc84a73f46a26724f86c149bc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.5
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 4954594073748131679, guid: 0a17e56cc84a73f46a26724f86c149bc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -382,6 +390,14 @@ PrefabInstance:
     - target: {fileID: 4954594073748131679, guid: 0a17e56cc84a73f46a26724f86c149bc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7487734804384355952, guid: 0a17e56cc84a73f46a26724f86c149bc, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7487734804384355952, guid: 0a17e56cc84a73f46a26724f86c149bc, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 9205201254113597034, guid: 0a17e56cc84a73f46a26724f86c149bc, type: 3}
       propertyPath: m_Name
