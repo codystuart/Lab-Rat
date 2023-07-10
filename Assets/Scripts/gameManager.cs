@@ -20,10 +20,12 @@ public class gameManager : MonoBehaviour
     public GameObject winMenu;
     public TextMeshProUGUI enemiesRemainingText;
     public TextMeshProUGUI cureBottlesRemainingText;
+    public TextMeshProUGUI gameTimer;
     public GameObject playerFlashDamagePanel;
     public GameObject reticle;
     public Image playerHpBar;
     public Image sprintMeter;
+
 
     [Header("----- Map Objects ------")]
     [SerializeField] GameObject secretWall;
@@ -31,6 +33,9 @@ public class gameManager : MonoBehaviour
     int enemiesRemaining;
     bool isPaused;
     float timescaleOrig;
+    private float secondsCount;
+    private int minuteCount;
+    private bool pauseTimer;
 
     //Cure collection and counting variables
     public int totalCureCount;
@@ -49,15 +54,7 @@ public class gameManager : MonoBehaviour
 
         //Alternate method to count total cures?
         findCures = GameObject.FindGameObjectsWithTag("Cure");
-        for (int i = 0; i < findCures.Length; i++)
-        {
-            
-            if (findCures != null) 
-            {
-                totalCureCount++;
-            }
-            
-        }
+        totalCureCount = findCures.Length;
         
     }
 
@@ -69,19 +66,27 @@ public class gameManager : MonoBehaviour
             activeMenu = pauseMenu;
             activeMenu.SetActive(isPaused);
         }
+        if (!pauseTimer)
+        {
+            updateTimerUI();
+        }
+        
     }
 
     public void statePaused()
     {
+        pauseTimer = true;
         Time.timeScale = 0;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
         reticle.SetActive(false);
         isPaused = !isPaused;
+
     }
 
     public void stateUnpaused()
     {
+        pauseTimer = false;
         Time.timeScale = timescaleOrig;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -101,7 +106,7 @@ public class gameManager : MonoBehaviour
         enemiesRemaining += amount;
         updateCounters();
 
-        if (enemiesRemaining <= 0)
+        if (enemiesRemaining <= 0 && secretWall != null)
         {
             secretWall.GetComponent<Renderer>().enabled = false;
             secretWall.GetComponent<Collider>().enabled = false;
@@ -144,5 +149,25 @@ public class gameManager : MonoBehaviour
     {
         enemiesRemainingText.text = enemiesRemaining.ToString("F0");
         cureBottlesRemainingText.text = cureCollected.ToString("F0") + "/" + totalCureCount.ToString("F0");
+    }
+
+    void updateTimerUI()
+    {
+        secondsCount += Time.deltaTime;
+
+
+        if (secondsCount >= 60)
+        {
+            minuteCount++;
+            secondsCount = 0;
+        }
+        else if (minuteCount >= 60 && secondsCount >= 60)
+        {
+            youLose();
+        }
+
+        int secondsToInt = (int)secondsCount;
+
+        gameTimer.text = "Time " + minuteCount.ToString("00") + ":" + secondsToInt.ToString("00");
     }
 }
