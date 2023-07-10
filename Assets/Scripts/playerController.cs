@@ -42,7 +42,6 @@ public class playerController : MonoBehaviour, IDamage, IHealth
         originalHP = HP;
         playerSpeedOrig = playerSpeed;
         spawnPlayer();
-
     }
 
     private void Update()
@@ -52,9 +51,7 @@ public class playerController : MonoBehaviour, IDamage, IHealth
         if (Input.GetButton("Shoot") && !isShooting)
         {
             StartCoroutine(shoot());
-        }
-
-
+        } 
     }
 
     //movement function
@@ -181,5 +178,8 @@ public class playerController : MonoBehaviour, IDamage, IHealth
     }
 
 
-
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Has touched " + collision.gameObject.name);
+    }
 }

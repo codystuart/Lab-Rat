@@ -18,7 +18,7 @@ public class regularZombie : MonoBehaviour, IDamage
     [SerializeField] int damage = 10;
 
     [Header("Regular Zombie Navigation")]
-    [Range(10, 360)][SerializeField] int viewAngle = 90;
+    [Range(10, 50)][SerializeField] int viewAngle = 90;
     [Range(1, 8)][SerializeField] int playerFaceSpeed = 8;
     [SerializeField] int roamTimer = 3;
     [SerializeField] int roamDist = 10;
@@ -31,21 +31,42 @@ public class regularZombie : MonoBehaviour, IDamage
     bool destinationChosen;
     private bool isHitting;
 
+    public GameObject Zombie;
+    public AnimationClip[] AnimsArray;
+    Animation animator;
+    public GameObject player;
+
     void Start()
     {
         gameManager.instance.updateGameGoal(1);
         stoppingDistanceOrig = agent.stoppingDistance;
         startingPos = transform.position;
+        player = GameObject.Find("Player");
+        PlayZombieAnim("attack2");
     }
 
     void Update()
     {
-        if (playerInRange && !canSeePlayer())
+        //if (playerInRange && !canSeePlayer())
+        //{
+        //    StartCoroutine(roam());
+        //}
+        //else if (agent.destination != gameManager.instance.player.transform.position)
+        //    StartCoroutine(roam());
+        float PlayerDistance = GetDistance(transform.position, player.transform.position);
+        if (player != null && PlayerDistance <= 2)
         {
-            StartCoroutine(roam());
+            PlayZombieAnim("attack2");
         }
-        else if (agent.destination != gameManager.instance.player.transform.position)
-            StartCoroutine(roam());
+        else if (player != null && PlayerDistance > 5)
+        {
+            if (animator != null)
+            {
+                animator.Stop();
+            }
+            PlayZombieAnim("idle");
+            Debug.Log("Playing idle. Distance: "+PlayerDistance);
+        }
     }
 
     IEnumerator roam()
@@ -64,6 +85,43 @@ public class regularZombie : MonoBehaviour, IDamage
             agent.SetDestination(hit.position);
 
             destinationChosen = false;
+        }
+        else
+        { 
+            PlayZombieAnim("idle");
+        }
+    }
+
+    public void PlayZombieAnim(string AnimName)
+    {
+        if (Zombie != null)
+        {
+            animator = Zombie.GetComponent<Animation>();
+            if (animator == null)
+            {
+                Debug.Log("Can't find animator.");
+            }
+            else if (animator != null)
+            {
+                if (AnimsArray.Length == 0)
+                {
+                    Debug.Log("Can't find animations.");
+                }
+                else if (AnimsArray.Length > 0)
+                {
+                    if (animator.isPlaying != true)
+                    {
+                        for (int i = 0; i < AnimsArray.Length; i++)
+                        {
+                            if (AnimName.ToLower() == AnimsArray[i].name.ToLower())
+                            {
+                                animator.clip = AnimsArray[i];
+                                animator.Play();
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -93,11 +151,12 @@ public class regularZombie : MonoBehaviour, IDamage
                 if (agent.remainingDistance <= agent.stoppingDistance)
                 {
                     facePlayer();
-
+                    
                     // Deal damage to the player
-                    if(!isHitting)
-                    {
-                        StartCoroutine(dealDamage());
+                    if (!isHitting)
+                    { 
+                        animator.Stop(); 
+                        StartCoroutine(dealDamage()); 
                     }
                 }
                 return true;
@@ -105,12 +164,23 @@ public class regularZombie : MonoBehaviour, IDamage
         }
         agent.stoppingDistance = 0;
         return false;
+    } 
+    
+
+    private void OnCollisionEnter(Collision collision)//When player gets in range, collision method will not allow the player to walk through the zombie. It will solid
+    {//Method will activate when another object touches/collides with this one.
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log(transform.gameObject.name + " is in range of " + collision.gameObject.name);
+            playerInRange = true;
+        }
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log(transform.gameObject.name+" is in range of "+other.name);
             playerInRange = true;
         }
 
@@ -120,6 +190,7 @@ public class regularZombie : MonoBehaviour, IDamage
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log(transform.gameObject.name + " is not in range of " + other.name);
             playerInRange = false;
         }
     }
@@ -152,10 +223,13 @@ public class regularZombie : MonoBehaviour, IDamage
         // Knock back the player by a space
         //gameManager.instance.player.transform.position =
         //    new Vector3(gameManager.instance.player.transform.position.x, gameManager.instance.player.transform.position.y, (gameManager.instance.player.transform.position.z - 1f));
-
-
+        
         yield return new WaitForSeconds(1f);
         isHitting = false;
     }
 
+    public float GetDistance(Vector3 object1, Vector3 object2)
+    {
+        return Vector3.Distance(object1,object2);
+    }
 }

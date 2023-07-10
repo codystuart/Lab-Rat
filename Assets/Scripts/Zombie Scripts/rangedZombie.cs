@@ -34,10 +34,13 @@ public class rangedZombie : MonoBehaviour, IDamage
     Vector3 startingPos;
     bool destinationChosen;
     private bool isShooting;
-    
+    public GameObject Zombie;
+    public AnimationClip[] AnimsArray;
+    Animation animator;
 
     void Start()
-    {
+    { 
+        Cursor.visible = false;
         gameManager.instance.updateGameGoal(1);
         stoppingDistanceOrig = agent.stoppingDistance;
         startingPos = transform.position;
@@ -56,6 +59,7 @@ public class rangedZombie : MonoBehaviour, IDamage
     {
         if (agent.remainingDistance < 0.05f && !destinationChosen)
         {
+            StopAnimation();
             destinationChosen = true;
             agent.stoppingDistance = 0;
             yield return new WaitForSeconds(roamTimer);
@@ -68,6 +72,11 @@ public class rangedZombie : MonoBehaviour, IDamage
             agent.SetDestination(hit.position);
 
             destinationChosen = false;
+        }
+        else
+        {
+
+            PlayZombieAnim("idle");
         }
     }
 
@@ -150,12 +159,57 @@ public class rangedZombie : MonoBehaviour, IDamage
         isShooting = true;
 
         Instantiate(spitBall, shootPos.position, transform.rotation);
-
+        Debug.Log("Should play attack animation.");
+        PlayZombieAnim("attack");
+        //Animator anim = Zombie.GetComponent<Animator>();
+        //if (anim != null)
+        //{ 
+        //    Debug.Log("Should play Zombie Anim");
+        //}
+        //else if (anim == null)
+        //{
+        //    Debug.Log("Can't find anim");
+        //}
         yield return new WaitForSeconds(shootRate);
 
         isShooting = false;
     }
 
+    public void PlayZombieAnim(string AnimName)
+    {
+        if (Zombie != null)
+        {
+            animator = Zombie.GetComponent<Animation>();
+            if (animator == null)
+            {
+                Debug.Log("Can't find animator.");
+            }
+            else if (animator != null)
+            {
+                if (AnimsArray.Length == 0)
+                {
+                    Debug.Log("Can't find animations.");
+                }
+                else if (AnimsArray.Length > 0)
+                {
+                    for (int i = 0; i < AnimsArray.Length; i++)
+                    {
+                        if (AnimName.ToLower() == AnimsArray[i].name.ToLower())
+                        { 
+                            animator.clip = AnimsArray[i];
+                            animator.Play();
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void StopAnimation()
+    {
+        if (animator != null && animator.isPlaying == true)
+        {
+            animator.Stop();
+        }
+    }
 }
-
-
