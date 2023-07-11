@@ -38,7 +38,6 @@ public class regularZombie : MonoBehaviour, IDamage
 
     public GameObject Zombie;
     public AnimationClip[] AnimsArray;
-    Animation animator;
     public GameObject player;
 
     void Start()
@@ -68,9 +67,9 @@ public class regularZombie : MonoBehaviour, IDamage
         }
         else if (player != null && PlayerDistance > 5)
         {
-            if (animator != null)
+            if (anim != null)
             {
-                animator.Stop();
+                anim.Stop();
             }
             PlayZombieAnim("idle");
             Debug.Log("Playing idle. Distance: "+PlayerDistance);
@@ -115,7 +114,7 @@ public class regularZombie : MonoBehaviour, IDamage
             }
             else if (AnimsArray.Length > 0)
             {
-                if (animator.isPlaying != true)
+                if (anim.isPlaying != true)
                 {
                     for (int i = 0; i < AnimsArray.Length; i++)
                     {
@@ -163,7 +162,7 @@ public class regularZombie : MonoBehaviour, IDamage
                     // Deal damage to the player
                     if (!isHitting)
                     { 
-                        animator.Stop(); 
+                        anim.Stop(); 
                         StartCoroutine(dealDamage()); 
                     }
                 }
