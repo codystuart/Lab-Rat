@@ -39,7 +39,7 @@ Transform:
   - {fileID: 393453392087869806}
   - {fileID: 1485996671563660006}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &454584623440140068
 MonoBehaviour:
@@ -53,10 +53,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37ee566cf0250344d8d892efe86b07d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  model: {fileID: 1440400161622470860}
+  model: {fileID: 393453392099735564}
   agent: {fileID: 5485332707150715131}
   headPos: {fileID: 8500163825927619858}
-  material: {fileID: 2100000, guid: cc30e0d3aec0cf1468f93858d413898b, type: 2}
+  material: {fileID: 2100000, guid: ce1ede875f0d4324599beb18e7eb028c, type: 2}
   hpBar: {fileID: 7351537648690328558}
   enemyUI: {fileID: 3450428919820215251}
   HP: 10
@@ -372,6 +372,11 @@ PrefabInstance:
 --- !u!4 &393453392087869806 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400066, guid: 8e7a6da35dedf9a44b55ccf835b8cdba, type: 3}
+  m_PrefabInstance: {fileID: 393453392088265644}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &393453392099735564 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 13700000, guid: 8e7a6da35dedf9a44b55ccf835b8cdba, type: 3}
   m_PrefabInstance: {fileID: 393453392088265644}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5790805684265530809
