@@ -64,12 +64,13 @@ MonoBehaviour:
   playerFaceSpeed: 8
   roamTimer: 3
   roamDist: 10
-  Zombie: {fileID: 456339265581482906}
+  Zombie: {fileID: 3261492088769334865}
   AnimsArray:
   - {fileID: 7400012, guid: ce65fa103f0e84b4289374b2a4bf93f8, type: 3}
   - {fileID: 7400004, guid: ce65fa103f0e84b4289374b2a4bf93f8, type: 3}
   - {fileID: 7400010, guid: ce65fa103f0e84b4289374b2a4bf93f8, type: 3}
   - {fileID: 7400000, guid: 8e7a6da35dedf9a44b55ccf835b8cdba, type: 3}
+  animator: {fileID: 566648168007820236}
 --- !u!195 &6945851275943935644
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -304,11 +305,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 227ee07e9e5b7914ba8fbb8f430be9a5, type: 3}
---- !u!1 &456339265581482906 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1309486516299566, guid: 227ee07e9e5b7914ba8fbb8f430be9a5, type: 3}
-  m_PrefabInstance: {fileID: 455313110025659572}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &458883078930936680 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4467757482891228, guid: 227ee07e9e5b7914ba8fbb8f430be9a5, type: 3}
@@ -317,6 +313,11 @@ Transform:
 --- !u!137 &556623298630172804 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 137391866070344752, guid: 227ee07e9e5b7914ba8fbb8f430be9a5, type: 3}
+  m_PrefabInstance: {fileID: 455313110025659572}
+  m_PrefabAsset: {fileID: 0}
+--- !u!111 &566648168007820236 stripped
+Animation:
+  m_CorrespondingSourceObject: {fileID: 111670102475343736, guid: 227ee07e9e5b7914ba8fbb8f430be9a5, type: 3}
   m_PrefabInstance: {fileID: 455313110025659572}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5168561095052656060
@@ -405,7 +406,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4954594073748131679, guid: 0a17e56cc84a73f46a26724f86c149bc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.25
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4954594073748131679, guid: 0a17e56cc84a73f46a26724f86c149bc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

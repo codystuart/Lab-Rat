@@ -38,9 +38,9 @@ public class regularZombie : MonoBehaviour, IDamage
     private float originalHP;
 
     [Header("---- Animations ----")]
-    public GameObject Zombie;
-    public AnimationClip[] AnimsArray;
-    Animation anim;
+    [SerializeField] GameObject Zombie;
+    [SerializeField] AnimationClip[] AnimsArray;
+    [SerializeField] Animation animator;
 
 
     void Start()
@@ -100,18 +100,19 @@ public class regularZombie : MonoBehaviour, IDamage
         }
         else
         { 
-            PlayZombieAnim("walk");
+            PlayZombieAnim("idle");
         }
     }
 
     public void PlayZombieAnim(string AnimName)
     {
   
-        if (anim == null)
+        if (animator == null)
         {
             Debug.Log("Can't find animator.");
         }
-        else if (anim != null)
+
+        else if (animator != null)
         {
             if (AnimsArray.Length == 0)
             {
@@ -119,14 +120,14 @@ public class regularZombie : MonoBehaviour, IDamage
             }
             else if (AnimsArray.Length > 0)
             {
-                if (anim.isPlaying != true)
+                if (animator.isPlaying != true)
                 {
                     for (int i = 0; i < AnimsArray.Length; i++)
                     {
                         if (AnimName.ToLower() == AnimsArray[i].name.ToLower())
                         {
-                            anim.clip = AnimsArray[i];
-                            anim.Play();
+                            animator.clip = AnimsArray[i];
+                            animator.Play();
                         }
                     }
                 }
@@ -137,9 +138,9 @@ public class regularZombie : MonoBehaviour, IDamage
 
     public void StopAnimation()
     {
-        if (anim != null && anim.isPlaying == true)
+        if (animator != null && animator.isPlaying == true)
         {
-            anim.Stop();
+            animator.Stop();
         }
     }
 
@@ -173,8 +174,8 @@ public class regularZombie : MonoBehaviour, IDamage
                     
                     // Deal damage to the player
                     if (!isHitting)
-                    { 
-                        anim.Stop(); 
+                    {
+                        animator.Stop(); 
                         StartCoroutine(dealDamage()); 
                     }
                 }
