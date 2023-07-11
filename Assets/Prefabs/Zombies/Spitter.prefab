@@ -92,7 +92,7 @@ Transform:
   - {fileID: 3333976841609324716}
   - {fileID: 1272454124539201425}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3574178241072584174
 MonoBehaviour:
@@ -109,7 +109,7 @@ MonoBehaviour:
   model: {fileID: 3432701757574339392}
   agent: {fileID: 6036237586963063902}
   headPos: {fileID: 8832974692658878109}
-  material: {fileID: 2100000, guid: ce65fa103f0e84b4289374b2a4bf93f8, type: 3}
+  material: {fileID: 2100000, guid: a8c3ca61ae821684188523eaa7b080f2, type: 2}
   hpBar: {fileID: 7147794094608993945}
   enemyUI: {fileID: 3086543007588769444}
   HP: 10
@@ -333,6 +333,10 @@ PrefabInstance:
       propertyPath: m_PlayAutomatically
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 137391866070344752, guid: 227ee07e9e5b7914ba8fbb8f430be9a5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a8c3ca61ae821684188523eaa7b080f2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

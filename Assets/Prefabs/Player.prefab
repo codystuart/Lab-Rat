@@ -35,7 +35,7 @@ Transform:
   m_Children:
   - {fileID: 8026936433087601761}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2047894786255774835
 MonoBehaviour:
@@ -58,7 +58,7 @@ MonoBehaviour:
   gravity: 20
   jumpMax: 2
   shootRate: 0.5
-  shootDamage: 1
+  shootDamage: 2
   shootDist: 100
 --- !u!143 &5105460330003665063
 CharacterController:

@@ -106,10 +106,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cae5c56e1e04bd84bb4e9438af25f2da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  model: {fileID: 3340084413605466245}
+  model: {fileID: 530684203312377217}
   agent: {fileID: 2869258376344180542}
   headPos: {fileID: 6324214156829951077}
-  material: {fileID: 2100000, guid: 122651d025fca0c4997eaf696f39f546, type: 2}
+  material: {fileID: 2100000, guid: 310219ae077c4af4b806988da8aaefdb, type: 2}
   hpBar: {fileID: 8750151659866756432}
   enemyUI: {fileID: 3497400028876604781}
   HP: 4
@@ -118,8 +118,11 @@ MonoBehaviour:
   playerFaceSpeed: 1
   roamTimer: 2
   roamDist: 10
-  Zombie: {fileID: 2050544914036235851}
-  AnimsArray: []
+  Zombie: {fileID: 6887375987959012518}
+  AnimsArray:
+  - {fileID: 1827226128182048838, guid: 17aedb13c90813840beec4fe6b343ea8, type: 3}
+  - {fileID: 1827226128182048838, guid: 8dc31a26812d75743a4bda2df812626f, type: 3}
+  - {fileID: 1827226128182048838, guid: e63d89e2b54ec9c4f95c8aefed7ef34e, type: 3}
   animator: {fileID: 4824215935810080036}
 --- !u!33 &4756912749055153199
 MeshFilter:
@@ -191,9 +194,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Height: 1.4
+  m_Direction: 2
+  m_Center: {x: 0, y: -0.75, z: 0.5}
 --- !u!135 &4641640016008621887
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -472,7 +475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 822720952354187801, guid: c412ff54d69369c4f8bf409ae9ab2225, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.75
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 822720952354187801, guid: c412ff54d69369c4f8bf409ae9ab2225, type: 3}
       propertyPath: m_LocalPosition.z
@@ -515,6 +518,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c412ff54d69369c4f8bf409ae9ab2225, type: 3}
+--- !u!137 &530684203312377217 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7347688766833895725, guid: c412ff54d69369c4f8bf409ae9ab2225, type: 3}
+  m_PrefabInstance: {fileID: 7108195855770535084}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6887375987959012518 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4409513867856664586, guid: c412ff54d69369c4f8bf409ae9ab2225, type: 3}
+  m_PrefabInstance: {fileID: 7108195855770535084}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7624460169166778037 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 822720952354187801, guid: c412ff54d69369c4f8bf409ae9ab2225, type: 3}

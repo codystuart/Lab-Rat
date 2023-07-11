@@ -166,7 +166,6 @@ public class regularZombie : MonoBehaviour, IDamage
             {
                 agent.SetDestination(gameManager.instance.player.transform.position);
 
-
                 // If the agent reached their stopping distance
                 if (agent.remainingDistance <= agent.stoppingDistance)
                 {
@@ -237,7 +236,7 @@ public class regularZombie : MonoBehaviour, IDamage
     }
 
     IEnumerator dealDamage()
-    {
+    { 
         isHitting = true;
         gameManager.instance.playerScript.TakeDamage(damage);
 
