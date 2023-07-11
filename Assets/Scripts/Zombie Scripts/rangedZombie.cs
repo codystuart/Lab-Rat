@@ -17,7 +17,6 @@ public class rangedZombie : MonoBehaviour, IDamage
     [Header("Crawler Zombie Stats")]
     [Range(1,10)][SerializeField] int HP;
     [SerializeField] GameObject itemDrop;
-    //[SerializeField] int damage;
 
     [Header("Regular Zombie Navigation")]
     [Range(10, 360)][SerializeField] int viewAngle = 90;
@@ -38,6 +37,8 @@ public class rangedZombie : MonoBehaviour, IDamage
     bool destinationChosen;
     private bool isShooting;
     private float originalHP;
+  
+    [Header("---- Animations ----")]
     public GameObject Zombie;
     public AnimationClip[] AnimsArray;
     Animation animator;
@@ -48,6 +49,7 @@ public class rangedZombie : MonoBehaviour, IDamage
         gameManager.instance.updateGameGoal(1);
         stoppingDistanceOrig = agent.stoppingDistance;
         startingPos = transform.position;
+        PlayZombieAnim("idle");
     }
 
     void Update()
@@ -67,6 +69,7 @@ public class rangedZombie : MonoBehaviour, IDamage
         if (agent.remainingDistance < 0.05f && !destinationChosen)
         {
             StopAnimation();
+            PlayZombieAnim("idle");
             destinationChosen = true;
             agent.stoppingDistance = 0;
             yield return new WaitForSeconds(roamTimer);
@@ -83,7 +86,7 @@ public class rangedZombie : MonoBehaviour, IDamage
         else
         {
 
-            PlayZombieAnim("idle");
+            PlayZombieAnim("walk");
         }
     }
 
