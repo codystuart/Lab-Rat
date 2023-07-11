@@ -90,7 +90,7 @@ Transform:
   - {fileID: 6324214156829951077}
   - {fileID: 861438773593447512}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5918624182987595213
 MonoBehaviour:
@@ -108,15 +108,18 @@ MonoBehaviour:
   agent: {fileID: 2869258376344180542}
   headPos: {fileID: 6324214156829951077}
   material: {fileID: 2100000, guid: 122651d025fca0c4997eaf696f39f546, type: 2}
-  canvas: {fileID: 3497400028876604781}
+  anim: {fileID: 0}
   hpBar: {fileID: 8750151659866756432}
-  hideHP: 5
+  enemyUI: {fileID: 3497400028876604781}
   HP: 2
   damage: 2
-  viewAngle: 90
+  viewAngle: 50
   playerFaceSpeed: 1
   roamTimer: 2
   roamDist: 10
+  Zombie: {fileID: 0}
+  AnimsArray: []
+  player: {fileID: 0}
 --- !u!33 &4756912749055153199
 MeshFilter:
   m_ObjectHideFlags: 0

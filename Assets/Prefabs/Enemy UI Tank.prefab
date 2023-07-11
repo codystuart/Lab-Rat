@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 4678196045098426873}
   - component: {fileID: 6522574314923633251}
   m_Layer: 5
-  m_Name: Enemy UI
+  m_Name: Enemy UI Tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

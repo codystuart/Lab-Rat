@@ -3,21 +3,26 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Animations;
+using UnityEngine.UI;
 
 
 public class regularZombie : MonoBehaviour, IDamage
 {
-    [Header("Components")]
+    [Header("---- Components ----")]
     [SerializeField] Renderer model;
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Transform headPos;
     [SerializeField] Material material;
+    //[SerializeField] Animation anim;
+    [SerializeField] Image hpBar;
+    [SerializeField] GameObject enemyUI;
 
-    [Header("Regular Zombie Stats")]
-    [SerializeField] int hp = 5;
-    [SerializeField] int damage = 10;
+    [Header("---- Regular Zombie Stats ----")]
+    [Range(1, 10)][SerializeField] int HP;
+    [Range(1, 10)][SerializeField] int damage;
 
-    [Header("Regular Zombie Navigation")]
+    [Header("---- Regular Zombie Navigation ----")]
     [Range(10, 50)][SerializeField] int viewAngle = 90;
     [Range(1, 8)][SerializeField] int playerFaceSpeed = 8;
     [SerializeField] int roamTimer = 3;
@@ -30,49 +35,56 @@ public class regularZombie : MonoBehaviour, IDamage
     Vector3 startingPos;
     bool destinationChosen;
     private bool isHitting;
+    private float originalHP;
 
+    [Header("---- Animations ----")]
     public GameObject Zombie;
     public AnimationClip[] AnimsArray;
-    Animation animator;
-    public GameObject player;
+    Animation anim;
+
 
     void Start()
     {
+        originalHP = HP;
         gameManager.instance.updateGameGoal(1);
         stoppingDistanceOrig = agent.stoppingDistance;
         startingPos = transform.position;
-        player = GameObject.Find("Player");
-        PlayZombieAnim("attack2");
+        PlayZombieAnim("idle");
     }
 
     void Update()
     {
-        //if (playerInRange && !canSeePlayer())
+        enemyUI.transform.LookAt(gameManager.instance.player.transform.position);
+
+        if (playerInRange && !canSeePlayer())
+        {
+            StartCoroutine(roam());
+        }
+        else if (agent.destination != gameManager.instance.player.transform.position)
+            StartCoroutine(roam());
+
+
+        //float PlayerDistance = GetDistance(transform.position, gameManager.instance.player.transform.position);
+        //if (gameManager.instance.player != null && PlayerDistance <= 2)
         //{
-        //    StartCoroutine(roam());
+        //    PlayZombieAnim("attack2");
         //}
-        //else if (agent.destination != gameManager.instance.player.transform.position)
-        //    StartCoroutine(roam());
-        float PlayerDistance = GetDistance(transform.position, player.transform.position);
-        if (player != null && PlayerDistance <= 2)
-        {
-            PlayZombieAnim("attack2");
-        }
-        else if (player != null && PlayerDistance > 5)
-        {
-            if (animator != null)
-            {
-                animator.Stop();
-            }
-            PlayZombieAnim("idle");
-            Debug.Log("Playing idle. Distance: "+PlayerDistance);
-        }
+        //else if (gameManager.instance.player != null && PlayerDistance > 5)
+        //{
+        //    if (anim != null)
+        //    {
+        //        anim.Stop();
+        //    }
+        //    PlayZombieAnim("idle");
+        //    Debug.Log("Playing idle. Distance: "+PlayerDistance);
+        //}
     }
 
     IEnumerator roam()
     {
         if (agent.remainingDistance < 0.05f && !destinationChosen)
         {
+            StopAnimation();
             destinationChosen = true;
             agent.stoppingDistance = 0;
             yield return new WaitForSeconds(roamTimer);
@@ -88,40 +100,46 @@ public class regularZombie : MonoBehaviour, IDamage
         }
         else
         { 
-            PlayZombieAnim("idle");
+            PlayZombieAnim("walk");
         }
     }
 
     public void PlayZombieAnim(string AnimName)
     {
-        if (Zombie != null)
+  
+        if (anim == null)
         {
-            animator = Zombie.GetComponent<Animation>();
-            if (animator == null)
+            Debug.Log("Can't find animator.");
+        }
+        else if (anim != null)
+        {
+            if (AnimsArray.Length == 0)
             {
-                Debug.Log("Can't find animator.");
+                Debug.Log("Can't find animations.");
             }
-            else if (animator != null)
+            else if (AnimsArray.Length > 0)
             {
-                if (AnimsArray.Length == 0)
+                if (anim.isPlaying != true)
                 {
-                    Debug.Log("Can't find animations.");
-                }
-                else if (AnimsArray.Length > 0)
-                {
-                    if (animator.isPlaying != true)
+                    for (int i = 0; i < AnimsArray.Length; i++)
                     {
-                        for (int i = 0; i < AnimsArray.Length; i++)
+                        if (AnimName.ToLower() == AnimsArray[i].name.ToLower())
                         {
-                            if (AnimName.ToLower() == AnimsArray[i].name.ToLower())
-                            {
-                                animator.clip = AnimsArray[i];
-                                animator.Play();
-                            }
+                            anim.clip = AnimsArray[i];
+                            anim.Play();
                         }
                     }
                 }
             }
+        }
+        
+    }
+
+    public void StopAnimation()
+    {
+        if (anim != null && anim.isPlaying == true)
+        {
+            anim.Stop();
         }
     }
 
@@ -136,6 +154,7 @@ public class regularZombie : MonoBehaviour, IDamage
         agent.stoppingDistance = stoppingDistanceOrig;
         playerDir = gameManager.instance.player.transform.position - headPos.position;
         angleToPlayer = Vector3.Angle(new Vector3(playerDir.x, 0, playerDir.z), transform.forward);
+        
 
         Debug.DrawRay(headPos.position, playerDir);
 
@@ -155,7 +174,7 @@ public class regularZombie : MonoBehaviour, IDamage
                     // Deal damage to the player
                     if (!isHitting)
                     { 
-                        animator.Stop(); 
+                        anim.Stop(); 
                         StartCoroutine(dealDamage()); 
                     }
                 }
@@ -197,11 +216,12 @@ public class regularZombie : MonoBehaviour, IDamage
 
     public void TakeDamage(int amount)
     {
-        hp -= amount;
+        HP -= amount;
         agent.SetDestination(gameManager.instance.player.transform.position);
         StartCoroutine(flashDamage());
+        updateEnemyUI();
 
-        if (hp <= 0)
+        if (HP <= 0)
         {
             Destroy(gameObject);
             gameManager.instance.updateGameGoal(-1);
@@ -232,4 +252,10 @@ public class regularZombie : MonoBehaviour, IDamage
     {
         return Vector3.Distance(object1,object2);
     }
+
+    public void updateEnemyUI()
+    {
+        hpBar.fillAmount = (float)HP / originalHP;
+    }
+
 }

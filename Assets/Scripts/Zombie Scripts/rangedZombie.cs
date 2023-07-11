@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class rangedZombie : MonoBehaviour, IDamage
 {
@@ -10,11 +11,12 @@ public class rangedZombie : MonoBehaviour, IDamage
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Transform headPos;
     [SerializeField] Material material;
+    [SerializeField] Image hpBar;
+    [SerializeField] GameObject enemyUI;
 
     [Header("Crawler Zombie Stats")]
-    [SerializeField] int hp = 10;
+    [Range(1,10)][SerializeField] int HP;
     [SerializeField] GameObject itemDrop;
-    //[SerializeField] int damage;
 
     [Header("Regular Zombie Navigation")]
     [Range(10, 360)][SerializeField] int viewAngle = 90;
@@ -34,20 +36,26 @@ public class rangedZombie : MonoBehaviour, IDamage
     Vector3 startingPos;
     bool destinationChosen;
     private bool isShooting;
+    private float originalHP;
+  
+    [Header("---- Animations ----")]
     public GameObject Zombie;
     public AnimationClip[] AnimsArray;
     Animation animator;
 
     void Start()
-    { 
-        Cursor.visible = false;
+    {
+        originalHP = HP;
         gameManager.instance.updateGameGoal(1);
         stoppingDistanceOrig = agent.stoppingDistance;
         startingPos = transform.position;
+        PlayZombieAnim("idle");
     }
 
     void Update()
     {
+        enemyUI.transform.LookAt(gameManager.instance.player.transform.position);
+
         if (playerInRange && !canSeePlayer())
         {
             StartCoroutine(roam());
@@ -55,11 +63,13 @@ public class rangedZombie : MonoBehaviour, IDamage
         else if (agent.destination != gameManager.instance.player.transform.position)
             StartCoroutine(roam());
     }
+
     IEnumerator roam()
     {
         if (agent.remainingDistance < 0.05f && !destinationChosen)
         {
             StopAnimation();
+            PlayZombieAnim("idle");
             destinationChosen = true;
             agent.stoppingDistance = 0;
             yield return new WaitForSeconds(roamTimer);
@@ -76,7 +86,7 @@ public class rangedZombie : MonoBehaviour, IDamage
         else
         {
 
-            PlayZombieAnim("idle");
+            PlayZombieAnim("walk");
         }
     }
 
@@ -132,11 +142,12 @@ public class rangedZombie : MonoBehaviour, IDamage
     }
     public void TakeDamage(int amount)
     {
-        hp -= amount;
+        HP -= amount;
         agent.SetDestination(gameManager.instance.player.transform.position);
         StartCoroutine(flashDamage());
+        updateEnemyUI();
 
-        if (hp <= 0)
+        if (HP <= 0)
         {
             if (itemDrop != null)
             {
@@ -211,5 +222,10 @@ public class rangedZombie : MonoBehaviour, IDamage
         {
             animator.Stop();
         }
+    }
+
+    public void updateEnemyUI()
+    {
+        hpBar.fillAmount = (float)HP / originalHP;
     }
 }
