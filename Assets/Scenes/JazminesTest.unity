@@ -21447,6 +21447,67 @@ LightingSettings:
   m_PVRTiledBaking: 0
   m_NumRaysToShootPerTexel: -1
   m_RespectSceneVisibilityWhenBakingGI: 0
+--- !u!1001 &140604086
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4703810254314007279, guid: 67a53a6a6a820d94fa4d0e6a41be4959, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4703810254314007279, guid: 67a53a6a6a820d94fa4d0e6a41be4959, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 4703810254314007279, guid: 67a53a6a6a820d94fa4d0e6a41be4959, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0000076293945
+      objectReference: {fileID: 0}
+    - target: {fileID: 4703810254314007279, guid: 67a53a6a6a820d94fa4d0e6a41be4959, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -17.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4703810254314007279, guid: 67a53a6a6a820d94fa4d0e6a41be4959, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4703810254314007279, guid: 67a53a6a6a820d94fa4d0e6a41be4959, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4703810254314007279, guid: 67a53a6a6a820d94fa4d0e6a41be4959, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4703810254314007279, guid: 67a53a6a6a820d94fa4d0e6a41be4959, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4703810254314007279, guid: 67a53a6a6a820d94fa4d0e6a41be4959, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4703810254314007279, guid: 67a53a6a6a820d94fa4d0e6a41be4959, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4703810254314007279, guid: 67a53a6a6a820d94fa4d0e6a41be4959, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123017847050605554, guid: 67a53a6a6a820d94fa4d0e6a41be4959, type: 3}
+      propertyPath: m_Name
+      value: Player Spawn Pos
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 67a53a6a6a820d94fa4d0e6a41be4959, type: 3}
 --- !u!43 &140943064
 Mesh:
   m_ObjectHideFlags: 0
