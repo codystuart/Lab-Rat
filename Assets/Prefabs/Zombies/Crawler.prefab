@@ -90,7 +90,7 @@ Transform:
   - {fileID: 6324214156829951077}
   - {fileID: 861438773593447512}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5918624182987595213
 MonoBehaviour:
@@ -110,6 +110,7 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 122651d025fca0c4997eaf696f39f546, type: 2}
   anim: {fileID: 0}
   hpBar: {fileID: 8750151659866756432}
+  enemyUI: {fileID: 3497400028876604781}
   HP: 2
   damage: 2
   viewAngle: 50
@@ -355,6 +356,11 @@ PrefabInstance:
 --- !u!224 &861438773593447512 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4954594073748131679, guid: 0a17e56cc84a73f46a26724f86c149bc, type: 3}
+  m_PrefabInstance: {fileID: 5707805717856670471}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3497400028876604781 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9205201254113597034, guid: 0a17e56cc84a73f46a26724f86c149bc, type: 3}
   m_PrefabInstance: {fileID: 5707805717856670471}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &8750151659866756432 stripped

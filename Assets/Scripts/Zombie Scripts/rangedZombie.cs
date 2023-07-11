@@ -12,6 +12,7 @@ public class rangedZombie : MonoBehaviour, IDamage
     [SerializeField] Transform headPos;
     [SerializeField] Material material;
     [SerializeField] Image hpBar;
+    [SerializeField] GameObject enemyUI;
 
     [Header("Crawler Zombie Stats")]
     [Range(1,10)][SerializeField] int HP;
@@ -51,6 +52,8 @@ public class rangedZombie : MonoBehaviour, IDamage
 
     void Update()
     {
+        enemyUI.transform.LookAt(gameManager.instance.player.transform.position);
+
         if (playerInRange && !canSeePlayer())
         {
             StartCoroutine(roam());
@@ -58,6 +61,7 @@ public class rangedZombie : MonoBehaviour, IDamage
         else if (agent.destination != gameManager.instance.player.transform.position)
             StartCoroutine(roam());
     }
+
     IEnumerator roam()
     {
         if (agent.remainingDistance < 0.05f && !destinationChosen)

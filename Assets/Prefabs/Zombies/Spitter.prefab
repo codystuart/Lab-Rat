@@ -111,7 +111,8 @@ MonoBehaviour:
   headPos: {fileID: 8832974692658878109}
   material: {fileID: 2100000, guid: ce65fa103f0e84b4289374b2a4bf93f8, type: 3}
   hpBar: {fileID: 7147794094608993945}
-  HP: 0
+  enemyUI: {fileID: 3086543007588769444}
+  HP: 10
   itemDrop: {fileID: 0}
   viewAngle: 90
   playerFaceSpeed: 6
@@ -456,6 +457,11 @@ PrefabInstance:
 --- !u!224 &1272454124539201425 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4954594073748131679, guid: 0a17e56cc84a73f46a26724f86c149bc, type: 3}
+  m_PrefabInstance: {fileID: 6154990534858410190}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3086543007588769444 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9205201254113597034, guid: 0a17e56cc84a73f46a26724f86c149bc, type: 3}
   m_PrefabInstance: {fileID: 6154990534858410190}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &7147794094608993945 stripped

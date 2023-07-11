@@ -16,6 +16,7 @@ public class regularZombie : MonoBehaviour, IDamage
     [SerializeField] Material material;
     [SerializeField] Animation anim;
     [SerializeField] Image hpBar;
+    [SerializeField] GameObject enemyUI;
 
     [Header("Regular Zombie Stats")]
     [Range(1, 10)][SerializeField] int HP;
@@ -52,12 +53,14 @@ public class regularZombie : MonoBehaviour, IDamage
 
     void Update()
     {
-        //if (playerInRange && !canSeePlayer())
-        //{
-        //    StartCoroutine(roam());
-        //}
-        //else if (agent.destination != gameManager.instance.player.transform.position)
-        //    StartCoroutine(roam());
+        enemyUI.transform.LookAt(gameManager.instance.player.transform.position);
+
+        if (playerInRange && !canSeePlayer())
+        {
+            StartCoroutine(roam());
+        }
+        else if (agent.destination != gameManager.instance.player.transform.position)
+            StartCoroutine(roam());
 
 
         float PlayerDistance = GetDistance(transform.position, player.transform.position);
@@ -143,6 +146,7 @@ public class regularZombie : MonoBehaviour, IDamage
         agent.stoppingDistance = stoppingDistanceOrig;
         playerDir = gameManager.instance.player.transform.position - headPos.position;
         angleToPlayer = Vector3.Angle(new Vector3(playerDir.x, 0, playerDir.z), transform.forward);
+        
 
         Debug.DrawRay(headPos.position, playerDir);
 
