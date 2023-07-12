@@ -17,7 +17,7 @@ public class regularZombie : MonoBehaviour, IDamage
     //[SerializeField] Animation anim;
     [SerializeField] GameObject enemyUI;
     [SerializeField] Image hpBar;
-    [Range(1, 10)][SerializeField] int hideHP;
+    [Range(3, 10)][SerializeField] int hideHP;
 
     [Header("---- Regular Zombie Stats ----")]
     [Range(1, 10)][SerializeField] int HP;

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4274861496916855915}
   - component: {fileID: 5485332707150715131}
   - component: {fileID: 4636632637907764796}
+  - component: {fileID: 5444080380326157370}
   m_Layer: 6
   m_Name: Tank Zombie
   m_TagString: Untagged
@@ -59,6 +60,7 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 218b9eadd7b6cf14d90b772f54b9ea24, type: 2}
   hpBar: {fileID: 7351537648690328558}
   enemyUI: {fileID: 3450428919820215251}
+  hideHP: 4
   HP: 10
   itemDrop: {fileID: 1991420744688600882, guid: 1b8b698bdbd8273438370801467eed99, type: 3}
   viewAngle: 180
@@ -73,6 +75,7 @@ MonoBehaviour:
   - {fileID: 1827226128182048838, guid: 1c5ef2d13c7d5e24d97f6f9386b1804f, type: 3}
   - {fileID: 1827226128182048838, guid: 76a701c711077c344927aa1e6d4359be, type: 3}
   - {fileID: 1827226128182048838, guid: 5956a2a088fd81d4ab3b9b5c6eaceaf2, type: 3}
+  animator: {fileID: 0}
 --- !u!33 &7153469339211157001
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -189,6 +192,27 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &5444080380326157370
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3213315120905535365}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 11b41f89c52c2d44ab7731ff035045b9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4526247995115154869
 GameObject:
   m_ObjectHideFlags: 0

@@ -38,7 +38,7 @@ Transform:
   - {fileID: 249998027816121059}
   - {fileID: 458883078930936680}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1658448889381776209
 MonoBehaviour:
@@ -56,8 +56,9 @@ MonoBehaviour:
   agent: {fileID: 6945851275943935644}
   headPos: {fileID: 6585413393152516761}
   material: {fileID: 2100000, guid: ce65fa103f0e84b4289374b2a4bf93f8, type: 3}
-  hpBar: {fileID: 8206281392727342059}
   enemyUI: {fileID: 4036662510155181014}
+  hpBar: {fileID: 8206281392727342059}
+  hideHP: 4
   HP: 10
   damage: 3
   viewAngle: 50
@@ -68,8 +69,7 @@ MonoBehaviour:
   AnimsArray:
   - {fileID: 7400012, guid: ce65fa103f0e84b4289374b2a4bf93f8, type: 3}
   - {fileID: 7400004, guid: ce65fa103f0e84b4289374b2a4bf93f8, type: 3}
-  - {fileID: 7400010, guid: ce65fa103f0e84b4289374b2a4bf93f8, type: 3}
-  - {fileID: 7400000, guid: 8e7a6da35dedf9a44b55ccf835b8cdba, type: 3}
+  - {fileID: 7400006, guid: ce65fa103f0e84b4289374b2a4bf93f8, type: 3}
   animator: {fileID: 566648168007820236}
 --- !u!195 &6945851275943935644
 NavMeshAgent:

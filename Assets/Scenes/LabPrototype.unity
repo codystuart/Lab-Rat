@@ -730,6 +730,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 948198507}
+    - target: {fileID: 454584623440140068, guid: ca284f0997f204649909ac9f573dee45, type: 3}
+      propertyPath: hideHPTimer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 932365199172942834, guid: ca284f0997f204649909ac9f573dee45, type: 3}
       propertyPath: m_RootOrder
       value: 10

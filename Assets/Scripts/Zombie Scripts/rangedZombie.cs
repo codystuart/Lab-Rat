@@ -13,7 +13,7 @@ public class rangedZombie : MonoBehaviour, IDamage
     [SerializeField] Material material;
     [SerializeField] Image hpBar;
     [SerializeField] GameObject enemyUI;
-    [Range(1, 10)][SerializeField] int hideHP;
+    [Range(3, 10)][SerializeField] int hideHP;
 
     [Header("Zombie Stats")]
     [Range(1,10)][SerializeField] int HP;
@@ -38,8 +38,6 @@ public class rangedZombie : MonoBehaviour, IDamage
     bool destinationChosen;
     private bool isShooting;
     private float originalHP;
-    private float secondsSinceDamageTaken;
-
 
     [Header("---- Animations ----")]
     [SerializeField] GameObject Zombie;
@@ -146,7 +144,6 @@ public class rangedZombie : MonoBehaviour, IDamage
     }
     public void TakeDamage(int amount)
     {
-        secondsSinceDamageTaken += Time.deltaTime;
         HP -= amount;
         agent.SetDestination(gameManager.instance.player.transform.position);
         StartCoroutine(flashDamage());
@@ -208,32 +205,32 @@ public class rangedZombie : MonoBehaviour, IDamage
 
     public void PlayZombieAnim(string AnimName)
     {
-        //if (Zombie != null)
-        //{
-            ////animator = Zombie.GetComponent<Animation>();
-            //if (animator == null)
-            //{
-            //    Debug.Log("Can't find animator.");
-            //}
-            //else if (animator != null)
-            //{
-            //    if (AnimsArray.Length == 0)
-            //    {
-            //        Debug.Log("Can't find animations.");
-            //    }
-            //    else if (AnimsArray.Length > 0)
-            //    {
-            //        for (int i = 0; i < AnimsArray.Length; i++)
-            //        {
-            //            if (AnimName.ToLower() == AnimsArray[i].name.ToLower())
-            //            { 
-            //                animator.clip = AnimsArray[i];
-            //                animator.Play();
-            //            }
-            //        }
-            //    }
-            //}
-        //}
+        if (Zombie != null)
+        {
+            //animator = Zombie.GetComponent<Animation>();
+            if (animator == null)
+            {
+                Debug.Log("Can't find animator.");
+            }
+            else if (animator != null)
+            {
+                if (AnimsArray.Length == 0)
+                {
+                    Debug.Log("Can't find animations.");
+                }
+                else if (AnimsArray.Length > 0)
+                {
+                    for (int i = 0; i < AnimsArray.Length; i++)
+                    {
+                        if (AnimName.ToLower() == AnimsArray[i].name.ToLower())
+                        {
+                            animator.clip = AnimsArray[i];
+                            animator.Play();
+                        }
+                    }
+                }
+            }
+        }
     }
 
     public void StopAnimation()
