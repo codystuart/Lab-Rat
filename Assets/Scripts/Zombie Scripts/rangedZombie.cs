@@ -13,7 +13,7 @@ public class rangedZombie : MonoBehaviour, IDamage
     [SerializeField] Material material;
     [SerializeField] Image hpBar;
     [SerializeField] GameObject enemyUI;
-    [Range(5,15)][SerializeField] float hideHPTimer;
+    [Range(1, 5)][SerializeField] int downHP;
 
     [Header("Zombie Stats")]
     [Range(1,10)][SerializeField] int HP;
@@ -48,11 +48,11 @@ public class rangedZombie : MonoBehaviour, IDamage
 
     void Start()
     {
-       
         originalHP = HP;
         gameManager.instance.updateGameGoal(1);
         stoppingDistanceOrig = agent.stoppingDistance;
         startingPos = transform.position;
+        enemyUI.SetActive(false);
         PlayZombieAnim("idle");
     }
 
@@ -66,19 +66,6 @@ public class rangedZombie : MonoBehaviour, IDamage
         }
         else if (agent.destination != gameManager.instance.player.transform.position)
             StartCoroutine(roam());
-
-        if (HP == originalHP)
-        {
-            enemyUI.SetActive(false);
-        }
-
-        if (secondsSinceDamageTaken >= hideHPTimer )
-        {
-            enemyUI.SetActive(false);
-            secondsSinceDamageTaken = 0;
-        }
-        
-        
     }
 
     IEnumerator roam()
@@ -182,6 +169,13 @@ public class rangedZombie : MonoBehaviour, IDamage
     {
         enemyUI.SetActive(true);
         hpBar.fillAmount = (float)HP / originalHP;
+        StartCoroutine(hideHP());
+    }
+
+    IEnumerator hideHP()
+    {
+        yield return new WaitForSeconds(downHP);
+        enemyUI.SetActive(false);
     }
 
     IEnumerator flashDamage()
