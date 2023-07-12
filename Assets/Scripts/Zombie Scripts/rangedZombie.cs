@@ -13,8 +13,9 @@ public class rangedZombie : MonoBehaviour, IDamage
     [SerializeField] Material material;
     [SerializeField] Image hpBar;
     [SerializeField] GameObject enemyUI;
+    [Range(5,15)][SerializeField] float hideHPTimer;
 
-    [Header("Crawler Zombie Stats")]
+    [Header("Zombie Stats")]
     [Range(1,10)][SerializeField] int HP;
     [SerializeField] GameObject itemDrop;
 
@@ -37,14 +38,17 @@ public class rangedZombie : MonoBehaviour, IDamage
     bool destinationChosen;
     private bool isShooting;
     private float originalHP;
-  
+    private float secondsSinceDamageTaken;
+
+
     [Header("---- Animations ----")]
-    public GameObject Zombie;
-    public AnimationClip[] AnimsArray;
-    Animation animator;
+    [SerializeField] GameObject Zombie;
+    [SerializeField] AnimationClip[] AnimsArray;
+    [SerializeField] Animation animator;
 
     void Start()
     {
+       
         originalHP = HP;
         gameManager.instance.updateGameGoal(1);
         stoppingDistanceOrig = agent.stoppingDistance;
@@ -62,6 +66,19 @@ public class rangedZombie : MonoBehaviour, IDamage
         }
         else if (agent.destination != gameManager.instance.player.transform.position)
             StartCoroutine(roam());
+
+        if (HP == originalHP)
+        {
+            enemyUI.SetActive(false);
+        }
+
+        if (secondsSinceDamageTaken >= hideHPTimer )
+        {
+            enemyUI.SetActive(false);
+            secondsSinceDamageTaken = 0;
+        }
+        
+        
     }
 
     IEnumerator roam()
@@ -142,6 +159,7 @@ public class rangedZombie : MonoBehaviour, IDamage
     }
     public void TakeDamage(int amount)
     {
+        secondsSinceDamageTaken += Time.deltaTime;
         HP -= amount;
         agent.SetDestination(gameManager.instance.player.transform.position);
         StartCoroutine(flashDamage());
@@ -156,6 +174,14 @@ public class rangedZombie : MonoBehaviour, IDamage
             Destroy(gameObject);
             gameManager.instance.updateGameGoal(-1);
         }
+
+        
+    }
+
+    public void updateEnemyUI()
+    {
+        enemyUI.SetActive(true);
+        hpBar.fillAmount = (float)HP / originalHP;
     }
 
     IEnumerator flashDamage()
@@ -188,32 +214,32 @@ public class rangedZombie : MonoBehaviour, IDamage
 
     public void PlayZombieAnim(string AnimName)
     {
-        if (Zombie != null)
-        {
-            animator = Zombie.GetComponent<Animation>();
-            if (animator == null)
-            {
-                Debug.Log("Can't find animator.");
-            }
-            else if (animator != null)
-            {
-                if (AnimsArray.Length == 0)
-                {
-                    Debug.Log("Can't find animations.");
-                }
-                else if (AnimsArray.Length > 0)
-                {
-                    for (int i = 0; i < AnimsArray.Length; i++)
-                    {
-                        if (AnimName.ToLower() == AnimsArray[i].name.ToLower())
-                        { 
-                            animator.clip = AnimsArray[i];
-                            animator.Play();
-                        }
-                    }
-                }
-            }
-        }
+        //if (Zombie != null)
+        //{
+            ////animator = Zombie.GetComponent<Animation>();
+            //if (animator == null)
+            //{
+            //    Debug.Log("Can't find animator.");
+            //}
+            //else if (animator != null)
+            //{
+            //    if (AnimsArray.Length == 0)
+            //    {
+            //        Debug.Log("Can't find animations.");
+            //    }
+            //    else if (AnimsArray.Length > 0)
+            //    {
+            //        for (int i = 0; i < AnimsArray.Length; i++)
+            //        {
+            //            if (AnimName.ToLower() == AnimsArray[i].name.ToLower())
+            //            { 
+            //                animator.clip = AnimsArray[i];
+            //                animator.Play();
+            //            }
+            //        }
+            //    }
+            //}
+        //}
     }
 
     public void StopAnimation()
@@ -224,8 +250,5 @@ public class rangedZombie : MonoBehaviour, IDamage
         }
     }
 
-    public void updateEnemyUI()
-    {
-        hpBar.fillAmount = (float)HP / originalHP;
-    }
+
 }
