@@ -15,8 +15,9 @@ public class regularZombie : MonoBehaviour, IDamage
     [SerializeField] Transform headPos;
     [SerializeField] Material material;
     //[SerializeField] Animation anim;
-    [SerializeField] Image hpBar;
     [SerializeField] GameObject enemyUI;
+    [SerializeField] Image hpBar;
+    [Range(1, 10)][SerializeField] int hideHP;
 
     [Header("---- Regular Zombie Stats ----")]
     [Range(1, 10)][SerializeField] int HP;
@@ -49,13 +50,12 @@ public class regularZombie : MonoBehaviour, IDamage
         gameManager.instance.updateGameGoal(1);
         stoppingDistanceOrig = agent.stoppingDistance;
         startingPos = transform.position;
+        enemyUI.SetActive(false);
         PlayZombieAnim("idle");
     }
 
     void Update()
     {
-        enemyUI.transform.LookAt(gameManager.instance.player.transform.position);
-
         if (playerInRange && !canSeePlayer())
         {
             StartCoroutine(roam());
@@ -63,6 +63,8 @@ public class regularZombie : MonoBehaviour, IDamage
         else if (agent.destination != gameManager.instance.player.transform.position)
             StartCoroutine(roam());
 
+
+        enemyUI.transform.LookAt(gameManager.instance.player.transform.position);
 
         //float PlayerDistance = GetDistance(transform.position, gameManager.instance.player.transform.position);
         //if (gameManager.instance.player != null && PlayerDistance <= 2)
@@ -228,6 +230,19 @@ public class regularZombie : MonoBehaviour, IDamage
         }
     }
 
+    public void updateEnemyUI()
+    {
+        enemyUI.SetActive(true);
+        hpBar.fillAmount = (float)HP / originalHP;
+        StartCoroutine(showHealth());
+    }
+
+    IEnumerator showHealth()
+    {
+        yield return new WaitForSeconds(hideHP);
+        enemyUI.SetActive(false);
+    }
+
     IEnumerator flashDamage()
     {
         model.material.color = Color.red;
@@ -252,10 +267,4 @@ public class regularZombie : MonoBehaviour, IDamage
     {
         return Vector3.Distance(object1,object2);
     }
-
-    public void updateEnemyUI()
-    {
-        hpBar.fillAmount = (float)HP / originalHP;
-    }
-
 }

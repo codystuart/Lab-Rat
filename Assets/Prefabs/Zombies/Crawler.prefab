@@ -92,7 +92,7 @@ Transform:
   - {fileID: 7624460169166778037}
   - {fileID: 4859501570416172416}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5918624182987595213
 MonoBehaviour:
@@ -110,8 +110,9 @@ MonoBehaviour:
   agent: {fileID: 2869258376344180542}
   headPos: {fileID: 6324214156829951077}
   material: {fileID: 2100000, guid: 310219ae077c4af4b806988da8aaefdb, type: 2}
-  hpBar: {fileID: 8750151659866756432}
   enemyUI: {fileID: 3497400028876604781}
+  hpBar: {fileID: 8750151659866756432}
+  hideHP: 5
   HP: 4
   damage: 2
   viewAngle: 50
@@ -405,7 +406,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4954594073748131679, guid: 0a17e56cc84a73f46a26724f86c149bc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4954594073748131679, guid: 0a17e56cc84a73f46a26724f86c149bc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

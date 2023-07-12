@@ -14,7 +14,7 @@ public class slamTank : MonoBehaviour, IDamage
     [SerializeField] Transform headPos;
     [SerializeField] Material material;
     [SerializeField] Rigidbody rb;
-    [SerializeField] GameObject canvas;
+    [SerializeField] GameObject enemyUI;
     [SerializeField] Image hpBar;
     [Range(1, 10)][SerializeField] int hideHP;
 
@@ -48,7 +48,7 @@ public class slamTank : MonoBehaviour, IDamage
         gameManager.instance.updateGameGoal(1);
         stoppingDistanceOrig = agent.stoppingDistance;
         startingPos = transform.position;
-        canvas.SetActive(false);
+        enemyUI.SetActive(false);
     }
 
     void Update()
@@ -60,7 +60,7 @@ public class slamTank : MonoBehaviour, IDamage
         else if (agent.destination != gameManager.instance.player.transform.position)
             StartCoroutine(roam());
         
-        canvas.transform.LookAt(gameManager.instance.player.transform.position);
+        enemyUI.transform.LookAt(gameManager.instance.player.transform.position);
 
     }
 
@@ -159,7 +159,7 @@ public class slamTank : MonoBehaviour, IDamage
 
     public void updateUI()
     {
-        canvas.SetActive(true);
+        enemyUI.SetActive(true);
         hpBar.fillAmount = (float)HP / originalHP;
         StartCoroutine(showHealth());
     }
@@ -167,7 +167,7 @@ public class slamTank : MonoBehaviour, IDamage
     IEnumerator showHealth()
     {
         yield return new WaitForSeconds(hideHP);
-        canvas.SetActive(false);
+        enemyUI.SetActive(false);
     }
 
     IEnumerator flashDamage()

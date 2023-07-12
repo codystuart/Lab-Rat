@@ -13,7 +13,7 @@ public class rangedZombie : MonoBehaviour, IDamage
     [SerializeField] Material material;
     [SerializeField] Image hpBar;
     [SerializeField] GameObject enemyUI;
-    [Range(1, 5)][SerializeField] int downHP;
+    [Range(1, 10)][SerializeField] int hideHP;
 
     [Header("Zombie Stats")]
     [Range(1,10)][SerializeField] int HP;
@@ -58,14 +58,14 @@ public class rangedZombie : MonoBehaviour, IDamage
 
     void Update()
     {
-        enemyUI.transform.LookAt(gameManager.instance.player.transform.position);
-
         if (playerInRange && !canSeePlayer())
         {
             StartCoroutine(roam());
         }
         else if (agent.destination != gameManager.instance.player.transform.position)
             StartCoroutine(roam());
+
+        enemyUI.transform.LookAt(gameManager.instance.player.transform.position);
     }
 
     IEnumerator roam()
@@ -169,12 +169,12 @@ public class rangedZombie : MonoBehaviour, IDamage
     {
         enemyUI.SetActive(true);
         hpBar.fillAmount = (float)HP / originalHP;
-        StartCoroutine(hideHP());
+        StartCoroutine(showHealth());
     }
 
-    IEnumerator hideHP()
+    IEnumerator showHealth()
     {
-        yield return new WaitForSeconds(downHP);
+        yield return new WaitForSeconds(hideHP);
         enemyUI.SetActive(false);
     }
 
