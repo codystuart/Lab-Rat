@@ -186,7 +186,9 @@ public class rangedZombie : MonoBehaviour, IDamage
     {
         isShooting = true;
 
-        Instantiate(spitBall, shootPos.position, transform.rotation);
+
+
+        Instantiate(spitBall, shootPos.transform.position - gameManager.instance.player.transform.position, Quaternion.identity);
         Debug.Log("Should play attack animation.");
         PlayZombieAnim("attack");
         //Animator anim = Zombie.GetComponent<Animator>();
