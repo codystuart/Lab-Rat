@@ -81,7 +81,6 @@ public class gameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         reticle.SetActive(false);
         isPaused = !isPaused;
-
     }
 
     public void stateUnpaused()

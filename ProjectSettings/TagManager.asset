@@ -8,6 +8,7 @@ TagManager:
   - Cure
   - HPBottle
   - Player Spawn Pos
+  - Keycard
   layers:
   - Default
   - TransparentFX

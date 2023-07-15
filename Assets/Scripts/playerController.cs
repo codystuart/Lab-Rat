@@ -6,13 +6,13 @@ using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 
-public class playerController : MonoBehaviour, IDamage, IHealth
+public class playerController : MonoBehaviour, IDamage
 {
     [Header("----- Player -----")]
     [SerializeField] CharacterController controller;
 
     [Header("----- Player Stats -----")]
-    [Range(1, 10)][SerializeField] int HP;
+    [Range(1, 10)]public int HP;
     [Range(1, 10)][SerializeField] float playerSpeed;
     [Range(2, 5)] [SerializeField] float sprintDuration;
     [Range(1, 5)][SerializeField] int sprintCooldownLength;
@@ -28,7 +28,7 @@ public class playerController : MonoBehaviour, IDamage, IHealth
     //class objects
     private Vector3 move;
     private Vector3 velocity;
-    private int originalHP;
+    public int originalHP;
     private int jumpCount;
     private bool playerGrounded;
     private bool isShooting;
@@ -114,7 +114,6 @@ public class playerController : MonoBehaviour, IDamage, IHealth
         StartCoroutine(gameManager.instance.playerFlashDamage());
         updatePlayerUI();
 
-
         if (HP <= 0)
         {
             gameManager.instance.youLose();
@@ -156,24 +155,11 @@ public class playerController : MonoBehaviour, IDamage, IHealth
     // Player can pick up cure bottles
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Cure"))
+        ICollectable collectable = other.GetComponent<ICollectable>();
+        if(collectable != null)
         {
-            other.gameObject.SetActive(false);
-            gameManager.instance.updateCureGameGoal(1);
+            collectable.Collect();
         }
-
-        if (other.gameObject.CompareTag("HPBottle") && HP < originalHP)
-        {
-                other.gameObject.SetActive(false);
-                giveHealth(50);
-           
-        }
-    }
-
-    public void giveHealth(int amount)
-    {
-        HP += amount;
-        updatePlayerUI();
     }
 
 
