@@ -816,7 +816,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2635
+  m_VersionIndex: 2638
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1175,7 +1175,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1094
+  m_VersionIndex: 1097
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1324,7 +1324,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0.2216981, b: 0.2216981, a: 1}
   m_Intensity: 1
-  m_Range: 8.92
+  m_Range: 6.09
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -2189,7 +2189,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2635
+  m_VersionIndex: 2638
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2308,11 +2308,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2642501079064903518}
+  - component: {fileID: 5970037848756842657}
   - component: {fileID: 3910292639729099421}
   - component: {fileID: 2271747804367132395}
   - component: {fileID: 765915651039624570}
   - component: {fileID: 6942252442539354258}
   - component: {fileID: 5096645873140767617}
+  - component: {fileID: 1026880749311498209}
   m_Layer: 0
   m_Name: Exit Door
   m_TagString: Untagged
@@ -2336,8 +2338,28 @@ Transform:
   - {fileID: 9159522626032432676}
   - {fileID: 2784185168187704005}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: -90}
+--- !u!114 &5970037848756842657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8262814624049683076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92f7973e8b59cb140b2b636c38995533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exitPointLight: {fileID: 3415185646882111894}
+  exitSignColor: {fileID: 2898871933536789345}
+  greenLight: {fileID: 2100000, guid: 4108af014f89ec04295c3a20eef2c7ae, type: 2}
+  exitDoorInteractText: {fileID: 0}
+  lockedFindKeycardText: {fileID: 0}
+  lockedFindCureText: {fileID: 0}
+  lockedClearAreaText: {fileID: 0}
+  loadingNextScene: 0
 --- !u!114 &3910292639729099421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7031,3 +7053,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!65 &1026880749311498209
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8262814624049683076}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4, y: 2.4083176, z: 4}
+  m_Center: {x: 2, y: 1.2041588, z: 2}

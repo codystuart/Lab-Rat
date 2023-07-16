@@ -152,7 +152,7 @@ public class playerController : MonoBehaviour, IDamage
         gameManager.instance.playerHpBar.fillAmount = (float)HP / originalHP;
     }
 
-    // Player can pick up cure bottles
+    // Player can pick up items
     void OnTriggerEnter(Collider other)
     {
         ICollectable collectable = other.GetComponent<ICollectable>();
@@ -161,7 +161,6 @@ public class playerController : MonoBehaviour, IDamage
             collectable.Collect();
         }
     }
-
 
     private void OnCollisionEnter(Collision collision)
     {

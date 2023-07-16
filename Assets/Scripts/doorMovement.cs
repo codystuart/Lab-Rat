@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class doorMovement : MonoBehaviour
 {
-    [SerializeField] bool playerInRange;
-    [SerializeField] bool doorIsOpen;
+    private bool playerInRange;
+    private bool doorIsOpen;
     [SerializeField] GameObject doorInteractText;
 
     private void Update()

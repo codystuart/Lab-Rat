@@ -30,18 +30,19 @@ public class gameManager : MonoBehaviour
     [Header("----- Map Objects ------")]
     [SerializeField] GameObject secretWall;
 
-    int enemiesRemaining;
+    public int enemiesRemaining;
     bool isPaused;
     float timescaleOrig;
     private float secondsCount;
     private int minuteCount;
     private bool pauseTimer;
+    public bool keycardAcquired;
 
     //Cure collection and counting variables
     public int totalCureCount;
     int cureCollected;
 
-    bool collectedAllCures;
+    public bool collectedAllCures;
     private GameObject[] findCures;
 
     void Awake()
@@ -110,16 +111,8 @@ public class gameManager : MonoBehaviour
             secretWall.GetComponent<Renderer>().enabled = false;
             secretWall.GetComponent<Collider>().enabled = false;
         }
-
-        if (enemiesRemaining <= 0 && collectedAllCures)
-        {
-            activeMenu = winMenu;
-            activeMenu.SetActive(true);
-            statePaused();
-        }
-
     }
-
+    
     public void updateCureGameGoal(int amount) 
     { 
         cureCollected += amount;
@@ -129,13 +122,13 @@ public class gameManager : MonoBehaviour
         {
             collectedAllCures = true;
         }
-        if (collectedAllCures && enemiesRemaining <= 0)
-        {
-            activeMenu = winMenu;
-            activeMenu.SetActive(true);
-            statePaused();
-        }
+    }
 
+    public void youWin()
+    {
+        activeMenu = winMenu;
+        activeMenu.SetActive(true);
+        statePaused();
     }
     public void youLose()
     {
@@ -169,4 +162,5 @@ public class gameManager : MonoBehaviour
 
         gameTimer.text = "Time " + minuteCount.ToString("00") + ":" + secondsToInt.ToString("00");
     }
+
 }
