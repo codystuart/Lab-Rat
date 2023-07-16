@@ -20,13 +20,12 @@ public class exitDoor : MonoBehaviour
         {
             changeLightColor();
         }
-        if (playerInRange && Input.GetKeyDown("e"))
+        if (playerInRange && playerCanExit() && Input.GetKeyDown("e"))
         {
             // When more levels are added
             // Load next scene
             // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             Debug.Log("Loading next level");
-
 
             //For now player will win because there's only one level at this time
             gameManager.instance.youWin();
@@ -80,6 +79,13 @@ public class exitDoor : MonoBehaviour
         else
             return false;
     }    
+    
+    bool playerCanExit()
+    {
+        if (keycardAcquired() && cureCollected() && zombiesEliminated())
+            return true;
+        else return false;
+    }
 
     void showText()
     {
@@ -95,7 +101,7 @@ public class exitDoor : MonoBehaviour
         {
             lockedClearAreaText.SetActive(true);
         }
-        else
+        else if (playerCanExit())
         {
             exitDoorInteractText.SetActive(true);
         }
@@ -115,7 +121,7 @@ public class exitDoor : MonoBehaviour
         {
             lockedClearAreaText.SetActive(false);
         }
-        else
+        else if (playerCanExit())
         {
             exitDoorInteractText.SetActive(false);
         }
