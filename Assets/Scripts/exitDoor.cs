@@ -30,6 +30,10 @@ public class exitDoor : MonoBehaviour
             //For now player will win because there's only one level at this time
             gameManager.instance.youWin();
         }
+        else if (playerInRange && !playerCanExit() && Input.GetKeyDown("e"))
+        {
+            // Door Locked Sound
+        }
     }
 
     private void OnTriggerStay(Collider other)

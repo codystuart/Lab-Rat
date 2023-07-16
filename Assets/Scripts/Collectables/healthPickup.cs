@@ -8,6 +8,7 @@ public class healthPickup : MonoBehaviour, ICollectable, IHealth
     {
         if (gameManager.instance.playerScript.HP < gameManager.instance.playerScript.originalHP)
         {
+            // Play Pickup Sound
             gameObject.SetActive(false);
             giveHealth(50);
         }

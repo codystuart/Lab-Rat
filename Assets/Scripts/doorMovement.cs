@@ -15,6 +15,7 @@ public class doorMovement : MonoBehaviour
         if (playerInRange && Input.GetKeyDown("e"))
         {
             Debug.Log("Door opens");
+            //Play Door Opening Sound
             doorIsOpen = true;
             hideText();
             transform.localRotation = Quaternion.Euler(0, 0, 90); 
