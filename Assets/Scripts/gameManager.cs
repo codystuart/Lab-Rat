@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
 
 public class gameManager : MonoBehaviour
@@ -13,14 +13,18 @@ public class gameManager : MonoBehaviour
     public playerController playerScript;
     public GameObject playerSpawnPos;
 
-    [Header("----- UI Objects -----")]
+    [Header("----- UI Menus -----")]
     public GameObject activeMenu;
     public GameObject pauseMenu;
     public GameObject loseMenu;
     public GameObject winMenu;
+
+    [Header("----- UI Objects -----")]
     public TextMeshProUGUI enemiesRemainingText;
     public TextMeshProUGUI cureBottlesRemainingText;
     public TextMeshProUGUI gameTimer;
+    public TextMeshProUGUI currAmmoText;
+    public TextMeshProUGUI maxAmmoText;
     public GameObject playerFlashDamagePanel;
     public GameObject reticle;
     public Image playerHpBar;
@@ -162,5 +166,4 @@ public class gameManager : MonoBehaviour
 
         gameTimer.text = "Time " + minuteCount.ToString("00") + ":" + secondsToInt.ToString("00");
     }
-
 }
