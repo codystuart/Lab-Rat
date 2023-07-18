@@ -979,8 +979,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aabe7dadc76b62341a663f347252f2e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInRange: 0
-  doorIsOpen: 0
   doorInteractText: {fileID: 0}
 --- !u!114 &2783248201944255447
 MonoBehaviour:
@@ -2473,6 +2471,7 @@ GameObject:
   - component: {fileID: 8535006985417920557}
   - component: {fileID: 4433804843125298027}
   - component: {fileID: 5183969334726663777}
+  - component: {fileID: 4282708182332936155}
   m_Layer: 0
   m_Name: Interactable Door
   m_TagString: Untagged
@@ -3384,6 +3383,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!208 &4282708182332936155
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6319643624924008397}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.36600003, y: 2, z: 1.4950001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.28300002, y: 2, z: -0.49500003}
+  m_TimeToStationary: 0.5
 --- !u!1 &8741984522539624358
 GameObject:
   m_ObjectHideFlags: 0
