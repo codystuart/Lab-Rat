@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class healthPickup : MonoBehaviour, ICollectable, IHealth
 {
+    [SerializeField] AudioSource pickupSound;
     public void Collect()
     {
         if (gameManager.instance.playerScript.HP < gameManager.instance.playerScript.originalHP)
         {
-            // Play Pickup Sound
+            //pickupSound.Play();
             gameObject.SetActive(false);
             giveHealth(50);
         }

@@ -9,14 +9,15 @@ public class doorMovement : MonoBehaviour
     private bool playerInRange;
     private bool doorIsOpen;
     [SerializeField] GameObject doorInteractText;
+    [SerializeField] AudioSource doorOpenSound;
 
     private void Update()
     {
         if (playerInRange && Input.GetKeyDown("e"))
         {
             Debug.Log("Door opens");
-            //Play Door Opening Sound
             doorIsOpen = true;
+            doorOpenSound.Play();
             hideText();
             transform.localRotation = Quaternion.Euler(0, 0, 90); 
         }

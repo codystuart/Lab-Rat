@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class curePickup : MonoBehaviour, ICollectable
 {
+    [SerializeField] AudioSource pickupSound;
     public void Collect()
     {
-        // Play Pickup Sound
+        //pickupSound.Play();
         gameObject.SetActive(false);
         gameManager.instance.updateCureGameGoal(1);
     }

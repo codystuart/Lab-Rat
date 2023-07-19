@@ -12,6 +12,7 @@ public class exitDoor : MonoBehaviour
     [SerializeField] GameObject lockedFindKeycardText;
     [SerializeField] GameObject lockedFindCureText;
     [SerializeField] GameObject lockedClearAreaText;
+    [SerializeField] AudioSource lockedDoor;
     private bool playerInRange;
 
     void Update()
@@ -32,7 +33,7 @@ public class exitDoor : MonoBehaviour
         }
         else if (playerInRange && !playerCanExit() && Input.GetKeyDown("e"))
         {
-            // Door Locked Sound
+            lockedDoor.Play();
         }
     }
 
