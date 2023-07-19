@@ -19,14 +19,19 @@ public class gameManager : MonoBehaviour
     public GameObject loseMenu;
     public GameObject winMenu;
 
-    [Header("----- UI Objects -----")]
+    [Header("----- UI Text -----")]
     public TextMeshProUGUI enemiesRemainingText;
     public TextMeshProUGUI cureBottlesRemainingText;
     public TextMeshProUGUI gameTimer;
     public TextMeshProUGUI currAmmoText;
     public TextMeshProUGUI maxAmmoText;
+
+    [Header("----- UI Objects -----")]
     public GameObject playerFlashDamagePanel;
     public GameObject reticle;
+    public GameObject fullAmmo;
+    public GameObject noAmmo;
+    public GameObject noGun;
     public Image playerHpBar;
     public Image sprintMeter;
 

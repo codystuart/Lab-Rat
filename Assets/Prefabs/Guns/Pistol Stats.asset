@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 091aaf99b3b78e14fa59274eb34ff7fe, type: 3}
   m_Name: Pistol Stats
   m_EditorClassIdentifier: 
-  gunModel: {fileID: 138940, guid: 40f85fbf483918e44862a63a0bc4bd2a, type: 3}
+  gunModel: {fileID: 5570546823762262160, guid: 77b8e69b2f9089d4f98c7ec160330029, type: 3}
   hitEffect: {fileID: 3791775391182096976, guid: 1d328970073e6d745b88223b810a4892, type: 3}
   shootRate: 0.5
   shootDamage: 1
