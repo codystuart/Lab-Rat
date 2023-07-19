@@ -119,7 +119,7 @@ Transform:
   m_Children:
   - {fileID: 8026936433087601761}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2047894786255774835
 MonoBehaviour:
@@ -142,7 +142,7 @@ MonoBehaviour:
   gravity: 20
   jumpMax: 2
   gunList: []
-  gunModel: {fileID: 0}
+  gunModel: {fileID: 710484891766492798}
   muzzleFlash: {fileID: 5435413941914462648}
   shootRate: 0
   shootDamage: 0

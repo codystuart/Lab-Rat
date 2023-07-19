@@ -195,11 +195,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &203347959 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 710484891766492798, guid: 603d1cc59b0e7264aa3f8659210f0b68, type: 3}
-  m_PrefabInstance: {fileID: 1822473631}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &466290614
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1273,10 +1268,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2047894786255774835, guid: 603d1cc59b0e7264aa3f8659210f0b68, type: 3}
-      propertyPath: gunModel
-      value: 
-      objectReference: {fileID: 203347959}
     - target: {fileID: 2380785183997117760, guid: 603d1cc59b0e7264aa3f8659210f0b68, type: 3}
       propertyPath: m_Name
       value: Player
