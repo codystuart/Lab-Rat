@@ -9,6 +9,7 @@ TagManager:
   - HPBottle
   - Player Spawn Pos
   - Keycard
+  - Pistol Muzzle Flash
   layers:
   - Default
   - TransparentFX

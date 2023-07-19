@@ -8,7 +8,6 @@ public class gunStats : ScriptableObject
 {
     [Header("----- Components -----")]
     public GameObject gunModel;
-    public GameObject[] gunChildren;
     public ParticleSystem hitEffect;
 
     [Header("----- Stats -----")]

@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: Pistol Stats
   m_EditorClassIdentifier: 
   gunModel: {fileID: 138940, guid: 40f85fbf483918e44862a63a0bc4bd2a, type: 3}
-  gunChildren: []
   hitEffect: {fileID: 3791775391182096976, guid: 1d328970073e6d745b88223b810a4892, type: 3}
   shootRate: 0.5
   shootDamage: 1
   shootDist: 35
-  currAmmo: 23
+  currAmmo: 25
   maxAmmo: 25

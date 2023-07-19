@@ -23,7 +23,6 @@ public class playerController : MonoBehaviour, IDamage
     [Header("----- Gun Stats -----")]
     [SerializeField] List<gunStats> gunList = new List<gunStats>();
     [SerializeField] GameObject gunModel;
-    [SerializeField] GameObject[] gunChildren;
     [SerializeField] GameObject muzzleFlash;
     [Range(0f,1.0f)][SerializeField] float shootRate;
     [Range(0, 10)][SerializeField] int shootDamage;
@@ -201,6 +200,19 @@ public class playerController : MonoBehaviour, IDamage
         gunModel.GetComponent<MeshFilter>().mesh = gunStat.gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().material = gunStat.gunModel.GetComponent<MeshRenderer>().sharedMaterial;
 
+        int children = gunModel.transform.childCount;
+        
+        for (int i = 0; i < children; i++)
+        {
+            if (!gunModel.transform.GetChild(i).CompareTag("Pistol Muzzle Flash"))
+            {
+                gunModel.transform.GetChild(i).GetComponent<MeshFilter>().mesh
+                        = gunStat.gunModel.transform.GetChild(i).GetComponent<MeshFilter>().sharedMesh;
+                gunModel.transform.GetChild(i).GetComponent<MeshRenderer>().material
+                        = gunStat.gunModel.transform.GetChild(i).GetComponent<MeshRenderer>().sharedMaterial;
+            }
+        }
+
         selectedGun = gunList.Count - 1;
         updatePlayerUI();
     }
@@ -227,12 +239,6 @@ public class playerController : MonoBehaviour, IDamage
 
         gunModel.GetComponent<MeshFilter>().mesh = gunList[selectedGun].gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().material = gunList[selectedGun].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
-
-        foreach (GameObject child in gunChildren)
-        {
-            gunModel.GetComponent<MeshFilter>().mesh = gunList[selectedGun].gunModel.GetComponent<MeshFilter>().sharedMesh;
-            gunModel.GetComponent<MeshRenderer>().material = gunList[selectedGun].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
-        }
 
         updatePlayerUI();
     }
