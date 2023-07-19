@@ -23,6 +23,7 @@ public class playerController : MonoBehaviour, IDamage
     [Header("----- Gun Stats -----")]
     [SerializeField] List<gunStats> gunList = new List<gunStats>();
     [SerializeField] GameObject gunModel;
+    [SerializeField] GameObject[] gunChildren;
     [SerializeField] GameObject muzzleFlash;
     [Range(0f,1.0f)][SerializeField] float shootRate;
     [Range(0, 10)][SerializeField] int shootDamage;
@@ -226,6 +227,12 @@ public class playerController : MonoBehaviour, IDamage
 
         gunModel.GetComponent<MeshFilter>().mesh = gunList[selectedGun].gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().material = gunList[selectedGun].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
+
+        foreach (GameObject child in gunChildren)
+        {
+            gunModel.GetComponent<MeshFilter>().mesh = gunList[selectedGun].gunModel.GetComponent<MeshFilter>().sharedMesh;
+            gunModel.GetComponent<MeshRenderer>().material = gunList[selectedGun].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
+        }
 
         updatePlayerUI();
     }
