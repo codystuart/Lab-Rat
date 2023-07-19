@@ -34,6 +34,7 @@ public class playerController : MonoBehaviour, IDamage
     public int originalHP;
     int jumpCount;
     int selectedGun;
+    int children;
     bool playerGrounded;
     bool isShooting;
     bool sprintCooldown;
@@ -191,6 +192,7 @@ public class playerController : MonoBehaviour, IDamage
 
     public void gunPickup(gunStats gunStat)
     {
+        children = gunModel.transform.childCount;
         gunList.Add(gunStat);
 
         shootRate = gunStat.shootRate;
@@ -200,8 +202,6 @@ public class playerController : MonoBehaviour, IDamage
         gunModel.GetComponent<MeshFilter>().mesh = gunStat.gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().material = gunStat.gunModel.GetComponent<MeshRenderer>().sharedMaterial;
 
-        int children = gunModel.transform.childCount;
-        
         for (int i = 0; i < children; i++)
         {
             if (!gunModel.transform.GetChild(i).CompareTag("Pistol Muzzle Flash"))
@@ -233,12 +233,24 @@ public class playerController : MonoBehaviour, IDamage
 
     void changeGunStats()
     {
+        children = gunModel.transform.childCount;
         shootDamage = gunList[selectedGun].shootDamage;
         shootDist = gunList[selectedGun].shootDist;
         shootRate = gunList[selectedGun].shootRate;
 
         gunModel.GetComponent<MeshFilter>().mesh = gunList[selectedGun].gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().material = gunList[selectedGun].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
+
+        for (int i = 0; i < children; i++)
+        {
+            if (!gunModel.transform.GetChild(i).CompareTag("Pistol Muzzle Flash"))
+            {
+                gunModel.transform.GetChild(i).GetComponent<MeshFilter>().mesh
+                        = gunList[selectedGun].gunModel.transform.GetChild(i).GetComponent<MeshFilter>().sharedMesh;
+                gunModel.transform.GetChild(i).GetComponent<MeshRenderer>().material
+                        = gunList[selectedGun].gunModel.transform.GetChild(i).GetComponent<MeshRenderer>().sharedMaterial;
+            }
+        }
 
         updatePlayerUI();
     }
