@@ -10,19 +10,21 @@ public class slamTank : MonoBehaviour, IDamage
 {
     [Header("Components")]
     [SerializeField] Renderer model;
+    [SerializeField] GameObject tank;
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Transform headPos;
     [SerializeField] Material material;
-    [SerializeField] Rigidbody rb;
     [SerializeField] GameObject enemyUI;
     [SerializeField] Image hpBar;
     [Range(1, 10)][SerializeField] int hideHP;
+    [SerializeField] CapsuleCollider hitBox;
+
 
     [Header("Tank Zombie Stats")]
-    [SerializeField] int HP = 5;
-    [SerializeField] int damage = 10;
-    [SerializeField] int jumpHeight;
+    [SerializeField] int HP;
+    [SerializeField] int damage;
     [SerializeField] int cooldown;
+    [SerializeField] GameObject itemDrop;
 
     [Header("Tank Zombie Navigation")]
     [Range(10, 360)][SerializeField] int viewAngle = 90;
@@ -37,18 +39,21 @@ public class slamTank : MonoBehaviour, IDamage
     int originalHP;
     bool playerInRange;
     bool destinationChosen;
-    bool canSlam = true;
+    bool canSlam;
     bool isHitting;
+    bool isRaged;
     float angleToPlayer;
     float stoppingDistanceOrig;
 
     void Start()
     {
+        
         originalHP = HP;
         gameManager.instance.updateGameGoal(1);
         stoppingDistanceOrig = agent.stoppingDistance;
         startingPos = transform.position;
         enemyUI.SetActive(false);
+        canSlam = true;
     }
 
     void Update()
@@ -129,8 +134,10 @@ public class slamTank : MonoBehaviour, IDamage
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
-            StartCoroutine(slam());
-
+            if (canSlam && canSeePlayer())
+            {
+                StartCoroutine(PreExplode());
+            }
         }
 
     }
@@ -152,6 +159,10 @@ public class slamTank : MonoBehaviour, IDamage
 
         if (HP <= 0)
         {
+            if (itemDrop != null)
+            {
+                Instantiate(itemDrop, transform.position, Quaternion.identity);
+            }
             Destroy(gameObject);
             gameManager.instance.updateGameGoal(-1);
         }
@@ -172,42 +183,79 @@ public class slamTank : MonoBehaviour, IDamage
 
     IEnumerator flashDamage()
     {
-        model.material.color = Color.red;
-        yield return new WaitForSeconds(0.1f);
-        model.material = material;
+        if (!isRaged)
+        {
+            model.material.color = Color.red;
+            yield return new WaitForSeconds(0.1f);
+            model.material = material;
+        }
+        else
+        {
+            model.material.color = Color.red;
+            yield return new WaitForSeconds(0.1f);
+            model.material.color = Color.magenta;
+        }
     }
 
-    //IEnumerator dealDamage()
-    //{
-    //    isHitting = true;
-    //    gameManager.instance.player.GetComponent<playerController>().TakeDamage(damage);
+    IEnumerator dealDamage()
+    {
+        scaleModelForAttack();
+        isHitting = true;
+        gameManager.instance.player.GetComponent<playerController>().TakeDamage(damage);
 
-    //    // Knock back the player by a space
-    //    //gameManager.instance.player.transform.position =
-    //    //    new Vector3(gameManager.instance.player.transform.position.x, gameManager.instance.player.transform.position.y, (gameManager.instance.player.transform.position.z - 1f));
+        yield return new WaitForSeconds(1f);
+        isHitting = false;
 
+        StartCoroutine(Cooldown());
+    }
 
-    //    yield return new WaitForSeconds(1f);
-    //    isHitting = false;
-    //}
-
-    IEnumerator slam()
-    { 
-        yield return new WaitForSeconds(3);
-
-        //Jump
-
-        //deal damage when touching ground
-
-        StartCoroutine(slamCooldown());
+    IEnumerator PreExplode()
+    {
+        isRaged = true;
+        scaleModelForAttack();
+       
+        yield return new WaitForSeconds(cooldown);
+        
+        if (playerInRange)
+        {
+            isRaged = false;
+            StartCoroutine(dealDamage());
+        }
+        else
+        {
+            isRaged = false;
+            scaleModelForAttack();
+        }
         
     }
 
-    IEnumerator slamCooldown()
+    IEnumerator Cooldown()
     {
         canSlam = false;
         yield return new WaitForSeconds(cooldown);
         canSlam = true;
+        if (playerInRange) 
+        {
+            StartCoroutine(PreExplode());        
+        }
+    }
+
+    void scaleModelForAttack()
+    {
+        if(isRaged)
+        {
+            model.material.color = Color.magenta;
+            tank.transform.localScale *= 1.5f;
+            hitBox.radius *= 2f;
+            hitBox.height *= 2f;
+        }
+        else
+        {
+            tank.transform.localScale /= 1.5f;
+            hitBox.radius /= 2f;
+            hitBox.height /= 2f;
+            model.material = material;
+        }
     }
 
 }

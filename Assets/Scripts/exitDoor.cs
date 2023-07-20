@@ -16,20 +16,28 @@ public class exitDoor : MonoBehaviour
     private bool playerInRange;
 
     void Update()
-    { 
+    {
+        
+
         if (keycardAcquired())
         {
             changeLightColor();
         }
         if (playerInRange && playerCanExit() && Input.GetKeyDown("e"))
         {
-            // When more levels are added
-            // Load next scene
-            // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            Debug.Log("Loading next level");
+            // If last level player wins
+            if (SceneManager.GetActiveScene().buildIndex == 2)
+            {
+                gameManager.instance.youWin();
+            }
+            else // If more levels, load next level
+            {
+                gameManager.instance.save.gunListSave = gameManager.instance.playerScript.gunList;
 
-            //For now player will win because there's only one level at this time
-            gameManager.instance.youWin();
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                Debug.Log("Loading next level");
+
+            }
         }
         else if (playerInRange && !playerCanExit() && Input.GetKeyDown("e"))
         {

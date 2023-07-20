@@ -7,7 +7,7 @@ public class buttonFunctions : MonoBehaviour
 {
     public void play()
     {
-        //load next scene (make lab scene number one in hierarchy)
+        // Load Level 1
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
@@ -25,13 +25,14 @@ public class buttonFunctions : MonoBehaviour
     public void restart()
     {
         gameManager.instance.stateUnpaused();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        // Load Level 1
+        SceneManager.LoadScene(1);
     }
 
     public void mainMenu()
     {
-        //load previous scene (make main menu number zero in hierarchy)
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        //Load Main Menu
+        SceneManager.LoadScene(0);
     }
 
     public void quit()

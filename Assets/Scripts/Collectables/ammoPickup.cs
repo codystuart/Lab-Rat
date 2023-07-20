@@ -38,5 +38,4 @@ public class ammoPickup : MonoBehaviour
         gameManager.instance.noGun.SetActive(false);
     }
 
-    
 }

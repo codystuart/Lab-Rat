@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEditor.SearchService;
+using UnityEngine.SceneManagement;
 
 public class gameManager : MonoBehaviour
 {
@@ -35,9 +37,9 @@ public class gameManager : MonoBehaviour
     public Image playerHpBar;
     public Image sprintMeter;
 
-
     [Header("----- Map Objects ------")]
     [SerializeField] GameObject secretWall;
+    public saveStats save;
 
     public int enemiesRemaining;
     bool isPaused;
@@ -46,6 +48,7 @@ public class gameManager : MonoBehaviour
     private int minuteCount;
     private bool pauseTimer;
     public bool keycardAcquired;
+    
 
     //Cure collection and counting variables
     public int totalCureCount;
@@ -53,6 +56,14 @@ public class gameManager : MonoBehaviour
 
     public bool collectedAllCures;
     private GameObject[] findCures;
+
+    [Header("----- Puzzle -----")]
+    [SerializeField] List<GameObject> correctBtnOrder = new List<GameObject>();
+    [SerializeField] List<GameObject> btnPressedOrder = new List<GameObject>();
+    [SerializeField] GameObject keycard;
+    [SerializeField] GameObject tryAgainPuzzleText;
+    [SerializeField] GameObject keycardAcquiredText;
+    public bool correctOrder = false;
 
     void Awake()
     {
@@ -65,6 +76,16 @@ public class gameManager : MonoBehaviour
         //Alternate method to count total cures?
         findCures = GameObject.FindGameObjectsWithTag("Cure");
         totalCureCount = findCures.Length;
+        
+        playerScript.gunList = save.gunListSave;
+        playerScript.selectedGun = 0;
+
+        UnityEngine.SceneManagement.Scene sceneCurr = SceneManager.GetActiveScene();
+        string sceneName = sceneCurr.name;
+        if (sceneName == "Level 1")
+        {
+            save.gunListSave.Clear();
+        }
         
     }
 
@@ -170,5 +191,49 @@ public class gameManager : MonoBehaviour
         int secondsToInt = (int)secondsCount;
 
         gameTimer.text = "Time " + minuteCount.ToString("00") + ":" + secondsToInt.ToString("00");
+    }
+    public void ButtonPressedOrder(GameObject button)
+    {
+        Debug.Log("Button Added To list");
+        btnPressedOrder.Add(button);
+
+        if(btnPressedOrder.Count == correctBtnOrder.Count)
+        {
+            for (int i = 0; i < correctBtnOrder.Count; i++)
+            {
+                if (correctBtnOrder[i] == btnPressedOrder[i])
+                {
+                    correctOrder = true;
+                }
+                else
+                {
+                    correctOrder = false;
+                    break;
+                }
+            }
+            if (correctOrder)
+            {
+                StartCoroutine(KeycardAcquired());
+                Instantiate(keycard, player.transform.position, player.transform.rotation);
+            }
+            else
+            {
+                StartCoroutine(FailedPuzzle());
+                btnPressedOrder.Clear();
+                // play error sound
+            }
+        }
+    }
+    IEnumerator KeycardAcquired()
+    {
+        keycardAcquiredText.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        keycardAcquiredText.SetActive(false);
+    }
+    IEnumerator FailedPuzzle()
+    {
+        tryAgainPuzzleText.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        tryAgainPuzzleText.SetActive(false);
     }
 }
