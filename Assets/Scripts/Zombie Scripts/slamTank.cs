@@ -131,11 +131,13 @@ public class slamTank : MonoBehaviour, IDamage
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && canSlam)
+        if (other.CompareTag("Player"))
         {
             playerInRange = true;
-            StartCoroutine(PreExplode());
-
+            if (canSlam && canSeePlayer())
+            {
+                StartCoroutine(PreExplode());
+            }
         }
 
     }
