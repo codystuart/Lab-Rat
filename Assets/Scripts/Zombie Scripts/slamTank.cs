@@ -13,15 +13,13 @@ public class slamTank : MonoBehaviour, IDamage
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Transform headPos;
     [SerializeField] Material material;
-    [SerializeField] Rigidbody rb;
     [SerializeField] GameObject enemyUI;
     [SerializeField] Image hpBar;
     [Range(1, 10)][SerializeField] int hideHP;
 
     [Header("Tank Zombie Stats")]
-    [SerializeField] int HP = 5;
-    [SerializeField] int damage = 10;
-    [SerializeField] int jumpHeight;
+    [SerializeField] int HP;
+    [SerializeField] int damage;
     [SerializeField] int cooldown;
 
     [Header("Tank Zombie Navigation")]
@@ -129,7 +127,7 @@ public class slamTank : MonoBehaviour, IDamage
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
-            StartCoroutine(slam());
+            StartCoroutine(PreExplode());
 
         }
 
@@ -177,37 +175,46 @@ public class slamTank : MonoBehaviour, IDamage
         model.material = material;
     }
 
-    //IEnumerator dealDamage()
-    //{
-    //    isHitting = true;
-    //    gameManager.instance.player.GetComponent<playerController>().TakeDamage(damage);
+    IEnumerator dealDamage()
+    {
+        model.transform.localScale /= 1.5f;
+        model.material = material;
+        isHitting = true;
+        gameManager.instance.player.GetComponent<playerController>().TakeDamage(damage);
 
-    //    // Knock back the player by a space
-    //    //gameManager.instance.player.transform.position =
-    //    //    new Vector3(gameManager.instance.player.transform.position.x, gameManager.instance.player.transform.position.y, (gameManager.instance.player.transform.position.z - 1f));
+        yield return new WaitForSeconds(1f);
+        isHitting = false;
 
+        StartCoroutine(Cooldown());
+    }
 
-    //    yield return new WaitForSeconds(1f);
-    //    isHitting = false;
-    //}
-
-    IEnumerator slam()
-    { 
-        yield return new WaitForSeconds(3);
-
-        //Jump
-
-        //deal damage when touching ground
-
-        StartCoroutine(slamCooldown());
+    IEnumerator PreExplode()
+    {
+        model.material.color = Color.yellow;
+        model.transform.localScale *= 1.5f;
+        yield return new WaitForSeconds(cooldown);
+        
+        if (playerInRange)
+        {
+            StartCoroutine(dealDamage());
+        }
+        else
+        {
+            model.transform.localScale /= 1.5f;
+            model.material = material;
+        }
         
     }
 
-    IEnumerator slamCooldown()
+    IEnumerator Cooldown()
     {
         canSlam = false;
         yield return new WaitForSeconds(cooldown);
         canSlam = true;
+        if (playerInRange) 
+        {
+            StartCoroutine(PreExplode());        
+        }
     }
 
 }
