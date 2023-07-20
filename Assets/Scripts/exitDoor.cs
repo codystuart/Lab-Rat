@@ -16,7 +16,9 @@ public class exitDoor : MonoBehaviour
     private bool playerInRange;
 
     void Update()
-    { 
+    {
+        
+
         if (keycardAcquired())
         {
             changeLightColor();
@@ -30,8 +32,11 @@ public class exitDoor : MonoBehaviour
             }
             else // If more levels, load next level
             {
+                gameManager.instance.save.gunListSave = gameManager.instance.playerScript.gunList;
+
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 Debug.Log("Loading next level");
+
             }
         }
         else if (playerInRange && !playerCanExit() && Input.GetKeyDown("e"))

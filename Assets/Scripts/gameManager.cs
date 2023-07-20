@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEditor.SearchService;
+using UnityEngine.SceneManagement;
 
 public class gameManager : MonoBehaviour
 {
@@ -37,6 +39,7 @@ public class gameManager : MonoBehaviour
 
     [Header("----- Map Objects ------")]
     [SerializeField] GameObject secretWall;
+    public saveStats save;
 
     public int enemiesRemaining;
     bool isPaused;
@@ -45,6 +48,7 @@ public class gameManager : MonoBehaviour
     private int minuteCount;
     private bool pauseTimer;
     public bool keycardAcquired;
+    
 
     //Cure collection and counting variables
     public int totalCureCount;
@@ -72,6 +76,15 @@ public class gameManager : MonoBehaviour
         //Alternate method to count total cures?
         findCures = GameObject.FindGameObjectsWithTag("Cure");
         totalCureCount = findCures.Length;
+        
+        playerScript.gunList = save.gunListSave;
+
+        UnityEngine.SceneManagement.Scene sceneCurr = SceneManager.GetActiveScene();
+        string sceneName = sceneCurr.name;
+        if (sceneName == "Level 1")
+        {
+            save.gunListSave.Clear();
+        }
         
     }
 
