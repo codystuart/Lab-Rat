@@ -7,6 +7,9 @@ public class ammoPickup : MonoBehaviour
     [Header("----- Rotation Speed -----")]
     [Range(70, 100)][SerializeField] int rotationSpeed;
 
+    gunStats selectedGun;
+
+
     void Update()
     {
         //rotates ammo box
@@ -15,11 +18,13 @@ public class ammoPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        selectedGun = gameManager.instance.playerScript.gunList[gameManager.instance.playerScript.selectedGun];
+
         if (gameManager.instance.playerScript.gunList.Count < 0)
         {
             StartCoroutine(noGun());
         }
-        else if (other.CompareTag("Player"))
+        else if (other.CompareTag("Player") && selectedGun.currAmmo != selectedGun.maxAmmo)
         {
             gameManager.instance.playerScript.ammoPickup();
             Destroy(gameObject);
@@ -32,4 +37,6 @@ public class ammoPickup : MonoBehaviour
         yield return new WaitForSeconds(2);
         gameManager.instance.noGun.SetActive(false);
     }
+
+    
 }

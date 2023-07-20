@@ -33,7 +33,7 @@ public class playerController : MonoBehaviour, IDamage
     Vector3 velocity;
     public int originalHP;
     int jumpCount;
-    int selectedGun;
+    public int selectedGun;
     bool playerGrounded;
     bool isShooting;
     bool sprintCooldown;
