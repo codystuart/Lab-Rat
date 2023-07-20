@@ -24,6 +24,7 @@ public class slamTank : MonoBehaviour, IDamage
     [SerializeField] int HP;
     [SerializeField] int damage;
     [SerializeField] int cooldown;
+    [SerializeField] GameObject itemDrop;
 
     [Header("Tank Zombie Navigation")]
     [Range(10, 360)][SerializeField] int viewAngle = 90;
@@ -156,6 +157,10 @@ public class slamTank : MonoBehaviour, IDamage
 
         if (HP <= 0)
         {
+            if (itemDrop != null)
+            {
+                Instantiate(itemDrop, transform.position, Quaternion.identity);
+            }
             Destroy(gameObject);
             gameManager.instance.updateGameGoal(-1);
         }

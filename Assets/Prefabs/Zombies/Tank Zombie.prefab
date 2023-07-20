@@ -40,7 +40,7 @@ Transform:
   - {fileID: 1485996671563660006}
   - {fileID: 5741168903223056230}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4209566137507757165
 MonoBehaviour:
@@ -66,6 +66,7 @@ MonoBehaviour:
   HP: 10
   damage: 8
   cooldown: 3
+  itemDrop: {fileID: 1991420744688600882, guid: 1b8b698bdbd8273438370801467eed99, type: 3}
   viewAngle: 90
   playerFaceSpeed: 8
   roamTimer: 3
@@ -184,7 +185,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 5
+  m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &5444080380326157370
 Animator:
