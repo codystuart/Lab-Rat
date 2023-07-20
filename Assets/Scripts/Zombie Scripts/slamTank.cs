@@ -10,12 +10,15 @@ public class slamTank : MonoBehaviour, IDamage
 {
     [Header("Components")]
     [SerializeField] Renderer model;
+    [SerializeField] GameObject tank;
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Transform headPos;
     [SerializeField] Material material;
     [SerializeField] GameObject enemyUI;
     [SerializeField] Image hpBar;
     [Range(1, 10)][SerializeField] int hideHP;
+    [SerializeField] CapsuleCollider hitBox;
+
 
     [Header("Tank Zombie Stats")]
     [SerializeField] int HP;
@@ -35,18 +38,21 @@ public class slamTank : MonoBehaviour, IDamage
     int originalHP;
     bool playerInRange;
     bool destinationChosen;
-    bool canSlam = true;
+    bool canSlam;
     bool isHitting;
+    bool isRaged;
     float angleToPlayer;
     float stoppingDistanceOrig;
 
     void Start()
     {
+        
         originalHP = HP;
         gameManager.instance.updateGameGoal(1);
         stoppingDistanceOrig = agent.stoppingDistance;
         startingPos = transform.position;
         enemyUI.SetActive(false);
+        canSlam = true;
     }
 
     void Update()
@@ -124,7 +130,7 @@ public class slamTank : MonoBehaviour, IDamage
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && canSlam)
         {
             playerInRange = true;
             StartCoroutine(PreExplode());
@@ -170,15 +176,23 @@ public class slamTank : MonoBehaviour, IDamage
 
     IEnumerator flashDamage()
     {
-        model.material.color = Color.red;
-        yield return new WaitForSeconds(0.1f);
-        model.material = material;
+        if (!isRaged)
+        {
+            model.material.color = Color.red;
+            yield return new WaitForSeconds(0.1f);
+            model.material = material;
+        }
+        else
+        {
+            model.material.color = Color.red;
+            yield return new WaitForSeconds(0.1f);
+            model.material.color = Color.magenta;
+        }
     }
 
     IEnumerator dealDamage()
     {
-        model.transform.localScale /= 1.5f;
-        model.material = material;
+        scaleModelForAttack();
         isHitting = true;
         gameManager.instance.player.GetComponent<playerController>().TakeDamage(damage);
 
@@ -190,18 +204,20 @@ public class slamTank : MonoBehaviour, IDamage
 
     IEnumerator PreExplode()
     {
-        model.material.color = Color.yellow;
-        model.transform.localScale *= 1.5f;
+        isRaged = true;
+        scaleModelForAttack();
+       
         yield return new WaitForSeconds(cooldown);
         
         if (playerInRange)
         {
+            isRaged = false;
             StartCoroutine(dealDamage());
         }
         else
         {
-            model.transform.localScale /= 1.5f;
-            model.material = material;
+            isRaged = false;
+            scaleModelForAttack();
         }
         
     }
@@ -214,6 +230,24 @@ public class slamTank : MonoBehaviour, IDamage
         if (playerInRange) 
         {
             StartCoroutine(PreExplode());        
+        }
+    }
+
+    void scaleModelForAttack()
+    {
+        if(isRaged)
+        {
+            model.material.color = Color.magenta;
+            tank.transform.localScale *= 1.5f;
+            hitBox.radius *= 2f;
+            hitBox.height *= 2f;
+        }
+        else
+        {
+            tank.transform.localScale /= 1.5f;
+            hitBox.radius /= 2f;
+            hitBox.height /= 2f;
+            model.material = material;
         }
     }
 
