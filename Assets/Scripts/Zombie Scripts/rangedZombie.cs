@@ -51,7 +51,7 @@ public class rangedZombie : MonoBehaviour, IDamage
         stoppingDistanceOrig = agent.stoppingDistance;
         startingPos = transform.position;
         enemyUI.SetActive(false);
-        PlayZombieAnim("idle");
+        PlayZombieAnim("idle"); 
     }
 
     void Update()
@@ -154,8 +154,18 @@ public class rangedZombie : MonoBehaviour, IDamage
             if (itemDrop != null)
             {
                 Instantiate(itemDrop, transform.position , Quaternion.identity);
-            }
-            Destroy(gameObject);
+            } 
+            Debug.Log("Zombie respawning");
+            Destroy(gameObject); 
+            //Code below should respawn zombie one time and only after zombie dies
+            //if (this.name.Contains("Tank") == true)
+            //{
+            //    SpawnZombies.TankCrawl = true;
+            //}
+            //else if (this.name.Contains("Spitter") == true)
+            //{
+            //    SpawnZombies.SpitterCrawl = true;
+            //}
             gameManager.instance.updateGameGoal(-1);
         }
 
@@ -212,7 +222,7 @@ public class rangedZombie : MonoBehaviour, IDamage
             //animator = Zombie.GetComponent<Animation>();
             if (animator == null)
             {
-                Debug.Log("Can't find animator.");
+               // Debug.Log("Can't find animator.");
             }
             else if (animator != null)
             {

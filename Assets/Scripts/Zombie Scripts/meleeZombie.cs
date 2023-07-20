@@ -193,8 +193,8 @@ public class regularZombie : MonoBehaviour, IDamage
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log(transform.gameObject.name + " is in range of " + collision.gameObject.name);
-            playerInRange = true;
-        }
+            playerInRange = true; 
+        } 
     }
 
     void OnTriggerEnter(Collider other)
@@ -226,9 +226,19 @@ public class regularZombie : MonoBehaviour, IDamage
         if (HP <= 0)
         {
             Destroy(gameObject);
+
+            //Code below should respawn zombie one time and only after zombie dies
+            //if (this.name.Contains("Crawler") == true)
+            //{
+            //    SpawnZombies.TankCrawl = true;
+            //}
+            //else if (this.name.Contains("Regular") == true)
+            //{
+            //    SpawnZombies.SpitterCrawl = true;
+            //}
             gameManager.instance.updateGameGoal(-1);
         }
-    }
+    } 
 
     public void updateEnemyUI()
     {
