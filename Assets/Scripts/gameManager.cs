@@ -78,6 +78,7 @@ public class gameManager : MonoBehaviour
         totalCureCount = findCures.Length;
         
         playerScript.gunList = save.gunListSave;
+        playerScript.selectedGun = 0;
 
         UnityEngine.SceneManagement.Scene sceneCurr = SceneManager.GetActiveScene();
         string sceneName = sceneCurr.name;

@@ -45,6 +45,10 @@ public class playerController : MonoBehaviour, IDamage
         originalHP = HP;
         playerSpeedOrig = playerSpeed;
         spawnPlayer();
+        if (gunList.Count > 0)
+        {
+            changeGunStats();
+        }
     }
 
     void Update()
