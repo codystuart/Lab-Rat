@@ -3592,7 +3592,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 168}
+  m_AnchoredPosition: {x: 0, y: 284}
   m_SizeDelta: {x: 337.62, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &7045168026435371135
@@ -3961,7 +3961,7 @@ RectTransform:
   - {fileID: 2893978056250576339}
   - {fileID: 8792092696625349413}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4011,8 +4011,8 @@ MonoBehaviour:
   - {fileID: 0}
   btnPressedOrder: []
   keycard: {fileID: 2081395987427701210, guid: 9c93556653127234e97b01e59a5585ee, type: 3}
-  keycardAcquiredText: {fileID: 4794112267458479623}
   tryAgainPuzzleText: {fileID: 1622590925503006800}
+  keycardAcquiredText: {fileID: 4794112267458479623}
   correctOrder: 0
 --- !u!114 &3142093768559191839
 MonoBehaviour:
@@ -5231,6 +5231,7 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6256916019632794132}
+  - {fileID: 7717329648524117747}
   m_Father: {fileID: 7465198032658673284}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
