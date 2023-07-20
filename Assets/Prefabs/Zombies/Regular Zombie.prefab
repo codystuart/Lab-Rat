@@ -38,7 +38,7 @@ Transform:
   - {fileID: 249998027816121059}
   - {fileID: 458883078930936680}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1658448889381776209
 MonoBehaviour:
@@ -59,8 +59,8 @@ MonoBehaviour:
   enemyUI: {fileID: 4036662510155181014}
   hpBar: {fileID: 8206281392727342059}
   hideHP: 4
-  HP: 10
-  damage: 3
+  HP: 5
+  damage: 2
   viewAngle: 50
   playerFaceSpeed: 8
   roamTimer: 3

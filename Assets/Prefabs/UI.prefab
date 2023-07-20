@@ -3998,7 +3998,7 @@ MonoBehaviour:
   noAmmo: {fileID: 2186702357928090525}
   noGun: {fileID: 8607225703606459653}
   playerHpBar: {fileID: 1442965233006268645}
-  sprintMeter: {fileID: 1012707152433282470}
+  sprintMeter: {fileID: 0}
   secretWall: {fileID: 0}
   enemiesRemaining: 0
   keycardAcquired: 0
@@ -5231,7 +5231,6 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6256916019632794132}
-  - {fileID: 7717329648524117747}
   m_Father: {fileID: 7465198032658673284}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
