@@ -12,7 +12,7 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] CharacterController controller;
 
     [Header("----- Player Stats -----")]
-    [Range(1, 100)]public int HP;
+    [Range(1, 10)]public int HP;
     [Range(1, 10)][SerializeField] float playerSpeed;
     [Range(2, 5)] [SerializeField] float sprintDuration;
     [Range(1, 5)][SerializeField] int sprintCooldownLength;
