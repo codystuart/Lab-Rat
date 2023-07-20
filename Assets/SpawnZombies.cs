@@ -12,45 +12,58 @@ public class SpawnZombies : MonoBehaviour
     public GameObject SpitterZombieSpawnPoint;
     public GameObject TankZombie;
     public GameObject TankZombieSpawnPoint;
-    public static bool SpawnCrawl;
-    public static bool RegularCrawl;
-    public static bool SpitterCrawl;
-    public static bool TankCrawl;
+    public static bool CrawlSpawn;
+    public static bool RegularSpawn;
+    public static bool SpitterSpawn;
+    public static bool TankSpawn;
+    public int CrawlCount;
+    public int RegularCount;
+    public int SpitterCount;
+    public int TankCount;
     // Start is called before the first frame update
     void Start()
     {
-        SpawnCrawl = false;
-        RegularCrawl = false;
-        SpitterCrawl = false;
-        TankCrawl = false;
+        CrawlSpawn = false;
+        RegularSpawn = false;
+        SpitterSpawn = false;
+        TankSpawn = false;
+
+        CrawlCount = 0;
+        RegularCount = 0;
+        SpitterCount = 0;
+        TankCount = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (SpawnCrawl == true && CrawlingZombie != null && CrawlingZombieSpawnPoint != null)
+        if (CrawlSpawn == true && CrawlingZombieSpawnPoint != null && CrawlCount == 0)
         {//If SpawnCrawl is true and the Zombie and spawn point are not empty
+            CrawlCount++;
             Instantiate(CrawlingZombie,CrawlingZombieSpawnPoint.transform.position,Quaternion.identity);//Create zombie at spawn point
             Debug.Log("Respawn detected. Respawning Crawler Zombie");
-            SpawnCrawl = false;//Set bool variable back to false
+            CrawlSpawn = false;//Set bool variable back to false
         }
-        if (RegularCrawl == true && RegularZombie != null && RegularZombieSpawnPoint != null)
+        if (RegularSpawn == true && RegularZombieSpawnPoint != null&&RegularCount==0)
         {//If SpawnCrawl is true and the Zombie and spawn point are not empty
+            RegularCount++;
             Instantiate(RegularZombie, RegularZombieSpawnPoint.transform.position, Quaternion.identity);//Create zombie at spawn point
             Debug.Log("Respawn detected. Respawning Regular Zombie");
-            RegularCrawl = false;//Set bool variable back to false
+            RegularSpawn = false;//Set bool variable back to false
         }
-        if (SpitterCrawl == true && SpitterZombie != null && SpitterZombieSpawnPoint != null)
+        if (SpitterSpawn == true && SpitterZombieSpawnPoint != null&&SpitterCount==0)
         {//If SpawnCrawl is true and the Zombie and spawn point are not empty
+            SpitterCount++;
             Instantiate(SpitterZombie, SpitterZombieSpawnPoint.transform.position, Quaternion.identity);//Create zombie at spawn point
             Debug.Log("Respawn detected. Respawning Spitter Zombie");
-            SpitterCrawl = false;//Set bool variable back to false
+            SpitterSpawn = false;//Set bool variable back to false
         }
-        if (TankCrawl == true && TankZombie != null && TankZombieSpawnPoint != null)
+        if (TankSpawn == true && TankZombieSpawnPoint != null&&TankCount==0)
         {//If SpawnCrawl is true and the Zombie and spawn point are not empty
+            TankCount++;
             Instantiate(TankZombie, TankZombieSpawnPoint.transform.position, Quaternion.identity);//Create zombie at spawn point
             Debug.Log("Respawn detected. Respawning Tank Zombie");
-            TankCrawl = false;//Set bool variable back to false
+            TankSpawn = false;//Set bool variable back to false
         }
     }
 }

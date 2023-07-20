@@ -226,19 +226,7 @@ public class regularZombie : MonoBehaviour, IDamage
         if (HP <= 0)
         {
             Debug.Log("Should destory zombie. Name is "+this.name);
-            Destroy(gameObject);
-
-            //Code below should respawn zombie one time and only after zombie dies
-            if (this.name.Contains("Crawler") == true)
-            {
-                SpawnZombies.TankCrawl = true;
-                Debug.Log("Respawning Crawler zombie");
-            }
-            else if (this.name.Contains("Regular") == true)
-            {
-                SpawnZombies.SpitterCrawl = true;
-                Debug.Log("Respawning regular zombie");
-            }
+            Destroy(gameObject); 
             gameManager.instance.updateGameGoal(-1);
         }
     } 
@@ -276,8 +264,8 @@ public class regularZombie : MonoBehaviour, IDamage
         isHitting = false;
     }
 
-    public float GetDistance(Vector3 object1, Vector3 object2)
+    public int GetHealth()
     {
-        return Vector3.Distance(object1,object2);
+        return HP;
     }
 }

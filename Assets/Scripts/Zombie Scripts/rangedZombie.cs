@@ -156,20 +156,9 @@ public class rangedZombie : MonoBehaviour, IDamage
                 Instantiate(itemDrop, transform.position , Quaternion.identity);
             } 
             Debug.Log("Zombie respawning");
-            Destroy(gameObject);
-            //Code below should respawn zombie one time and only after zombie dies
-            if (this.name.Contains("Tank") == true)
-            {
-                SpawnZombies.TankCrawl = true;
-            }
-            else if (this.name.Contains("Spitter") == true)
-            {
-                SpawnZombies.SpitterCrawl = true;
-            }
+            Destroy(gameObject); 
             gameManager.instance.updateGameGoal(-1);
         }
-
-        
     }
 
     public void updateEnemyUI()
@@ -251,5 +240,8 @@ public class rangedZombie : MonoBehaviour, IDamage
         }
     }
 
-
+    public int GetHealth()
+    {
+        return HP;
+    }
 }
