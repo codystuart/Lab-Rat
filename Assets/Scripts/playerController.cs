@@ -19,6 +19,7 @@ public class playerController : MonoBehaviour, IDamage
     [Range(5,10)][SerializeField] float jumpHeight;
     [SerializeField] float gravity;
     [SerializeField] int jumpMax;
+    [SerializeField] AudioSource pickupSound;
 
     [Header("----- Gun Stats -----")]
     public List<gunStats> gunList = new List<gunStats>();
@@ -204,6 +205,7 @@ public class playerController : MonoBehaviour, IDamage
         if(collectable != null)
         {
             collectable.Collect();
+            pickupSound.Play();
         }
     }
 

@@ -35,7 +35,6 @@ public class gameManager : MonoBehaviour
     public Image playerHpBar;
     public Image sprintMeter;
 
-
     [Header("----- Map Objects ------")]
     [SerializeField] GameObject secretWall;
 
@@ -53,6 +52,14 @@ public class gameManager : MonoBehaviour
 
     public bool collectedAllCures;
     private GameObject[] findCures;
+
+    [Header("----- Puzzle -----")]
+    [SerializeField] List<GameObject> correctBtnOrder = new List<GameObject>();
+    [SerializeField] List<GameObject> btnPressedOrder = new List<GameObject>();
+    [SerializeField] GameObject keycard;
+    [SerializeField] GameObject tryAgainPuzzleText;
+    [SerializeField] GameObject keycardAcquiredText;
+    public bool correctOrder = false;
 
     void Awake()
     {
@@ -170,5 +177,49 @@ public class gameManager : MonoBehaviour
         int secondsToInt = (int)secondsCount;
 
         gameTimer.text = "Time " + minuteCount.ToString("00") + ":" + secondsToInt.ToString("00");
+    }
+    public void ButtonPressedOrder(GameObject button)
+    {
+        Debug.Log("Button Added To list");
+        btnPressedOrder.Add(button);
+
+        if(btnPressedOrder.Count == correctBtnOrder.Count)
+        {
+            for (int i = 0; i < correctBtnOrder.Count; i++)
+            {
+                if (correctBtnOrder[i] == btnPressedOrder[i])
+                {
+                    correctOrder = true;
+                }
+                else
+                {
+                    correctOrder = false;
+                    break;
+                }
+            }
+            if (correctOrder)
+            {
+                StartCoroutine(KeycardAcquired());
+                Instantiate(keycard, player.transform.position, player.transform.rotation);
+            }
+            else
+            {
+                StartCoroutine(FailedPuzzle());
+                btnPressedOrder.Clear();
+                // play error sound
+            }
+        }
+    }
+    IEnumerator KeycardAcquired()
+    {
+        keycardAcquiredText.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        keycardAcquiredText.SetActive(false);
+    }
+    IEnumerator FailedPuzzle()
+    {
+        tryAgainPuzzleText.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        tryAgainPuzzleText.SetActive(false);
     }
 }
