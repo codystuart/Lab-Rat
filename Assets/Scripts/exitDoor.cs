@@ -23,13 +23,16 @@ public class exitDoor : MonoBehaviour
         }
         if (playerInRange && playerCanExit() && Input.GetKeyDown("e"))
         {
-            // When more levels are added
-            // Load next scene
-            // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            Debug.Log("Loading next level");
-
-            //For now player will win because there's only one level at this time
-            gameManager.instance.youWin();
+            // If last level player wins
+            if (SceneManager.GetActiveScene().buildIndex == 2)
+            {
+                gameManager.instance.youWin();
+            }
+            else // If more levels, load next level
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                Debug.Log("Loading next level");
+            }
         }
         else if (playerInRange && !playerCanExit() && Input.GetKeyDown("e"))
         {
