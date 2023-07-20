@@ -225,17 +225,20 @@ public class regularZombie : MonoBehaviour, IDamage
 
         if (HP <= 0)
         {
+            Debug.Log("Should destory zombie. Name is "+this.name);
             Destroy(gameObject);
 
             //Code below should respawn zombie one time and only after zombie dies
-            //if (this.name.Contains("Crawler") == true)
-            //{
-            //    SpawnZombies.TankCrawl = true;
-            //}
-            //else if (this.name.Contains("Regular") == true)
-            //{
-            //    SpawnZombies.SpitterCrawl = true;
-            //}
+            if (this.name.Contains("Crawler") == true)
+            {
+                SpawnZombies.TankCrawl = true;
+                Debug.Log("Respawning Crawler zombie");
+            }
+            else if (this.name.Contains("Regular") == true)
+            {
+                SpawnZombies.SpitterCrawl = true;
+                Debug.Log("Respawning regular zombie");
+            }
             gameManager.instance.updateGameGoal(-1);
         }
     } 
