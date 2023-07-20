@@ -93,6 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4027371559687109367}
+  - component: {fileID: 789844645690254447}
   - component: {fileID: 2047894786255774835}
   - component: {fileID: 5105460330003665063}
   - component: {fileID: 6964194190448827647}
@@ -119,8 +120,16 @@ Transform:
   m_Children:
   - {fileID: 8026936433087601761}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &789844645690254447
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2380785183997117760}
+  m_Enabled: 1
 --- !u!114 &2047894786255774835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,6 +157,7 @@ MonoBehaviour:
   shootDamage: 0
   shootDist: 0
   originalHP: 0
+  selectedGun: 0
 --- !u!143 &5105460330003665063
 CharacterController:
   m_ObjectHideFlags: 0
