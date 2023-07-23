@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class keycardPickup : MonoBehaviour, ICollectable
+public class keycardPickup : MonoBehaviour, ICollectible
 {
 
     public void Collect()

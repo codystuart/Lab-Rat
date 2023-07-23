@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1897,6 +1897,10 @@ MonoBehaviour:
   SpitterZombieSpawnPoint: {fileID: 891056022}
   TankZombie: {fileID: 1856934198}
   TankZombieSpawnPoint: {fileID: 1114488125}
+  CrawlCount: 0
+  RegularCount: 0
+  SpitterCount: 0
+  TankCount: 0
 --- !u!1 &260479405
 GameObject:
   m_ObjectHideFlags: 0
@@ -12378,7 +12382,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1144648569}
   m_Layer: 0
-  m_Name: Collectables
+  m_Name: Collectibles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12728,7 +12732,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4027371559687109367, guid: 603d1cc59b0e7264aa3f8659210f0b68, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.73
+      value: 6.13
       objectReference: {fileID: 0}
     - target: {fileID: 4027371559687109367, guid: 603d1cc59b0e7264aa3f8659210f0b68, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12736,7 +12740,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4027371559687109367, guid: 603d1cc59b0e7264aa3f8659210f0b68, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.02
+      value: -5.35
       objectReference: {fileID: 0}
     - target: {fileID: 4027371559687109367, guid: 603d1cc59b0e7264aa3f8659210f0b68, type: 3}
       propertyPath: m_LocalRotation.w

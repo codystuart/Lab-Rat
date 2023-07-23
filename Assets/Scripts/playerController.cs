@@ -205,10 +205,10 @@ public class playerController : MonoBehaviour, IDamage
     // Player can pick up items
     void OnTriggerEnter(Collider other)
     {
-        ICollectable collectable = other.GetComponent<ICollectable>();
-        if(collectable != null)
+        ICollectible collectible = other.GetComponent<ICollectible>();
+        if(collectible != null)
         {
-            collectable.Collect();
+            collectible.Collect();
             pickupSound.Play();
         }
     }

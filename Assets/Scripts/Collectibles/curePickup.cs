@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class curePickup : MonoBehaviour, ICollectable
+public class curePickup : MonoBehaviour, ICollectible
 {
     [SerializeField] AudioSource pickupSound;
     public void Collect()
