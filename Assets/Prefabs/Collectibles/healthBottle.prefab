@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 260686035503035374}
   - component: {fileID: 4698354944795617328}
   - component: {fileID: 286276706572108046}
+  - component: {fileID: 2000964421953833218}
   m_Layer: 0
   m_Name: healthBottle
   m_TagString: HPBottle
@@ -120,7 +121,7 @@ Transform:
   - {fileID: 1101347572417932428}
   - {fileID: 2726025692163015809}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6429190663739106928
 MonoBehaviour:
@@ -296,7 +297,7 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
@@ -330,6 +331,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &2000964421953833218
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991420744688600882}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 3.5
+  m_Center: {x: 0, y: 0.43347752, z: 0.00000005960465}
 --- !u!1 &5844675861701123284
 GameObject:
   m_ObjectHideFlags: 0

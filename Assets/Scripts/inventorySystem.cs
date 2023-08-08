@@ -8,6 +8,7 @@ public class inventorySystem : MonoBehaviour
 {
     public static inventorySystem inventory;
     public GameObject interact;
+    public GameObject invFull;
     public List<itemData> items = new List<itemData>();
 
     public Transform itemContent;
@@ -25,7 +26,10 @@ public class inventorySystem : MonoBehaviour
 
     public void Remove(itemData item)
     {
-        items.Remove(item);
+        if (items.Count > 0)
+        {
+            items.Remove(item);
+        }
     }
 
     public void ListItems()

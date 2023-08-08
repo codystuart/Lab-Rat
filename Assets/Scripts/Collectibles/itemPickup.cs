@@ -7,37 +7,54 @@ public class itemPickup : MonoBehaviour
     //inventory only (health, cure, ammo, batteries, keycard)
     [SerializeField] itemData data;
 
+    int maxItems = 3;
     bool canPickup;
 
     void Update()
     {
-        if (canPickup)
+        //if player is near item and presses E, pick it up
+        if (canPickup && Input.GetKeyDown(KeyCode.E))
         {
-            inventorySystem.inventory.interact.SetActive(true);
-
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                inventorySystem.inventory.interact.SetActive(false);
-                Pickup();
-            }
+            Pickup();
+            inventorySystem.inventory.interact.SetActive(false);
         }
     }
 
     public void Pickup()
     {
-        inventorySystem.inventory.Add(data);
-        Destroy(gameObject);
+        //while the amount of held items is less than the max
+        //add them to the inventory
+        if (inventorySystem.inventory.items.Count > maxItems - 1)
+            StartCoroutine(inventoryFull());
+        else
+        {
+            inventorySystem.inventory.Add(data);
+            Destroy(gameObject);
+        }
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
+        {
             canPickup = true;
+            inventorySystem.inventory.interact.SetActive(true);
+        }
     }
 
     void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
+        {
             canPickup = false;
+            inventorySystem.inventory.interact.SetActive(false);
+        }
+    }
+
+    IEnumerator inventoryFull()
+    {
+        inventorySystem.inventory.invFull.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        inventorySystem.inventory.invFull.SetActive(false);
     }
 }

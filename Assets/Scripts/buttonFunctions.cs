@@ -36,15 +36,15 @@ public class buttonFunctions : MonoBehaviour
     }
 
     //inventory buttons in progress
-    //public void use()
-    //{
-    //
-    //}
-    //
-    //public void drop()
-    //{
-    //
-    //}
+    public void use()
+    {
+    
+    }
+    
+    public void drop()
+    {
+    
+    }
 
     public void quit()
     {
