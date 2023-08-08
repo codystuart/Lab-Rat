@@ -5,6 +5,7 @@ using UnityEngine;
 public class inventorySystem : MonoBehaviour
 {
     public static inventorySystem inventory;
+    public GameObject interact;
     public List<itemData> items = new List<itemData>();
 
     public void Awake()

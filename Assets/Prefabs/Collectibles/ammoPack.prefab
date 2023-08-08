@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4566254313586039769}
+  - component: {fileID: 6533335140431728117}
   - component: {fileID: 251838471812564184}
   m_Layer: 0
   m_Name: ammoPack
@@ -34,6 +35,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6533335140431728117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94771984884985010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d76bd23ebcc3b7944b847502d405e255, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 963e1414c00f7a7428c58cf3afd6aca9, type: 2}
 --- !u!65 &251838471812564184
 BoxCollider:
   m_ObjectHideFlags: 0

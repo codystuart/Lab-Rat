@@ -4,8 +4,24 @@ using UnityEngine;
 
 public class itemPickup : MonoBehaviour
 {
-    //inventory only - gun and flashlight do not use this
+    //inventory only (health, cure, ammo, batteries, keycard)
     [SerializeField] itemData data;
+
+    bool canPickup;
+
+    void Update()
+    {
+        if (canPickup)
+        {
+            inventorySystem.inventory.interact.SetActive(true);
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                inventorySystem.inventory.interact.SetActive(false);
+                Pickup();
+            }
+        }
+    }
 
     public void Pickup()
     {
@@ -13,16 +29,15 @@ public class itemPickup : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
-        {
-            //display text "E" when near the object here
+            canPickup = true;
+    }
 
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                Pickup();
-            }
-        }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+            canPickup = false;
     }
 }
