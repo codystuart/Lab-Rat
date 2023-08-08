@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1609154480987939359}
   - component: {fileID: 3716067240104312706}
   m_Layer: 0
-  m_Name: Cure Bottle
+  m_Name: cureVial
   m_TagString: Cure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
