@@ -19,6 +19,7 @@ public class gameManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject loseMenu;
     public GameObject winMenu;
+    public GameObject inventory;
 
     [Header("----- UI Text -----")]
     public TextMeshProUGUI enemiesRemainingText;
@@ -40,6 +41,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject secretWall;
     public saveStats save;
 
+    //class references
     public int enemiesRemaining;
     bool isPaused;
     float timescaleOrig;
@@ -76,7 +78,9 @@ public class gameManager : MonoBehaviour
         findCures = GameObject.FindGameObjectsWithTag("Cure");
         totalCureCount = findCures.Length;
         
-        playerScript.gunList = save.gunListSave;
+        if (playerScript.gunList.Count > 0)
+            playerScript.gunList = save.gunListSave;
+
         playerScript.selectedGun = 0;
 
         UnityEngine.SceneManagement.Scene sceneCurr = SceneManager.GetActiveScene();
@@ -92,19 +96,30 @@ public class gameManager : MonoBehaviour
     {
         if (Input.GetButtonDown("Cancel") && activeMenu == null)
         {
+            //if no menu, display pause menu
             statePaused();
             activeMenu = pauseMenu;
             activeMenu.SetActive(isPaused);
+        }
+        else if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            //if tab, open inventory
+            openInventory();
+        }
+        else if (Input.GetButtonDown("Cancel") && activeMenu != null)
+        {
+            //closes menu with escape
+            stateUnpaused();
         }
         if (!pauseTimer)
         {
             updateTimerUI();
         }
-        
     }
 
     public void statePaused()
     {
+        //pauses game
         pauseTimer = true;
         Time.timeScale = 0;
         Cursor.visible = true;
@@ -115,6 +130,7 @@ public class gameManager : MonoBehaviour
 
     public void stateUnpaused()
     {
+        //unpauses game
         pauseTimer = false;
         Time.timeScale = timescaleOrig;
         Cursor.visible = false;
@@ -126,6 +142,7 @@ public class gameManager : MonoBehaviour
     }
     public IEnumerator playerFlashDamage()
     {
+        //player damage UI
         playerFlashDamagePanel.SetActive(true);
         yield return new WaitForSeconds(0.1f);
         playerFlashDamagePanel.SetActive(false);
@@ -153,14 +170,24 @@ public class gameManager : MonoBehaviour
         }
     }
 
+    public void openInventory()
+    {
+        //opens inventory screen
+        activeMenu = inventory;
+        activeMenu.SetActive(true);
+        statePaused();
+    }
+
     public void youWin()
     {
+        //opens win menu
         activeMenu = winMenu;
         activeMenu.SetActive(true);
         statePaused();
     }
     public void youLose()
     {
+        //opens lose menu
         statePaused();
         activeMenu = loseMenu;
         activeMenu.SetActive(true);
@@ -168,12 +195,14 @@ public class gameManager : MonoBehaviour
 
     void updateCounters()
     {
+        //updated game goal labels
         enemiesRemainingText.text = enemiesRemaining.ToString("F0");
         cureBottlesRemainingText.text = cureCollected.ToString("F0") + "/" + totalCureCount.ToString("F0");
     }
 
     void updateTimerUI()
     {
+        //timer logic
         secondsCount += Time.deltaTime;
 
 
@@ -193,6 +222,7 @@ public class gameManager : MonoBehaviour
     }
     public void ButtonPressedOrder(GameObject button)
     {
+        //button puzzle logic
         Debug.Log("Button Added To list");
         btnPressedOrder.Add(button);
 

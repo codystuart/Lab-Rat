@@ -35,6 +35,17 @@ public class buttonFunctions : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    //inventory buttons in progress
+    //public void use()
+    //{
+    //
+    //}
+    //
+    //public void drop()
+    //{
+    //
+    //}
+
     public void quit()
     {
         Application.Quit();
