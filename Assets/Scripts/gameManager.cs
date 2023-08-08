@@ -176,6 +176,7 @@ public class gameManager : MonoBehaviour
         activeMenu = inventory;
         activeMenu.SetActive(true);
         statePaused();
+        inventorySystem.inventory.ListItems();
     }
 
     public void youWin()

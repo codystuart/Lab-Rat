@@ -7,7 +7,7 @@ using UnityEngine;
 public class itemData : ScriptableObject
 {
     //item data
-    public string id;
-    public string displayName;
+    public string itemName;
     public Sprite icon;
+    public GameObject prefab;
 }

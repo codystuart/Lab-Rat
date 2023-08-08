@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 45145113675964160}
   - component: {fileID: 734600208155837862}
   m_Layer: 0
-  m_Name: Keycard
+  m_Name: keycard
   m_TagString: Keycard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
