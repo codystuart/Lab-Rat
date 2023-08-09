@@ -14200,30 +14200,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 6413966698470572637, guid: 7fc93665b6870c24bbf359da90aa989a, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6413966698470572637, guid: 7fc93665b6870c24bbf359da90aa989a, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6413966698470572637, guid: 7fc93665b6870c24bbf359da90aa989a, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 6413966698470572637, guid: 7fc93665b6870c24bbf359da90aa989a, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 6413966698470572637, guid: 7fc93665b6870c24bbf359da90aa989a, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 6413966698470572637, guid: 7fc93665b6870c24bbf359da90aa989a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -80
-      objectReference: {fileID: 0}
     - target: {fileID: 7465198032658673284, guid: 7fc93665b6870c24bbf359da90aa989a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -14308,14 +14284,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8542927788236440223, guid: 7fc93665b6870c24bbf359da90aa989a, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9054654097037428139, guid: 7fc93665b6870c24bbf359da90aa989a, type: 3}
-      propertyPath: save
-      value: 
-      objectReference: {fileID: 11400000, guid: 01d52d89d02cb644d91a8db9e36d6c5e, type: 2}
     - target: {fileID: 9054654097037428139, guid: 7fc93665b6870c24bbf359da90aa989a, type: 3}
       propertyPath: correctBtnOrder.Array.data[0]
       value: 

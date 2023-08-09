@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class OptionsMenu : MonoBehaviour
 {
     public Toggle fullscreen;
-    [SerializeField] GameObject optionsMenu;
+    [SerializeField] GameObject optionsMenu, pauseMenu;
     void Start()
     {
         if(Screen.fullScreen)
@@ -43,6 +43,7 @@ public class OptionsMenu : MonoBehaviour
 
    public void Back()
    {
-    optionsMenu.SetActive(false);
+        optionsMenu.SetActive(false);
+        pauseMenu.SetActive(true);
    }
 }

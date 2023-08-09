@@ -105,15 +105,16 @@ public class gameManager : MonoBehaviour
             activeMenu = pauseMenu;
             activeMenu.SetActive(isPaused);
         }
-        else if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            //if tab, open inventory
-            openInventory();
-        }
         else if (Input.GetButtonDown("Cancel") && activeMenu != null)
         {
             //closes menu with escape
             stateUnpaused();
+            //activeMenu = null;
+        }
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            //if tab, open inventory
+            openInventory();
         }
         if (!pauseTimer)
         {

@@ -6,8 +6,7 @@ using UnityEngine.SceneManagement;
 public class buttonFunctions : MonoBehaviour
 {
 
-    [SerializeField] GameObject optionsMenu;
-    [SerializeField] GameObject creditScreen;
+    [SerializeField] GameObject optionsMenu, pauseMenu, creditScreen;
     public void play()
     {
         // Load Level 1
@@ -45,11 +44,16 @@ public class buttonFunctions : MonoBehaviour
 
     public void Options()
     {
+        //if opening from pause menu, hide the pause menu
+        if (pauseMenu != null && gameManager.instance.activeMenu == gameManager.instance.pauseMenu)
+            pauseMenu.SetActive(false);
+
         optionsMenu.SetActive(true);
     }
 
     public void Credits()
     {
+        //open credit screen
         creditScreen.SetActive(true);
     }
 }
