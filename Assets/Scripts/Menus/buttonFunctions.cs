@@ -7,6 +7,7 @@ public class buttonFunctions : MonoBehaviour
 {
 
     [SerializeField] GameObject optionsMenu;
+    [SerializeField] GameObject creditScreen;
     public void play()
     {
         // Load Level 1
@@ -49,6 +50,6 @@ public class buttonFunctions : MonoBehaviour
 
     public void Credits()
     {
-        Debug.Log("Credits loaded");
+        creditScreen.SetActive(true);
     }
 }
