@@ -7,11 +7,18 @@ public class itemPickup : MonoBehaviour
     //inventory only (health, cure, ammo, batteries, keycard)
     [SerializeField] itemData data;
 
-    int maxItems = 3;
+    [SerializeField] Vector3 rotation;
+    [SerializeField] float speed;
+
     bool canPickup;
 
     void Update()
     {
+        //!! place glow function here after completed  (maybe remove rotation) !!//
+
+        //item rotation
+        transform.Rotate(rotation * speed * Time.deltaTime, Space.World);
+
         //if player is near item and presses E, pick it up
         if (canPickup && Input.GetKeyDown(KeyCode.E))
         {
@@ -24,7 +31,7 @@ public class itemPickup : MonoBehaviour
     {
         //while the amount of held items is less than the max
         //add them to the inventory
-        if (inventorySystem.inventory.items.Count > maxItems - 1)
+        if (inventorySystem.inventory.items.Count > inventorySystem.inventory.maxItems - 1)
             StartCoroutine(inventoryFull());
         else
         {
