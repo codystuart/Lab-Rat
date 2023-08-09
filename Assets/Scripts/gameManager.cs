@@ -111,10 +111,14 @@ public class gameManager : MonoBehaviour
             stateUnpaused();
             //activeMenu = null;
         }
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab) && activeMenu == null)
         {
-            //if tab, open inventory
+            //if tab and no menu is open, open inventory
             openInventory();
+        }
+        else if (Input.GetKeyDown(KeyCode.Tab) && activeMenu == inventory)
+        {
+            stateUnpaused();
         }
         if (!pauseTimer)
         {
