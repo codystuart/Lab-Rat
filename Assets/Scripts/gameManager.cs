@@ -19,7 +19,11 @@ public class gameManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject loseMenu;
     public GameObject winMenu;
+
+    [Header("----- Inventory Objects -----")]
     public GameObject inventory;
+    public TextMeshProUGUI displayName;
+    public TextMeshProUGUI description;
 
     [Header("----- UI Text -----")]
     public TextMeshProUGUI enemiesRemainingText;
@@ -138,6 +142,10 @@ public class gameManager : MonoBehaviour
         reticle.SetActive(true);
         isPaused = !isPaused;
         activeMenu.SetActive(false);
+
+        //clean up
+        displayName.text = string.Empty;
+        description.text = string.Empty;
         activeMenu = null;
     }
     public IEnumerator playerFlashDamage()
