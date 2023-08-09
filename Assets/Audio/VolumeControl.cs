@@ -7,28 +7,20 @@ using UnityEngine.UI;
 
 public class VolumeControl : MonoBehaviour
 {
-    [SerializeField] string volumeParameter = "MusicVolume";
     [SerializeField] AudioMixer mixer;
-    [SerializeField] Slider slider;
+    [SerializeField] Slider musicSlider, sfxSlider;
 
-    private void Awake() 
+    void Start()
     {
-        slider.onValueChanged.AddListener(SetVolume);    
+        // Default music volume settings
+        musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 1f);
     }
 
     public void SetVolume(float value)
     {
-        mixer.SetFloat(volumeParameter, Mathf.Log10(value) * 20f);
+        mixer.SetFloat("MusicVolume", Mathf.Log10(value) * 20f);
+        // Save music volume settings
+        PlayerPrefs.SetFloat("MusicVolume", value);
     }
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
