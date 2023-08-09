@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class buttonFunctions : MonoBehaviour
 {
+
+    [SerializeField] GameObject optionsMenu;
     public void play()
     {
         // Load Level 1
@@ -51,9 +53,9 @@ public class buttonFunctions : MonoBehaviour
         Application.Quit();
     }
 
-    public void Settings()
+    public void Options()
     {
-        Debug.Log("Settings loaded");
+        optionsMenu.SetActive(true);
     }
 
     public void Credits()

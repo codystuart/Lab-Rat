@@ -43,8 +43,8 @@ public class gameManager : MonoBehaviour
 
     //class references
     public int enemiesRemaining;
-    bool isPaused;
-    float timescaleOrig;
+    public bool isPaused;
+    public float timescaleOrig;
     private float secondsCount;
     private int minuteCount;
     private bool pauseTimer;
