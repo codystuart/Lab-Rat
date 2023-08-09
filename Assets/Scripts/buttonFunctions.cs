@@ -50,4 +50,14 @@ public class buttonFunctions : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void Settings()
+    {
+        Debug.Log("Settings loaded");
+    }
+
+    public void Credits()
+    {
+        Debug.Log("Credits loaded");
+    }
 }
