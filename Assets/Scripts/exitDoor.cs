@@ -94,10 +94,24 @@ public class exitDoor : MonoBehaviour
     }    
     
     bool playerCanExit()
-    {
-        if (keycardAcquired() && cureCollected() && zombiesEliminated())
-            return true;
-        else return false;
+    { 
+        if (SceneManager.GetActiveScene().name == "Level 1")
+        {
+            if (keycardAcquired())
+            {
+                Debug.Log("Door will open.");
+                SceneManager.LoadScene("Level 2");
+                return true;
+            }
+            else return false;
+        }
+        else if (SceneManager.GetActiveScene().name == "Level 2")
+        {
+            if (keycardAcquired() && cureCollected() && zombiesEliminated())
+                return true;
+            else return false;
+        }
+        return false;
     }
 
     void showText()

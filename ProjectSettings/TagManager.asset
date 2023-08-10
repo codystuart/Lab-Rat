@@ -4,25 +4,22 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Reticle
-  - Cure
-  - HPBottle
-  - Player Spawn Pos
-  - Keycard
-  - Pistol Muzzle Flash
+  - InteractiveObject
+  - ExaminePoint
+  - InspectPoint
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - 
   - Water
   - UI
-  - Enemy
-  - Enemy Bullet
   - 
   - 
-  - 
-  - 
+  - ExamineLayer
+  - InspectPointLayer
+  - PostProcess
+  - PadlockSpinner
   - 
   - 
   - 
