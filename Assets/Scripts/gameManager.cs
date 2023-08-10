@@ -20,11 +20,6 @@ public class gameManager : MonoBehaviour
     public GameObject loseMenu;
     public GameObject winMenu;
 
-    [Header("----- Inventory Objects -----")]
-    public GameObject inventory;
-    public TextMeshProUGUI displayName;
-    public TextMeshProUGUI description;
-
     [Header("----- UI Text -----")]
     public TextMeshProUGUI enemiesRemainingText;
     public TextMeshProUGUI cureBottlesRemainingText;
@@ -40,6 +35,15 @@ public class gameManager : MonoBehaviour
     public GameObject noGun;
     public Image playerHpBar;
     public Image sprintMeter;
+    public Image batteryChargeBar;
+
+    [Header("----- Inventory Objects -----")]
+    public GameObject inventory;
+    public TextMeshProUGUI displayName;
+    public TextMeshProUGUI description;
+
+    [Header("----- Notes Objects -----")]
+    public GameObject notes;
 
     [Header("----- Map Objects ------")]
     [SerializeField] GameObject secretWall;

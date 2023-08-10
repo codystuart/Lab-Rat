@@ -12,6 +12,8 @@ public class inventorySystem : MonoBehaviour
     //ui stuff
     public GameObject interact;
     public GameObject invFull;
+    public TextMeshProUGUI maxItemsLabel;
+    public TextMeshProUGUI currHeldItems;
 
     //SFX
     [SerializeField] AudioSource pickupSound;
@@ -36,12 +38,14 @@ public class inventorySystem : MonoBehaviour
     public void Awake()
     {
         inventory = this;
+        maxItemsLabel.text = maxItems.ToString();
     }
 
     public void Add(itemData item)
     {
         pickupSound.Play();
         items.Add(item);
+        currHeldItems.text = items.Count.ToString();
     }
 
     public void Remove(itemData item)
@@ -103,6 +107,7 @@ public class inventorySystem : MonoBehaviour
         return theDescription;
     }
 
+    //button functions
     public void use()
     {
         if (selectedItem != null)
@@ -124,6 +129,23 @@ public class inventorySystem : MonoBehaviour
             selectedItem = null;
             ListItems();
         }
+    }
+
+    //tab button functions
+    public void invTab()
+    {
+        //turn off notes, turn on inventory
+        gameManager.instance.notes.SetActive(false);
+        gameManager.instance.inventory.SetActive(true);
+        gameManager.instance.activeMenu = gameManager.instance.inventory;
+    }
+
+    public void notesTab()
+    {
+        //turn off inventory, turn on notes
+        gameManager.instance.inventory.SetActive(false);
+        gameManager.instance.notes.SetActive(true);
+        gameManager.instance.activeMenu = gameManager.instance.notes;
     }
 
     public void itemFunction(itemData selectedItem)
@@ -161,7 +183,7 @@ public class inventorySystem : MonoBehaviour
         else if (gameManager.instance.playerScript.gunList[gameManager.instance.playerScript.selectedGun].currAmmo
             != gameManager.instance.playerScript.gunList[gameManager.instance.playerScript.selectedGun].maxAmmo)
         {
-            gameManager.instance.playerScript.ammoPickup();
+            gameManager.instance.playerScript.fillAmmo();
             items.Remove(selectedItem);
             ListItems();
         }
@@ -170,6 +192,7 @@ public class inventorySystem : MonoBehaviour
     //battery function
     public void refillBattery()
     {
+        gameManager.instance.playerScript.replaceBattery(.4f);
         items.Remove(selectedItem);
         ListItems();
     }
