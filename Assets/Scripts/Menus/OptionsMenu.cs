@@ -44,6 +44,9 @@ public class OptionsMenu : MonoBehaviour
    public void Back()
    {
         optionsMenu.SetActive(false);
-        pauseMenu.SetActive(true);
+        if (pauseMenu != null)
+        {
+            pauseMenu.SetActive(true);
+        }
    }
 }
