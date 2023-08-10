@@ -109,7 +109,7 @@ public class gameManager : MonoBehaviour
         {
             //closes menu with escape
             stateUnpaused();
-            //activeMenu = null;
+            activeMenu = null;
         }
         if (Input.GetKeyDown(KeyCode.Tab) && activeMenu == null)
         {
@@ -118,7 +118,9 @@ public class gameManager : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Tab) && activeMenu == inventory)
         {
+            inventorySystem.inventory.selectedItem = null;
             stateUnpaused();
+            activeMenu = null;
         }
         if (!pauseTimer)
         {

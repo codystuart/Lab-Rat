@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class itemPickup : MonoBehaviour
@@ -7,6 +8,7 @@ public class itemPickup : MonoBehaviour
     //inventory only (health, cure, ammo, batteries, keycard)
     [SerializeField] itemData data;
 
+    //rotation info
     [SerializeField] Vector3 rotation;
     [SerializeField] float speed;
 
@@ -35,6 +37,11 @@ public class itemPickup : MonoBehaviour
             StartCoroutine(inventoryFull());
         else
         {
+            if (data.id == 'c')
+                gameManager.instance.updateCureGameGoal(1);
+            if (data.id == 'k')
+                gameManager.instance.keycardAcquired = true;
+
             inventorySystem.inventory.Add(data);
             Destroy(gameObject);
         }

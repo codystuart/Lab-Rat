@@ -13,6 +13,10 @@ public class inventorySystem : MonoBehaviour
     public GameObject interact;
     public GameObject invFull;
 
+    //SFX
+    [SerializeField] AudioSource pickupSound;
+    [SerializeField] AudioSource dropSound;
+
     //max inventory space
     public int maxItems = 9;
 
@@ -26,6 +30,9 @@ public class inventorySystem : MonoBehaviour
     public Transform itemContent;
     public Button inventoryItem;
 
+    //reference to play position
+    public Transform player;
+
     public void Awake()
     {
         inventory = this;
@@ -33,6 +40,7 @@ public class inventorySystem : MonoBehaviour
 
     public void Add(itemData item)
     {
+        pickupSound.Play();
         items.Add(item);
     }
 
@@ -41,6 +49,7 @@ public class inventorySystem : MonoBehaviour
         if (items.Count > 0)
         {
             items.Remove(item);
+            ListItems();
         }
     }
 
@@ -52,10 +61,10 @@ public class inventorySystem : MonoBehaviour
             Destroy(item.gameObject);
         }
 
+        //creates a button
         foreach (var item in items)
         {
             Button button = Instantiate(inventoryItem, itemContent);
-            //GameObject obj = Instantiate(inventoryItem, itemContent);
             var itemName = button.transform.Find("itemName").GetComponent<TextMeshProUGUI>();
             var itemIcon = button.transform.Find("itemIcon").GetComponent<Image>();
 
@@ -66,6 +75,7 @@ public class inventorySystem : MonoBehaviour
         }
     }
 
+    //displays item name
     public void display(itemData currItem)
     {
         selectedItem = currItem;
@@ -74,6 +84,7 @@ public class inventorySystem : MonoBehaviour
         gameManager.instance.description.text = descriptionText(currId);
     }
 
+    //displays item description
     public string descriptionText(char id)
     {
         string theDescription = " ";
@@ -105,7 +116,11 @@ public class inventorySystem : MonoBehaviour
     {
         if (selectedItem != null)
         {
-
+            dropSound.Play();
+            Vector3 playerPos = new Vector3(player.position.x - 3, player.position.y, player.position.z);
+            Instantiate(selectedItem.prefab, playerPos, selectedItem.prefab.transform.rotation);
+            Remove(selectedItem);
+            selectedItem = null;
         }
     }
 
@@ -115,40 +130,54 @@ public class inventorySystem : MonoBehaviour
 
         if (id == 'a')
         {
-            if (gameManager.instance.playerScript.gunList.Count <= 0)
-            {
-                StartCoroutine(noGun());
-            }
-            else if (gameManager.instance.playerScript.gunList[gameManager.instance.playerScript.selectedGun].currAmmo
-                != gameManager.instance.playerScript.gunList[gameManager.instance.playerScript.selectedGun].maxAmmo)
-            {
-                gameManager.instance.playerScript.ammoPickup();
-                items.Remove(selectedItem);
-            }
+            refillAmmo();
         } 
         if (id == 'b')
         {
-
-        }
-        if (id == 'c')
-        {
-
+            refillBattery();
         }
         if (id == 'h')
         {
-
-        }
-        if (id == 'k')
-        {
-
+            giveHealth(50);
         }
 
         ListItems();
     }
 
+    //ammo function
+    public void refillAmmo()
+    {
+        if (gameManager.instance.playerScript.gunList.Count <= 0)
+        {
+            StartCoroutine(noGun());
+        }
+        else if (gameManager.instance.playerScript.gunList[gameManager.instance.playerScript.selectedGun].currAmmo
+            != gameManager.instance.playerScript.gunList[gameManager.instance.playerScript.selectedGun].maxAmmo)
+        {
+            gameManager.instance.playerScript.ammoPickup();
+            items.Remove(selectedItem);
+        }
+    }
+
+    //battery function
+    public void refillBattery()
+    {
+
+    }
+
+    //health function
+    public void giveHealth(int amount)
+    {
+        if (gameManager.instance.playerScript.HP < gameManager.instance.playerScript.originalHP)
+        {
+            gameManager.instance.playerScript.HP += amount;
+            gameManager.instance.playerScript.updatePlayerUI();
+        }
+    }
+
+    //tells player that they don't have a gun
     IEnumerator noGun()
     {
-        //tells player that they don't have a gun
         gameManager.instance.noGun.SetActive(true);
         yield return new WaitForSeconds(2);
         gameManager.instance.noGun.SetActive(false);
