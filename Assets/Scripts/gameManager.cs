@@ -105,7 +105,7 @@ public class gameManager : MonoBehaviour
             activeMenu = pauseMenu;
             activeMenu.SetActive(isPaused);
         }
-        else if (Input.GetButtonDown("Cancel") && activeMenu != null)
+        else if (Input.GetButtonDown("Cancel") && activeMenu != null && activeMenu != loseMenu && activeMenu != winMenu)
         {
             //closes menu with escape
             stateUnpaused();
