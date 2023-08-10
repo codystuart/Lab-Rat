@@ -33,6 +33,10 @@ public class buttonFunctions : MonoBehaviour
 
     public void mainMenu()
     {
+        // Make sure cursor is visible and time is unpaused if player presses "play" button 
+        gameManager.instance.stateUnpaused();
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
         //Load Main Menu
         SceneManager.LoadScene(0);
     }
