@@ -49,7 +49,6 @@ public class inventorySystem : MonoBehaviour
         if (items.Count > 0)
         {
             items.Remove(item);
-            ListItems();
         }
     }
 
@@ -109,6 +108,7 @@ public class inventorySystem : MonoBehaviour
         if (selectedItem != null)
         {
             itemFunction(selectedItem);
+            clearInfo();
         }
     }
 
@@ -117,10 +117,12 @@ public class inventorySystem : MonoBehaviour
         if (selectedItem != null)
         {
             dropSound.Play();
+            clearInfo();
             Vector3 playerPos = new Vector3(player.position.x - 3, player.position.y, player.position.z);
             Instantiate(selectedItem.prefab, playerPos, selectedItem.prefab.transform.rotation);
             Remove(selectedItem);
             selectedItem = null;
+            ListItems();
         }
     }
 
@@ -140,8 +142,13 @@ public class inventorySystem : MonoBehaviour
         {
             giveHealth(50);
         }
+    }
 
-        ListItems();
+    //clears item name and description
+    public void clearInfo()
+    {
+        gameManager.instance.displayName.text = string.Empty;
+        gameManager.instance.description.text = string.Empty;
     }
 
     //ammo function
@@ -156,13 +163,15 @@ public class inventorySystem : MonoBehaviour
         {
             gameManager.instance.playerScript.ammoPickup();
             items.Remove(selectedItem);
+            ListItems();
         }
     }
 
     //battery function
     public void refillBattery()
     {
-
+        items.Remove(selectedItem);
+        ListItems();
     }
 
     //health function
@@ -172,6 +181,8 @@ public class inventorySystem : MonoBehaviour
         {
             gameManager.instance.playerScript.HP += amount;
             gameManager.instance.playerScript.updatePlayerUI();
+            items.Remove(selectedItem);
+            ListItems();
         }
     }
 
