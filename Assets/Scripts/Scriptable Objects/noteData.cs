@@ -7,5 +7,5 @@ using UnityEngine;
 public class noteData : ScriptableObject
 {
     public string title;
-    public string note;
+    public List<string> noteStrings = new List<string>();
 }

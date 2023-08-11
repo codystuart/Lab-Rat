@@ -13,12 +13,15 @@ MonoBehaviour:
   m_Name: 1-2
   m_EditorClassIdentifier: 
   title: Subject #1-2
-  note: "Labe Note #XX  Date: August XX, XXXX  Subject: Subject #1 ICU treatment 
-    Summary: We have been conducting further test on subject #1, who fell into a
+  noteStrings:
+  - Labe Note #XX
+  - 'Date: August XX, XXXX'
+  - 'Subject: Subject #1 ICU treatment'
+  - "Summary: We have been conducting further test on subject #1, who fell into a
     coma after receiving compound ZC-23. Their condition had unknown causes, but
     we had to continue our search. We performed a blood analysis and discovered something
     remarkable, subject #1 had a rare genetic mutation that produced a special antibody
     in his blood. The antibody, ZA-1, was able to neutralize the virus and prevent
     it from infecting of damaging cells. In order to use this ZA-1, we need to isolate
-    it from subject #1\u2019s blood, but the only Doctor who can is currently quarantined. 
-    Signed: Dr. Lee, Lead Scientist"
+    it from subject #1\u2019s blood, but the only Doctor who can is currently quarantined."
+  - 'Signed: Dr. Lee, Lead Scientist'

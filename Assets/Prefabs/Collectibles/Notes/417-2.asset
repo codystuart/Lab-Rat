@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: 417-2
   m_EditorClassIdentifier: 
   title: Subject #417-2
-  note: "Lab Note #XX  Date: September XX, XXXX  Subject: aftermath of Subject #417\u2019s
-    outbreak  Summary: I am one of the staff members who avoided the attack of Subject
-    #417. The survivors of the attack, including myself, were quarantined as a precaution.
+  noteStrings:
+  - Lab Note #XX
+  - 'Date: September XX, XXXX'
+  - "Subject: aftermath of Subject #417\u2019s outbreak"
+  - "Summary: I am one of the staff members who avoided the attack of Subject #417.
+    The survivors of the attack, including myself, were quarantined as a precaution.
     It has been weeks since anyone has come by, we\u2019re starving. I\u2019m not
-    sure how much longer we\u2019ll make it\u2026  Signed: Dr. Chen, Senior Scientist"
+    sure how much longer we\u2019ll make it\u2026"
+  - 'Signed: Dr. Chen, Senior Scientist'

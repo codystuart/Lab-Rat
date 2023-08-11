@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Experimental.GraphView;
-using UnityEditor.MemoryProfiler;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -142,7 +140,11 @@ public class inventorySystem : MonoBehaviour
     //display note
     public void displayNote(noteData selectedNote)
     {
-        gameManager.instance.noteDescription.text = selectedNote.note;
+        for (int i = 0; i < selectedNote.noteStrings.Count; ++i)
+        {
+            gameManager.instance.noteDescription.text += selectedNote.noteStrings[i];
+            gameManager.instance.noteDescription.text += "\n\n";
+        }
     }
 
     //button functions

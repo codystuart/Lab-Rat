@@ -13,12 +13,17 @@ MonoBehaviour:
   m_Name: 1-1
   m_EditorClassIdentifier: 
   title: Subject #1-1
-  note: "Lab Note #XX  Date: June XX, XXXX  Subject: New chemical compound test -
-    Subject #1  Summary: Our first subject, John Murphy, a 23-year-old male, has
-    been given a dose of the ZC-23 compound.  Results: The compound showed remarkable
-    signs of effectiveness, such as curing the fever, pain, and aggression of the
-    subject. Further tests showed successful prevention of further mutation, and
-    the subject\u2019s body began to heal itself. After 24 hours, the subject regained
-    normal cognitive and emotional functions, and they were able to communicate with
-    staff. However, three days later, the subject fell into a deep coma. They are
-    to be transferred to the ICU until further notice.  Signed: Dr. Lee, Lead Scientist"
+  noteStrings:
+  - Lab Note #XX
+  - 'Date: June XX, XXXX'
+  - 'Subject: New chemical compound test - Subject #1'
+  - 'Summary: Our first subject, John Murphy, a 23-year-old male, has been given
+    a dose of the ZC-23 compound.'
+  - "Results: The compound showed remarkable signs of effectiveness, such as curing
+    the fever, pain, and aggression of the subject. Further tests showed successful
+    prevention of further mutation, and the subject\u2019s body began to heal itself.
+    After 24 hours, the subject regained normal cognitive and emotional functions,
+    and they were able to communicate with staff. However, three days later, the
+    subject fell into a deep coma. They are to be transferred to the ICU until further
+    notice."
+  - 'Signed: Dr. Lee, Lead Scientist'

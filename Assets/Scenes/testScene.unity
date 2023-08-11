@@ -1957,7 +1957,7 @@ PrefabInstance:
     - target: {fileID: 6778967887778057973, guid: 5aeede0be3cf3fd4d94d1b8f85023e7b, type: 3}
       propertyPath: note
       value: 
-      objectReference: {fileID: 11400000, guid: a09a6e250ad24fa418bf3e4e970c4fce, type: 2}
+      objectReference: {fileID: 11400000, guid: e13e6e2c9cfa58849912ae14dc011038, type: 2}
     - target: {fileID: 7698922234503306388, guid: 5aeede0be3cf3fd4d94d1b8f85023e7b, type: 3}
       propertyPath: m_Name
       value: Clipboard

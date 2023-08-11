@@ -13,12 +13,15 @@ MonoBehaviour:
   m_Name: p-18
   m_EditorClassIdentifier: 
   title: Patient #18
-  note: "Date: June XX, XXXX  I am an infected patient who came to this lab seeking
-    treatment. I was bitten two days ago and started to feel sick and angry. Word
-    about an experimental treatment spread to my city, and I came as quickly as I
-    could. They gave me a dose of the compound ZC-23, and it started to help me feel
-    better. I was filled with hope, this nightmare would be over soon. However, as
-    I was sleeping the next night, I was violently awoken by a nightmare. My mind
-    was filled with confusion, thoughts of insatiable hunger.  I need food! Meat!
-    I must feast upon flesh! No, I can\u2019t! But I\u2019m so hungry\u2026  I\u2019m
-    sorry patient #19, but I must put something in my stomach."
+  noteStrings:
+  - 'Date: June XX, XXXX'
+  - I am an infected patient who came to this lab seeking treatment. I was bitten
+    two days ago and started to feel sick and angry. Word about an experimental treatment
+    spread to my city, and I came as quickly as I could. They gave me a dose of the
+    compound ZC-23, and it started to help me feel better. I was filled with hope,
+    this nightmare would be over soon. However, as I was sleeping the next night,
+    I was violently awoken by a nightmare. My mind was filled with confusion, thoughts
+    of insatiable hunger.
+  - "I need food! Meat! I must feast upon flesh! No, I can\u2019t! But I\u2019m so
+    hungry\u2026"
+  - "I\u2019m sorry patient #19, but I must put something in my stomach."

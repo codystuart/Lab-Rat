@@ -13,16 +13,19 @@ MonoBehaviour:
   m_Name: Lab Note 1
   m_EditorClassIdentifier: 
   title: Lab Note 1
-  note: 'Lab Note #XX  Date: June XX, XXXX  Subject: Zombie virus outbreak and new
-    chemical compound  Summary: We have been working on a new chemical compound that
-    could potentially cure the zombie virus that has been spreading across the world.
-    The compound, named ZC-23, is a synthetic derivative of a natural plant extract.
-    We tested the compound on several infected humans in our secure facility.  Results:
-    After the compound was administered to the patients, it began to show initial
-    signs of effectiveness. Patients experienced a reduction in fever, pain, and
-    aggression. However, after 24 hours of injection, the compound had a significantly
+  noteStrings:
+  - Lab Note #XX
+  - 'Date: June XX, XXXX'
+  - 'Subject: Zombie virus outbreak and new chemical compound'
+  - 'Summary: We have been working on a new chemical compound that could potentially
+    cure the zombie virus that has been spreading across the world. The compound,
+    named ZC-23, is a synthetic derivative of a natural plant extract. We tested
+    the compound on several infected humans in our secure facility.'
+  - 'Results: After the compound was administered to the patients, it began to show
+    initial signs of effectiveness. Patients experienced a reduction in fever, pain,
+    and aggression. However, after 24 hours of injection, the compound had a significantly
     negative effect on the subjects, causing them to become more violent, erratic,
     and cannibalistic. The compound triggered a mutation in the virus, making it
     more contagious and caused the subjects bodies to mutate rapidly. The facility
-    was put on lockdown, but the experiments will continue.  Signed: Dr. Lee, Lead
-    Scientist'
+    was put on lockdown, but the experiments will continue.'
+  - 'Signed: Dr. Lee, Lead Scientist'

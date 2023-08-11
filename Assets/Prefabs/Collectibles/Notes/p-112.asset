@@ -13,18 +13,23 @@ MonoBehaviour:
   m_Name: p-112
   m_EditorClassIdentifier: 
   title: Patient #112
-  note: "Date: July X, XXXX  One day, my brother was making strange noises in the
-    living room. He sounded like he was hurt, so I went to check on him. As I reached
-    out, calling to him, he turned around and scratched my arm trying to get me away.
-    He apologized quickly, saying he didn\u2019t feel himself and thought I was another
-    one of those monsters.  Date: July XX, XXXX  A few days later, I began to feel
-    sick. My brother had fallen ill too. We hear of a lab creating a cure for the
-    virus that was spreading. I wasn\u2019t sure what illness we had, but we figured
-    we should go to the lab just in case. They separated us to different rooms. My
-    room had a funny word on the wall, q-u-a-r-e-n-t-i-n-e\u2026 I wonder what it
-    means.  The doctors gave me a shot, I don\u2019t remember what it was called.
-    I was starting to feel better! I asked to see my brother, but the doctors said
-    he wasn\u2019t cured yet.  Date: July XX, XXXX  I fell asleep later that night
-    but was woken up to the sounds of screaming. It scared me, but I didn\u2019t
-    listen because my head was pounding. My stomach growled in pain, I was so hungry.
-    Something broke the glass window to my room, I need to hide qui-"
+  noteStrings:
+  - 'Date: July X, XXXX'
+  - "One day, my brother was making strange noises in the living room. He sounded
+    like he was hurt, so I went to check on him. As I reached out, calling to him,
+    he turned around and scratched my arm trying to get me away. He apologized quickly,
+    saying he didn\u2019t feel himself and thought I was another one of those monsters."
+  - 'Date: July XX, XXXX'
+  - "A few days later, I began to feel sick. My brother had fallen ill too. We hear
+    of a lab creating a cure for the virus that was spreading. I wasn\u2019t sure
+    what illness we had, but we figured we should go to the lab just in case. They
+    separated us to different rooms. My room had a funny word on the wall, q-u-a-r-e-n-t-i-n-e\u2026
+    I wonder what it means."
+  - "The doctors gave me a shot, I don\u2019t remember what it was called. I was
+    starting to feel better! I asked to see my brother, but the doctors said he wasn\u2019t
+    cured yet."
+  - 'Date: July XX, XXXX'
+  - "I fell asleep later that night but was woken up to the sounds of screaming.
+    It scared me, but I didn\u2019t listen because my head was pounding. My stomach
+    growled in pain, I was so hungry. Something broke the glass window to my room,
+    I need to hide qui-"

@@ -13,12 +13,15 @@ MonoBehaviour:
   m_Name: Lab Note 2
   m_EditorClassIdentifier: 
   title: Lab Note 2
-  note: "Lab Note #XX  Date: July XX, XXXX  Subject: Zombie virus outbreak - Patient
-    influx  Summary: Over the past month the lab has been receiving an increasing
-    number of infected patients. The patients all share the symptoms of the zombie
-    virus. Our team is working as fast as they can to treat everyone, but we\u2019re
-    running out of supplies. Compound ZC-23 seems to be ineffective, only causing
-    each patient\u2019s symptoms to be worse. There aren\u2019t enough rooms to hold
-    everyone. We need to come up with a new solution, and fast. A distress signal
-    was sent to the military for assistance, I hope it reaches them in time.  Signed:
-    Dr. Jones, Junior Scientist"
+  noteStrings:
+  - Lab Note #XX
+  - 'Date: July XX, XXXX'
+  - 'Subject: Zombie virus outbreak - Patient influx'
+  - "Summary: Over the past month the lab has been receiving an increasing number
+    of infected patients. The patients all share the symptoms of the zombie virus.
+    Our team is working as fast as they can to treat everyone, but we\u2019re running
+    out of supplies. Compound ZC-23 seems to be ineffective, only causing each patient\u2019s
+    symptoms to be worse. There aren\u2019t enough rooms to hold everyone. We need
+    to come up with a new solution, and fast. A distress signal was sent to the military
+    for assistance, I hope it reaches them in time."
+  - 'Signed: Dr. Jones, Junior Scientist'

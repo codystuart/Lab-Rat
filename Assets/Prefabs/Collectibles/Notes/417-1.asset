@@ -13,16 +13,19 @@ MonoBehaviour:
   m_Name: 417-1
   m_EditorClassIdentifier: 
   title: Subject #417-1
-  note: "Lab Note #XX  Date: August XX, XXXX  Subject: New chemical compound test
-    - Subject #417  Summary: We began testing a modified version of the compound
-    ZC-23 on a new test subject. The compound, ZC-24, is a synthetic derivative of
-    ZC-23 with an added molecule that enhances its anti-viral properties. Subject
-    #417, Zane Gobb\xE1n, a 35-year-old male, was infected with the zombie virus
-    two weeks ago and brought to our facility for testing. We have been monitoring
-    the changes on subject #417 who received compound ZC-24.  Results: The compound
-    initially relieved a few of the patient's symptoms, but after 24 hours, the compound
-    caused a severe adverse reaction. Subject #417 became extremely aggressive and
-    escaped containment and started attacking staff members, causing them to become
-    infected. The subject also exhibited abnormal growth in size and strength, reaching
-    impossible heights and weight. He began breaking through the wall, trying to
-    esca-"
+  noteStrings:
+  - Lab Note #XX
+  - 'Date: August XX, XXXX'
+  - 'Subject: New chemical compound test - Subject #417'
+  - "Summary: We began testing a modified version of the compound ZC-23 on a new
+    test subject. The compound, ZC-24, is a synthetic derivative of ZC-23 with an
+    added molecule that enhances its anti-viral properties. Subject #417, Zane Gobb\xE1n,
+    a 35-year-old male, was infected with the zombie virus two weeks ago and brought
+    to our facility for testing. We have been monitoring the changes on subject #417
+    who received compound ZC-24."
+  - 'Results: The compound initially relieved a few of the patient''s symptoms, but
+    after 24 hours, the compound caused a severe adverse reaction. Subject #417 became
+    extremely aggressive and escaped containment and started attacking staff members,
+    causing them to become infected. The subject also exhibited abnormal growth in
+    size and strength, reaching impossible heights and weight. He began breaking
+    through the wall, trying to esca-'

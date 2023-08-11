@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: p-237
   m_EditorClassIdentifier: 
   title: Patient #237
-  note: "Date: July XX, XXXX  I won\u2019t go into too much detail as to how I got
-    sick, but I came to this lab looking to be cured. They gave me a shot of something
-    that they thought would help. They better be right.  Date: August XX, XXXX  I
-    overheard the doctors say they were working on a new cure. I asked about it,
+  noteStrings:
+  - 'Date: July XX, XXXX'
+  - "I won\u2019t go into too much detail as to how I got sick, but I came to this
+    lab looking to be cured. They gave me a shot of something that they thought would
+    help. They better be right."
+  - 'Date: August XX, XXXX'
+  - "I overheard the doctors say they were working on a new cure. I asked about it,
     but they said it wasn\u2019t ready to be administered. I got angry, really angry.
     I wasn\u2019t myself. I threw myself at the doctor, as if that would have helped
     me. They locked me in my room by myself, said they would be back. I\u2019m starting
