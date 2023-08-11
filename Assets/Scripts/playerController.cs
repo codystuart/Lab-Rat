@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -19,7 +20,6 @@ public class playerController : MonoBehaviour, IDamage
     [Range(5,10)][SerializeField] float jumpHeight;
     [SerializeField] float gravity;
     [SerializeField] int jumpMax;
-    [SerializeField] AudioSource pickupSound;
 
     [Header("----- Gun Stats -----")]
     public List<gunStats> gunList = new List<gunStats>();
@@ -29,12 +29,23 @@ public class playerController : MonoBehaviour, IDamage
     [Range(0, 10)][SerializeField] int shootDamage;
     [Range(0, 100)][SerializeField] int shootDist;
 
-    //class objects
+    [Header("----- Flashlight -----")]
+    [SerializeField] GameObject flashlightModel;
+    [SerializeField] GameObject flashlight;
+    [SerializeField] GameObject needBattery;
+    [SerializeField] Light fLight;
+    public bool drainOverTime;
+    public float maxBrightness;
+    public float minBrightness;
+    public float drainRate;
+
+    [Header("----- Class Objects -----")]
+    public int originalHP;
+    public int selectedGun;
+    public bool hasFlashlight;
     Vector3 move;
     Vector3 velocity;
-    public int originalHP;
     int jumpCount;
-    public int selectedGun;
     bool playerGrounded;
     bool isShooting;
     bool sprintCooldown;
@@ -44,7 +55,10 @@ public class playerController : MonoBehaviour, IDamage
     {
         originalHP = HP;
         playerSpeedOrig = playerSpeed;
+        fLight.enabled = false;
+
         spawnPlayer();
+
         if (gunList.Count > 0)
         {
             changeGunStats();
@@ -56,6 +70,7 @@ public class playerController : MonoBehaviour, IDamage
         if (gameManager.instance.activeMenu == null)
         {
             Movement();
+            useFlashlight();
 
             if (gunList.Count > 0)
             {
@@ -164,6 +179,38 @@ public class playerController : MonoBehaviour, IDamage
         }
     }
 
+    public void useFlashlight()
+    {
+        fLight.intensity = Mathf.Clamp(fLight.intensity, minBrightness, maxBrightness);
+
+        if (drainOverTime && fLight.enabled)
+        {
+            if (fLight.intensity > minBrightness)
+            {
+                fLight.intensity -= Time.deltaTime * (drainRate / 1000);
+            }
+        }
+
+        if (hasFlashlight && Input.GetKeyDown(KeyCode.F))
+        {
+            if (fLight.intensity <= minBrightness)
+            {
+                StartCoroutine(recharge());
+            }
+
+            fLight.enabled = !fLight.enabled;
+        }
+
+        updatePlayerUI();
+    }
+
+    IEnumerator recharge()
+    {
+        needBattery.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        needBattery.SetActive(false);
+    }
+
     public void spawnPlayer()
     {
         controller.enabled = false;
@@ -195,21 +242,13 @@ public class playerController : MonoBehaviour, IDamage
     {
         gameManager.instance.playerHpBar.fillAmount = (float)HP / originalHP;
 
+        if (hasFlashlight)
+            gameManager.instance.batteryChargeBar.fillAmount = (float)fLight.intensity / maxBrightness;
+
         if (gunList.Count > 0)
         {
             gameManager.instance.currAmmoText.text = gunList[selectedGun].currAmmo.ToString("f0");
             gameManager.instance.maxAmmoText.text = gunList[selectedGun].maxAmmo.ToString("f0");
-        }
-    }
-
-    // Player can pick up items
-    void OnTriggerEnter(Collider other)
-    {
-        ICollectible collectible = other.GetComponent<ICollectible>();
-        if(collectible != null)
-        {
-            collectible.Collect();
-            pickupSound.Play();
         }
     }
 
@@ -227,6 +266,12 @@ public class playerController : MonoBehaviour, IDamage
 
         selectedGun = gunList.Count - 1;
         updatePlayerUI();
+    }
+
+    public void pickupFlashlight()
+    {
+        flashlightModel.GetComponent<MeshFilter>().mesh = flashlight.GetComponent<MeshFilter>().sharedMesh;
+        flashlightModel.GetComponent<MeshRenderer>().material = flashlight.GetComponent<MeshRenderer>().sharedMaterial;
     }
 
     void scrollGuns()
@@ -257,10 +302,15 @@ public class playerController : MonoBehaviour, IDamage
         updatePlayerUI();
     }
 
-    public void ammoPickup()
+    public void fillAmmo()
     {
         //set current ammo to max ammo, the update UI
         gunList[selectedGun].currAmmo = gunList[selectedGun].maxAmmo;
         updatePlayerUI();
+    }
+
+    public void replaceBattery(float amount)
+    {
+        fLight.intensity += amount;
     }
 }

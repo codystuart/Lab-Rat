@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b732f2691cd82f4aa0041c1ba592e56, type: 3}
+  m_Name: Lab Note 2
+  m_EditorClassIdentifier: 
+  title: Lab Note 2
+  noteStrings:
+  - Lab Note #XX
+  - 'Date: July XX, XXXX'
+  - 'Subject: Zombie virus outbreak - Patient influx'
+  - "Summary: Over the past month the lab has been receiving an increasing number
+    of infected patients. The patients all share the symptoms of the zombie virus.
+    Our team is working as fast as they can to treat everyone, but we\u2019re running
+    out of supplies. Compound ZC-23 seems to be ineffective, only causing each patient\u2019s
+    symptoms to be worse. There aren\u2019t enough rooms to hold everyone. We need
+    to come up with a new solution, and fast. A distress signal was sent to the military
+    for assistance, I hope it reaches them in time."
+  - 'Signed: Dr. Jones, Junior Scientist'

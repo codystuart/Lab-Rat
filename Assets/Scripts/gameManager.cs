@@ -20,11 +20,6 @@ public class gameManager : MonoBehaviour
     public GameObject loseMenu;
     public GameObject winMenu;
 
-    [Header("----- Inventory Objects -----")]
-    public GameObject inventory;
-    public TextMeshProUGUI displayName;
-    public TextMeshProUGUI description;
-
     [Header("----- UI Text -----")]
     public TextMeshProUGUI enemiesRemainingText;
     public TextMeshProUGUI cureBottlesRemainingText;
@@ -40,6 +35,16 @@ public class gameManager : MonoBehaviour
     public GameObject noGun;
     public Image playerHpBar;
     public Image sprintMeter;
+    public Image batteryChargeBar;
+
+    [Header("----- Inventory Objects -----")]
+    public GameObject inventory;
+    public TextMeshProUGUI displayName;
+    public TextMeshProUGUI itemDescription;
+
+    [Header("----- Notes Objects -----")]
+    public GameObject notes;
+    public TextMeshProUGUI noteDescription;
 
     [Header("----- Map Objects ------")]
     [SerializeField] GameObject secretWall;
@@ -82,9 +87,8 @@ public class gameManager : MonoBehaviour
         findCures = GameObject.FindGameObjectsWithTag("Cure");
         totalCureCount = findCures.Length;
         
-        if (playerScript.gunList.Count > 0)
-            playerScript.gunList = save.gunListSave;
-
+        //Sets the list of saved guns and grabbed from the exitDoor script and applies it to the character when loading into a new level, and sets it to the first gun in the list
+        playerScript.gunList = save.gunListSave;
         playerScript.selectedGun = 0;
 
         UnityEngine.SceneManagement.Scene sceneCurr = SceneManager.GetActiveScene();
@@ -151,8 +155,12 @@ public class gameManager : MonoBehaviour
         activeMenu.SetActive(false);
 
         //clean up
-        displayName.text = string.Empty;
-        description.text = string.Empty;
+        if (displayName.text != string.Empty)
+            displayName.text = string.Empty;
+        if (itemDescription.text != string.Empty)
+            itemDescription.text = string.Empty;
+        if (noteDescription.text != string.Empty)
+            noteDescription.text = string.Empty;
         activeMenu = null;
     }
     public IEnumerator playerFlashDamage()
