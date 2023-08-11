@@ -87,9 +87,8 @@ public class gameManager : MonoBehaviour
         findCures = GameObject.FindGameObjectsWithTag("Cure");
         totalCureCount = findCures.Length;
         
-        if (playerScript.gunList.Count > 0)
-            playerScript.gunList = save.gunListSave;
-
+        //Sets the list of saved guns and grabbed from the exitDoor script and applies it to the character when loading into a new level, and sets it to the first gun in the list
+        playerScript.gunList = save.gunListSave;
         playerScript.selectedGun = 0;
 
         UnityEngine.SceneManagement.Scene sceneCurr = SceneManager.GetActiveScene();
