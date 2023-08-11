@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b732f2691cd82f4aa0041c1ba592e56, type: 3}
+  m_Name: 1-1
+  m_EditorClassIdentifier: 
+  title: Subject #1-1
+  note: "Lab Note #XX  Date: June XX, XXXX  Subject: New chemical compound test -
+    Subject #1  Summary: Our first subject, John Murphy, a 23-year-old male, has
+    been given a dose of the ZC-23 compound.  Results: The compound showed remarkable
+    signs of effectiveness, such as curing the fever, pain, and aggression of the
+    subject. Further tests showed successful prevention of further mutation, and
+    the subject\u2019s body began to heal itself. After 24 hours, the subject regained
+    normal cognitive and emotional functions, and they were able to communicate with
+    staff. However, three days later, the subject fell into a deep coma. They are
+    to be transferred to the ICU until further notice.  Signed: Dr. Lee, Lead Scientist"

@@ -122,7 +122,7 @@ Transform:
   - {fileID: 5813126535373773339}
   - {fileID: 8026936433087601761}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!81 &8873594068017870619
 AudioListener:
@@ -160,6 +160,7 @@ MonoBehaviour:
   shootDist: 0
   flashlightModel: {fileID: 6757501779207021703}
   flashlight: {fileID: 0}
+  needBattery: {fileID: 0}
   fLight: {fileID: 1367848819893317583}
   drainOverTime: 1
   maxBrightness: 1
@@ -167,6 +168,7 @@ MonoBehaviour:
   drainRate: 4
   originalHP: 0
   selectedGun: 0
+  hasFlashlight: 0
 --- !u!143 &5105460330003665063
 CharacterController:
   m_ObjectHideFlags: 0

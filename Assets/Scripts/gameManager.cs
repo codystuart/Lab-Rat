@@ -40,10 +40,11 @@ public class gameManager : MonoBehaviour
     [Header("----- Inventory Objects -----")]
     public GameObject inventory;
     public TextMeshProUGUI displayName;
-    public TextMeshProUGUI description;
+    public TextMeshProUGUI itemDescription;
 
     [Header("----- Notes Objects -----")]
     public GameObject notes;
+    public TextMeshProUGUI noteDescription;
 
     [Header("----- Map Objects ------")]
     [SerializeField] GameObject secretWall;
@@ -155,8 +156,12 @@ public class gameManager : MonoBehaviour
         activeMenu.SetActive(false);
 
         //clean up
-        displayName.text = string.Empty;
-        description.text = string.Empty;
+        if (displayName.text != string.Empty)
+            displayName.text = string.Empty;
+        if (itemDescription.text != string.Empty)
+            itemDescription.text = string.Empty;
+        if (noteDescription.text != string.Empty)
+            noteDescription.text = string.Empty;
         activeMenu = null;
     }
     public IEnumerator playerFlashDamage()

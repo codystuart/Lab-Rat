@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Experimental.GraphView;
 using UnityEditor.MemoryProfiler;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,13 +25,18 @@ public class inventorySystem : MonoBehaviour
 
     //list of items
     public List<itemData> items = new List<itemData>();
+    public List<noteData> notes = new List<noteData>();
 
     //the currently selected item
     public itemData selectedItem;
 
-    //button creation info
+    //inv button creation info
     public Transform itemContent;
-    public Button inventoryItem;
+    public Button inventoryButton;
+
+    //note button creation info
+    public Transform noteContent;
+    public Button noteButton;
 
     //reference to play position
     public Transform player;
@@ -41,19 +47,25 @@ public class inventorySystem : MonoBehaviour
         maxItemsLabel.text = maxItems.ToString();
     }
 
-    public void Add(itemData item)
+    public void addItem(itemData item)
     {
         pickupSound.Play();
         items.Add(item);
         currHeldItems.text = items.Count.ToString();
     }
 
-    public void Remove(itemData item)
+    public void removeItem(itemData item)
     {
         if (items.Count > 0)
         {
             items.Remove(item);
         }
+    }
+
+    public void addNote(noteData note)
+    {
+        pickupSound.Play();
+        notes.Add(note);
     }
 
     public void ListItems()
@@ -67,24 +79,44 @@ public class inventorySystem : MonoBehaviour
         //creates a button
         foreach (var item in items)
         {
-            Button button = Instantiate(inventoryItem, itemContent);
+            Button button = Instantiate(inventoryButton, itemContent);
             var itemName = button.transform.Find("itemName").GetComponent<TextMeshProUGUI>();
             var itemIcon = button.transform.Find("itemIcon").GetComponent<Image>();
 
             itemName.text = item.itemName;
             itemIcon.sprite = item.icon;
 
-            button.onClick.AddListener(() => display(item));
+            button.onClick.AddListener(() => displayItem(item));
+        }
+    }
+
+    public void ListNotes()
+    {
+        //cleans content before opening
+        foreach (Transform note in noteContent)
+        {
+            Destroy(note.gameObject);
+        }
+
+        //creates a button
+        foreach (var note in notes)
+        {
+            Button button = Instantiate(noteButton, noteContent);
+            var noteName = button.transform.Find("noteName").GetComponent<TextMeshProUGUI>();
+
+            noteName.text = note.title;
+
+            button.onClick.AddListener(() => displayNote(note));
         }
     }
 
     //displays item name
-    public void display(itemData currItem)
+    public void displayItem(itemData currItem)
     {
         selectedItem = currItem;
         gameManager.instance.displayName.text = currItem.itemName;
         char currId = currItem.id;
-        gameManager.instance.description.text = descriptionText(currId);
+        gameManager.instance.itemDescription.text = descriptionText(currId);
     }
 
     //displays item description
@@ -107,6 +139,12 @@ public class inventorySystem : MonoBehaviour
         return theDescription;
     }
 
+    //display note
+    public void displayNote(noteData selectedNote)
+    {
+        gameManager.instance.noteDescription.text = selectedNote.note;
+    }
+
     //button functions
     public void use()
     {
@@ -125,7 +163,7 @@ public class inventorySystem : MonoBehaviour
             clearInfo();
             Vector3 playerPos = new Vector3(player.position.x - 3, player.position.y, player.position.z);
             Instantiate(selectedItem.prefab, playerPos, selectedItem.prefab.transform.rotation);
-            Remove(selectedItem);
+            removeItem(selectedItem);
             selectedItem = null;
             ListItems();
         }
@@ -138,6 +176,7 @@ public class inventorySystem : MonoBehaviour
         gameManager.instance.notes.SetActive(false);
         gameManager.instance.inventory.SetActive(true);
         gameManager.instance.activeMenu = gameManager.instance.inventory;
+        ListItems();
     }
 
     public void notesTab()
@@ -146,6 +185,7 @@ public class inventorySystem : MonoBehaviour
         gameManager.instance.inventory.SetActive(false);
         gameManager.instance.notes.SetActive(true);
         gameManager.instance.activeMenu = gameManager.instance.notes;
+        ListNotes();
     }
 
     public void itemFunction(itemData selectedItem)
@@ -170,7 +210,7 @@ public class inventorySystem : MonoBehaviour
     public void clearInfo()
     {
         gameManager.instance.displayName.text = string.Empty;
-        gameManager.instance.description.text = string.Empty;
+        gameManager.instance.itemDescription.text = string.Empty;
     }
 
     //ammo function
