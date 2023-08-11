@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class buttonFunctions : MonoBehaviour
 {
 
-    [SerializeField] GameObject optionsMenu, pauseMenu, creditScreen;
+    [SerializeField] GameObject pauseMenu;
+    [SerializeField] Canvas mainMenuUI, optionsUI, creditsUI;
     public void play()
     {
         // Load Level 1
@@ -52,12 +53,13 @@ public class buttonFunctions : MonoBehaviour
         if (pauseMenu != null && gameManager.instance.activeMenu == gameManager.instance.pauseMenu)
             pauseMenu.SetActive(false);
 
-        optionsMenu.SetActive(true);
+        // display options by setting sorting order to 2;
+        optionsUI.sortingOrder = 2;
     }
 
     public void Credits()
     {
-        //open credit screen
-        creditScreen.SetActive(true);
+        // display credits by setting sorting order to 2;
+        creditsUI.sortingOrder = 2;
     }
 }

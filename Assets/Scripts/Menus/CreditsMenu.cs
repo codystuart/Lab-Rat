@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class CreditsMenu : MonoBehaviour
 {
-    [SerializeField] GameObject creditScreen;
+    [SerializeField] Canvas creditsUI;
     public void Back()
     {
-        creditScreen.SetActive(false);
+        // hide options by setting sorting order to 0;
+        creditsUI.sortingOrder = 0;
     }
 }
