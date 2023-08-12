@@ -84,8 +84,8 @@ public class gameManager : MonoBehaviour
         playerSpawnPos = GameObject.FindGameObjectWithTag("Player Spawn Pos");
 
         //Alternate method to count total cures?
-        findCures = GameObject.FindGameObjectsWithTag("Cure");
-        totalCureCount = findCures.Length;
+        // findCures = GameObject.FindGameObjectsWithTag("Cure");
+        // totalCureCount = findCures.Length;
         
         //Sets the list of saved guns and grabbed from the exitDoor script and applies it to the character when loading into a new level, and sets it to the first gun in the list
         playerScript.gunList = save.gunListSave;
