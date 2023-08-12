@@ -7,11 +7,10 @@ public class buttonFunctions : MonoBehaviour
 {
 
     [SerializeField] GameObject pauseMenu;
-    [SerializeField] Canvas mainMenuUI, optionsUI, creditsUI;
+    [SerializeField] Canvas mainMenuUI, optionsUI, creditsUI, newOrLoadUI;
     public void play()
     {
-        // Load Level 1
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        newOrLoadUI.sortingOrder = 2;
     }
 
     public void resume()
@@ -62,4 +61,5 @@ public class buttonFunctions : MonoBehaviour
         // display credits by setting sorting order to 2;
         creditsUI.sortingOrder = 2;
     }
+
 }
