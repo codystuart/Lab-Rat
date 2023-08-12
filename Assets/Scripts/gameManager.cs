@@ -30,7 +30,6 @@ public class gameManager : MonoBehaviour
     [Header("----- UI Objects -----")]
     public GameObject playerFlashDamagePanel;
     public GameObject reticle;
-    public GameObject fullAmmo;
     public GameObject noAmmo;
     public GameObject noGun;
     public Image playerHpBar;
