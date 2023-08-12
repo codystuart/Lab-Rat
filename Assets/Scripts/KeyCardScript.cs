@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class KeyCardScript : MonoBehaviour
@@ -12,7 +13,14 @@ public class KeyCardScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Objectives.text = "Pick up the gun and cellphone.\nThen find the keycard to exit.";
+        if (SceneManager.GetActiveScene().name == "Level 1")
+        {
+            Objectives.text = "Pick up the gun and cellphone.\nThen find the keycard to exit.\nPress \"Y\" to turn\nthis message off and on.";
+        }
+        else if (SceneManager.GetActiveScene().name == "Level 2")
+        {
+            Objectives.text = "Use the rooms to\nhide from the zombies.\nPress \"Y\" to turn\nthis message off and on.";
+        }
         DirectionsOn = false;
     }
 
