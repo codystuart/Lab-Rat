@@ -17,9 +17,19 @@ public class playerController : MonoBehaviour, IDamage
     [Range(1, 10)][SerializeField] float playerSpeed;
     [Range(2, 5)] [SerializeField] float sprintDuration;
     [Range(1, 5)][SerializeField] int sprintCooldownLength;
+
+    [Header("----- Jumping -----")]
     [Range(5,10)][SerializeField] float jumpHeight;
     [SerializeField] float gravity;
     [SerializeField] int jumpMax;
+
+    [Header("----- Crouching -----")]
+    [SerializeField] Vector3 crouchCenter = new Vector3(0, 0.5f, 0);
+    [SerializeField] Vector3 standCenter = new Vector3(0, 0, 0);
+    [SerializeField] float crouchHeight = 0.5f;
+    [SerializeField] float standingHeight = 2f;
+    [SerializeField] float timeToCrouch = 0.25f;
+    public bool isCrouching; //enemies will need access for level 2 to despawn
 
     [Header("----- Gun Stats -----")]
     public List<gunStats> gunList = new List<gunStats>();
@@ -70,6 +80,7 @@ public class playerController : MonoBehaviour, IDamage
         if (gameManager.instance.activeMenu == null)
         {
             Movement();
+            Crouch();
             useFlashlight();
 
             if (gunList.Count > 0)
@@ -110,6 +121,7 @@ public class playerController : MonoBehaviour, IDamage
         velocity.y -= gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
+        //make player sprint
         if (Input.GetButtonDown("Sprint"))
         {
             if (!sprintCooldown)
@@ -117,6 +129,49 @@ public class playerController : MonoBehaviour, IDamage
                 StartCoroutine(sprint());
             }
         }
+    }
+
+    void Crouch()
+    {
+        //make player crouch
+        if (Input.GetKeyDown(KeyCode.C) && controller.isGrounded)
+        {
+            StartCoroutine(crouchStand());
+        }
+    }
+
+    IEnumerator crouchStand()
+    {
+        //check to see if anything is above player
+        //limited to one unit above player so that ceiling doesn't count
+        if (isCrouching && Physics.Raycast(Camera.main.transform.position, Vector3.up, 1f))
+            yield break;
+
+        float timeElapsed = 0;
+
+        //change height bassed on crouching bool
+        float targetHeight = isCrouching ? standingHeight : crouchHeight;
+        float currHeight = controller.height;
+
+        //change center bassed on crouching bool
+        Vector3 targetCenter = isCrouching ? standCenter : crouchCenter;
+        Vector3 currCenter = controller.center;
+
+        //change height and center
+        while (timeElapsed < timeToCrouch)
+        {
+            controller.height = Mathf.Lerp(currHeight, targetHeight, timeElapsed / timeToCrouch);
+            controller.center = Vector3.Lerp(currCenter, targetCenter, timeElapsed / timeToCrouch);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        //ensure correct height and center
+        controller.height = targetHeight;
+        controller.center = targetCenter;
+
+        //toggle crouching bool
+        isCrouching = !isCrouching;
     }
 
     IEnumerator shoot()

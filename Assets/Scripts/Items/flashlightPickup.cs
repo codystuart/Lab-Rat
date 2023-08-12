@@ -15,6 +15,7 @@ public class flashlightPickup : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            inventorySystem.inventory.pickupSound.Play();
             gameManager.instance.playerScript.pickupFlashlight();
             gameManager.instance.playerScript.hasFlashlight = true;
             gameObject.transform.position = new Vector3(0, -1, 0);

@@ -23,6 +23,7 @@ public class notePickup : MonoBehaviour
 
     public void Pickup()
     {
+        inventorySystem.inventory.pickupSound.Play();
         inventorySystem.inventory.addNote(note);
         Destroy(gameObject);
     }
