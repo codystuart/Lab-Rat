@@ -17,9 +17,17 @@ public class KeyCardScript : MonoBehaviour
         {
             Objectives.text = "Pick up the gun and cellphone.\nThen find the keycard to exit.\nPress \"Y\" to turn\nthis message off and on.";
         }
-        else if (SceneManager.GetActiveScene().name == "Level 2")
+        else if (SceneManager.GetActiveScene().name == "Level 2" || SceneManager.GetActiveScene().name == "Level 3")
         {
             Objectives.text = "Use the rooms to\nhide from the zombies.\nPress \"Y\" to turn\nthis message off and on.";
+        }
+        else if (SceneManager.GetActiveScene().name == "Level 4")
+        {
+            Objectives.text = "The rooms can't help now. Get out as soon as possible.\nPress \"Y\" to turn\nthis message off and on.";
+        }
+        else if (SceneManager.GetActiveScene().name == "Level 5")
+        {
+            Objectives.text = "Get to the helipad and escape with the cure.\nPress \"Y\" to turn\nthis message off and on.";
         }
         DirectionsOn = false;
     }

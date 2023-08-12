@@ -7,6 +7,11 @@ TagManager:
   - InteractiveObject
   - ExaminePoint
   - InspectPoint
+  - Reticle
+  - Keycard
+  - Player Spawn Pos
+  - Pistol Muzzle Flash
+  - Helipad
   layers:
   - Default
   - TransparentFX

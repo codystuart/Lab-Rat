@@ -27,6 +27,12 @@ public class PhoneScript : MonoBehaviour
             KeyCardScript.PickedUpKeyCard = true;
             Destroy(transform.gameObject);
         }
+        if (collision.gameObject.tag == ("Player") && this.gameObject.name.Contains("Helipad"))
+        {
+            gameManager.instance.keycardAcquired = true;
+            //Debug.Log("Should be able to open the door.");
+            KeyCardScript.PickedUpKeyCard = true; 
+        }
         else if (collision.gameObject.tag == ("Player"))
         { 
             Destroy(transform.gameObject);
