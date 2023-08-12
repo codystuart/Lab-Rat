@@ -102,6 +102,7 @@ public class exitDoor : MonoBehaviour
             {
                 Debug.Log("Door will open.");
                 SceneManager.LoadScene("Level 2");
+                KeyCardScript.PickedUpKeyCard = false;
                 return true;
             }
             else return false;
@@ -112,6 +113,7 @@ public class exitDoor : MonoBehaviour
             {
                 Debug.Log("Door will open.");
                 SceneManager.LoadScene("Level 3");
+                KeyCardScript.PickedUpKeyCard = false;
                 return true;
             }
             else return false;
@@ -125,6 +127,7 @@ public class exitDoor : MonoBehaviour
             {
                 Debug.Log("Door will open.");
                 SceneManager.LoadScene("Level 4");
+                KeyCardScript.PickedUpKeyCard = false;
                 return true;
             }
             else return false;
@@ -138,6 +141,7 @@ public class exitDoor : MonoBehaviour
             {
                 Debug.Log("Door will open.");
                 SceneManager.LoadScene("Level 5");
+                KeyCardScript.PickedUpKeyCard = false;
                 return true;
             }
             else return false;

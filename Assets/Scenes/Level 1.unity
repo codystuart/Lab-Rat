@@ -1682,7 +1682,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &257494799
 Transform:
   m_ObjectHideFlags: 0
@@ -14377,6 +14377,7 @@ MonoBehaviour:
   Objectives: {fileID: 2026648096}
   DirectionsOn: 0
   Door: {fileID: 0}
+  player: {fileID: 0}
 --- !u!43 &1091859752
 Mesh:
   m_ObjectHideFlags: 0

@@ -11,6 +11,8 @@ public class playerController : MonoBehaviour, IDamage
 {
     [Header("----- Player -----")]
     [SerializeField] CharacterController controller;
+    [SerializeField] CapsuleCollider charCollider;
+    public bool canMove = true;
 
     [Header("----- Player Stats -----")]
     [Range(1, 10)]public int HP;
@@ -77,10 +79,9 @@ public class playerController : MonoBehaviour, IDamage
 
     void Update()
     {
-        if (gameManager.instance.activeMenu == null)
+        if (gameManager.instance.activeMenu == null && canMove)
         {
             Movement();
-            Crouch();
             useFlashlight();
 
             if (gunList.Count > 0)
@@ -121,6 +122,11 @@ public class playerController : MonoBehaviour, IDamage
         velocity.y -= gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
+        if (Input.GetKeyDown(KeyCode.C) && playerGrounded)
+        {
+            StartCoroutine(crouchStand());
+        }
+
         //make player sprint
         if (Input.GetButtonDown("Sprint"))
         {
@@ -128,15 +134,6 @@ public class playerController : MonoBehaviour, IDamage
             {
                 StartCoroutine(sprint());
             }
-        }
-    }
-
-    void Crouch()
-    {
-        //make player crouch
-        if (Input.GetKeyDown(KeyCode.C) && controller.isGrounded)
-        {
-            StartCoroutine(crouchStand());
         }
     }
 
@@ -169,6 +166,10 @@ public class playerController : MonoBehaviour, IDamage
         //ensure correct height and center
         controller.height = targetHeight;
         controller.center = targetCenter;
+
+        //set player collider to correct height and center
+        charCollider.height = targetHeight;
+        charCollider.center = targetCenter;
 
         //toggle crouching bool
         isCrouching = !isCrouching;

@@ -46,6 +46,9 @@ public class gameManager : MonoBehaviour
     public GameObject notes;
     public TextMeshProUGUI noteDescription;
 
+    [Header("----- Dialog Objects -----")]
+    public GameObject dialog;
+
     [Header("----- Map Objects ------")]
     [SerializeField] GameObject secretWall;
     public saveStats save;
@@ -203,6 +206,15 @@ public class gameManager : MonoBehaviour
             batteryMeter.SetActive(true);
         statePaused();
         inventorySystem.inventory.ListItems();
+    }
+
+    public void doDialog()
+    {
+        //starts preset dialog
+        activeMenu = dialog;
+        activeMenu.SetActive(true);
+        pauseTimer = true;
+        playerScript.canMove = false;
     }
 
     public void youWin()

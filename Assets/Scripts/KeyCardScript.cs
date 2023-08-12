@@ -10,9 +10,12 @@ public class KeyCardScript : MonoBehaviour
     public static bool PickedUpKeyCard;
     public bool DirectionsOn;
     public GameObject Door;
+    public GameObject player;
     // Start is called before the first frame update
     void Start()
     {
+
+        PickedUpKeyCard = false;
         if (SceneManager.GetActiveScene().name == "Level 1")
         {
             Objectives.text = "Pick up the gun and cellphone.\nThen find the keycard to exit.\nPress \"Y\" to turn\nthis message off and on.";
@@ -38,6 +41,7 @@ public class KeyCardScript : MonoBehaviour
         DoorFunction();
         TurnOffDirections();
         HasKeyCard();
+        CheckPlayerDistance();
     }
 
     public void TurnOffDirections()
@@ -58,9 +62,13 @@ public class KeyCardScript : MonoBehaviour
 
     public void HasKeyCard()
     {
-        if (PickedUpKeyCard == true)
+        if (PickedUpKeyCard == true && SceneManager.GetActiveScene().name != "Level 5")
         {
             Objectives.text = "Go to the door to exit.";
+        }
+        else if (PickedUpKeyCard == true && SceneManager.GetActiveScene().name == "Level 5")
+        {
+            Objectives.text = "I hope this cure is enough.";
         }
     }
 
@@ -71,5 +79,19 @@ public class KeyCardScript : MonoBehaviour
             //exitDoor DoorControls = Door.GetComponent<exitDoor>();
             //gameManager.instance.
         }
+    }
+
+    public float GetDistance(Vector3 obj1, Vector3 obj2)
+    {
+       return Vector3.Distance(obj1, obj2);
+    }
+
+    public void CheckPlayerDistance()
+    {
+        float distance = GetDistance(transform.position, player.transform.position);
+        if (distance <= 10 && SceneManager.GetActiveScene().name == "Level 5")
+        {
+            PickedUpKeyCard = true;
+        } 
     }
 }
