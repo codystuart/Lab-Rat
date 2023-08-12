@@ -15,7 +15,7 @@ public class inventorySystem : MonoBehaviour
     public TextMeshProUGUI currHeldItems;
 
     //SFX
-    [SerializeField] AudioSource pickupSound;
+    public AudioSource pickupSound;
     [SerializeField] AudioSource dropSound;
 
     //max inventory space

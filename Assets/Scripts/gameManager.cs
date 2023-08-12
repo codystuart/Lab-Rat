@@ -30,7 +30,6 @@ public class gameManager : MonoBehaviour
     [Header("----- UI Objects -----")]
     public GameObject playerFlashDamagePanel;
     public GameObject reticle;
-    public GameObject fullAmmo;
     public GameObject noAmmo;
     public GameObject noGun;
     public Image playerHpBar;
@@ -39,6 +38,7 @@ public class gameManager : MonoBehaviour
 
     [Header("----- Inventory Objects -----")]
     public GameObject inventory;
+    public GameObject batteryMeter;
     public TextMeshProUGUI displayName;
     public TextMeshProUGUI itemDescription;
 
@@ -98,6 +98,7 @@ public class gameManager : MonoBehaviour
             save.gunListSave.Clear();
         }
         
+        batteryMeter.SetActive(false);
     }
 
     void Update()
@@ -198,6 +199,8 @@ public class gameManager : MonoBehaviour
         //opens inventory screen
         activeMenu = inventory;
         activeMenu.SetActive(true);
+        if (playerScript.hasFlashlight)
+            batteryMeter.SetActive(true);
         statePaused();
         inventorySystem.inventory.ListItems();
     }

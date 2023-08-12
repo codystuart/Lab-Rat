@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class OptionsMenu : MonoBehaviour
 {
     public Toggle fullscreen;
-    [SerializeField] GameObject optionsMenu, pauseMenu;
+    [SerializeField] GameObject pauseMenu;
+    [SerializeField] Canvas optionsUI;
     void Start()
     {
         if(Screen.fullScreen)
@@ -28,22 +29,11 @@ public class OptionsMenu : MonoBehaviour
             Screen.fullScreen = true;
         }
     }
-// Apply changes
-//     public void ApplyChanges()
-//    {
-//         if(!fullscreen.isOn)
-//         {
-//             Screen.fullScreen = false;
-//         }
-//         else
-//         {
-//             Screen.fullScreen = true;
-//         }
-//    } 
 
    public void Back()
    {
-        optionsMenu.SetActive(false);
+        // hide options by setting sorting order to 0;
+        optionsUI.sortingOrder = 0;
         if (pauseMenu != null)
         {
             pauseMenu.SetActive(true);

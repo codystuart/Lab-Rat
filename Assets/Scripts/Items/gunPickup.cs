@@ -23,6 +23,7 @@ public class gunPickup : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            inventorySystem.inventory.pickupSound.Play();
             gameManager.instance.playerScript.gunPickup(gun);
             Destroy(gameObject);
         }

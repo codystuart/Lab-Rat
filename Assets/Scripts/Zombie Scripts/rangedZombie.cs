@@ -107,6 +107,9 @@ public class rangedZombie : MonoBehaviour, IDamage
         RaycastHit hit;
         if (Physics.Raycast(headPos.position, playerDir, out hit))
         {
+            if (gameManager.instance.playerScript.isCrouching)
+                return false;
+
             if (hit.collider.CompareTag("Player") && angleToPlayer < viewAngle)
             {
                 agent.SetDestination(gameManager.instance.player.transform.position);
