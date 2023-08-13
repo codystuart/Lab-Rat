@@ -12,6 +12,8 @@ TagManager:
   - Player Spawn Pos
   - Pistol Muzzle Flash
   - Helipad
+  - HPBottle
+  - Cure
   layers:
   - Default
   - TransparentFX

@@ -165,6 +165,8 @@ public class gameManager : MonoBehaviour
             itemDescription.text = string.Empty;
         if (noteDescription.text != string.Empty)
             noteDescription.text = string.Empty;
+
+        playerScript.canMove = true;
         activeMenu = null;
     }
     public IEnumerator playerFlashDamage()
