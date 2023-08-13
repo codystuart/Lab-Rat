@@ -3,72 +3,56 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class KeyCardScript : MonoBehaviour
 {
-    public Text Objectives;
+    //there is a lot of repeated logic in here that is in other scripts
+    //the inventory has the objectives text
+    //there is no need to turn the objective on and off as the inventory has that logic
+
+    public TextMeshProUGUI objective;
     public static bool PickedUpKeyCard;
     public bool DirectionsOn;
     public GameObject Door;
     public GameObject player;
-    // Start is called before the first frame update
+
     void Start()
     {
-
-        PickedUpKeyCard = false;
         if (SceneManager.GetActiveScene().name == "Level 1")
         {
-            Objectives.text = "Pick up the gun and cellphone.\nThen find the keycard to exit.\nPress \"Y\" to turn\nthis message off and on.";
+            objective.text = "Search for supplies and find a way to exit.";
         }
         else if (SceneManager.GetActiveScene().name == "Level 2" || SceneManager.GetActiveScene().name == "Level 3")
         {
-            Objectives.text = "Use the rooms to\nhide from the zombies.\nPress \"Y\" to turn\nthis message off and on.";
+            objective.text = "Escape from the hordes of zombies";
         }
         else if (SceneManager.GetActiveScene().name == "Level 4")
         {
-            Objectives.text = "The rooms can't help now. Get out as soon as possible.\nPress \"Y\" to turn\nthis message off and on.";
+            objective.text = "The rooms can't help now. Get out as soon as possible.";
         }
         else if (SceneManager.GetActiveScene().name == "Level 5")
         {
-            Objectives.text = "Get to the helipad and escape with the cure.\nPress \"Y\" to turn\nthis message off and on.";
+            objective.text = "Get to the helipad and escape with the cure.";
         }
-        DirectionsOn = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        DoorFunction();
-        TurnOffDirections();
+        //DoorFunction(); if this isn't being used then it needs to be gotten rid of
         HasKeyCard();
         CheckPlayerDistance();
-    }
-
-    public void TurnOffDirections()
-    {
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            DirectionsOn = !DirectionsOn;
-            if (DirectionsOn == true)
-            {
-                Objectives.enabled = true;
-            }
-            else if (DirectionsOn == false)
-            {
-                Objectives.enabled = false;
-            }
-        } 
     }
 
     public void HasKeyCard()
     {
         if (PickedUpKeyCard == true && SceneManager.GetActiveScene().name != "Level 5")
         {
-            Objectives.text = "Go to the door to exit.";
+            objective.text = "Go to the door to exit.";
         }
         else if (PickedUpKeyCard == true && SceneManager.GetActiveScene().name == "Level 5")
         {
-            Objectives.text = "I hope this cure is enough.";
+            objective.text = "I hope this cure is enough.";
         }
     }
 

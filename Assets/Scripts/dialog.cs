@@ -16,14 +16,14 @@ public class dialog : MonoBehaviour
     {
         //set text to empty then start dialog
         dialogText.text = string.Empty;
+        continueTag.SetActive(false);
         startDialog();
     }
 
     void Update()
     {
-        //do something if the player presses E or clicks
-        if(Input.GetKeyDown(KeyCode.E)
-            || Input.GetMouseButtonDown(0))
+        //do something if the player presses E
+        if(Input.GetKeyDown(KeyCode.E))
         {
             continueTag.SetActive(false);
 
@@ -33,6 +33,7 @@ public class dialog : MonoBehaviour
             {
                 StopAllCoroutines();
                 dialogText.text = lines[index];
+                continueTag.SetActive(true);
             }
         }
     }
