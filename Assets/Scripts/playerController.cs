@@ -55,7 +55,6 @@ public class playerController : MonoBehaviour, IDamage
     public int originalHP;
     public int selectedGun;
     public bool hasFlashlight;
-    public bool hasPhone;
     Vector3 move;
     Vector3 velocity;
     int jumpCount;

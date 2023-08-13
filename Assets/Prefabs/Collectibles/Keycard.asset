@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62727d7de8a2c2344aaf23030ea206ee, type: 3}
-  m_Name: Blue Keycard
+  m_Name: Keycard
   m_EditorClassIdentifier: 
   id: 107
-  itemName: Blue Keycard
-  icon: {fileID: 21300000, guid: e0f11d573f156284a9b42c024a1b8828, type: 3}
+  itemName: Keycard
+  icon: {fileID: 21300000, guid: 9aaadc77849ce614584d39cea84ca539, type: 3}
   prefab: {fileID: 2081395987427701210, guid: 9c93556653127234e97b01e59a5585ee, type: 3}

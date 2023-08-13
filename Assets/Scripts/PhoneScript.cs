@@ -7,20 +7,35 @@ public class PhoneScript : MonoBehaviour
     [Header("----- Components -----")] 
     [Range(70, 100)] [SerializeField] int rotationSpeed;
 
+    private void Start()
+    {
+        rotationSpeed = 50;
+    }
+
     void Update()
     {
-        //rotates the phone
+        //rotates the gun
         transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     { 
-        //phone simpy start the dialog for level 1
-        if (other.CompareTag("Player"))
+        if (collision.gameObject.tag == ("Player") && this.gameObject.name.Contains("Key_cards"))
+        {
+            gameManager.instance.keycardAcquired = true;
+            //Debug.Log("Should be able to open the door.");
+            KeyCardScript.PickedUpKeyCard = true;
+            Destroy(transform.gameObject);
+        }
+        if (collision.gameObject.tag == ("Player") && this.gameObject.name.Contains("Helipad"))
+        {
+            gameManager.instance.keycardAcquired = true;
+            //Debug.Log("Should be able to open the door.");
+            KeyCardScript.PickedUpKeyCard = true; 
+        }
+        else if (collision.gameObject.tag == ("Player"))
         { 
             Destroy(transform.gameObject);
-            gameManager.instance.playerScript.hasPhone = true;
-            gameManager.instance.doDialog();
         }
     }
 }

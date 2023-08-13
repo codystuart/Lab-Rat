@@ -98,9 +98,7 @@ public class exitDoor : MonoBehaviour
     { 
         if (SceneManager.GetActiveScene().name == "Level 1")
         {
-            //forces player to pick up phone, flashlight, and first keycard to continue
-            if (keycardAcquired() && gameManager.instance.playerScript.hasFlashlight
-                && gameManager.instance.playerScript.hasPhone)
+            if (keycardAcquired())
             {
                 Debug.Log("Door will open.");
                 SceneManager.LoadScene("Level 2");
