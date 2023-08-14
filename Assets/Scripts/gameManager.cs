@@ -96,7 +96,7 @@ public class gameManager : MonoBehaviour
 
         UnityEngine.SceneManagement.Scene sceneCurr = SceneManager.GetActiveScene();
         string sceneName = sceneCurr.name;
-        if (sceneName == "Level 1")
+        if (sceneName == "Level 1" || sceneName == "TestingWaveSpawner")
         {
             save.gunListSave.Clear();
         }
