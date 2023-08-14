@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: c435c7722a79e4842ae847b33fba3842, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 2ecc1b0512abb32448f179540975d86d, type: 2}
 --- !u!1001 &9765
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -190,8 +190,8 @@ GameObject:
   m_Name: Quad (129)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &5953670
 Transform:
@@ -366,8 +366,12 @@ PrefabInstance:
       value: WallDoorway (11)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
-      propertyPath: m_StaticEditorFlags
+      propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
       propertyPath: m_RootOrder
@@ -1827,8 +1831,8 @@ GameObject:
   m_Name: Quad (105)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &31278657
 Transform:
@@ -4806,8 +4810,8 @@ GameObject:
   m_Name: Quad (141)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &32847477
 Transform:
@@ -5376,8 +5380,8 @@ GameObject:
   m_Name: Quad (57)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &40083399
 Transform:
@@ -5482,8 +5486,8 @@ GameObject:
   m_Name: Quad (106)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &41704462
 Transform:
@@ -5588,8 +5592,8 @@ GameObject:
   m_Name: Quad (142)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &53116392
 Transform:
@@ -5686,6 +5690,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 555993738}
     m_Modifications:
+    - target: {fileID: 1657852075791414, guid: 8f9d1a2bfa8ddce4e91b96f9ca47a5f7, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657852075791414, guid: 8f9d1a2bfa8ddce4e91b96f9ca47a5f7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4109153230454044, guid: 8f9d1a2bfa8ddce4e91b96f9ca47a5f7, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -5745,8 +5757,8 @@ GameObject:
   m_Name: Quad (128)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &67746183
 Transform:
@@ -5886,6 +5898,79 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 74208390}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &74994742
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2442580615058779927, guid: af4253ae1468b1a4c909bf3c3ce0bd31,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 2442580615058779927, guid: af4253ae1468b1a4c909bf3c3ce0bd31,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -66.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 2442580615058779927, guid: af4253ae1468b1a4c909bf3c3ce0bd31,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2442580615058779927, guid: af4253ae1468b1a4c909bf3c3ce0bd31,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 95.22684
+      objectReference: {fileID: 0}
+    - target: {fileID: 2442580615058779927, guid: af4253ae1468b1a4c909bf3c3ce0bd31,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2442580615058779927, guid: af4253ae1468b1a4c909bf3c3ce0bd31,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2442580615058779927, guid: af4253ae1468b1a4c909bf3c3ce0bd31,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2442580615058779927, guid: af4253ae1468b1a4c909bf3c3ce0bd31,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2442580615058779927, guid: af4253ae1468b1a4c909bf3c3ce0bd31,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2442580615058779927, guid: af4253ae1468b1a4c909bf3c3ce0bd31,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2442580615058779927, guid: af4253ae1468b1a4c909bf3c3ce0bd31,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5319058907501198983, guid: af4253ae1468b1a4c909bf3c3ce0bd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Spawner - Crawler
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: af4253ae1468b1a4c909bf3c3ce0bd31, type: 3}
 --- !u!43 &79683190
 Mesh:
   m_ObjectHideFlags: 0
@@ -6153,6 +6238,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 702349750}
     m_Modifications:
+    - target: {fileID: 1438440548599072, guid: ed80b98b12f864a4b8dceed3601ec9df, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1438440548599072, guid: ed80b98b12f864a4b8dceed3601ec9df, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4514968884202134, guid: ed80b98b12f864a4b8dceed3601ec9df, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -6374,8 +6467,12 @@ PrefabInstance:
       value: WallDoorway (8)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
-      propertyPath: m_StaticEditorFlags
+      propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
       propertyPath: m_RootOrder
@@ -6692,8 +6789,8 @@ GameObject:
   m_Name: Floor (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &128621938
 Transform:
@@ -7172,7 +7269,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &154294237
 Transform:
@@ -7278,6 +7375,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 702349750}
     m_Modifications:
+    - target: {fileID: 1810663481905870, guid: 30a5000e8aaf40145acc2fa1b2ec8395, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1810663481905870, guid: 30a5000e8aaf40145acc2fa1b2ec8395, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4105743104857406, guid: 30a5000e8aaf40145acc2fa1b2ec8395, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -7337,8 +7442,8 @@ GameObject:
   m_Name: Quad (25)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &161585405
 Transform:
@@ -7795,8 +7900,8 @@ GameObject:
   m_Name: Quad (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &179002170
 Transform:
@@ -7903,7 +8008,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &187062646
 Transform:
@@ -8017,8 +8122,8 @@ GameObject:
   m_Name: Quad (72)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &187806909
 Transform:
@@ -8420,7 +8525,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &211655891
 Transform:
@@ -8527,7 +8632,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &212632464
 Transform:
@@ -8641,8 +8746,8 @@ GameObject:
   m_Name: Quad (67)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &213271299
 Transform:
@@ -8747,8 +8852,8 @@ GameObject:
   m_Name: Quad (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &217359684
 Transform:
@@ -8855,6 +8960,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2050544914036235851, guid: 660924939cea4c4499b8077895af58f0,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2050544914036235851, guid: 660924939cea4c4499b8077895af58f0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5232303627088882608, guid: 660924939cea4c4499b8077895af58f0,
         type: 3}
       propertyPath: m_RootOrder
@@ -8937,8 +9052,8 @@ GameObject:
   m_Name: Quad (125)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &229795219
 Transform:
@@ -9044,7 +9159,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &239540451
 Transform:
@@ -9243,8 +9358,8 @@ GameObject:
   m_Name: Quad (94)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &243367350
 Transform:
@@ -9349,8 +9464,8 @@ GameObject:
   m_Name: Quad (127)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &251279400
 Transform:
@@ -9455,7 +9570,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &257494799
 Transform:
   m_ObjectHideFlags: 0
@@ -9520,8 +9635,8 @@ GameObject:
   m_Name: Floor (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &258704165
 Transform:
@@ -9626,8 +9741,8 @@ GameObject:
   m_Name: Quad (126)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &262037785
 Transform:
@@ -9932,6 +10047,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 555993738}
     m_Modifications:
+    - target: {fileID: 1552065275274694, guid: d3d86bff8db21fe4f832f77dca9b545d, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1552065275274694, guid: d3d86bff8db21fe4f832f77dca9b545d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4161535031843282, guid: d3d86bff8db21fe4f832f77dca9b545d, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -9983,6 +10106,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 555993738}
     m_Modifications:
+    - target: {fileID: 1861939766636410, guid: c78cfd6d9bce58649a0bbb45a0e3fe30, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1861939766636410, guid: c78cfd6d9bce58649a0bbb45a0e3fe30, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4151052516155752, guid: c78cfd6d9bce58649a0bbb45a0e3fe30, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -10044,7 +10175,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &295066597
 Transform:
@@ -10158,8 +10289,8 @@ GameObject:
   m_Name: Quad (134)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &301451845
 Transform:
@@ -10394,8 +10525,8 @@ GameObject:
   m_Name: Quad (155)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &307533041
 Transform:
@@ -10498,7 +10629,7 @@ GameObject:
   m_Name: Point light (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &312381988
@@ -13004,8 +13135,8 @@ GameObject:
   m_Name: Quad (73)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &325660630
 Transform:
@@ -13110,8 +13241,8 @@ GameObject:
   m_Name: Floor (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &330183834
 Transform:
@@ -13216,8 +13347,8 @@ GameObject:
   m_Name: Quad (119)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &331956285
 Transform:
@@ -13322,8 +13453,8 @@ GameObject:
   m_Name: Floor (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &335124522
 Transform:
@@ -13428,8 +13559,8 @@ GameObject:
   m_Name: Quad (82)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &337017836
 Transform:
@@ -13534,8 +13665,8 @@ GameObject:
   m_Name: Quad (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &343128070
 Transform:
@@ -13639,8 +13770,8 @@ GameObject:
   m_Name: Card_lock_Yellow01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &346435361
 Transform:
@@ -14919,7 +15050,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &366495026
 Transform:
@@ -15033,8 +15164,8 @@ GameObject:
   m_Name: Quad (99)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &371454599
 Transform:
@@ -15142,8 +15273,12 @@ PrefabInstance:
       value: WallDoorway (15)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
-      propertyPath: m_StaticEditorFlags
+      propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
       propertyPath: m_RootOrder
@@ -15220,8 +15355,8 @@ GameObject:
   m_Name: Quad (27)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &380954668
 Transform:
@@ -15326,8 +15461,8 @@ GameObject:
   m_Name: Quad (71)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &384180074
 Transform:
@@ -15489,8 +15624,8 @@ GameObject:
   m_Name: Quad (47)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &397269523
 Transform:
@@ -15595,8 +15730,8 @@ GameObject:
   m_Name: Floor (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &400637646
 Transform:
@@ -15703,7 +15838,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &403380918
 Transform:
@@ -15818,7 +15953,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &404984567
 Transform:
@@ -15907,6 +16042,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 404984566}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &413174187 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1430447935755321252, guid: af4253ae1468b1a4c909bf3c3ce0bd31,
+    type: 3}
+  m_PrefabInstance: {fileID: 74994742}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e35d8ec05db4dac43ad179a5578dcf8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &421656524
 GameObject:
   m_ObjectHideFlags: 0
@@ -15923,8 +16070,8 @@ GameObject:
   m_Name: Quad (97)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &421656525
 Transform:
@@ -16025,6 +16172,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 116412, guid: 9c25864566bc2a7489bef25ecb47dd6c, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 116412, guid: 9c25864566bc2a7489bef25ecb47dd6c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 73
+      objectReference: {fileID: 0}
     - target: {fileID: 479918, guid: 9c25864566bc2a7489bef25ecb47dd6c, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -16086,7 +16241,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &424793099
 Transform:
@@ -16200,8 +16355,8 @@ GameObject:
   m_Name: Quad (150)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &424930195
 Transform:
@@ -16321,7 +16476,7 @@ Transform:
   - {fileID: 439852643}
   - {fileID: 946688755}
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &428855015
 GameObject:
@@ -16339,8 +16494,8 @@ GameObject:
   m_Name: Quad (34)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &428855016
 Transform:
@@ -16445,8 +16600,8 @@ GameObject:
   m_Name: Quad (31)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &429312994
 Transform:
@@ -16983,8 +17138,8 @@ GameObject:
   m_Name: Quad (84)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &441393157
 Transform:
@@ -17183,8 +17338,8 @@ GameObject:
   m_Name: Floor (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &452593329
 Transform:
@@ -17289,8 +17444,8 @@ GameObject:
   m_Name: Quad (38)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &453174599
 Transform:
@@ -17395,8 +17550,8 @@ GameObject:
   m_Name: Quad (132)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &456279882
 Transform:
@@ -17501,8 +17656,8 @@ GameObject:
   m_Name: Quad (135)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &463061995
 Transform:
@@ -17603,6 +17758,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 40b8fd596870e5e4cb4ccb145b409d1e, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 40b8fd596870e5e4cb4ccb145b409d1e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 40b8fd596870e5e4cb4ccb145b409d1e, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -17673,8 +17836,12 @@ PrefabInstance:
       value: WallDoorway (10)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
-      propertyPath: m_StaticEditorFlags
+      propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
       propertyPath: m_RootOrder
@@ -17802,8 +17969,8 @@ GameObject:
   m_Name: Quad (69)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &481588791
 Transform:
@@ -17900,6 +18067,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 702349750}
     m_Modifications:
+    - target: {fileID: 1861939766636410, guid: c78cfd6d9bce58649a0bbb45a0e3fe30, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1861939766636410, guid: c78cfd6d9bce58649a0bbb45a0e3fe30, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4151052516155752, guid: c78cfd6d9bce58649a0bbb45a0e3fe30, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -18091,6 +18266,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Exit Door
       objectReference: {fileID: 0}
+    - target: {fileID: 8262814624049683076, guid: e637f147805ed9a4fa7e88c8ef1425e3,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8262814624049683076, guid: e637f147805ed9a4fa7e88c8ef1425e3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8476163433477170014, guid: e637f147805ed9a4fa7e88c8ef1425e3,
         type: 3}
       propertyPath: m_Mesh
@@ -18120,6 +18305,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 135559383}
     m_Modifications:
+    - target: {fileID: 1438440548599072, guid: ed80b98b12f864a4b8dceed3601ec9df, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1438440548599072, guid: ed80b98b12f864a4b8dceed3601ec9df, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4514968884202134, guid: ed80b98b12f864a4b8dceed3601ec9df, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -18346,6 +18539,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2050544914036235851, guid: 660924939cea4c4499b8077895af58f0,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2050544914036235851, guid: 660924939cea4c4499b8077895af58f0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5232303627088882608, guid: 660924939cea4c4499b8077895af58f0,
         type: 3}
       propertyPath: m_RootOrder
@@ -18425,8 +18628,12 @@ PrefabInstance:
       value: WallDoorway (9)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
-      propertyPath: m_StaticEditorFlags
+      propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
       propertyPath: m_RootOrder
@@ -18597,8 +18804,8 @@ GameObject:
   m_Name: Quad (136)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &531976677
 Transform:
@@ -18760,7 +18967,7 @@ GameObject:
   m_Name: Point Light (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &541912206
@@ -18856,8 +19063,8 @@ GameObject:
   m_Name: Floor (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &542232166
 Transform:
@@ -18962,8 +19169,8 @@ GameObject:
   m_Name: Quad (137)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &542711042
 Transform:
@@ -19376,7 +19583,7 @@ GameObject:
   m_Name: Point light (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &550640230
@@ -19511,8 +19718,12 @@ PrefabInstance:
       value: WallDoorway (4)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
-      propertyPath: m_StaticEditorFlags
+      propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
       propertyPath: m_RootOrder
@@ -19653,8 +19864,8 @@ GameObject:
   m_Name: Quad (118)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &558398713
 Transform:
@@ -19820,7 +20031,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &570680925
 Transform:
@@ -19931,8 +20142,12 @@ PrefabInstance:
       value: WallDoorway (13)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
-      propertyPath: m_StaticEditorFlags
+      propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
       propertyPath: m_RootOrder
@@ -20009,8 +20224,8 @@ GameObject:
   m_Name: Quad (61)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &578839817
 Transform:
@@ -20115,8 +20330,8 @@ GameObject:
   m_Name: Quad (28)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &579959157
 Transform:
@@ -20213,6 +20428,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 702349750}
     m_Modifications:
+    - target: {fileID: 1123258765949536, guid: 3c12188f5325c7949a6535be1c73d437, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1123258765949536, guid: 3c12188f5325c7949a6535be1c73d437, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4055402488500318, guid: 3c12188f5325c7949a6535be1c73d437, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -20272,8 +20495,8 @@ GameObject:
   m_Name: Quad (58)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &594155143
 Transform:
@@ -20378,8 +20601,8 @@ GameObject:
   m_Name: Floor (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &595880746
 Transform:
@@ -20482,7 +20705,7 @@ GameObject:
   m_Name: Point light (32)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &596879392
@@ -20578,8 +20801,8 @@ GameObject:
   m_Name: Quad (46)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &597676659
 Transform:
@@ -20763,8 +20986,8 @@ GameObject:
   m_Name: Quad (95)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &604163205
 Transform:
@@ -20911,8 +21134,8 @@ GameObject:
   m_Name: Quad (86)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &614575916
 Transform:
@@ -21076,6 +21299,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 135559383}
     m_Modifications:
+    - target: {fileID: 1498459995401304, guid: db980d62ca51fac438c4ebc0bf4ce43c, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1498459995401304, guid: db980d62ca51fac438c4ebc0bf4ce43c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4746714944520588, guid: db980d62ca51fac438c4ebc0bf4ce43c, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -21221,6 +21452,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 135559383}
     m_Modifications:
+    - target: {fileID: 1513822778759996, guid: 2dfcb4b335cb5a640ab7cfbf14a09c5e, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1513822778759996, guid: 2dfcb4b335cb5a640ab7cfbf14a09c5e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4433949904390170, guid: 2dfcb4b335cb5a640ab7cfbf14a09c5e, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -21272,6 +21511,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 702349750}
     m_Modifications:
+    - target: {fileID: 1263345619853440, guid: b5194b6c46bdce84bbdfacefc0c5f54c, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263345619853440, guid: b5194b6c46bdce84bbdfacefc0c5f54c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4312938438223186, guid: b5194b6c46bdce84bbdfacefc0c5f54c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -21332,7 +21579,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &655452763
 Transform:
@@ -21438,7 +21685,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &655846040
 Transform:
@@ -21543,8 +21790,8 @@ GameObject:
   m_Name: Quad (108)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &660325602
 Transform:
@@ -21724,6 +21971,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 158516, guid: acb5b460622c8ee4b825a3e68c33c1b6, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 158516, guid: acb5b460622c8ee4b825a3e68c33c1b6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 73
+      objectReference: {fileID: 0}
     - target: {fileID: 494596, guid: acb5b460622c8ee4b825a3e68c33c1b6, type: 3}
       propertyPath: m_RootOrder
       value: 43
@@ -21789,7 +22044,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &676096655
 Transform:
@@ -21903,8 +22158,8 @@ GameObject:
   m_Name: Quad (54)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &676915007
 Transform:
@@ -22009,8 +22264,8 @@ GameObject:
   m_Name: Quad (53)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &682034446
 Transform:
@@ -22111,6 +22366,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: cureVial
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150363764252535823, guid: 12b0804c055585c43a35a9fa7484955c,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150363764252535823, guid: 12b0804c055585c43a35a9fa7484955c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1868005403243179757, guid: 12b0804c055585c43a35a9fa7484955c,
         type: 3}
@@ -22286,7 +22551,7 @@ GameObject:
   m_Name: Point Light (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &683001963
@@ -22382,8 +22647,8 @@ GameObject:
   m_Name: Quad (117)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &684369692
 Transform:
@@ -22559,6 +22824,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 702349750}
     m_Modifications:
+    - target: {fileID: 1513822778759996, guid: 2dfcb4b335cb5a640ab7cfbf14a09c5e, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1513822778759996, guid: 2dfcb4b335cb5a640ab7cfbf14a09c5e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4433949904390170, guid: 2dfcb4b335cb5a640ab7cfbf14a09c5e, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -22652,6 +22925,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 555993738}
     m_Modifications:
+    - target: {fileID: 1032492002331872, guid: c219b5a8bf4e2a84995f6937f60cdc20, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1032492002331872, guid: c219b5a8bf4e2a84995f6937f60cdc20, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4778783535964444, guid: c219b5a8bf4e2a84995f6937f60cdc20, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -22709,7 +22990,7 @@ GameObject:
   m_Name: Point light (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &725692442
@@ -22807,7 +23088,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &727589074
 Transform:
@@ -22921,8 +23202,8 @@ GameObject:
   m_Name: Quad (83)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &757575914
 Transform:
@@ -23375,6 +23656,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1805234851214754, guid: 561e7ea9be9604740844e38b155e7824, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1805234851214754, guid: 561e7ea9be9604740844e38b155e7824, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4009367697902074, guid: 561e7ea9be9604740844e38b155e7824, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -23461,7 +23750,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &775352609
 Transform:
@@ -23559,6 +23848,89 @@ Skybox:
   m_GameObject: {fileID: 775352608}
   m_Enabled: 1
   m_CustomSkybox: {fileID: 0}
+--- !u!1001 &780911869
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 701814633593482464, guid: 69c7cc320010c3d4183d4299a908a59c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 701814633593482464, guid: 69c7cc320010c3d4183d4299a908a59c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -66.44391
+      objectReference: {fileID: 0}
+    - target: {fileID: 701814633593482464, guid: 69c7cc320010c3d4183d4299a908a59c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 701814633593482464, guid: 69c7cc320010c3d4183d4299a908a59c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 95.89492
+      objectReference: {fileID: 0}
+    - target: {fileID: 701814633593482464, guid: 69c7cc320010c3d4183d4299a908a59c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 701814633593482464, guid: 69c7cc320010c3d4183d4299a908a59c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 701814633593482464, guid: 69c7cc320010c3d4183d4299a908a59c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 701814633593482464, guid: 69c7cc320010c3d4183d4299a908a59c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 701814633593482464, guid: 69c7cc320010c3d4183d4299a908a59c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 701814633593482464, guid: 69c7cc320010c3d4183d4299a908a59c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 701814633593482464, guid: 69c7cc320010c3d4183d4299a908a59c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2787434559037920541, guid: 69c7cc320010c3d4183d4299a908a59c,
+        type: 3}
+      propertyPath: m_Name
+      value: Wave System
+      objectReference: {fileID: 0}
+    - target: {fileID: 4378588552284096098, guid: 69c7cc320010c3d4183d4299a908a59c,
+        type: 3}
+      propertyPath: spawners.Array.data[0]
+      value: 
+      objectReference: {fileID: 2049629339}
+    - target: {fileID: 4378588552284096098, guid: 69c7cc320010c3d4183d4299a908a59c,
+        type: 3}
+      propertyPath: spawners.Array.data[1]
+      value: 
+      objectReference: {fileID: 413174187}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 69c7cc320010c3d4183d4299a908a59c, type: 3}
 --- !u!1 &784503919
 GameObject:
   m_ObjectHideFlags: 0
@@ -23617,8 +23989,8 @@ GameObject:
   m_Name: Quad (151)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &785571241
 Transform:
@@ -23723,8 +24095,8 @@ GameObject:
   m_Name: Quad (51)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &798478196
 Transform:
@@ -23830,7 +24202,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &802059788
 Transform:
@@ -23986,6 +24358,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 135559383}
     m_Modifications:
+    - target: {fileID: 1810663481905870, guid: 30a5000e8aaf40145acc2fa1b2ec8395, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1810663481905870, guid: 30a5000e8aaf40145acc2fa1b2ec8395, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4105743104857406, guid: 30a5000e8aaf40145acc2fa1b2ec8395, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -24037,6 +24417,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 702349750}
     m_Modifications:
+    - target: {fileID: 1231191978135282, guid: 0f712237adc666849afc8b0034a0749d, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1231191978135282, guid: 0f712237adc666849afc8b0034a0749d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4382053257203088, guid: 0f712237adc666849afc8b0034a0749d, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -24233,8 +24621,8 @@ GameObject:
   m_Name: Floor (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &838463683
 Transform:
@@ -24339,8 +24727,8 @@ GameObject:
   m_Name: Quad (41)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &839187556
 Transform:
@@ -24442,8 +24830,12 @@ PrefabInstance:
       value: Door (4)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 4cee08c7276bf274d91d84489cdf46de, type: 3}
-      propertyPath: m_StaticEditorFlags
+      propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4cee08c7276bf274d91d84489cdf46de, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4cee08c7276bf274d91d84489cdf46de, type: 3}
       propertyPath: m_RootOrder
@@ -24524,8 +24916,8 @@ GameObject:
   m_Name: Quad (40)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &843607807
 Transform:
@@ -24630,8 +25022,8 @@ GameObject:
   m_Name: Quad (114)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &844092352
 Transform:
@@ -25182,8 +25574,8 @@ GameObject:
   m_Name: Quad (131)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &854109440
 Transform:
@@ -25290,7 +25682,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &855383102
 Transform:
@@ -25400,6 +25792,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall01
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 40b8fd596870e5e4cb4ccb145b409d1e, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 40b8fd596870e5e4cb4ccb145b409d1e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 40b8fd596870e5e4cb4ccb145b409d1e, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -25477,8 +25877,8 @@ GameObject:
   m_Name: Quad (66)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &864846181
 Transform:
@@ -25583,8 +25983,8 @@ GameObject:
   m_Name: Quad (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &868523026
 Transform:
@@ -25748,8 +26148,8 @@ GameObject:
   m_Name: Quad (146)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &874934961
 Transform:
@@ -25854,8 +26254,8 @@ GameObject:
   m_Name: Quad (52)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &880312669
 Transform:
@@ -25952,6 +26352,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 555993738}
     m_Modifications:
+    - target: {fileID: 1231191978135282, guid: 0f712237adc666849afc8b0034a0749d, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1231191978135282, guid: 0f712237adc666849afc8b0034a0749d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4382053257203088, guid: 0f712237adc666849afc8b0034a0749d, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -26009,7 +26417,7 @@ GameObject:
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &886506308
@@ -26457,7 +26865,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &889528234
 Transform:
@@ -26757,7 +27165,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &897096101
 Transform:
@@ -27946,7 +28354,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &899801553
 Transform:
@@ -28060,8 +28468,8 @@ GameObject:
   m_Name: Quad (113)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &907470438
 Transform:
@@ -28231,7 +28639,7 @@ GameObject:
   m_Name: Point light (35)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &908709858
@@ -28421,8 +28829,8 @@ GameObject:
   m_Name: Quad (123)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &913632869
 Transform:
@@ -28527,8 +28935,8 @@ GameObject:
   m_Name: Quad (110)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &916144053
 Transform:
@@ -28684,8 +29092,8 @@ GameObject:
   m_Name: Quad (156)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &922109909
 Transform:
@@ -29977,8 +30385,8 @@ GameObject:
   m_Name: Quad (23)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &932139634
 Transform:
@@ -30083,8 +30491,8 @@ GameObject:
   m_Name: Quad (109)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &935314125
 Transform:
@@ -30553,6 +30961,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombie3
       objectReference: {fileID: 0}
+    - target: {fileID: 4803014352389650695, guid: 06cb2b131fe009c47a523671a8fa9ed8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4803014352389650695, guid: 06cb2b131fe009c47a523671a8fa9ed8,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8429865231615740692, guid: 06cb2b131fe009c47a523671a8fa9ed8,
         type: 3}
       propertyPath: m_RootOrder
@@ -30631,7 +31049,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &940784391
 Transform:
@@ -30747,7 +31165,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &944843825
 Transform:
@@ -30863,7 +31281,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &945001747
 Transform:
@@ -32188,7 +32606,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &953348601
 Transform:
@@ -32611,8 +33029,8 @@ GameObject:
   m_Name: Quad (139)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &960061575
 Transform:
@@ -32766,7 +33184,7 @@ GameObject:
   m_Name: Point light (36)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &968384648
@@ -32947,7 +33365,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &974073759
 Transform:
@@ -33052,8 +33470,8 @@ GameObject:
   m_Name: Quad (30)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &980540442
 Transform:
@@ -33158,8 +33576,8 @@ GameObject:
   m_Name: Floor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &984001247
 Transform:
@@ -33339,8 +33757,12 @@ PrefabInstance:
       value: WallDoorway (5)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
-      propertyPath: m_StaticEditorFlags
+      propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
       propertyPath: m_RootOrder
@@ -33409,6 +33831,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 135559383}
     m_Modifications:
+    - target: {fileID: 1657852075791414, guid: 8f9d1a2bfa8ddce4e91b96f9ca47a5f7, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657852075791414, guid: 8f9d1a2bfa8ddce4e91b96f9ca47a5f7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4109153230454044, guid: 8f9d1a2bfa8ddce4e91b96f9ca47a5f7, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -33470,7 +33900,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &999783761
 Transform:
@@ -33576,6 +34006,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 135559383}
     m_Modifications:
+    - target: {fileID: 1231191978135282, guid: 0f712237adc666849afc8b0034a0749d, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1231191978135282, guid: 0f712237adc666849afc8b0034a0749d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4382053257203088, guid: 0f712237adc666849afc8b0034a0749d, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -35027,8 +35465,8 @@ GameObject:
   m_Name: Floor (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1007220394
 Transform:
@@ -37862,7 +38300,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1015186533
 Transform:
@@ -38007,8 +38445,8 @@ GameObject:
   m_Name: Quad (103)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1026109290
 Transform:
@@ -38114,7 +38552,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1031311279
 Transform:
@@ -38221,7 +38659,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1032279381
 Transform:
@@ -38410,8 +38848,8 @@ GameObject:
   m_Name: Quad (104)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1048154323
 Transform:
@@ -38729,7 +39167,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1056207883
 Transform:
@@ -38843,8 +39281,8 @@ GameObject:
   m_Name: Quad (92)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1058547041
 Transform:
@@ -38951,6 +39389,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2050544914036235851, guid: 660924939cea4c4499b8077895af58f0,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2050544914036235851, guid: 660924939cea4c4499b8077895af58f0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5232303627088882608, guid: 660924939cea4c4499b8077895af58f0,
         type: 3}
       propertyPath: m_RootOrder
@@ -39029,7 +39477,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1070768411
 Transform:
@@ -39204,7 +39652,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1074279030
 Transform:
@@ -39415,8 +39863,12 @@ PrefabInstance:
       value: WallDoorway (12)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
-      propertyPath: m_StaticEditorFlags
+      propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
       propertyPath: m_RootOrder
@@ -39505,8 +39957,8 @@ GameObject:
   m_Name: Quad (70)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1089154502
 Transform:
@@ -39603,6 +40055,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 135559383}
     m_Modifications:
+    - target: {fileID: 1861939766636410, guid: c78cfd6d9bce58649a0bbb45a0e3fe30, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1861939766636410, guid: c78cfd6d9bce58649a0bbb45a0e3fe30, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4151052516155752, guid: c78cfd6d9bce58649a0bbb45a0e3fe30, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -40014,8 +40474,8 @@ GameObject:
   m_Name: Quad (154)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1108304226
 Transform:
@@ -40122,7 +40582,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1108908482
 Transform:
@@ -40333,6 +40793,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 555993738}
     m_Modifications:
+    - target: {fileID: 1498459995401304, guid: db980d62ca51fac438c4ebc0bf4ce43c, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1498459995401304, guid: db980d62ca51fac438c4ebc0bf4ce43c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4746714944520588, guid: db980d62ca51fac438c4ebc0bf4ce43c, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -40504,7 +40972,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1132887759
 Transform:
@@ -40613,6 +41081,14 @@ PrefabInstance:
     - target: {fileID: 158516, guid: acb5b460622c8ee4b825a3e68c33c1b6, type: 3}
       propertyPath: m_Name
       value: Wall (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 158516, guid: acb5b460622c8ee4b825a3e68c33c1b6, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 158516, guid: acb5b460622c8ee4b825a3e68c33c1b6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 73
       objectReference: {fileID: 0}
     - target: {fileID: 494596, guid: acb5b460622c8ee4b825a3e68c33c1b6, type: 3}
       propertyPath: m_RootOrder
@@ -42159,7 +42635,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1175941241
 Transform:
@@ -42315,8 +42791,8 @@ GameObject:
   m_Name: Quad (100)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1178336754
 Transform:
@@ -42413,6 +42889,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 555993738}
     m_Modifications:
+    - target: {fileID: 1123258765949536, guid: 3c12188f5325c7949a6535be1c73d437, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1123258765949536, guid: 3c12188f5325c7949a6535be1c73d437, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4055402488500318, guid: 3c12188f5325c7949a6535be1c73d437, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -42518,6 +43002,14 @@ PrefabInstance:
     - target: {fileID: 1805234851214754, guid: 561e7ea9be9604740844e38b155e7824, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1805234851214754, guid: 561e7ea9be9604740844e38b155e7824, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1805234851214754, guid: 561e7ea9be9604740844e38b155e7824, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4009367697902074, guid: 561e7ea9be9604740844e38b155e7824, type: 3}
       propertyPath: m_RootOrder
@@ -42708,8 +43200,8 @@ GameObject:
   m_Name: Quad (44)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1201215070
 Transform:
@@ -42973,7 +43465,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1207926927
 Transform:
@@ -43262,8 +43754,8 @@ GameObject:
   m_Name: Quad (89)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1211507475
 Transform:
@@ -43418,6 +43910,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2380785183997117760, guid: 603d1cc59b0e7264aa3f8659210f0b68,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2380785183997117760, guid: 603d1cc59b0e7264aa3f8659210f0b68,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4027371559687109367, guid: 603d1cc59b0e7264aa3f8659210f0b68,
         type: 3}
@@ -43637,6 +44139,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1805234851214754, guid: 561e7ea9be9604740844e38b155e7824, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1805234851214754, guid: 561e7ea9be9604740844e38b155e7824, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4009367697902074, guid: 561e7ea9be9604740844e38b155e7824, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -43718,8 +44228,12 @@ PrefabInstance:
       value: WallDoorway (14)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
-      propertyPath: m_StaticEditorFlags
+      propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
       propertyPath: m_RootOrder
@@ -44118,8 +44632,8 @@ GameObject:
   m_Name: Quad (115)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1243956353
 Transform:
@@ -47097,8 +47611,8 @@ GameObject:
   m_Name: Quad (91)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1252954860
 Transform:
@@ -47195,6 +47709,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 555993738}
     m_Modifications:
+    - target: {fileID: 1513822778759996, guid: 2dfcb4b335cb5a640ab7cfbf14a09c5e, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1513822778759996, guid: 2dfcb4b335cb5a640ab7cfbf14a09c5e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4433949904390170, guid: 2dfcb4b335cb5a640ab7cfbf14a09c5e, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -47305,8 +47827,8 @@ GameObject:
   m_Name: Floor (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1282351796
 Transform:
@@ -47411,8 +47933,8 @@ GameObject:
   m_Name: Quad (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1283728617
 Transform:
@@ -49927,8 +50449,8 @@ GameObject:
   m_Name: Quad (116)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1302370673
 Transform:
@@ -50033,8 +50555,8 @@ GameObject:
   m_Name: Quad (33)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1303454132
 Transform:
@@ -50543,6 +51065,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5216859579177170480, guid: 7fc93665b6870c24bbf359da90aa989a,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5243798777067382015, guid: 7fc93665b6870c24bbf359da90aa989a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -50888,8 +51415,8 @@ GameObject:
   m_Name: Quad (64)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1322362381
 Transform:
@@ -52067,8 +52594,8 @@ GameObject:
   m_Name: Quad (50)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1342588620
 Transform:
@@ -52175,7 +52702,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1354499310
 Transform:
@@ -52625,6 +53152,79 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1001 &1372014180
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1176702320652191637, guid: 4b17d6855d33c92489512ea4e7db80f8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176702320652191637, guid: 4b17d6855d33c92489512ea4e7db80f8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -66.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176702320652191637, guid: 4b17d6855d33c92489512ea4e7db80f8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176702320652191637, guid: 4b17d6855d33c92489512ea4e7db80f8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 95.0368
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176702320652191637, guid: 4b17d6855d33c92489512ea4e7db80f8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176702320652191637, guid: 4b17d6855d33c92489512ea4e7db80f8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176702320652191637, guid: 4b17d6855d33c92489512ea4e7db80f8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176702320652191637, guid: 4b17d6855d33c92489512ea4e7db80f8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176702320652191637, guid: 4b17d6855d33c92489512ea4e7db80f8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176702320652191637, guid: 4b17d6855d33c92489512ea4e7db80f8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176702320652191637, guid: 4b17d6855d33c92489512ea4e7db80f8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7901979451377812076, guid: 4b17d6855d33c92489512ea4e7db80f8,
+        type: 3}
+      propertyPath: m_Name
+      value: Spawner - Regular Zombie
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4b17d6855d33c92489512ea4e7db80f8, type: 3}
 --- !u!1 &1372150332
 GameObject:
   m_ObjectHideFlags: 0
@@ -52641,8 +53241,8 @@ GameObject:
   m_Name: Quad (48)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1372150333
 Transform:
@@ -52997,7 +53597,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1390004106
 Transform:
@@ -53248,6 +53848,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 702349750}
     m_Modifications:
+    - target: {fileID: 1657852075791414, guid: 8f9d1a2bfa8ddce4e91b96f9ca47a5f7, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657852075791414, guid: 8f9d1a2bfa8ddce4e91b96f9ca47a5f7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4109153230454044, guid: 8f9d1a2bfa8ddce4e91b96f9ca47a5f7, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -53309,7 +53917,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1405095573
 Transform:
@@ -53415,6 +54023,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1003300838}
     m_Modifications:
+    - target: {fileID: 1805234851214754, guid: 561e7ea9be9604740844e38b155e7824, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1805234851214754, guid: 561e7ea9be9604740844e38b155e7824, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4009367697902074, guid: 561e7ea9be9604740844e38b155e7824, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -53675,7 +54291,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1419868209
 Transform:
@@ -53780,8 +54396,8 @@ GameObject:
   m_Name: Quad (56)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1421514913
 Transform:
@@ -53888,7 +54504,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1437502784
 Transform:
@@ -54002,8 +54618,8 @@ GameObject:
   m_Name: Quad (78)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1450788352
 Transform:
@@ -54169,7 +54785,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1455400468
 Transform:
@@ -54334,8 +54950,8 @@ GameObject:
   m_Name: Quad (80)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1471737066
 Transform:
@@ -55678,8 +56294,8 @@ GameObject:
   m_Name: Quad (120)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1493134700
 Transform:
@@ -55776,6 +56392,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 702349750}
     m_Modifications:
+    - target: {fileID: 1552065275274694, guid: d3d86bff8db21fe4f832f77dca9b545d, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1552065275274694, guid: d3d86bff8db21fe4f832f77dca9b545d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4161535031843282, guid: d3d86bff8db21fe4f832f77dca9b545d, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -56552,8 +57176,8 @@ GameObject:
   m_Name: Floor (23)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1501976821
 Transform:
@@ -56658,8 +57282,8 @@ GameObject:
   m_Name: Quad (88)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1505018718
 Transform:
@@ -56764,8 +57388,8 @@ GameObject:
   m_Name: Quad (49)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1508164555
 Transform:
@@ -56872,7 +57496,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1511663504
 Transform:
@@ -56986,8 +57610,8 @@ GameObject:
   m_Name: Card_lock_Yellow (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1514976621
 Transform:
@@ -57017,7 +57641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80a8cebe8f99ac44b8785f22fa1f24d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Objectives: {fileID: 2026648096}
+  objective: {fileID: 0}
   DirectionsOn: 0
   Door: {fileID: 1767332297}
   player: {fileID: 0}
@@ -57347,8 +57971,8 @@ GameObject:
   m_Name: Quad (45)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1545256793
 Transform:
@@ -57445,6 +58069,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 135559383}
     m_Modifications:
+    - target: {fileID: 1263345619853440, guid: b5194b6c46bdce84bbdfacefc0c5f54c, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263345619853440, guid: b5194b6c46bdce84bbdfacefc0c5f54c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4312938438223186, guid: b5194b6c46bdce84bbdfacefc0c5f54c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -57502,7 +58134,7 @@ GameObject:
   m_Name: Point light (23)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1554202672
@@ -57600,6 +58232,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2050544914036235851, guid: 660924939cea4c4499b8077895af58f0,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2050544914036235851, guid: 660924939cea4c4499b8077895af58f0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5232303627088882608, guid: 660924939cea4c4499b8077895af58f0,
         type: 3}
       propertyPath: m_RootOrder
@@ -57682,8 +58324,8 @@ GameObject:
   m_Name: Floor (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1583013886
 Transform:
@@ -57788,8 +58430,8 @@ GameObject:
   m_Name: Quad (75)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1586002004
 Transform:
@@ -57894,8 +58536,8 @@ GameObject:
   m_Name: Quad (112)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1587298224
 Transform:
@@ -57998,7 +58640,7 @@ GameObject:
   m_Name: Point light (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1593176905
@@ -58095,7 +58737,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1598788384
 Transform:
@@ -61306,7 +61948,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1604670095
 Transform:
@@ -62593,8 +63235,8 @@ GameObject:
   m_Name: Quad (77)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1648621844
 Transform:
@@ -62935,6 +63577,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 702349750}
     m_Modifications:
+    - target: {fileID: 1032492002331872, guid: c219b5a8bf4e2a84995f6937f60cdc20, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1032492002331872, guid: c219b5a8bf4e2a84995f6937f60cdc20, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4778783535964444, guid: c219b5a8bf4e2a84995f6937f60cdc20, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -62986,6 +63636,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 555993738}
     m_Modifications:
+    - target: {fileID: 1438440548599072, guid: ed80b98b12f864a4b8dceed3601ec9df, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1438440548599072, guid: ed80b98b12f864a4b8dceed3601ec9df, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4514968884202134, guid: ed80b98b12f864a4b8dceed3601ec9df, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -63045,8 +63703,8 @@ GameObject:
   m_Name: Quad (43)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1665949718
 Transform:
@@ -63151,8 +63809,8 @@ GameObject:
   m_Name: Quad (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1674905561
 Transform:
@@ -63786,6 +64444,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2050544914036235851, guid: 660924939cea4c4499b8077895af58f0,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2050544914036235851, guid: 660924939cea4c4499b8077895af58f0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5232303627088882608, guid: 660924939cea4c4499b8077895af58f0,
         type: 3}
       propertyPath: m_RootOrder
@@ -63866,7 +64534,7 @@ GameObject:
   m_Name: Point light (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1694579645
@@ -63962,8 +64630,8 @@ GameObject:
   m_Name: Quad (85)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1696512466
 Transform:
@@ -64285,6 +64953,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 135559383}
     m_Modifications:
+    - target: {fileID: 1552065275274694, guid: d3d86bff8db21fe4f832f77dca9b545d, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1552065275274694, guid: d3d86bff8db21fe4f832f77dca9b545d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4161535031843282, guid: d3d86bff8db21fe4f832f77dca9b545d, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -64342,7 +65018,7 @@ GameObject:
   m_Name: Point light (38)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1728733340
@@ -64438,8 +65114,8 @@ GameObject:
   m_Name: Quad (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1734712801
 Transform:
@@ -64544,8 +65220,8 @@ GameObject:
   m_Name: Quad (35)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1745952543
 Transform:
@@ -64648,7 +65324,7 @@ GameObject:
   m_Name: Point light (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1761856070
@@ -64736,6 +65412,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 555993738}
     m_Modifications:
+    - target: {fileID: 1810663481905870, guid: 30a5000e8aaf40145acc2fa1b2ec8395, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1810663481905870, guid: 30a5000e8aaf40145acc2fa1b2ec8395, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4105743104857406, guid: 30a5000e8aaf40145acc2fa1b2ec8395, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -64946,8 +65630,8 @@ GameObject:
   m_Name: Quad (102)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1776325805
 Transform:
@@ -65053,7 +65737,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1780872028
 Transform:
@@ -65158,8 +65842,8 @@ GameObject:
   m_Name: Quad (133)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1782868241
 Transform:
@@ -65266,7 +65950,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1788062257
 Transform:
@@ -65499,6 +66183,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Spawn Pos
       objectReference: {fileID: 0}
+    - target: {fileID: 8123017847050605554, guid: 67a53a6a6a820d94fa4d0e6a41be4959,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -65520,8 +66209,8 @@ GameObject:
   m_Name: Quad (122)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1799167669
 Transform:
@@ -65675,7 +66364,7 @@ GameObject:
   m_Name: Point light (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1801627380
@@ -65771,8 +66460,8 @@ GameObject:
   m_Name: Quad (74)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1808245644
 Transform:
@@ -65919,7 +66608,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1816482717
 Transform:
@@ -66025,6 +66714,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 555993738}
     m_Modifications:
+    - target: {fileID: 1263345619853440, guid: b5194b6c46bdce84bbdfacefc0c5f54c, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263345619853440, guid: b5194b6c46bdce84bbdfacefc0c5f54c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4312938438223186, guid: b5194b6c46bdce84bbdfacefc0c5f54c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -66086,7 +66783,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1824991197
 Transform:
@@ -66200,8 +66897,8 @@ GameObject:
   m_Name: Quad (59)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1828977577
 Transform:
@@ -66306,8 +67003,8 @@ GameObject:
   m_Name: Quad (130)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1833594372
 Transform:
@@ -66414,7 +67111,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1838662353
 Transform:
@@ -68090,7 +68787,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1862259958
 Transform:
@@ -68271,8 +68968,8 @@ GameObject:
   m_Name: Quad (26)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1875382445
 Transform:
@@ -68377,8 +69074,8 @@ GameObject:
   m_Name: Quad (153)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1878211355
 Transform:
@@ -68481,7 +69178,7 @@ GameObject:
   m_Name: Point Light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1881017254
@@ -68679,6 +69376,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 702349750}
     m_Modifications:
+    - target: {fileID: 1498459995401304, guid: db980d62ca51fac438c4ebc0bf4ce43c, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1498459995401304, guid: db980d62ca51fac438c4ebc0bf4ce43c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4746714944520588, guid: db980d62ca51fac438c4ebc0bf4ce43c, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -68738,8 +69443,8 @@ GameObject:
   m_Name: Quad (79)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1884687575
 Transform:
@@ -68842,7 +69547,7 @@ GameObject:
   m_Name: Point light (41)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1890877396
@@ -68938,8 +69643,8 @@ GameObject:
   m_Name: Quad (65)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1891380053
 Transform:
@@ -69241,8 +69946,12 @@ PrefabInstance:
       value: Wall01 (10)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 40b8fd596870e5e4cb4ccb145b409d1e, type: 3}
-      propertyPath: m_StaticEditorFlags
+      propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 40b8fd596870e5e4cb4ccb145b409d1e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 40b8fd596870e5e4cb4ccb145b409d1e, type: 3}
       propertyPath: m_RootOrder
@@ -69597,8 +70306,8 @@ GameObject:
   m_Name: Quad (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1918881990
 Transform:
@@ -70941,8 +71650,8 @@ GameObject:
   m_Name: Quad (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1925210686
 Transform:
@@ -71269,8 +71978,8 @@ GameObject:
   m_Name: Quad (140)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1950052234
 Transform:
@@ -71376,7 +72085,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1958924615
 Transform:
@@ -74354,8 +75063,8 @@ GameObject:
   m_Name: Quad (36)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1981304903
 Transform:
@@ -74460,8 +75169,8 @@ GameObject:
   m_Name: Quad (124)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1983969704
 Transform:
@@ -74566,8 +75275,8 @@ GameObject:
   m_Name: Quad (39)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &1999826120
 Transform:
@@ -74673,7 +75382,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &2000299630
 Transform:
@@ -74778,8 +75487,8 @@ GameObject:
   m_Name: Quad (87)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &2008550633
 Transform:
@@ -74879,6 +75588,14 @@ PrefabInstance:
     - target: {fileID: 115928, guid: 3bab19842fc2b8e44837b5c42192679d, type: 3}
       propertyPath: m_Name
       value: WallDoorway (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 115928, guid: 3bab19842fc2b8e44837b5c42192679d, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 115928, guid: 3bab19842fc2b8e44837b5c42192679d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 73
       objectReference: {fileID: 0}
     - target: {fileID: 430394, guid: 3bab19842fc2b8e44837b5c42192679d, type: 3}
       propertyPath: m_RootOrder
@@ -75089,8 +75806,12 @@ PrefabInstance:
       value: WallDoorway (6)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
-      propertyPath: m_StaticEditorFlags
+      propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
       propertyPath: m_RootOrder
@@ -75164,8 +75885,12 @@ PrefabInstance:
       value: WallDoorway (7)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
-      propertyPath: m_StaticEditorFlags
+      propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
       propertyPath: m_RootOrder
@@ -75239,8 +75964,12 @@ PrefabInstance:
       value: WallDoorway (17)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
-      propertyPath: m_StaticEditorFlags
+      propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
       propertyPath: m_RootOrder
@@ -75376,8 +76105,8 @@ GameObject:
   m_Name: Quad (32)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &2040513060
 Transform:
@@ -75484,7 +76213,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &2043392860
 Transform:
@@ -75649,8 +76378,8 @@ GameObject:
   m_Name: Quad (111)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &2047203681
 Transform:
@@ -75739,6 +76468,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2047203680}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2049629339 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8719000287989914097, guid: 4b17d6855d33c92489512ea4e7db80f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1372014180}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e35d8ec05db4dac43ad179a5578dcf8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2050445221
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -75747,6 +76488,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 135559383}
     m_Modifications:
+    - target: {fileID: 1032492002331872, guid: c219b5a8bf4e2a84995f6937f60cdc20, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1032492002331872, guid: c219b5a8bf4e2a84995f6937f60cdc20, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4778783535964444, guid: c219b5a8bf4e2a84995f6937f60cdc20, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -75862,8 +76611,12 @@ PrefabInstance:
       value: WallDoorway (16)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
-      propertyPath: m_StaticEditorFlags
+      propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ca4ab8c150aaba443a8b59259dc91b7e, type: 3}
       propertyPath: m_RootOrder
@@ -75940,8 +76693,8 @@ GameObject:
   m_Name: Floor (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &2061083907
 Transform:
@@ -76038,6 +76791,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 135559383}
     m_Modifications:
+    - target: {fileID: 1123258765949536, guid: 3c12188f5325c7949a6535be1c73d437, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1123258765949536, guid: 3c12188f5325c7949a6535be1c73d437, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4055402488500318, guid: 3c12188f5325c7949a6535be1c73d437, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -76099,8 +76860,8 @@ GameObject:
   m_Name: Key_cards_Yellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &2067577412
 Transform:
@@ -76244,8 +77005,8 @@ GameObject:
   m_Name: Quad (98)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &2072723739
 Transform:
@@ -76626,8 +77387,8 @@ GameObject:
   m_Name: Quad (121)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &2100470913
 Transform:
@@ -76732,8 +77493,8 @@ GameObject:
   m_Name: Quad (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &2115329219
 Transform:
@@ -76840,7 +77601,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &2116331391
 Transform:
@@ -77048,8 +77809,8 @@ GameObject:
   m_Name: Quad (62)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &2123499697
 Transform:
@@ -77154,8 +77915,8 @@ GameObject:
   m_Name: Quad (60)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &2129348445
 Transform:
@@ -77261,7 +78022,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 65
+  m_StaticEditorFlags: 73
   m_IsActive: 1
 --- !u!4 &2143180048
 Transform:
