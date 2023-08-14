@@ -20,7 +20,7 @@ public class WaveSystem : MonoBehaviour
     void Update()
     {
 
-        if (currentWave < numberOfWaves && !isSpawning)
+        if (currentWave <= numberOfWaves && !isSpawning)
         {
             Debug.Log("currentWave is less than max waves");
             if (startWaves && spawners.Length > 0 && !spawners[currentWave - 1].isSpawning)
@@ -43,7 +43,7 @@ public class WaveSystem : MonoBehaviour
     IEnumerator WaveTimer()
     {
         Debug.Log("WaveTimer started");
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(4f);
         isSpawning = false;
         StartWave();
     }
