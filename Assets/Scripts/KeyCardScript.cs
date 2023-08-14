@@ -18,14 +18,20 @@ public class KeyCardScript : MonoBehaviour
     public GameObject player;
 
     void Start()
-    {
+    { 
+        player = GameObject.Find("Player");
+        PickedUpKeyCard = false; 
         if (SceneManager.GetActiveScene().name == "Level 1")
         {
             objective.text = "Search for supplies and find a way to exit.";
         }
-        else if (SceneManager.GetActiveScene().name == "Level 2" || SceneManager.GetActiveScene().name == "Level 3")
+        else if (SceneManager.GetActiveScene().name == "Level 2")
         {
             objective.text = "Escape from the hordes of zombies";
+        }
+        else if (SceneManager.GetActiveScene().name == "Level 3")
+        {
+            objective.text = "Use the rooms to\nhide from the zombies.\nWalk near objects to find the key.\nPress \"Y\" to turn\nthis message off and on.";
         }
         else if (SceneManager.GetActiveScene().name == "Level 4")
         {

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -58,6 +59,7 @@ public class regularZombie : MonoBehaviour, IDamage
     {
         if (playerInRange && !canSeePlayer())
         {
+            
             StartCoroutine(roam());
         }
         else if (agent.destination != gameManager.instance.player.transform.position)
@@ -84,6 +86,7 @@ public class regularZombie : MonoBehaviour, IDamage
 
     IEnumerator roam()
     {
+        
         if (agent.remainingDistance < 0.05f && !destinationChosen)
         {
             StopAnimation();
@@ -91,12 +94,12 @@ public class regularZombie : MonoBehaviour, IDamage
             agent.stoppingDistance = 0;
             yield return new WaitForSeconds(roamTimer);
 
-            Vector3 randomPos = Random.insideUnitSphere * roamDist;
+            Vector3 randomPos = UnityEngine.Random.insideUnitSphere * roamDist;
             randomPos += startingPos;
-
             NavMeshHit hit;
             NavMesh.SamplePosition(randomPos, out hit, roamDist, 1);
             agent.SetDestination(hit.position);
+            
 
             destinationChosen = false;
         }
