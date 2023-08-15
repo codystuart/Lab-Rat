@@ -48,7 +48,7 @@ public class regularZombie : MonoBehaviour, IDamage
     void Start()
     {
         originalHP = HP;
-        gameManager.instance.updateGameGoal(1);
+        //gameManager.instance.updateGameGoal(1);
         stoppingDistanceOrig = agent.stoppingDistance;
         startingPos = transform.position;
         enemyUI.SetActive(false);
@@ -231,9 +231,8 @@ public class regularZombie : MonoBehaviour, IDamage
 
         if (HP <= 0)
         {
-            Debug.Log("Should destory zombie. Name is "+this.name);
             Destroy(gameObject); 
-            gameManager.instance.updateGameGoal(-1);
+            //gameManager.instance.updateGameGoal(-1);
         }
     } 
 

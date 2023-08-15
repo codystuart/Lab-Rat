@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class OptionsMenu : MonoBehaviour
 {
     public Toggle fullscreen;
-    [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameObject pauseMenu, optionsMenu;
     [SerializeField] Canvas optionsUI;
     void Start()
     {
@@ -33,10 +33,14 @@ public class OptionsMenu : MonoBehaviour
    public void Back()
    {
         // hide options by setting sorting order to 0;
-        optionsUI.sortingOrder = 0;
         if (pauseMenu != null)
         {
             pauseMenu.SetActive(true);
+            optionsMenu.SetActive(false);
+        }
+        else
+        {
+            optionsUI.sortingOrder = 0;
         }
    }
 }

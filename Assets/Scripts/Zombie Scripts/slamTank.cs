@@ -49,7 +49,7 @@ public class slamTank : MonoBehaviour, IDamage
     {
         
         originalHP = HP;
-        gameManager.instance.updateGameGoal(1);
+        //gameManager.instance.updateGameGoal(1);
         stoppingDistanceOrig = agent.stoppingDistance;
         startingPos = transform.position;
         enemyUI.SetActive(false);
@@ -167,7 +167,7 @@ public class slamTank : MonoBehaviour, IDamage
                 Instantiate(itemDrop, transform.position, Quaternion.identity);
             }
             Destroy(gameObject);
-            gameManager.instance.updateGameGoal(-1);
+            //gameManager.instance.updateGameGoal(-1);
         }
     }
 

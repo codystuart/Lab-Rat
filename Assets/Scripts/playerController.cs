@@ -16,6 +16,7 @@ public class playerController : MonoBehaviour, IDamage
 
     [Header("----- Player Stats -----")]
     [Range(1, 10)]public int HP;
+    [SerializeField] int lives;
     [Range(1, 10)][SerializeField] float playerSpeed;
     [Range(2, 5)] [SerializeField] float sprintDuration;
     [Range(1, 5)][SerializeField] int sprintCooldownLength;
@@ -230,7 +231,12 @@ public class playerController : MonoBehaviour, IDamage
         StartCoroutine(gameManager.instance.playerFlashDamage());
         updatePlayerUI();
 
-        if (HP <= 0)
+        if (HP <= 0 && lives > 0)
+        {
+            lives--;
+            gameManager.instance.RespawnLevel();
+        }
+        else if (HP <= 0 && lives <= 0)
         {
             gameManager.instance.youLose();
         }

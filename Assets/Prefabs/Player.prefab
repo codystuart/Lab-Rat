@@ -122,7 +122,7 @@ Transform:
   - {fileID: 5813126535373773339}
   - {fileID: 8026936433087601761}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!81 &8873594068017870619
 AudioListener:
@@ -146,8 +146,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 5105460330003665063}
   charCollider: {fileID: 8023312934507635269}
+  canMove: 1
   HP: 10
-  playerSpeed: 5
+  lives: 3
+  playerSpeed: 4
   sprintDuration: 5
   sprintCooldownLength: 3
   jumpHeight: 7
@@ -176,6 +178,7 @@ MonoBehaviour:
   originalHP: 0
   selectedGun: 0
   hasFlashlight: 0
+  hasPhone: 0
 --- !u!143 &5105460330003665063
 CharacterController:
   m_ObjectHideFlags: 0
@@ -412,12 +415,13 @@ AudioSource:
   m_GameObject: {fileID: 2717955210409237860}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -5939124486177115102, guid: fa28bd74cf6e887418f2f260d2be7d3c, type: 2}
+  OutputAudioMixerGroup: {fileID: -5939124486177115102, guid: fa28bd74cf6e887418f2f260d2be7d3c,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 4d99e73e07d9ef048b52abe18c832cab, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.3
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

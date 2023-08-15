@@ -19,10 +19,11 @@ public class gameManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject loseMenu;
     public GameObject winMenu;
+    public GameObject respawnMenu;
 
     [Header("----- UI Text -----")]
-    public TextMeshProUGUI enemiesRemainingText;
-    public TextMeshProUGUI cureBottlesRemainingText;
+    //public TextMeshProUGUI enemiesRemainingText;
+    //public TextMeshProUGUI cureBottlesRemainingText;
     public TextMeshProUGUI gameTimer;
     public TextMeshProUGUI currAmmoText;
     public TextMeshProUGUI maxAmmoText;
@@ -54,7 +55,7 @@ public class gameManager : MonoBehaviour
     public saveStats save;
 
     //class references
-    public int enemiesRemaining;
+    //public int enemiesRemaining;
     public bool isPaused;
     public float timescaleOrig;
     private float secondsCount;
@@ -70,13 +71,13 @@ public class gameManager : MonoBehaviour
     public bool collectedAllCures;
     private GameObject[] findCures;
 
-    [Header("----- Puzzle -----")]
-    [SerializeField] List<GameObject> correctBtnOrder = new List<GameObject>();
-    [SerializeField] List<GameObject> btnPressedOrder = new List<GameObject>();
-    [SerializeField] GameObject keycard;
-    [SerializeField] GameObject tryAgainPuzzleText;
-    [SerializeField] GameObject keycardAcquiredText;
-    public bool correctOrder = false;
+    // [Header("----- Puzzle -----")]
+    // [SerializeField] List<GameObject> correctBtnOrder = new List<GameObject>();
+    // [SerializeField] List<GameObject> btnPressedOrder = new List<GameObject>();
+    // [SerializeField] GameObject keycard;
+    // [SerializeField] GameObject tryAgainPuzzleText;
+    // [SerializeField] GameObject keycardAcquiredText;
+    // public bool correctOrder = false;
 
     void Awake()
     {
@@ -176,22 +177,22 @@ public class gameManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         playerFlashDamagePanel.SetActive(false);
     }
-    public void updateGameGoal(int amount)
-    {
-        enemiesRemaining += amount;
-        updateCounters();
+    // public void updateGameGoal(int amount)
+    // {
+    //     enemiesRemaining += amount;
+    //     //updateCounters();
 
-        if (enemiesRemaining <= 0 && secretWall != null)
-        {
-            secretWall.GetComponent<Renderer>().enabled = false;
-            secretWall.GetComponent<Collider>().enabled = false;
-        }
-    }
+    //     if (enemiesRemaining <= 0 && secretWall != null)
+    //     {
+    //         secretWall.GetComponent<Renderer>().enabled = false;
+    //         secretWall.GetComponent<Collider>().enabled = false;
+    //     }
+    // }
     
     public void updateCureGameGoal(int amount) 
     { 
         cureCollected += amount;
-        updateCounters();
+        //updateCounters();
 
         if (cureCollected == totalCureCount)
         {
@@ -234,12 +235,20 @@ public class gameManager : MonoBehaviour
         activeMenu.SetActive(true);
     }
 
-    void updateCounters()
+    public void RespawnLevel()
     {
-        //updated game goal labels
-        enemiesRemainingText.text = enemiesRemaining.ToString("F0");
-        cureBottlesRemainingText.text = cureCollected.ToString("F0") + "/" + totalCureCount.ToString("F0");
+        //opens respawn menu
+        statePaused();
+        activeMenu = respawnMenu;
+        activeMenu.SetActive(true);
     }
+
+    // void updateCounters()
+    // {
+    //     //updated game goal labels
+    //     enemiesRemainingText.text = enemiesRemaining.ToString("F0");
+    //     cureBottlesRemainingText.text = cureCollected.ToString("F0") + "/" + totalCureCount.ToString("F0");
+    // }
 
     void updateTimerUI()
     {
@@ -261,49 +270,49 @@ public class gameManager : MonoBehaviour
 
         gameTimer.text = "Time " + minuteCount.ToString("00") + ":" + secondsToInt.ToString("00");
     }
-    public void ButtonPressedOrder(GameObject button)
-    {
-        //button puzzle logic
-        Debug.Log("Button Added To list");
-        btnPressedOrder.Add(button);
+    // public void ButtonPressedOrder(GameObject button)
+    // {
+    //     //button puzzle logic
+    //     Debug.Log("Button Added To list");
+    //     btnPressedOrder.Add(button);
 
-        if(btnPressedOrder.Count == correctBtnOrder.Count)
-        {
-            for (int i = 0; i < correctBtnOrder.Count; i++)
-            {
-                if (correctBtnOrder[i] == btnPressedOrder[i])
-                {
-                    correctOrder = true;
-                }
-                else
-                {
-                    correctOrder = false;
-                    break;
-                }
-            }
-            if (correctOrder)
-            {
-                StartCoroutine(KeycardAcquired());
-                Instantiate(keycard, player.transform.position, player.transform.rotation);
-            }
-            else
-            {
-                StartCoroutine(FailedPuzzle());
-                btnPressedOrder.Clear();
-                // play error sound
-            }
-        }
-    }
-    IEnumerator KeycardAcquired()
-    {
-        keycardAcquiredText.SetActive(true);
-        yield return new WaitForSeconds(1f);
-        keycardAcquiredText.SetActive(false);
-    }
-    IEnumerator FailedPuzzle()
-    {
-        tryAgainPuzzleText.SetActive(true);
-        yield return new WaitForSeconds(2f);
-        tryAgainPuzzleText.SetActive(false);
-    }
+    //     if(btnPressedOrder.Count == correctBtnOrder.Count)
+    //     {
+    //         for (int i = 0; i < correctBtnOrder.Count; i++)
+    //         {
+    //             if (correctBtnOrder[i] == btnPressedOrder[i])
+    //             {
+    //                 correctOrder = true;
+    //             }
+    //             else
+    //             {
+    //                 correctOrder = false;
+    //                 break;
+    //             }
+    //         }
+    //         if (correctOrder)
+    //         {
+    //             StartCoroutine(KeycardAcquired());
+    //             Instantiate(keycard, player.transform.position, player.transform.rotation);
+    //         }
+    //         else
+    //         {
+    //             StartCoroutine(FailedPuzzle());
+    //             btnPressedOrder.Clear();
+    //             // play error sound
+    //         }
+    //     }
+    // }
+    // IEnumerator KeycardAcquired()
+    // {
+    //     keycardAcquiredText.SetActive(true);
+    //     yield return new WaitForSeconds(1f);
+    //     keycardAcquiredText.SetActive(false);
+    // }
+    // IEnumerator FailedPuzzle()
+    // {
+    //     tryAgainPuzzleText.SetActive(true);
+    //     yield return new WaitForSeconds(2f);
+    //     tryAgainPuzzleText.SetActive(false);
+    // }
 }

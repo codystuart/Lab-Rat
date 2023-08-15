@@ -47,7 +47,7 @@ public class rangedZombie : MonoBehaviour, IDamage
     void Start()
     {
         originalHP = HP;
-        gameManager.instance.updateGameGoal(1);
+        //gameManager.instance.updateGameGoal(1);
         stoppingDistanceOrig = agent.stoppingDistance;
         startingPos = transform.position;
         enemyUI.SetActive(false);
@@ -160,7 +160,7 @@ public class rangedZombie : MonoBehaviour, IDamage
             } 
             Debug.Log("Zombie respawning");
             Destroy(gameObject); 
-            gameManager.instance.updateGameGoal(-1);
+            //gameManager.instance.updateGameGoal(-1);
         }
     }
 

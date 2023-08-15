@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class buttonFunctions : MonoBehaviour
 {
 
-    [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameObject pauseMenu, optionsMenu;
     [SerializeField] Canvas mainMenuUI, optionsUI, creditsUI, newOrLoadUI;
     public void play()
     {
@@ -50,10 +50,15 @@ public class buttonFunctions : MonoBehaviour
     {
         //if opening from pause menu, hide the pause menu
         if (pauseMenu != null && gameManager.instance.activeMenu == gameManager.instance.pauseMenu)
+        {
             pauseMenu.SetActive(false);
-
-        // display options by setting sorting order to 2;
-        optionsUI.sortingOrder = 2;
+            optionsMenu.SetActive(true);
+        }
+        else
+        {
+            // display options by setting sorting order to 2;
+            optionsUI.sortingOrder = 2;
+        }
     }
 
     public void Credits()

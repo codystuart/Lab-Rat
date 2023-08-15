@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -238,7 +238,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &34581664
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -570,12 +570,6 @@ Transform:
   m_Father: {fileID: 608823003}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &39879529 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2474284151037218360, guid: 7fc93665b6870c24bbf359da90aa989a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1313333727}
-  m_PrefabAsset: {fileID: 0}
 --- !u!43 &55207265
 Mesh:
   m_ObjectHideFlags: 0
@@ -7165,17 +7159,12 @@ PrefabInstance:
         type: 3}
       propertyPath: doorInteractText
       value: 
-      objectReference: {fileID: 1921378221}
+      objectReference: {fileID: 1313333728}
     - target: {fileID: 820465809181381363, guid: fa331e8c72280b542969bbbc6187b629,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 769376639}
-    - target: {fileID: 1531654657336771598, guid: fa331e8c72280b542969bbbc6187b629,
-        type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2689035517804301464, guid: fa331e8c72280b542969bbbc6187b629,
         type: 3}
       propertyPath: m_Mesh
@@ -7211,11 +7200,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 769376639}
-    - target: {fileID: 4282708182332936155, guid: fa331e8c72280b542969bbbc6187b629,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4433804843125298027, guid: fa331e8c72280b542969bbbc6187b629,
         type: 3}
       propertyPath: m_Mesh
@@ -15268,7 +15252,7 @@ PrefabInstance:
         type: 3}
       propertyPath: doorInteractText
       value: 
-      objectReference: {fileID: 1921378221}
+      objectReference: {fileID: 1313333728}
     - target: {fileID: 820465809181381363, guid: fa331e8c72280b542969bbbc6187b629,
         type: 3}
       propertyPath: m_Mesh
@@ -18613,12 +18597,6 @@ Transform:
   m_Father: {fileID: 608823003}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1293813030 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5888427998171643544, guid: 7fc93665b6870c24bbf359da90aa989a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1313333727}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1313333727
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18850,6 +18828,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fc93665b6870c24bbf359da90aa989a, type: 3}
+--- !u!1 &1313333728 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1178249059535714279, guid: 7fc93665b6870c24bbf359da90aa989a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1313333727}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1317960813
 GameObject:
   m_ObjectHideFlags: 0
@@ -24781,7 +24765,7 @@ PrefabInstance:
         type: 3}
       propertyPath: doorInteractText
       value: 
-      objectReference: {fileID: 1921378221}
+      objectReference: {fileID: 1313333728}
     - target: {fileID: 820465809181381363, guid: fa331e8c72280b542969bbbc6187b629,
         type: 3}
       propertyPath: m_Mesh
@@ -27587,18 +27571,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8888594348769220911}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1921378221 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1782717862628645375, guid: 7fc93665b6870c24bbf359da90aa989a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1313333727}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1932433526 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6973929780102393775, guid: 7fc93665b6870c24bbf359da90aa989a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1313333727}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1990755864
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28415,12 +28387,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &2080497441 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5139212778305347271, guid: 7fc93665b6870c24bbf359da90aa989a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1313333727}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2097363265
 GameObject:
   m_ObjectHideFlags: 0
@@ -30117,7 +30083,7 @@ PrefabInstance:
         type: 3}
       propertyPath: doorInteractText
       value: 
-      objectReference: {fileID: 1921378221}
+      objectReference: {fileID: 1313333728}
     - target: {fileID: 820465809181381363, guid: fa331e8c72280b542969bbbc6187b629,
         type: 3}
       propertyPath: m_Mesh
@@ -31512,22 +31478,22 @@ PrefabInstance:
         type: 3}
       propertyPath: lockedFindCureText
       value: 
-      objectReference: {fileID: 1932433526}
+      objectReference: {fileID: 0}
     - target: {fileID: 5970037848756842657, guid: e637f147805ed9a4fa7e88c8ef1425e3,
         type: 3}
       propertyPath: lockedClearAreaText
       value: 
-      objectReference: {fileID: 39879529}
+      objectReference: {fileID: 0}
     - target: {fileID: 5970037848756842657, guid: e637f147805ed9a4fa7e88c8ef1425e3,
         type: 3}
       propertyPath: exitDoorInteractText
       value: 
-      objectReference: {fileID: 1293813030}
+      objectReference: {fileID: 0}
     - target: {fileID: 5970037848756842657, guid: e637f147805ed9a4fa7e88c8ef1425e3,
         type: 3}
       propertyPath: lockedFindKeycardText
       value: 
-      objectReference: {fileID: 2080497441}
+      objectReference: {fileID: 0}
     - target: {fileID: 6191622171058428151, guid: e637f147805ed9a4fa7e88c8ef1425e3,
         type: 3}
       propertyPath: m_Mesh
@@ -31599,7 +31565,7 @@ PrefabInstance:
     - target: {fileID: 5652833661601485983, guid: 8bf917861fcac2248871624cc104df39,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 18.942
+      value: 16.571
       objectReference: {fileID: 0}
     - target: {fileID: 5652833661601485983, guid: 8bf917861fcac2248871624cc104df39,
         type: 3}

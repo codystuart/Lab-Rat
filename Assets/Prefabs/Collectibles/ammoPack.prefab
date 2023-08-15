@@ -33,7 +33,7 @@ Transform:
   - {fileID: 8793375877689385191}
   - {fileID: 8397623581155425772}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6533335140431728117
 MonoBehaviour:
@@ -47,8 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d76bd23ebcc3b7944b847502d405e255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 963e1414c00f7a7428c58cf3afd6aca9, type: 2}
-  pickupSound: {fileID: 0}
+  item: {fileID: 11400000, guid: 963e1414c00f7a7428c58cf3afd6aca9, type: 2}
   rotation: {x: 0, y: 1, z: 0}
   speed: 20
 --- !u!65 &251838471812564184

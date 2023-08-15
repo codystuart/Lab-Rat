@@ -51,7 +51,7 @@ public class exitDoor : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             playerInRange = true;
-            showText();
+            //showText();
         }
     }
 
@@ -60,7 +60,7 @@ public class exitDoor : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
-            hideText();
+            //hideText();
         }
     }
     void changeLightColor()
@@ -78,21 +78,21 @@ public class exitDoor : MonoBehaviour
             return false;
     }
 
-    bool cureCollected()
-    {
-        if (gameManager.instance.collectedAllCures == true)
-            return true;
-        else
-            return false;
-    }
+    // bool cureCollected()
+    // {
+    //     if (gameManager.instance.collectedAllCures == true)
+    //         return true;
+    //     else
+    //         return false;
+    // }
 
-    bool zombiesEliminated()
-    {
-        if (gameManager.instance.enemiesRemaining <= 0)
-            return true;
-        else
-            return false;
-    }    
+    // bool zombiesEliminated()
+    // {
+    //     if (gameManager.instance.enemiesRemaining <= 0)
+    //         return true;
+    //     else
+    //         return false;
+    // }    
     
     bool playerCanExit()
     { 
@@ -167,44 +167,44 @@ public class exitDoor : MonoBehaviour
         return false;
     }
 
-    void showText()
-    {
-        if (!keycardAcquired())
-        {
-            lockedFindKeycardText.SetActive(true);
-        }
-        else if (!cureCollected())
-        {
-            lockedFindCureText.SetActive(true);
-        }
-        else if (!zombiesEliminated())
-        {
-            lockedClearAreaText.SetActive(true);
-        }
-        else if (playerCanExit())
-        {
-            exitDoorInteractText.SetActive(true);
-        }
-    }
+    // void showText()
+    // {
+    //     if (!keycardAcquired())
+    //     {
+    //         lockedFindKeycardText.SetActive(true);
+    //     }
+    //     else if (!cureCollected())
+    //     {
+    //         lockedFindCureText.SetActive(true);
+    //     }
+    //     else if (!zombiesEliminated())
+    //     {
+    //         lockedClearAreaText.SetActive(true);
+    //     }
+    //     else if (playerCanExit())
+    //     {
+    //         exitDoorInteractText.SetActive(true);
+    //     }
+    // }
 
-    void hideText()
-    {
-        if (!keycardAcquired())
-        {
-            lockedFindKeycardText.SetActive(false);
-        }
-        else if (!cureCollected())
-        {
-           lockedFindCureText.SetActive(false);
-        }
-        else if (!zombiesEliminated())
-        {
-            lockedClearAreaText.SetActive(false);
-        }
-        else if (playerCanExit())
-        {
-            exitDoorInteractText.SetActive(false);
-        }
-    }
+    // void hideText()
+    // {
+    //     if (!keycardAcquired())
+    //     {
+    //         lockedFindKeycardText.SetActive(false);
+    //     }
+    //     else if (!cureCollected())
+    //     {
+    //        lockedFindCureText.SetActive(false);
+    //     }
+    //     else if (!zombiesEliminated())
+    //     {
+    //         lockedClearAreaText.SetActive(false);
+    //     }
+    //     else if (playerCanExit())
+    //     {
+    //         exitDoorInteractText.SetActive(false);
+    //     }
+    // }
     
 }
