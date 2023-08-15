@@ -19,7 +19,7 @@ public class KeyCardScript : MonoBehaviour
 
     void Start()
     { 
-        player = GameObject.Find("Player");
+        player = gameManager.instance.player;
         PickedUpKeyCard = false; 
         if (SceneManager.GetActiveScene().name == "Level 1")
         {
