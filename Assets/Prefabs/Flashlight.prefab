@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5453768750522956410}
   - component: {fileID: 3240479254649588746}
   - component: {fileID: 6067783271431516305}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Flashlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
