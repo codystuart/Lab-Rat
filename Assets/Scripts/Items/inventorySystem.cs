@@ -9,6 +9,7 @@ public class inventorySystem : MonoBehaviour
     public static inventorySystem inventory;
 
     //ui stuff
+    public GameObject openHint;
     public GameObject interact;
     public GameObject invFull;
     public TextMeshProUGUI maxItemsLabel;
@@ -39,10 +40,16 @@ public class inventorySystem : MonoBehaviour
     //reference to play position
     public Transform player;
 
+    //references to tab buttons
+    public Button inTab;
+    public Button noTab;
+
     public void Awake()
     {
         inventory = this;
         maxItemsLabel.text = maxItems.ToString();
+        inTab.interactable = false;
+        StartCoroutine(invHint());
     }
 
     public void addItem(itemData item)
@@ -123,13 +130,13 @@ public class inventorySystem : MonoBehaviour
         string theDescription = " ";
 
         if (id == 'a')
-            theDescription = "Ammo pack restores current gun's ammunition.";
+            theDescription = "Restores current gun's ammunition.";
         if (id == 'b')
-            theDescription = "Batteries recharge the flashlight.";
+            theDescription = "Recharge the flashlight.";
         if (id == 'c')
             theDescription = "This is the cure Miyah was talking about.";
         if (id == 'h')
-            theDescription = "Health potion restores health.";
+            theDescription = "Restores health.";
         if (id == 'k')
             theDescription = "This keycard should help me get around.";
 
@@ -172,21 +179,23 @@ public class inventorySystem : MonoBehaviour
     }
 
     //tab button functions
-    public void invTab()
+    public void invTabs()
     {
         //turn off notes, turn on inventory
         gameManager.instance.notes.SetActive(false);
         gameManager.instance.inventory.SetActive(true);
         gameManager.instance.activeMenu = gameManager.instance.inventory;
+        inTab.interactable = false;
         ListItems();
     }
 
-    public void notesTab()
+    public void notesTabs()
     {
         //turn off inventory, turn on notes
         gameManager.instance.inventory.SetActive(false);
         gameManager.instance.notes.SetActive(true);
         gameManager.instance.activeMenu = gameManager.instance.notes;
+        noTab.interactable = false;
         ListNotes();
     }
 
@@ -249,6 +258,14 @@ public class inventorySystem : MonoBehaviour
             items.Remove(selectedItem);
             ListItems();
         }
+    }
+
+    //one time hint to tell player how to open inventory
+    IEnumerator invHint()
+    {
+        openHint.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        openHint.SetActive(false);
     }
 
     //tells player that they don't have a gun

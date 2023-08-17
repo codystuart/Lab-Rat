@@ -39,7 +39,6 @@ public class gameManager : MonoBehaviour
 
     [Header("----- Inventory Objects -----")]
     public GameObject inventory;
-    public GameObject batteryMeter;
     public TextMeshProUGUI displayName;
     public TextMeshProUGUI itemDescription;
 
@@ -101,8 +100,8 @@ public class gameManager : MonoBehaviour
         {
             save.gunListSave.Clear();
         }
-        
-        batteryMeter.SetActive(false);
+
+        batteryChargeBar.fillAmount = 0;
     }
 
     void Update()
@@ -145,6 +144,7 @@ public class gameManager : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
         reticle.SetActive(false);
+        AudioListener.volume = 0; //this stops all sound/ sfx from being heard while paused
         isPaused = !isPaused;
     }
 
@@ -156,6 +156,7 @@ public class gameManager : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         reticle.SetActive(true);
+        AudioListener.volume = 1; //this turns the volume back on
         isPaused = !isPaused;
         activeMenu.SetActive(false);
 
@@ -205,8 +206,6 @@ public class gameManager : MonoBehaviour
         //opens inventory screen
         activeMenu = inventory;
         activeMenu.SetActive(true);
-        if (playerScript.hasFlashlight)
-            batteryMeter.SetActive(true);
         statePaused();
         inventorySystem.inventory.ListItems();
     }

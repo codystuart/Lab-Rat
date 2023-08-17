@@ -52,10 +52,15 @@ public class playerController : MonoBehaviour, IDamage
     public float minBrightness;
     public float drainRate;
 
+    [Header("----- SFX -----")]
+    [SerializeField] AudioSource flashlightON;
+    [SerializeField] AudioSource flashlighOFF;
+
     [Header("----- Class Objects -----")]
     public int originalHP;
     public int selectedGun;
     public bool hasFlashlight;
+    public bool fLightIsOn;
     public bool hasPhone;
     Vector3 move;
     Vector3 velocity;
@@ -70,6 +75,7 @@ public class playerController : MonoBehaviour, IDamage
         originalHP = HP;
         playerSpeedOrig = playerSpeed;
         fLight.enabled = false;
+        fLightIsOn = false;
 
         spawnPlayer();
 
@@ -248,11 +254,15 @@ public class playerController : MonoBehaviour, IDamage
 
         if (drainOverTime && fLight.enabled)
         {
+            flashlightON.Play();
             if (fLight.intensity > minBrightness)
             {
                 fLight.intensity -= Time.deltaTime * (drainRate / 1000);
             }
         }
+
+        if (hasFlashlight && !fLightIsOn)
+            flashlighOFF.Play();
 
         if (hasFlashlight && Input.GetKeyDown(KeyCode.F))
         {
@@ -262,6 +272,7 @@ public class playerController : MonoBehaviour, IDamage
             }
 
             fLight.enabled = !fLight.enabled;
+            fLightIsOn = !fLightIsOn;
         }
 
         updatePlayerUI();
