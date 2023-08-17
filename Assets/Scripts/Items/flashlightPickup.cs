@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class flashlightPickup : MonoBehaviour
 {
+    [SerializeField] GameObject selfReference;
     [SerializeField] GameObject interact;
+
+    void Start()
+    {
+        selfReference.layer = LayerMask.NameToLayer("Default");
+    }
 
     void Update()
     {
@@ -20,6 +26,8 @@ public class flashlightPickup : MonoBehaviour
             gameManager.instance.playerScript.hasFlashlight = true;
             gameObject.transform.position = new Vector3(0, -1, 0);
             StartCoroutine(showInteract());
+            selfReference.layer = LayerMask.NameToLayer("HandHeldItems");
+            Destroy(gameObject);
         }
     }
 
@@ -28,6 +36,5 @@ public class flashlightPickup : MonoBehaviour
         interact.SetActive(true);
         yield return new WaitForSeconds(2f);
         interact.SetActive(false);
-        Destroy(gameObject);
     }
 }

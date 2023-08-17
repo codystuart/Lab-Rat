@@ -5,11 +5,13 @@ using UnityEngine;
 public class gunPickup : MonoBehaviour
 {
     [Header("----- Components -----")]
+    [SerializeField] GameObject selfReference;
     [SerializeField] gunStats gun;
     [Range(70, 100)][SerializeField] int rotationSpeed;
 
     private void Start()
     {
+        selfReference.layer = LayerMask.NameToLayer("Default");
         gun.currAmmo = gun.maxAmmo;
     }
 
@@ -25,6 +27,7 @@ public class gunPickup : MonoBehaviour
         {
             inventorySystem.inventory.pickupSound.Play();
             gameManager.instance.playerScript.gunPickup(gun);
+            selfReference.layer = LayerMask.NameToLayer("HandHeldItems");
             Destroy(gameObject);
         }
     }

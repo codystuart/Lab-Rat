@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecb1bc50f4a13c242b79c751475e5e3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selfReference: {fileID: 2490812307967091041}
   gun: {fileID: 11400000, guid: 3422cd8494c3177438ff81c4b4498569, type: 2}
   rotationSpeed: 80
 --- !u!33 &787890330365881426
