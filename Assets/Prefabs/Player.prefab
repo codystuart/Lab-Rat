@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1269182093297992016}
   - component: {fileID: 6509228626338704440}
   - component: {fileID: 4291693079421105406}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gun Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ Transform:
   - {fileID: 5813126535373773339}
   - {fileID: 8026936433087601761}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!81 &8873594068017870619
 AudioListener:
@@ -514,7 +514,7 @@ GameObject:
   - component: {fileID: 7849053898652852718}
   - component: {fileID: 2647340654631232229}
   m_Layer: 3
-  m_Name: Camera
+  m_Name: ItemsCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -571,13 +571,13 @@ Camera:
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: 0
+  m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 64
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 1
+  m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
@@ -940,7 +940,7 @@ GameObject:
   - component: {fileID: 63328559812213553}
   - component: {fileID: 3593747356628174030}
   - component: {fileID: 3157677191975785237}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Flashlight Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
