@@ -62,7 +62,6 @@ public class gameManager : MonoBehaviour
     private bool pauseTimer;
     public bool keycardAcquired;
     
-
     //Cure collection and counting variables
     public int totalCureCount;
     int cureCollected;
@@ -89,16 +88,26 @@ public class gameManager : MonoBehaviour
         //Alternate method to count total cures?
         // findCures = GameObject.FindGameObjectsWithTag("Cure");
         // totalCureCount = findCures.Length;
-        
-        //Sets the list of saved guns and grabbed from the exitDoor script and applies it to the character when loading into a new level, and sets it to the first gun in the list
-        playerScript.gunList = save.gunListSave;
-        playerScript.selectedGun = 0;
-
-        UnityEngine.SceneManagement.Scene sceneCurr = SceneManager.GetActiveScene();
-        string sceneName = sceneCurr.name;
-        if (sceneName == "Level 1" || sceneName == "TestingWaveSpawner")
+        Scene sceneCurr = SceneManager.GetActiveScene();
+        if (sceneCurr.name != "Level 1")
         {
-            save.gunListSave.Clear();
+            //sets lists of saved items
+            playerScript.gunList = save.saveGunList;
+            playerScript.selectedGun = 0; //set selected gun to first in list
+            inventorySystem.inventory.items = save.saveInvItems;
+            inventorySystem.inventory.notes = save.saveNotes;
+
+            //sets flashlight meshes on next scene
+            if (save.saveFlashlight)
+                playerScript.pickupFlashlight();
+        }
+        
+        if (sceneCurr.name == "Level 1" || sceneCurr.name == "TestingWaveSpawner")
+        {
+            save.saveGunList.Clear();
+            save.saveInvItems.Clear();
+            save.saveNotes.Clear();
+            save.saveFlashlight = false;
         }
 
         batteryChargeBar.fillAmount = 0;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class inventorySystem : MonoBehaviour
@@ -49,7 +50,9 @@ public class inventorySystem : MonoBehaviour
         inventory = this;
         maxItemsLabel.text = maxItems.ToString();
         inTab.interactable = false;
-        StartCoroutine(invHint());
+        Scene sceneCurr = SceneManager.GetActiveScene();
+        if (sceneCurr.name == "Level 1")
+            StartCoroutine(invHint());
     }
 
     public void addItem(itemData item)
@@ -160,7 +163,7 @@ public class inventorySystem : MonoBehaviour
         if (selectedItem != null)
         {
             itemFunction(selectedItem);
-            clearInfo();
+            clearInfo(selectedItem);
         }
     }
 
@@ -169,7 +172,7 @@ public class inventorySystem : MonoBehaviour
         if (selectedItem != null)
         {
             dropSound.Play();
-            clearInfo();
+            clearInfo(selectedItem);
             Vector3 playerPos = new Vector3(player.position.x - 3, player.position.y, player.position.z);
             Instantiate(selectedItem.prefab, playerPos, selectedItem.prefab.transform.rotation);
             removeItem(selectedItem);
@@ -217,11 +220,12 @@ public class inventorySystem : MonoBehaviour
         }
     }
 
-    //clears item name and description
-    public void clearInfo()
+    //clears item name/ description and removes from save list
+    public void clearInfo(itemData selectedItem)
     {
         gameManager.instance.displayName.text = string.Empty;
         gameManager.instance.itemDescription.text = string.Empty;
+        gameManager.instance.save.saveInvItems.Remove(selectedItem);
     }
 
     //ammo function

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class gunPickup : MonoBehaviour
 {
@@ -11,8 +12,13 @@ public class gunPickup : MonoBehaviour
 
     private void Start()
     {
+        //default is for the main camera
         selfReference.layer = LayerMask.NameToLayer("Default");
-        gun.currAmmo = gun.maxAmmo;
+
+        //set ammo to max only on first level
+        Scene sceneCurr = SceneManager.GetActiveScene();
+        if (sceneCurr.name == "Level 1")
+            gun.currAmmo = gun.maxAmmo;
     }
 
     void Update()
@@ -27,7 +33,8 @@ public class gunPickup : MonoBehaviour
         {
             inventorySystem.inventory.pickupSound.Play();
             gameManager.instance.playerScript.gunPickup(gun);
-            selfReference.layer = LayerMask.NameToLayer("HandHeldItems");
+            gameManager.instance.save.saveGunList.Add(gun);
+            selfReference.layer = LayerMask.NameToLayer("HandHeldItems"); //handhelditems is for the items camera
             Destroy(gameObject);
         }
     }

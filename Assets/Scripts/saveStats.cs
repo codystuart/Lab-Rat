@@ -6,6 +6,11 @@ using UnityEngine;
 
 public class saveStats : ScriptableObject
 {
-    [Header("----- Components -----")]
-    public List<gunStats> gunListSave = new List<gunStats>();
+    [Header("----- Lists to Save -----")]
+    public List<gunStats> saveGunList = new List<gunStats>();
+    public List<itemData> saveInvItems = new List<itemData>();
+    public List<noteData> saveNotes = new List<noteData>();
+
+    [Header("----- Flashlight Save -----")]
+    public bool saveFlashlight;
 }

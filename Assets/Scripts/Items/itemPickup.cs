@@ -43,6 +43,7 @@ public class itemPickup : MonoBehaviour
                 gameManager.instance.keycardAcquired = true;
 
             inventorySystem.inventory.addItem(item);
+            gameManager.instance.save.saveInvItems.Add(item); //save the items to the save list
             Destroy(gameObject);
         }
     }
