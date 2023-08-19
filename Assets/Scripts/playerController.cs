@@ -12,7 +12,6 @@ public class playerController : MonoBehaviour, IDamage
     [Header("----- Player -----")]
     [SerializeField] CharacterController controller;
     [SerializeField] CapsuleCollider charCollider;
-    public bool canMove = true;
 
     [Header("----- Player Stats -----")]
     [Range(1, 10)]public int HP;
@@ -44,17 +43,12 @@ public class playerController : MonoBehaviour, IDamage
 
     [Header("----- Flashlight -----")]
     [SerializeField] GameObject flashlightModel;
-    [SerializeField] GameObject flashlight;
-    [SerializeField] GameObject needBattery;
+    public GameObject flashlight;
     [SerializeField] Light fLight;
     public bool drainOverTime;
     public float maxBrightness;
     public float minBrightness;
     public float drainRate;
-
-    [Header("----- SFX -----")]
-    [SerializeField] AudioSource flashlightON;
-    [SerializeField] AudioSource flashlighOFF;
 
     [Header("----- Class Objects -----")]
     public int originalHP;
@@ -83,11 +77,13 @@ public class playerController : MonoBehaviour, IDamage
         {
             changeGunStats();
         }
+        if (gameManager.instance.save.saveFlashlight)
+            hasFlashlight = true;
     }
 
     void Update()
     {
-        if (gameManager.instance.activeMenu == null && canMove)
+        if (gameManager.instance.activeMenu == null)
         {
             Movement();
             useFlashlight();
@@ -254,7 +250,7 @@ public class playerController : MonoBehaviour, IDamage
 
         if (drainOverTime && fLight.enabled)
         {
-            flashlightON.Play();
+            gameManager.instance.flashlightON.Play();
             if (fLight.intensity > minBrightness)
             {
                 fLight.intensity -= Time.deltaTime * (drainRate / 1000);
@@ -262,7 +258,7 @@ public class playerController : MonoBehaviour, IDamage
         }
 
         if (hasFlashlight && !fLightIsOn)
-            flashlighOFF.Play();
+            gameManager.instance.flashlightOFF.Play();
 
         if (hasFlashlight && Input.GetKeyDown(KeyCode.F))
         {
@@ -275,14 +271,16 @@ public class playerController : MonoBehaviour, IDamage
             fLightIsOn = !fLightIsOn;
         }
 
+        if (hasFlashlight)
+            gameManager.instance.save.fLightIntensity = fLight.intensity;
         updatePlayerUI();
     }
 
     IEnumerator recharge()
     {
-        needBattery.SetActive(true);
+        gameManager.instance.needBattery.SetActive(true);
         yield return new WaitForSeconds(3f);
-        needBattery.SetActive(false);
+        gameManager.instance.needBattery.SetActive(false);
     }
 
     public void spawnPlayer()
@@ -344,8 +342,9 @@ public class playerController : MonoBehaviour, IDamage
 
     public void pickupFlashlight()
     {
-        flashlightModel.GetComponent<MeshFilter>().mesh = flashlight.GetComponent<MeshFilter>().sharedMesh;
-        flashlightModel.GetComponent<MeshRenderer>().material = flashlight.GetComponent<MeshRenderer>().sharedMaterial;
+        hasFlashlight = true;
+        flashlightModel.GetComponent<MeshFilter>().mesh = gameManager.instance.save.saveFlashlightPrefab.GetComponent<MeshFilter>().sharedMesh;
+        flashlightModel.GetComponent<MeshRenderer>().material = gameManager.instance.save.saveFlashlightPrefab.GetComponent<MeshRenderer>().sharedMaterial;
     }
 
     void scrollGuns()
@@ -386,5 +385,6 @@ public class playerController : MonoBehaviour, IDamage
     public void replaceBattery(float amount)
     {
         fLight.intensity += amount;
+        gameManager.instance.save.fLightIntensity = fLight.intensity;
     }
 }

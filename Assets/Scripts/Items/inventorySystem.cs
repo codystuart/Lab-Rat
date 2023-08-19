@@ -38,9 +38,6 @@ public class inventorySystem : MonoBehaviour
     public Transform noteContent;
     public Button noteButton;
 
-    //reference to play position
-    public Transform player;
-
     //references to tab buttons
     public Button inTab;
     public Button noTab;
@@ -138,7 +135,7 @@ public class inventorySystem : MonoBehaviour
             theDescription = "Recharge the flashlight.";
         if (id == 'c')
             theDescription = "This is the cure Miyah was talking about.";
-        if (id == 'h')
+        if (id == 'm')
             theDescription = "Restores health.";
         if (id == 'k')
             theDescription = "This keycard should help me get around.";
@@ -173,7 +170,9 @@ public class inventorySystem : MonoBehaviour
         {
             dropSound.Play();
             clearInfo(selectedItem);
-            Vector3 playerPos = new Vector3(player.position.x - 3, player.position.y, player.position.z);
+            Vector3 playerPos = new Vector3(gameManager.instance.player.transform.position.x - 0.3f,
+                gameManager.instance.player.transform.position.y,
+                gameManager.instance.player.transform.position.z + 0.5f);
             Instantiate(selectedItem.prefab, playerPos, selectedItem.prefab.transform.rotation);
             removeItem(selectedItem);
             selectedItem = null;
@@ -214,7 +213,7 @@ public class inventorySystem : MonoBehaviour
         {
             refillBattery();
         }
-        if (id == 'h')
+        if (id == 'm')
         {
             giveHealth(50);
         }

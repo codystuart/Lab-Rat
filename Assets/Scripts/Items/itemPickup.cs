@@ -8,18 +8,11 @@ public class itemPickup : MonoBehaviour
     //inventory only (health, cure, ammo, batteries, keycard)
     [SerializeField] itemData item;
 
-    //rotation info
-    [SerializeField] Vector3 rotation;
-    [SerializeField] float speed;
-
     bool canPickup;
 
     void Update()
     {
         //!! place glow function here after completed  (maybe remove rotation) !!//
-
-        //item rotation
-        transform.Rotate(rotation * speed * Time.deltaTime, Space.World);
 
         //if player is near item and presses E, pick it up
         if (canPickup && Input.GetKeyDown(KeyCode.E))

@@ -24,11 +24,9 @@ public class flashlightPickup : MonoBehaviour
         {
             inventorySystem.inventory.pickupSound.Play();
             gameManager.instance.playerScript.pickupFlashlight();
-            gameManager.instance.playerScript.hasFlashlight = true;
             gameManager.instance.save.saveFlashlight = true;
             gameObject.transform.position = new Vector3(0, -1, 0);
             StartCoroutine(showInteract());
-            selfReference.layer = LayerMask.NameToLayer("HandHeldItems"); //handhelditems is for the items camera
         }
     }
 
@@ -38,5 +36,6 @@ public class flashlightPickup : MonoBehaviour
         yield return new WaitForSeconds(2f);
         interact.SetActive(false);
         Destroy(gameObject);
+        selfReference.layer = LayerMask.NameToLayer("HandHeldItems"); //handhelditems is for the items camera
     }
 }

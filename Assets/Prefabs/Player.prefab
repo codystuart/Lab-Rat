@@ -25,15 +25,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 710484891766492798}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.38, y: -0.36, z: 0.69}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalRotation: {x: -0.023518948, y: -0.6940192, z: 0.032067932, w: 0.7188574}
+  m_LocalPosition: {x: 0.496, y: -0.284, z: 0.675}
+  m_LocalScale: {x: 1.0454, y: 1.0454, z: 1.0454}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7791155923614096607}
   m_Father: {fileID: 8026936433087601761}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.613, y: -87.962, z: 4.517}
 --- !u!33 &6509228626338704440
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -122,7 +122,7 @@ Transform:
   - {fileID: 5813126535373773339}
   - {fileID: 8026936433087601761}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!81 &8873594068017870619
 AudioListener:
@@ -146,7 +146,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 5105460330003665063}
   charCollider: {fileID: 8023312934507635269}
-  canMove: 1
   HP: 10
   lives: 3
   playerSpeed: 4
@@ -169,7 +168,6 @@ MonoBehaviour:
   shootDist: 0
   flashlightModel: {fileID: 6757501779207021703}
   flashlight: {fileID: 0}
-  needBattery: {fileID: 0}
   fLight: {fileID: 1367848819893317583}
   drainOverTime: 1
   maxBrightness: 1
@@ -178,6 +176,7 @@ MonoBehaviour:
   originalHP: 0
   selectedGun: 0
   hasFlashlight: 0
+  fLightIsOn: 0
   hasPhone: 0
 --- !u!143 &5105460330003665063
 CharacterController:

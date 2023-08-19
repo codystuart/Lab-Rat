@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Yellow Keycard
   m_EditorClassIdentifier: 
   id: 107
-  itemName: Yellow Keycard
+  itemName: Keycard
   icon: {fileID: 21300000, guid: 75d8356d67eb7044c92a84ae27dee4d6, type: 3}
   prefab: {fileID: 4495564943236808592, guid: e9ec4551e1a9291409d2a8ae12f653c9, type: 3}

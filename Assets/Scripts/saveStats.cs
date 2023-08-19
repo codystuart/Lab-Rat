@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 [CreateAssetMenu]
@@ -13,4 +14,6 @@ public class saveStats : ScriptableObject
 
     [Header("----- Flashlight Save -----")]
     public bool saveFlashlight;
+    public float fLightIntensity;
+    public GameObject saveFlashlightPrefab;
 }

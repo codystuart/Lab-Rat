@@ -51,7 +51,7 @@ public class dialog : MonoBehaviour
         foreach (char c in lines[index].ToCharArray())
         {
             dialogText.text += c;
-            yield return new WaitForSeconds(textSpeed);
+            yield return new WaitForSecondsRealtime(textSpeed);
         }
 
         continueTag.SetActive(true);
@@ -69,7 +69,6 @@ public class dialog : MonoBehaviour
         }
         else
         {
-            gameManager.instance.playerScript.canMove = true;
             gameManager.instance.stateUnpaused();
         }
     }

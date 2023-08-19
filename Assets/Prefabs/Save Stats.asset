@@ -12,4 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 355df20138538c3479569960d261dabd, type: 3}
   m_Name: Save Stats
   m_EditorClassIdentifier: 
-  gunListSave: []
+  saveGunList:
+  - {fileID: 11400000, guid: 509fa6ea3a876064e9f30387cb2b5914, type: 2}
+  saveInvItems: []
+  saveNotes:
+  - {fileID: 11400000, guid: 7f42cb7f4a09287489a4b9f8940965c0, type: 2}
+  saveFlashlight: 1
+  fLightIntensity: 0.8
+  saveFlashlightPrefab: {fileID: 7318540461234418857, guid: 05ab0d02c6bd8db44b7ea0dd63a2bf54,
+    type: 3}

@@ -27,12 +27,14 @@ public class gameManager : MonoBehaviour
     public TextMeshProUGUI gameTimer;
     public TextMeshProUGUI currAmmoText;
     public TextMeshProUGUI maxAmmoText;
+    public TextMeshProUGUI objectiveText;
 
     [Header("----- UI Objects -----")]
     public GameObject playerFlashDamagePanel;
     public GameObject reticle;
     public GameObject noAmmo;
     public GameObject noGun;
+    public GameObject needBattery;
     public Image playerHpBar;
     public Image sprintMeter;
     public Image batteryChargeBar;
@@ -52,6 +54,10 @@ public class gameManager : MonoBehaviour
     [Header("----- Map Objects ------")]
     [SerializeField] GameObject secretWall;
     public saveStats save;
+
+    [Header("----- SFX -----")]
+    public AudioSource flashlightON;
+    public AudioSource flashlightOFF;
 
     //class references
     //public int enemiesRemaining;
@@ -85,9 +91,6 @@ public class gameManager : MonoBehaviour
         timescaleOrig = Time.timeScale;
         playerSpawnPos = GameObject.FindGameObjectWithTag("Player Spawn Pos");
 
-        //Alternate method to count total cures?
-        // findCures = GameObject.FindGameObjectsWithTag("Cure");
-        // totalCureCount = findCures.Length;
         Scene sceneCurr = SceneManager.GetActiveScene();
         if (sceneCurr.name != "Level 1")
         {
@@ -104,10 +107,7 @@ public class gameManager : MonoBehaviour
         
         if (sceneCurr.name == "Level 1" || sceneCurr.name == "TestingWaveSpawner")
         {
-            save.saveGunList.Clear();
-            save.saveInvItems.Clear();
-            save.saveNotes.Clear();
-            save.saveFlashlight = false;
+            clearSave();
         }
 
         batteryChargeBar.fillAmount = 0;
@@ -118,11 +118,11 @@ public class gameManager : MonoBehaviour
         if (Input.GetButtonDown("Cancel") && activeMenu == null)
         {
             //if no menu, display pause menu
-            statePaused();
             activeMenu = pauseMenu;
-            activeMenu.SetActive(isPaused);
+            activeMenu.SetActive(true);
+            statePaused();
         }
-        else if (Input.GetButtonDown("Cancel") && activeMenu != null && activeMenu != loseMenu && activeMenu != winMenu)
+        else if (Input.GetButtonDown("Cancel") && activeMenu != null && activeMenu != loseMenu && activeMenu != winMenu && activeMenu != respawnMenu)
         {
             //closes menu with escape
             stateUnpaused();
@@ -143,6 +143,14 @@ public class gameManager : MonoBehaviour
         {
             updateTimerUI();
         }
+    }
+
+    public void clearSave()
+    {
+        save.saveGunList.Clear();
+        save.saveInvItems.Clear();
+        save.saveNotes.Clear();
+        save.saveFlashlight = false;
     }
 
     public void statePaused()
@@ -177,7 +185,6 @@ public class gameManager : MonoBehaviour
         if (noteDescription.text != string.Empty)
             noteDescription.text = string.Empty;
 
-        playerScript.canMove = true;
         activeMenu = null;
     }
     public IEnumerator playerFlashDamage()
@@ -187,6 +194,7 @@ public class gameManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         playerFlashDamagePanel.SetActive(false);
     }
+
     // public void updateGameGoal(int amount)
     // {
     //     enemiesRemaining += amount;
@@ -225,7 +233,6 @@ public class gameManager : MonoBehaviour
         activeMenu = dialog;
         activeMenu.SetActive(true);
         pauseTimer = true;
-        playerScript.canMove = false;
     }
 
     public void youWin()

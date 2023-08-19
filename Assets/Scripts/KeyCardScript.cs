@@ -11,7 +11,7 @@ public class KeyCardScript : MonoBehaviour
     //the inventory has the objectives text
     //there is no need to turn the objective on and off as the inventory has that logic
 
-    public TextMeshProUGUI objective;
+    //public TextMeshProUGUI objective;
     public static bool PickedUpKeyCard;
     public bool DirectionsOn;
     public GameObject Door;
@@ -23,23 +23,23 @@ public class KeyCardScript : MonoBehaviour
         PickedUpKeyCard = false; 
         if (SceneManager.GetActiveScene().name == "Level 1")
         {
-            objective.text = "Search for supplies and find a way to exit.";
+            gameManager.instance.objectiveText.text = "Search for supplies and find a way to exit.";
         }
         else if (SceneManager.GetActiveScene().name == "Level 2")
         {
-            objective.text = "Escape from the hordes of zombies";
+            gameManager.instance.objectiveText.text = "Escape from the hordes of zombies";
         }
         else if (SceneManager.GetActiveScene().name == "Level 3")
         {
-            objective.text = "Use the rooms to\nhide from the zombies.\nWalk near objects to find the key.\nPress \"Y\" to turn\nthis message off and on.";
+            gameManager.instance.objectiveText.text = "Use the rooms to\nhide from the zombies.\nWalk near objects to find the key.\nPress \"Y\" to turn\nthis message off and on.";
         }
         else if (SceneManager.GetActiveScene().name == "Level 4")
         {
-            objective.text = "The rooms can't help now. Get out as soon as possible.";
+            gameManager.instance.objectiveText.text = "The rooms can't help now. Get out as soon as possible.";
         }
         else if (SceneManager.GetActiveScene().name == "Level 5")
         {
-            objective.text = "Get to the helipad and escape with the cure.";
+            gameManager.instance.objectiveText.text = "Get to the helipad and escape with the cure.";
         }
     }
 
@@ -54,11 +54,11 @@ public class KeyCardScript : MonoBehaviour
     {
         if (PickedUpKeyCard == true && SceneManager.GetActiveScene().name != "Level 5")
         {
-            objective.text = "Go to the door to exit.";
+            gameManager.instance.objectiveText.text = "Go to the door to exit.";
         }
         else if (PickedUpKeyCard == true && SceneManager.GetActiveScene().name == "Level 5")
         {
-            objective.text = "I hope this cure is enough.";
+            gameManager.instance.objectiveText.text = "I hope this cure is enough.";
         }
     }
 
