@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62727d7de8a2c2344aaf23030ea206ee, type: 3}
   m_Name: Ammo Pack
   m_EditorClassIdentifier: 
-  id: 97
+  typeID: 97
   itemName: Ammo
   icon: {fileID: 21300000, guid: ab6b16673ed675b449238cb587267b66, type: 3}
   prefab: {fileID: 94771984884985010, guid: 599a5e5d0602e6646a2ac3ebf189d22c, type: 3}

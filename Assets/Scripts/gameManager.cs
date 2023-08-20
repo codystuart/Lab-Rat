@@ -94,21 +94,27 @@ public class gameManager : MonoBehaviour
         Scene sceneCurr = SceneManager.GetActiveScene();
         if (sceneCurr.name != "Level 1")
         {
-            //sets lists of saved items
-            playerScript.gunList = save.saveGunList;
-            playerScript.selectedGun = 0; //set selected gun to first in list
-            inventorySystem.inventory.items = save.saveInvItems;
-            inventorySystem.inventory.notes = save.saveNotes;
-
-            //sets flashlight meshes on next scene
             if (save.saveFlashlight)
                 playerScript.pickupFlashlight();
         }
-        
-        if (sceneCurr.name == "Level 1" || sceneCurr.name == "TestingWaveSpawner")
-        {
-            clearSave();
-        }
+
+        //if (sceneCurr.name != "Level 1")
+        //{
+        //    //sets lists of saved items
+        //    playerScript.gunList = save.saveGunList;
+        //    playerScript.selectedGun = 0; //set selected gun to first in list
+        //    inventorySystem.inventory.items = save.saveInvItems;
+        //    inventorySystem.inventory.notes = save.saveNotes;
+        //
+        //    //sets flashlight meshes on next scene
+        //    if (save.saveFlashlight)
+        //        playerScript.pickupFlashlight();
+        //}
+        //
+        //if (sceneCurr.name == "Level 1" || sceneCurr.name == "TestingWaveSpawner")
+        //{
+        //    clearSave();
+        //}
 
         batteryChargeBar.fillAmount = 0;
     }
@@ -147,9 +153,9 @@ public class gameManager : MonoBehaviour
 
     public void clearSave()
     {
-        save.saveGunList.Clear();
-        save.saveInvItems.Clear();
-        save.saveNotes.Clear();
+        //save.saveGunList.Clear();
+        //save.saveInvItems.Clear();
+        //save.saveNotes.Clear();
         save.saveFlashlight = false;
     }
 
