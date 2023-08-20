@@ -30,13 +30,13 @@ public class itemPickup : MonoBehaviour
             StartCoroutine(inventoryFull());
         else
         {
-            if (item.id == 'c')
+            if (item.typeID == 'c')
                 gameManager.instance.updateCureGameGoal(1);
-            if (item.id == 'k')
+            if (item.typeID == 'k')
                 gameManager.instance.keycardAcquired = true;
 
             inventorySystem.inventory.addItem(item);
-            gameManager.instance.save.saveInvItems.Add(item); //save the items to the save list
+            //gameManager.instance.save.saveInvItems.Add(item); //save the items to the save list
             Destroy(gameObject);
         }
     }
@@ -62,7 +62,7 @@ public class itemPickup : MonoBehaviour
     IEnumerator inventoryFull()
     {
         inventorySystem.inventory.invFull.SetActive(true);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         inventorySystem.inventory.invFull.SetActive(false);
     }
 }
