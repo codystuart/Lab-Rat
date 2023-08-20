@@ -15,7 +15,7 @@ public class playerController : MonoBehaviour, IDamage
 
     [Header("----- Player Stats -----")]
     [Range(1, 10)]public int HP;
-    [SerializeField] int lives;
+    [SerializeField] public int lives;
     [Range(1, 10)][SerializeField] float playerSpeed;
     [Range(2, 5)] [SerializeField] float sprintDuration;
     [Range(1, 5)][SerializeField] int sprintCooldownLength;
@@ -52,6 +52,7 @@ public class playerController : MonoBehaviour, IDamage
 
     [Header("----- Class Objects -----")]
     public int originalHP;
+    public int originalLives;
     public int selectedGun;
     public bool hasFlashlight;
     public bool fLightIsOn;
@@ -67,6 +68,7 @@ public class playerController : MonoBehaviour, IDamage
     void Start()
     {
         originalHP = HP;
+        originalLives = lives;
         playerSpeedOrig = playerSpeed;
         fLight.enabled = false;
         fLightIsOn = false;

@@ -139,6 +139,8 @@ public class inventorySystem : MonoBehaviour
             theDescription = "Restores health.";
         if (id == 'k')
             theDescription = "This keycard should help me get around.";
+        if (id == 'f')
+            theDescription = "+1 Life";
 
 
         return theDescription;
@@ -217,6 +219,10 @@ public class inventorySystem : MonoBehaviour
         {
             giveHealth(50);
         }
+        if(id == 'f')
+        {
+            GiveLife();
+        }
     }
 
     //clears item name/ description and removes from save list
@@ -258,6 +264,17 @@ public class inventorySystem : MonoBehaviour
         {
             gameManager.instance.playerScript.HP += amount;
             gameManager.instance.playerScript.updatePlayerUI();
+            items.Remove(selectedItem);
+            ListItems();
+        }
+    }
+
+    public void GiveLife()
+    {
+        if(gameManager.instance.playerScript.lives < gameManager.instance.playerScript.originalLives)
+        {
+            gameManager.instance.playerScript.lives++;
+            //update UI
             items.Remove(selectedItem);
             ListItems();
         }
