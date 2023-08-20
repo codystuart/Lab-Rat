@@ -50,7 +50,7 @@ MonoBehaviour:
   hp: 1
   explosionRange: 5
   damageAmount: 1
-  explosionParticles: {fileID: 2042374740734144168, guid: 5ca084fe22627574e8bc2eacb5669960,
+  explosionParticlesPrefab: {fileID: 2042374740734144168, guid: 5ca084fe22627574e8bc2eacb5669960,
     type: 3}
   explodableLayerMask:
     serializedVersion: 2

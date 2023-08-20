@@ -9,7 +9,7 @@ public class ExplosiveItem : MonoBehaviour, IDamage
     [SerializeField] float explosionRange = 4f;
     [SerializeField] int damageAmount;
 
-    [SerializeField] GameObject explosionParticles;
+    public GameObject explosionParticlesPrefab;
 
     [Header("LayerMask for objects that can be exploded")]
     [SerializeField] LayerMask explodableLayerMask;
@@ -22,7 +22,7 @@ public class ExplosiveItem : MonoBehaviour, IDamage
         if(hp <= 0)
         {
             Explode();
-            Instantiate(explosionParticles, transform.position, Quaternion.identity);
+            GameObject explosionParticles = Instantiate(explosionParticlesPrefab, transform.position, Quaternion.identity);
             Destroy(explosionParticles, 1.5f);
             Destroy(gameObject);
         }
