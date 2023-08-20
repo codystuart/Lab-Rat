@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62727d7de8a2c2344aaf23030ea206ee, type: 3}
   m_Name: Green Keycard
   m_EditorClassIdentifier: 
-  id: 107
+  typeID: 107
   itemName: Keycard
   icon: {fileID: 21300000, guid: 95b6c9af3101aca47b9442d1fffae002, type: 3}
   prefab: {fileID: 4082973322505903263, guid: 66b0dc12a9f75504ba0dbca03e36cac7, type: 3}

@@ -120,7 +120,7 @@ public class inventorySystem : MonoBehaviour
     {
         selectedItem = currItem;
         gameManager.instance.displayName.text = currItem.itemName;
-        char currId = currItem.id;
+        char currId = currItem.typeID;
         gameManager.instance.itemDescription.text = descriptionText(currId);
     }
 
@@ -132,7 +132,7 @@ public class inventorySystem : MonoBehaviour
         if (id == 'a')
             theDescription = "Restores current gun's ammunition.";
         if (id == 'b')
-            theDescription = "Recharge the flashlight.";
+            theDescription = "Recharges the flashlight.";
         if (id == 'c')
             theDescription = "This is the cure Miyah was talking about.";
         if (id == 'm')
@@ -205,7 +205,7 @@ public class inventorySystem : MonoBehaviour
 
     public void itemFunction(itemData selectedItem)
     {
-        char id = selectedItem.id;
+        char id = selectedItem.typeID;
 
         if (id == 'a')
         {
@@ -230,7 +230,7 @@ public class inventorySystem : MonoBehaviour
     {
         gameManager.instance.displayName.text = string.Empty;
         gameManager.instance.itemDescription.text = string.Empty;
-        gameManager.instance.save.saveInvItems.Remove(selectedItem);
+        //gameManager.instance.save.saveInvItems.Remove(selectedItem);
     }
 
     //ammo function

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62727d7de8a2c2344aaf23030ea206ee, type: 3}
   m_Name: Cure Vial
   m_EditorClassIdentifier: 
-  id: 99
+  typeID: 99
   itemName: The Cure
   icon: {fileID: 21300000, guid: a6f0882d531392c43bfa2df9e31c4aa0, type: 3}
   prefab: {fileID: 1150363764252535823, guid: 12b0804c055585c43a35a9fa7484955c, type: 3}

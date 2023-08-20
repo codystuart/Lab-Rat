@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: -3568106898884991180}
   - component: {fileID: 3745057194995394169}
   - component: {fileID: 8468132286790243624}
-  - component: {fileID: -7623947110085565348}
   - component: {fileID: 7328054255169733115}
   m_Layer: 0
   m_Name: battery
@@ -34,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 29.05, y: 242.90399, z: 60.228}
 --- !u!114 &-3568106898884991180
 MonoBehaviour:
@@ -49,8 +48,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 199926f82c104944abb956813b3d225b, type: 2}
-  rotation: {x: 0, y: 1, z: 0}
-  speed: 20
 --- !u!33 &3745057194995394169
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -101,28 +98,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &-7623947110085565348
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3751427108008542870}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 4bea82c2a612ef249aeea0a7f324dc9d, type: 3}
 --- !u!135 &7328054255169733115
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -142,5 +117,5 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.7
   m_Center: {x: 8.1032736e-11, y: 0.005438015, z: 1.6206547e-10}
