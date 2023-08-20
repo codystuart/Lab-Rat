@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 3654210925902222063}
   - component: {fileID: 6964194190448827647}
   - component: {fileID: 5506896555161636703}
-  m_Layer: 3
+  m_Layer: 12
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ Transform:
   - {fileID: 5813126535373773339}
   - {fileID: 8026936433087601761}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!81 &8873594068017870619
 AudioListener:
@@ -174,6 +174,7 @@ MonoBehaviour:
   minBrightness: 0
   drainRate: 4
   originalHP: 0
+  originalLives: 0
   selectedGun: 0
   hasFlashlight: 0
   fLightIsOn: 0
@@ -596,7 +597,7 @@ GameObject:
   - component: {fileID: 8026936433087601761}
   - component: {fileID: 4730547148257747839}
   - component: {fileID: 8272276125233447570}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}

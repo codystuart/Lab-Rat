@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4455239415384068167}
   - component: {fileID: 1085506478215640243}
   - component: {fileID: 8049893742800075178}
-  m_Layer: 7
+  m_Layer: 13
   m_Name: Spitball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5666461470108402051
 MonoBehaviour:

@@ -18,17 +18,17 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Explodable
   - Water
   - UI
   - HandHeldItems
-  - 
+  - Enemy
   - ExamineLayer
   - InspectPointLayer
   - PostProcess
   - PadlockSpinner
-  - 
-  - 
+  - Player
+  - Spitball
   - 
   - 
   - 
