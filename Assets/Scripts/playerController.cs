@@ -64,6 +64,7 @@ public class playerController : MonoBehaviour, IDamage
     bool isShooting;
     bool sprintCooldown;
     float playerSpeedOrig;
+    bool hasSpareAmmo;
 
     void Start()
     {
@@ -97,6 +98,11 @@ public class playerController : MonoBehaviour, IDamage
                 if (Input.GetButton("Shoot") && !isShooting)
                 {
                     StartCoroutine(shoot());
+                }
+
+                if (Input.GetButton("Reload") && !isShooting && gunList[selectedGun].currAmmo != gunList[selectedGun].maxAmmo)
+                {
+                    fillAmmo();
                 }
             }
         }
@@ -379,9 +385,17 @@ public class playerController : MonoBehaviour, IDamage
 
     public void fillAmmo()
     {
-        //set current ammo to max ammo, the update UI
-        gunList[selectedGun].currAmmo = gunList[selectedGun].maxAmmo;
-        updatePlayerUI();
+        for (int i = inventorySystem.inventory.items.Count - 1; i > 0; i--)
+        {
+            if (inventorySystem.inventory.items[i].typeID == 'a')
+            {
+                inventorySystem.inventory.items.Remove(inventorySystem.inventory.items[i]);
+                gunList[selectedGun].currAmmo = gunList[selectedGun].maxAmmo;
+                updatePlayerUI();
+                break;
+            }
+        }
+
     }
 
     public void replaceBattery(float amount)
