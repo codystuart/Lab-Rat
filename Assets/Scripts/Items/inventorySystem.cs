@@ -284,7 +284,7 @@ public class inventorySystem : MonoBehaviour
     IEnumerator invHint()
     {
         openHint.SetActive(true);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         openHint.SetActive(false);
     }
 
@@ -292,7 +292,7 @@ public class inventorySystem : MonoBehaviour
     IEnumerator noGun()
     {
         gameManager.instance.noGun.SetActive(true);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(3f);
         gameManager.instance.noGun.SetActive(false);
     }
 }

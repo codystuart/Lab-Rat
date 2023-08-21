@@ -816,7 +816,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2650
+  m_VersionIndex: 2653
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2431,7 +2431,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2216
+  m_VersionIndex: 2219
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2554,8 +2554,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.7459996, y: 2.4930375, z: 2.360482}
-  m_Center: {x: -1.873, y: 1.2465187, z: 1.180241}
+  m_Size: {x: 3.7459996, y: 2.4930375, z: 3}
+  m_Center: {x: -1.873, y: 1.2465187, z: 0}
 --- !u!208 &2119299354350897573
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -2607,7 +2607,7 @@ Transform:
   m_Children:
   - {fileID: 5617016671794289454}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2818197269576397879
 MonoBehaviour:
@@ -3393,7 +3393,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1574
+  m_VersionIndex: 1577
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -3745,7 +3745,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 4933
+  m_VersionIndex: 4936
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -4665,7 +4665,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2650
+  m_VersionIndex: 2653
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
