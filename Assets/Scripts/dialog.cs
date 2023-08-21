@@ -2,38 +2,60 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class dialog : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI dialogText;
     [SerializeField] GameObject continueTag;
-    public string[] lines;
     public float textSpeed;
 
-    private int index;
+    string sceneName;
+    int index;
 
     void Start()
     {
         //set text to empty then start dialog
         dialogText.text = string.Empty;
         continueTag.SetActive(false);
+        sceneName = SceneManager.GetActiveScene().name;
         startDialog();
     }
 
     void Update()
     {
-        //do something if the player presses E
-        if(Input.GetKeyDown(KeyCode.E))
+        if (sceneName != "Level 1")
         {
-            continueTag.SetActive(false);
-
-            if (dialogText.text == lines[index])
-                nextLine();
-            else
+            //do something if the player presses E
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                StopAllCoroutines();
-                dialogText.text = lines[index];
-                continueTag.SetActive(true);
+                continueTag.SetActive(false);
+
+                if (dialogText.text == dialogTrigger.dialog.lines[index])
+                    nextLine();
+                else
+                {
+                    StopAllCoroutines();
+                    dialogText.text = dialogTrigger.dialog.lines[index];
+                    continueTag.SetActive(true);
+                }
+            }
+        }
+        else
+        {
+            //do something if the player presses E
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                continueTag.SetActive(false);
+
+                if (dialogText.text == PhoneScript.phone.lines[index])
+                    nextLine();
+                else
+                {
+                    StopAllCoroutines();
+                    dialogText.text = PhoneScript.phone.lines[index];
+                    continueTag.SetActive(true);
+                }
             }
         }
     }
@@ -42,13 +64,28 @@ public class dialog : MonoBehaviour
     {
         //set index to first line then display text
         index = 0;
-        StartCoroutine(typeLine());
+        if (sceneName != "Level 1")
+            StartCoroutine(dialogTypeLine());
+        else
+            StartCoroutine(phoneTypeLine());
     }
 
-    IEnumerator typeLine()
+    IEnumerator dialogTypeLine()
     {
         //displays text one character at a time
-        foreach (char c in lines[index].ToCharArray())
+        foreach (char c in dialogTrigger.dialog.lines[index].ToCharArray())
+        {
+            dialogText.text += c;
+            yield return new WaitForSecondsRealtime(textSpeed);
+        }
+
+        continueTag.SetActive(true);
+    }
+
+    IEnumerator phoneTypeLine()
+    {
+        //displays text one character at a time
+        foreach (char c in PhoneScript.phone.lines[index].ToCharArray())
         {
             dialogText.text += c;
             yield return new WaitForSecondsRealtime(textSpeed);
@@ -61,15 +98,31 @@ public class dialog : MonoBehaviour
     {
         //goes to next line
         //sets inactive when no lines left
-        if (index < lines.Length - 1)
+        if (sceneName != "Level 1")
         {
-            ++index;
-            dialogText.text = string.Empty;
-            StartCoroutine(typeLine());
+            if (index < dialogTrigger.dialog.lines.Length - 1)
+            {
+                ++index;
+                dialogText.text = string.Empty;
+                StartCoroutine(dialogTypeLine());
+            }
+            else
+            {
+                gameManager.instance.stateUnpaused();
+            }
         }
         else
         {
-            gameManager.instance.stateUnpaused();
+            if (index < PhoneScript.phone.lines.Length - 1)
+            {
+                ++index;
+                dialogText.text = string.Empty;
+                StartCoroutine(phoneTypeLine());
+            }
+            else
+            {
+                gameManager.instance.stateUnpaused();
+            }
         }
     }
 }

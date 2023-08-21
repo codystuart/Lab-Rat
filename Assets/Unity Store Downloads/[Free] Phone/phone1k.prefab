@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 5560905291789515636}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.18428501, y: 0.003746375, z: 0.057481315}
-  m_LocalScale: {x: 6, y: 6, z: 12}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -147,4 +147,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b4323845f218942b3f79d82efa2a95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 0
+  lines:
+  - 'Unknown: Hello? Are you there?'
+  - 'You: Who is this? Where in the world am I?'
+  - 'Unknown: Oh thank goodness. I''m Miyah. You''re in a research lab, you''ve been
+    in a coma for a couple of months.'
+  - 'Miyah: This lab has been researching a cure for the zombie virus and we need
+    your help.'
+  - 'You: Wait, slow down... none of this is making any sense.'
+  - 'Miyah: I''ll have to explain later, this is super important.'
+  - 'Miyah: You need to find the cure, it was lost somewhere in the lab.'
+  - 'You: What!? Why me?'
+  - 'Miyah: No time to explain, just try to find a way out that room.'
+  - 'You: Wait! How do I do that?'
+  - '*dial tone*'
+  - 'You: Oh come on... guess I better find a way out of here.'

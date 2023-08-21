@@ -7,7 +7,7 @@ public class WaveSystem : MonoBehaviour
 {
     [SerializeField] ZombieSpawner[] spawners;
     [SerializeField] int numberOfWaves;
-    
+
     public int currentWave;
     public bool startWaves;
     bool isSpawning;
@@ -19,7 +19,6 @@ public class WaveSystem : MonoBehaviour
 
     void Update()
     {
-
         if (currentWave <= numberOfWaves && !isSpawning)
         {
             Debug.Log("currentWave is less than max waves");
