@@ -97,24 +97,27 @@ public class gameManager : MonoBehaviour
             if (save.saveFlashlight)
                 playerScript.pickupFlashlight();
         }
+        else
+        {
+            save.saveGunList.Clear();
+        }
 
-        //if (sceneCurr.name != "Level 1")
-        //{
-        //    //sets lists of saved items
-        //    playerScript.gunList = save.saveGunList;
-        //    playerScript.selectedGun = 0; //set selected gun to first in list
-        //    inventorySystem.inventory.items = save.saveInvItems;
-        //    inventorySystem.inventory.notes = save.saveNotes;
-        //
-        //    //sets flashlight meshes on next scene
-        //    if (save.saveFlashlight)
-        //        playerScript.pickupFlashlight();
-        //}
-        //
-        //if (sceneCurr.name == "Level 1" || sceneCurr.name == "TestingWaveSpawner")
-        //{
-        //    clearSave();
-        //}
+        if (sceneCurr.name == "Level 1" || sceneCurr.name == "TestingWaveSpawner")
+        {
+            clearSave();
+        }
+
+        playerScript.gunList = save.saveGunList;
+        playerScript.selectedGun = 0; //set selected gun to first in list
+
+
+        ////sets lists of saved items
+        //inventorySystem.inventory.items = save.saveInvItems;
+        //inventorySystem.inventory.notes = save.saveNotes;
+
+        ////sets flashlight meshes on next scene
+        //if (save.saveFlashlight)
+        //    playerScript.pickupFlashlight();
 
         batteryChargeBar.fillAmount = 0;
     }

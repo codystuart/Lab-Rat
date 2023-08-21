@@ -27,13 +27,13 @@ public class exitDoor : MonoBehaviour
         if (playerInRange && playerCanExit() && Input.GetKeyDown("e"))
         {
             // If last level player wins
-            if (SceneManager.GetActiveScene().buildIndex == 2)
+            if (SceneManager.GetActiveScene().buildIndex == 3)
             {
                 gameManager.instance.youWin();
             }
             else // If more levels, load next level
             {
-                //gameManager.instance.save.saveGunList = gameManager.instance.playerScript.gunList;
+                gameManager.instance.save.saveGunList = gameManager.instance.playerScript.gunList;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 Debug.Log("Loading next level");
 
@@ -127,7 +127,7 @@ public class exitDoor : MonoBehaviour
             if (keycardAcquired())
             {
                 Debug.Log("Door will open.");
-                SceneManager.LoadScene("Level 4");
+                //SceneManager.LoadScene("Level 4");
                 KeyCardScript.PickedUpKeyCard = false;
                 return true;
             }
@@ -136,33 +136,33 @@ public class exitDoor : MonoBehaviour
             //    return true;
             //else return false;
         }
-        else if (SceneManager.GetActiveScene().name == "Level 4")
-        {
-            if (keycardAcquired())
-            {
-                Debug.Log("Door will open.");
-                SceneManager.LoadScene("Level 5");
-                KeyCardScript.PickedUpKeyCard = false;
-                return true;
-            }
-            else return false;
-            //if (keycardAcquired() && cureCollected() && zombiesEliminated())
-            //    return true;
-            //else return false;
-        }
-        else if (SceneManager.GetActiveScene().name == "Level 5")
-        {
-            if (keycardAcquired())
-            {
-                if(Objectives != null)
-                Objectives.text = "I hope this cure is enough.";
-                return true;
-            }
-            else return false;
-            //if (keycardAcquired() && cureCollected() && zombiesEliminated())
-            //    return true;
-            //else return false;
-        }
+        //else if (SceneManager.GetActiveScene().name == "Level 4")
+        //{
+        //    if (keycardAcquired())
+        //    {
+        //        Debug.Log("Door will open.");
+        //        SceneManager.LoadScene("Level 5");
+        //        KeyCardScript.PickedUpKeyCard = false;
+        //        return true;
+        //    }
+        //    else return false;
+        //    //if (keycardAcquired() && cureCollected() && zombiesEliminated())
+        //    //    return true;
+        //    //else return false;
+        //}
+        //else if (SceneManager.GetActiveScene().name == "Level 5")
+        //{
+        //    if (keycardAcquired())
+        //    {
+        //        if(Objectives != null)
+        //        Objectives.text = "I hope this cure is enough.";
+        //        return true;
+        //    }
+        //    else return false;
+        //    //if (keycardAcquired() && cureCollected() && zombiesEliminated())
+        //    //    return true;
+        //    //else return false;
+        //}
         return false;
     }
 
