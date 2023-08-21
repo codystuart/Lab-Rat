@@ -111,13 +111,13 @@ public class gameManager : MonoBehaviour
         playerScript.selectedGun = 0; //set selected gun to first in list
 
 
-        //sets lists of saved items
-        inventorySystem.inventory.items = save.saveInvItems;
-        inventorySystem.inventory.notes = save.saveNotes;
+        ////sets lists of saved items
+        //inventorySystem.inventory.items = save.saveInvItems;
+        //inventorySystem.inventory.notes = save.saveNotes;
 
-        //sets flashlight meshes on next scene
-        if (save.saveFlashlight)
-            playerScript.pickupFlashlight();
+        ////sets flashlight meshes on next scene
+        //if (save.saveFlashlight)
+        //    playerScript.pickupFlashlight();
 
         batteryChargeBar.fillAmount = 0;
     }
