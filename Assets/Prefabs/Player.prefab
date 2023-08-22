@@ -122,7 +122,7 @@ Transform:
   - {fileID: 5813126535373773339}
   - {fileID: 8026936433087601761}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!81 &8873594068017870619
 AudioListener:
@@ -153,7 +153,7 @@ MonoBehaviour:
   sprintCooldownLength: 3
   jumpHeight: 7
   gravity: 20
-  jumpMax: 2
+  jumpMax: 1
   crouchCenter: {x: 0, y: 0.5, z: 0}
   standCenter: {x: 0, y: 0, z: 0}
   crouchHeight: 0.5
@@ -172,7 +172,7 @@ MonoBehaviour:
   drainOverTime: 1
   maxBrightness: 1
   minBrightness: 0
-  drainRate: 4
+  drainRate: 8
   originalHP: 0
   originalLives: 0
   selectedGun: 0

@@ -12,12 +12,7 @@ public class flashlightPickup : MonoBehaviour
         //default is for the main camera
         selfReference.layer = LayerMask.NameToLayer("Default");
     }
-
-    void Update()
-    {
-        transform.Rotate(0, 70 * Time.deltaTime, 0);
-    }
-
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

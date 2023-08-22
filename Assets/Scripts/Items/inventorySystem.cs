@@ -163,6 +163,7 @@ public class inventorySystem : MonoBehaviour
         {
             itemFunction(selectedItem);
             clearInfo(selectedItem);
+            gameManager.instance.playerScript.updatePlayerUI();
         }
     }
 

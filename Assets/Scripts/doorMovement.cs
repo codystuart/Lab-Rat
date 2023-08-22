@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class doorMovement : MonoBehaviour
 {
@@ -13,14 +13,28 @@ public class doorMovement : MonoBehaviour
 
     private void Update()
     {
-        if (playerInRange && Input.GetKeyDown("e"))
+        string sceneName = SceneManager.GetActiveScene().name;
+        if (sceneName != "Level 1")
         {
-            Debug.Log("Door opens");
-            doorIsOpen = true;
-            doorOpenSound.Play();
-            hideText();
-            transform.localRotation = Quaternion.Euler(0, 0, 90); 
+            if (playerInRange && Input.GetKeyDown("e"))
+            {
+                doorIsOpen = true;
+                doorOpenSound.Play();
+                hideText();
+                transform.localRotation = Quaternion.Euler(0, 0, 90);
+            }
         }
+        else
+        {
+            if (playerInRange && PhoneScript.phone.phonePickedUp && Input.GetKeyDown("e"))
+            {
+                doorIsOpen = true;
+                doorOpenSound.Play();
+                hideText();
+                transform.localRotation = Quaternion.Euler(0, 0, 90);
+            }
+        }
+        
     }
     private void OnTriggerStay(Collider other)
     {
