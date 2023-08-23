@@ -15,6 +15,7 @@ public class inventorySystem : MonoBehaviour
     public GameObject invFull;
     public TextMeshProUGUI maxItemsLabel;
     public TextMeshProUGUI currHeldItems;
+    public TextMeshProUGUI noteDescription;
 
     //SFX
     public AudioSource pickupSound;
@@ -149,11 +150,21 @@ public class inventorySystem : MonoBehaviour
     //display note
     public void displayNote(noteData selectedNote)
     {
+        //clear out any remaining text
+        if (noteDescription != null)
+            clearText();
+
+        //display selected note
         for (int i = 0; i < selectedNote.noteStrings.Count; ++i)
         {
             gameManager.instance.noteDescription.text += selectedNote.noteStrings[i];
             gameManager.instance.noteDescription.text += "\n\n";
         }
+    }
+
+    public void clearText()
+    {
+        noteDescription.text = null;
     }
 
     //button functions

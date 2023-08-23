@@ -3940,6 +3940,7 @@ MonoBehaviour:
   invFull: {fileID: 2932243554086194880}
   maxItemsLabel: {fileID: 5209802503720979176}
   currHeldItems: {fileID: 5555200300900624083}
+  noteDescription: {fileID: 690143385942548039}
   pickupSound: {fileID: 2404226831390699026}
   dropSound: {fileID: 9175444159032716656}
   maxItems: 9
