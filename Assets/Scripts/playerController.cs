@@ -68,11 +68,15 @@ public class playerController : MonoBehaviour, IDamage
 
     void Start()
     {
+        //reset player HP and speed
         originalHP = HP;
         originalLives = lives;
         playerSpeedOrig = playerSpeed;
+
+        //Reset Flashlight
         fLight.enabled = false;
         fLightIsOn = false;
+        fLight.intensity = maxBrightness;
 
         spawnPlayer();
 
