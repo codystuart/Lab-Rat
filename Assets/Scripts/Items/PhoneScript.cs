@@ -21,6 +21,7 @@ public class PhoneScript : MonoBehaviour
         //phone simpy start the dialog for level 1
         if (other.CompareTag("Player"))
         {
+            ring.Stop();
             phonePickedUp = true;
             Destroy(transform.gameObject);
             gameManager.instance.playerScript.hasPhone = true;

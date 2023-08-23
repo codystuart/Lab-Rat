@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 public class doorMovement : MonoBehaviour
@@ -9,11 +10,13 @@ public class doorMovement : MonoBehaviour
     private bool playerInRange;
     private bool doorIsOpen;
     [SerializeField] GameObject doorInteractText;
+    [SerializeField] GameObject lockedText;
     [SerializeField] AudioSource doorOpenSound;
+    public string sceneName;
 
     private void Update()
     {
-        string sceneName = SceneManager.GetActiveScene().name;
+        sceneName = SceneManager.GetActiveScene().name;
         if (sceneName != "Level 1")
         {
             if (playerInRange && Input.GetKeyDown("e"))
@@ -38,15 +41,29 @@ public class doorMovement : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if(other.CompareTag("Player")) 
+        sceneName = SceneManager.GetActiveScene().name;
+
+        if (other.CompareTag("Player")) 
         {
             playerInRange = true;
-            if (!doorIsOpen)
+
+            if (sceneName != "Level 1")
             {
-                showText();
+                if (!doorIsOpen)
+                    showText();
+            }
+            else if (!PhoneScript.phone.phonePickedUp && !doorIsOpen)
+            {
+                lockedText.SetActive(true);
+            }
+            else
+            {
+                if (!doorIsOpen)
+                    showText();
             }
         }
     }
+
     private void OnTriggerExit(Collider other)
     {
         if(other.CompareTag("Player"))
@@ -60,8 +77,10 @@ public class doorMovement : MonoBehaviour
     {
          doorInteractText.SetActive(true);
     }
+
     void hideText()
     {
         doorInteractText.SetActive(false);
+        lockedText.SetActive(false);
     }
 }
