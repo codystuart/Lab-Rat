@@ -65,6 +65,7 @@ public class playerController : MonoBehaviour, IDamage
     bool sprintCooldown;
     float playerSpeedOrig;
     bool hasSpareAmmo;
+    bool isSprinting;
 
     void Start()
     {
@@ -72,6 +73,7 @@ public class playerController : MonoBehaviour, IDamage
         originalHP = HP;
         originalLives = lives;
         playerSpeedOrig = playerSpeed;
+        isSprinting = false;
 
         //Reset Flashlight
         fLight.enabled = false;
@@ -146,7 +148,7 @@ public class playerController : MonoBehaviour, IDamage
         //make player sprint
         if (Input.GetButtonDown("Sprint"))
         {
-            if (!sprintCooldown)
+            if (!sprintCooldown && !isSprinting)
             {
                 StartCoroutine(sprint());
             }
@@ -309,10 +311,12 @@ public class playerController : MonoBehaviour, IDamage
 
     IEnumerator sprint()
     {
+        isSprinting = true;
         playerSpeed = playerSpeed * 1.5f;
         yield return new WaitForSeconds(sprintDuration);
         playerSpeed = playerSpeedOrig;
         StartCoroutine(sprintCooldownTimer());
+        isSprinting = false;
     }
 
     IEnumerator sprintCooldownTimer()
