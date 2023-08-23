@@ -53,6 +53,7 @@ public class buttonFunctions : MonoBehaviour
         {
             pauseMenu.SetActive(false);
             optionsMenu.SetActive(true);
+            gameManager.instance.activeMenu = gameManager.instance.optionsMenu;
         }
         else
         {

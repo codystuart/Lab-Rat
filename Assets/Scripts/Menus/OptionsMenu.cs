@@ -36,6 +36,7 @@ public class OptionsMenu : MonoBehaviour
         if (pauseMenu != null)
         {
             pauseMenu.SetActive(true);
+            gameManager.instance.activeMenu = pauseMenu;
             optionsMenu.SetActive(false);
         }
         else

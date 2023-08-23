@@ -20,6 +20,7 @@ public class gameManager : MonoBehaviour
     public GameObject loseMenu;
     public GameObject winMenu;
     public GameObject respawnMenu;
+    public GameObject optionsMenu;
 
     [Header("----- UI Text -----")]
     //public TextMeshProUGUI enemiesRemainingText;
@@ -131,11 +132,19 @@ public class gameManager : MonoBehaviour
             activeMenu.SetActive(true);
             statePaused();
         }
-        else if (Input.GetButtonDown("Cancel") && activeMenu != null && activeMenu != loseMenu && activeMenu != winMenu && activeMenu != respawnMenu && activeMenu != dialog)
+        else if (Input.GetButtonDown("Cancel") && activeMenu != null && activeMenu != loseMenu && activeMenu != winMenu && activeMenu != respawnMenu && activeMenu != dialog && activeMenu != optionsMenu)
         {
             //closes menu with escape
             stateUnpaused();
             activeMenu = null;
+        }
+        else if(Input.GetButtonDown("Cancel") && activeMenu == optionsMenu)
+        {
+            //close the options menu
+            activeMenu.SetActive(false);
+            // display pause menu
+            activeMenu = pauseMenu;
+            activeMenu.SetActive(true);
         }
         if (Input.GetKeyDown(KeyCode.Tab) && activeMenu == null)
         {
