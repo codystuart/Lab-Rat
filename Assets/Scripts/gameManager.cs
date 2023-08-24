@@ -179,7 +179,7 @@ public class gameManager : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
         reticle.SetActive(false);
-        AudioListener.volume = 0; //this stops all sound/ sfx from being heard while paused
+        //AudioListener.volume = 0; //this stops all sound/ sfx from being heard while paused
         isPaused = !isPaused;
     }
 
@@ -191,7 +191,7 @@ public class gameManager : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         reticle.SetActive(true);
-        AudioListener.volume = 1; //this turns the volume back on
+        //AudioListener.volume = 1; //this turns the volume back on
         isPaused = !isPaused;
         activeMenu.SetActive(false);
 
