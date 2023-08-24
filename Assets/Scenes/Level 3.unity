@@ -983,7 +983,7 @@ PrefabInstance:
     - target: {fileID: 6458087408100254423, guid: 208627db15ad6214ea8cbe9356af9aee,
         type: 3}
       propertyPath: lines.Array.data[1]
-      value: 'Miyah: I callled to warn you that this next area is packed with zombies.'
+      value: 'Miyah: I called to warn you that this next area is packed with zombies.'
       objectReference: {fileID: 0}
     - target: {fileID: 6458087408100254423, guid: 208627db15ad6214ea8cbe9356af9aee,
         type: 3}
