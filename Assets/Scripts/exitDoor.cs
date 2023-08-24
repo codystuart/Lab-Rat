@@ -15,7 +15,6 @@ public class exitDoor : MonoBehaviour
     [SerializeField] GameObject lockedClearAreaText;
     [SerializeField] AudioSource lockedDoor;
     private bool playerInRange;
-    public Text Objectives;
 
     void Update()
     {

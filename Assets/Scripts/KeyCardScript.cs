@@ -27,15 +27,15 @@ public class KeyCardScript : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name == "Level 2")
         {
-            gameManager.instance.objectiveText.text = "Escape from the hordes of zombies";
+            gameManager.instance.objectiveText.text = "Clear the area.";
         }
         else if (SceneManager.GetActiveScene().name == "Level 3")
         {
-            gameManager.instance.objectiveText.text = "Use the rooms to\nhide from the zombies.\nWalk near objects to find the key.\nPress \"Y\" to turn\nthis message off and on.";
+            gameManager.instance.objectiveText.text = "Escape from the hordes of zombies";
         }
         else if (SceneManager.GetActiveScene().name == "Level 4")
         {
-            gameManager.instance.objectiveText.text = "The rooms can't help now. Get out as soon as possible.";
+            gameManager.instance.objectiveText.text = "Find the cure and leave.";
         }
         else if (SceneManager.GetActiveScene().name == "Level 5")
         {
