@@ -16,10 +16,9 @@ public class exitDoor : MonoBehaviour
     [SerializeField] AudioSource lockedDoor;
     private bool playerInRange;
     public Text Objectives;
+
     void Update()
     {
-        
-
         if (keycardAcquired())
         {
             changeLightColor();

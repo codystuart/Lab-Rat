@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 091aaf99b3b78e14fa59274eb34ff7fe, type: 3}
   m_Name: Rifle Stats
   m_EditorClassIdentifier: 
-  gunModel: {fileID: 2762351108210406394, guid: 435a8c989ea2897498586ede010088e6, type: 3}
-  hitEffect: {fileID: 3791775391182096976, guid: 1d328970073e6d745b88223b810a4892, type: 3}
+  gunModel: {fileID: 2762351108210406394, guid: 435a8c989ea2897498586ede010088e6,
+    type: 3}
+  hitEffect: {fileID: 3791775391182096976, guid: 1d328970073e6d745b88223b810a4892,
+    type: 3}
   shootRate: 1
   shootDamage: 2
   shootDist: 35
   currAmmo: 10
   maxAmmo: 10
+  id: 114

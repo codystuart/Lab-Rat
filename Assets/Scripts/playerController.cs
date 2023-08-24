@@ -20,6 +20,12 @@ public class playerController : MonoBehaviour, IDamage
     [Range(2, 5)] [SerializeField] float sprintDuration;
     [Range(1, 5)][SerializeField] int sprintCooldownLength;
 
+    [Header("----- SFX -----")]
+    [SerializeField] AudioSource gunShot;
+    [SerializeField] AudioSource empty;
+    [SerializeField] AudioSource reload;
+    [SerializeField] AudioSource shotgunCock;
+
     [Header("----- Jumping -----")]
     [Range(5,10)][SerializeField] float jumpHeight;
     [SerializeField] float gravity;
@@ -198,6 +204,7 @@ public class playerController : MonoBehaviour, IDamage
         if (gunList[selectedGun].currAmmo > 0)
         {
             isShooting = true;
+            gunShot.Play();
 
             StartCoroutine(flashMuzzle());
             --gunList[selectedGun].currAmmo;
@@ -218,11 +225,13 @@ public class playerController : MonoBehaviour, IDamage
             }
 
             yield return new WaitForSeconds(shootRate);
+            if (gunList[selectedGun].id == 's')
+                shotgunCock.Play();
             isShooting = false;
         }
         else
         {
-            //if no ammo, display no ammo text
+            empty.Play();
             StartCoroutine(noAmmoLeft());
         }
     }
@@ -393,11 +402,12 @@ public class playerController : MonoBehaviour, IDamage
 
     public void fillAmmo()
     {
-        for (int i = inventorySystem.inventory.items.Count - 1; i > 0; i--)
+        for (int i = 0; i < inventorySystem.inventory.items.Count - 1; i--)
         {
             if (inventorySystem.inventory.items[i].typeID == 'a')
             {
                 inventorySystem.inventory.items.Remove(inventorySystem.inventory.items[i]);
+                reload.Play();
                 gunList[selectedGun].currAmmo = gunList[selectedGun].maxAmmo;
                 updatePlayerUI();
                 break;

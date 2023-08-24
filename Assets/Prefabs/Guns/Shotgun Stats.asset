@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 091aaf99b3b78e14fa59274eb34ff7fe, type: 3}
   m_Name: Shotgun Stats
   m_EditorClassIdentifier: 
-  gunModel: {fileID: 2490812307967091041, guid: 7b41ed9d4515ded4e84dad543191c5d4, type: 3}
-  hitEffect: {fileID: 3791775391182096976, guid: 1d328970073e6d745b88223b810a4892, type: 3}
+  gunModel: {fileID: 2490812307967091041, guid: 7b41ed9d4515ded4e84dad543191c5d4,
+    type: 3}
+  hitEffect: {fileID: 3791775391182096976, guid: 1d328970073e6d745b88223b810a4892,
+    type: 3}
   shootRate: 2
   shootDamage: 3
   shootDist: 15
   currAmmo: 5
   maxAmmo: 5
+  id: 115

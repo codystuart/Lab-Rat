@@ -16,4 +16,5 @@ public class gunStats : ScriptableObject
     public int shootDist;
     public int currAmmo;
     public int maxAmmo;
+    public char id;
 }

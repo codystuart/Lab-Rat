@@ -6014,20 +6014,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2047894786255774835, guid: 603d1cc59b0e7264aa3f8659210f0b68,
+        type: 3}
+      propertyPath: empty
+      value: 
+      objectReference: {fileID: 1313333730}
+    - target: {fileID: 2047894786255774835, guid: 603d1cc59b0e7264aa3f8659210f0b68,
+        type: 3}
+      propertyPath: reload
+      value: 
+      objectReference: {fileID: 1313333729}
+    - target: {fileID: 2047894786255774835, guid: 603d1cc59b0e7264aa3f8659210f0b68,
+        type: 3}
+      propertyPath: gunShot
+      value: 
+      objectReference: {fileID: 1313333731}
+    - target: {fileID: 2047894786255774835, guid: 603d1cc59b0e7264aa3f8659210f0b68,
+        type: 3}
+      propertyPath: shotgunCock
+      value: 
+      objectReference: {fileID: 1313333728}
     - target: {fileID: 2380785183997117760, guid: 603d1cc59b0e7264aa3f8659210f0b68,
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2380785183997117760, guid: 603d1cc59b0e7264aa3f8659210f0b68,
-        type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2380785183997117760, guid: 603d1cc59b0e7264aa3f8659210f0b68,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4027371559687109367, guid: 603d1cc59b0e7264aa3f8659210f0b68,
         type: 3}
@@ -6371,6 +6381,30 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fc93665b6870c24bbf359da90aa989a, type: 3}
+--- !u!82 &1313333728 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6438157432377070137, guid: 7fc93665b6870c24bbf359da90aa989a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1313333727}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1313333729 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7377253619698694476, guid: 7fc93665b6870c24bbf359da90aa989a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1313333727}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1313333730 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4106426320762113864, guid: 7fc93665b6870c24bbf359da90aa989a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1313333727}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1313333731 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7354267404069680477, guid: 7fc93665b6870c24bbf359da90aa989a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1313333727}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1372470014
 PrefabInstance:
   m_ObjectHideFlags: 0

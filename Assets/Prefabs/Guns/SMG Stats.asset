@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: SMG Stats
   m_EditorClassIdentifier: 
   gunModel: {fileID: 619418877242050396, guid: 9220366afcb8f314a9072584e0402183, type: 3}
-  hitEffect: {fileID: 3791775391182096976, guid: 1d328970073e6d745b88223b810a4892, type: 3}
+  hitEffect: {fileID: 3791775391182096976, guid: 1d328970073e6d745b88223b810a4892,
+    type: 3}
   shootRate: 0.1
   shootDamage: 1
   shootDist: 20
   currAmmo: 30
   maxAmmo: 30
+  id: 109

@@ -5,6 +5,7 @@ using UnityEngine;
 public class dialogTrigger : MonoBehaviour
 {
     public static dialogTrigger dialog;
+    public AudioSource ring;
     public string[] lines;
 
     void Start()
@@ -16,8 +17,15 @@ public class dialogTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            gameManager.instance.doDialog();
-            gameObject.SetActive(false);
+            StartCoroutine(startDialog());
         }
+    }
+
+    IEnumerator startDialog()
+    {
+        ring.Play();
+        yield return new WaitForSeconds(1f);
+        gameManager.instance.doDialog();
+        gameObject.SetActive(false);
     }
 }
