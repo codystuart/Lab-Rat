@@ -14,7 +14,7 @@ public class ASyncLoader : MonoBehaviour
 
     public void Play(string levelToLoad)
     {
-        loadingScreen.sortingOrder = 2;
+        loadingScreen.sortingOrder = 3;
         
         StartCoroutine(LoadLevelASync(levelToLoad));
     }
