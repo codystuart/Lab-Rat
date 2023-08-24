@@ -108,6 +108,7 @@ public class dialog : MonoBehaviour
             }
             else
             {
+                gameManager.instance.activeMenu.SetActive(false);
                 gameManager.instance.stateUnpaused();
             }
         }
@@ -121,6 +122,7 @@ public class dialog : MonoBehaviour
             }
             else
             {
+                gameManager.instance.activeMenu.SetActive(false);
                 gameManager.instance.stateUnpaused();
             }
         }

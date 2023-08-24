@@ -16,11 +16,13 @@ public class gameManager : MonoBehaviour
 
     [Header("----- UI Menus -----")]
     public GameObject activeMenu;
-    public GameObject pauseMenu;
-    public GameObject loseMenu;
-    public GameObject winMenu;
-    public GameObject respawnMenu;
-    public GameObject optionsMenu;
+    // public GameObject pauseMenu;
+    // public GameObject optionsMenu;
+    // public GameObject loseMenu;
+    // public GameObject winMenu;
+    // public GameObject respawnMenu;
+    public Canvas activeCanvas;
+    public Canvas pauseMenuCanvas, optionsMenuCanvas, respawnMenuCanvas, winMenuCanvas, gameOverMenuCanvas;
 
     [Header("----- UI Text -----")]
     //public TextMeshProUGUI enemiesRemainingText;
@@ -59,6 +61,8 @@ public class gameManager : MonoBehaviour
     [Header("----- SFX -----")]
     public AudioSource flashlightON;
     public AudioSource flashlightOFF;
+    [SerializeField] AudioSource source;
+    [SerializeField] AudioClip menuBackSfx;
 
     //class references
     //public int enemiesRemaining;
@@ -66,7 +70,7 @@ public class gameManager : MonoBehaviour
     public float timescaleOrig;
     private float secondsCount;
     private int minuteCount;
-    private bool pauseTimer;
+    //private bool pauseTimer;
     public bool keycardAcquired;
     
     //Cure collection and counting variables
@@ -75,14 +79,6 @@ public class gameManager : MonoBehaviour
 
     public bool collectedAllCures;
     private GameObject[] findCures;
-
-    // [Header("----- Puzzle -----")]
-    // [SerializeField] List<GameObject> correctBtnOrder = new List<GameObject>();
-    // [SerializeField] List<GameObject> btnPressedOrder = new List<GameObject>();
-    // [SerializeField] GameObject keycard;
-    // [SerializeField] GameObject tryAgainPuzzleText;
-    // [SerializeField] GameObject keycardAcquiredText;
-    // public bool correctOrder = false;
 
     void Awake()
     {
@@ -122,45 +118,61 @@ public class gameManager : MonoBehaviour
 
         batteryChargeBar.fillAmount = 0;
     }
-
+    private void Start() {
+        pauseMenuCanvas = pauseMenuCanvas.GetComponent<Canvas>();
+        optionsMenuCanvas = optionsMenuCanvas.GetComponent<Canvas>();
+        respawnMenuCanvas = respawnMenuCanvas.GetComponent<Canvas>();
+    }
     void Update()
     {
-        if (Input.GetButtonDown("Cancel") && activeMenu == null)
+
+        // Opens pause menu
+        if(Input.GetButtonDown("Cancel") && activeCanvas == null) 
         {
-            //if no menu, display pause menu
-            activeMenu = pauseMenu;
-            activeMenu.SetActive(true);
+            pauseMenuCanvas.enabled = true;
+            //activeMenu = pauseMenu;
+            activeCanvas = pauseMenuCanvas;
             statePaused();
         }
-        else if (Input.GetButtonDown("Cancel") && activeMenu != null && activeMenu != loseMenu && activeMenu != winMenu && activeMenu != respawnMenu && activeMenu != dialog && activeMenu != optionsMenu)
+        // Closes pause menu
+        else if (Input.GetButtonDown("Cancel") && activeCanvas == pauseMenuCanvas)
+        {
+            source.PlayOneShot(menuBackSfx);
+            pauseMenuCanvas.enabled = false;
+            //activeMenu = null;
+            activeCanvas = null;
+            stateUnpaused();
+        }
+        // Closes options menu, returns to pause menu
+        else if (Input.GetButtonDown("Cancel") && activeCanvas == optionsMenuCanvas)
+        {
+            source.PlayOneShot(menuBackSfx);
+            optionsMenuCanvas.enabled = false;
+            pauseMenuCanvas.enabled = true;
+            //activeMenu = pauseMenu;
+            activeCanvas = pauseMenuCanvas;
+        }
+        else if (Input.GetButtonDown("Cancel") && activeMenu != null && activeMenu != dialog)
         {
             //closes menu with escape
             stateUnpaused();
             activeMenu = null;
         }
-        else if(Input.GetButtonDown("Cancel") && activeMenu == optionsMenu)
-        {
-            //close the options menu
-            activeMenu.SetActive(false);
-            // display pause menu
-            activeMenu = pauseMenu;
-            activeMenu.SetActive(true);
-        }
-        if (Input.GetKeyDown(KeyCode.Tab) && activeMenu == null)
+
+        if (Input.GetKeyDown(KeyCode.Tab) && activeMenu == null && activeCanvas == null)
         {
             //if tab and no menu is open, open inventory
             openInventory();
         }
-        else if (Input.GetKeyDown(KeyCode.Tab) && activeMenu == inventory)
+        else if (Input.GetKeyDown(KeyCode.Tab) && (activeMenu == inventory || activeMenu == notes) && activeCanvas == null)
         {
             inventorySystem.inventory.selectedItem = null;
-            stateUnpaused();
-            activeMenu = null;
+            closeInventory();
         }
-        if (!pauseTimer)
-        {
-            updateTimerUI();
-        }
+        // if (!pauseTimer)
+        // {
+        //     updateTimerUI();
+        // }
     }
 
     public void clearSave()
@@ -174,11 +186,14 @@ public class gameManager : MonoBehaviour
     public void statePaused()
     {
         //pauses game
-        pauseTimer = true;
+        //pauseTimer = true;
         Time.timeScale = 0;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
         reticle.SetActive(false);
+
+        // pause IN GAME sound effects and IN GAME music
+
         //AudioListener.volume = 0; //this stops all sound/ sfx from being heard while paused
         isPaused = !isPaused;
     }
@@ -186,14 +201,17 @@ public class gameManager : MonoBehaviour
     public void stateUnpaused()
     {
         //unpauses game
-        pauseTimer = false;
+        //pauseTimer = false;
         Time.timeScale = timescaleOrig;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         reticle.SetActive(true);
+
+        // unpause IN GAME sound effects and IN GAME music
+
         //AudioListener.volume = 1; //this turns the volume back on
         isPaused = !isPaused;
-        activeMenu.SetActive(false);
+        //activeMenu.SetActive(false);
 
         //clean up
         if (displayName.text != string.Empty)
@@ -204,6 +222,7 @@ public class gameManager : MonoBehaviour
             noteDescription.text = string.Empty;
 
         activeMenu = null;
+        activeCanvas = null;
     }
     public IEnumerator playerFlashDamage()
     {
@@ -245,107 +264,64 @@ public class gameManager : MonoBehaviour
         inventorySystem.inventory.ListItems();
     }
 
+    public void closeInventory()
+    {
+        activeMenu.SetActive(false);
+        activeMenu = null;
+        stateUnpaused();
+    }
+
     public void doDialog()
     {
         //starts preset dialog
         activeMenu = dialog;
         activeMenu.SetActive(true);
-        pauseTimer = true;
+        //pauseTimer = true;
     }
 
     public void youWin()
     {
         //opens win menu
-        activeMenu = winMenu;
-        activeMenu.SetActive(true);
+        // activeMenu = winMenu;
+        // activeMenu.SetActive(true);
         statePaused();
     }
     public void youLose()
     {
         //opens lose menu
         statePaused();
-        activeMenu = loseMenu;
-        activeMenu.SetActive(true);
+        // activeMenu = loseMenu;
+        //activeMenu.SetActive(true);
     }
 
     public void RespawnLevel()
     {
-        //opens respawn menu
+        respawnMenuCanvas.enabled = true;//opens respawn menu
+        activeCanvas = respawnMenuCanvas;
         statePaused();
-        activeMenu = respawnMenu;
-        activeMenu.SetActive(true);
+        // activeMenu = respawnMenu;
+        //activeMenu.SetActive(true);
     }
 
-    // void updateCounters()
+    // void updateTimerUI()
     // {
-    //     //updated game goal labels
-    //     enemiesRemainingText.text = enemiesRemaining.ToString("F0");
-    //     cureBottlesRemainingText.text = cureCollected.ToString("F0") + "/" + totalCureCount.ToString("F0");
-    // }
-
-    void updateTimerUI()
-    {
-        //timer logic
-        secondsCount += Time.deltaTime;
+    //     //timer logic
+    //     secondsCount += Time.deltaTime;
 
 
-        if (secondsCount >= 60)
-        {
-            minuteCount++;
-            secondsCount = 0;
-        }
-        else if (minuteCount >= 60 && secondsCount >= 60)
-        {
-            youLose();
-        }
-
-        int secondsToInt = (int)secondsCount;
-
-        gameTimer.text = "Time " + minuteCount.ToString("00") + ":" + secondsToInt.ToString("00");
-    }
-    // public void ButtonPressedOrder(GameObject button)
-    // {
-    //     //button puzzle logic
-    //     Debug.Log("Button Added To list");
-    //     btnPressedOrder.Add(button);
-
-    //     if(btnPressedOrder.Count == correctBtnOrder.Count)
+    //     if (secondsCount >= 60)
     //     {
-    //         for (int i = 0; i < correctBtnOrder.Count; i++)
-    //         {
-    //             if (correctBtnOrder[i] == btnPressedOrder[i])
-    //             {
-    //                 correctOrder = true;
-    //             }
-    //             else
-    //             {
-    //                 correctOrder = false;
-    //                 break;
-    //             }
-    //         }
-    //         if (correctOrder)
-    //         {
-    //             StartCoroutine(KeycardAcquired());
-    //             Instantiate(keycard, player.transform.position, player.transform.rotation);
-    //         }
-    //         else
-    //         {
-    //             StartCoroutine(FailedPuzzle());
-    //             btnPressedOrder.Clear();
-    //             // play error sound
-    //         }
+    //         minuteCount++;
+    //         secondsCount = 0;
     //     }
+    //     else if (minuteCount >= 60 && secondsCount >= 60)
+    //     {
+    //         youLose();
+    //     }
+
+    //     int secondsToInt = (int)secondsCount;
+
+    //     gameTimer.text = "Time " + minuteCount.ToString("00") + ":" + secondsToInt.ToString("00");
     // }
-    // IEnumerator KeycardAcquired()
-    // {
-    //     keycardAcquiredText.SetActive(true);
-    //     yield return new WaitForSeconds(1f);
-    //     keycardAcquiredText.SetActive(false);
-    // }
-    // IEnumerator FailedPuzzle()
-    // {
-    //     tryAgainPuzzleText.SetActive(true);
-    //     yield return new WaitForSeconds(2f);
-    //     tryAgainPuzzleText.SetActive(false);
-    // }
+
 }

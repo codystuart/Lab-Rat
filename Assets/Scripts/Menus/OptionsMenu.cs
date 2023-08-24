@@ -32,14 +32,14 @@ public class OptionsMenu : MonoBehaviour
 
    public void Back()
    {
-        // hide options by setting sorting order to 0;
-        if (pauseMenu != null)
+        // if options is opened from in game
+        if (gameManager.instance.activeCanvas == gameManager.instance.optionsMenuCanvas)
         {
-            pauseMenu.SetActive(true);
-            gameManager.instance.activeMenu = pauseMenu;
-            optionsMenu.SetActive(false);
+            gameManager.instance.optionsMenuCanvas.enabled = false; // hide the options menu
+            gameManager.instance.pauseMenuCanvas.enabled = true; // show the pause menu
+            gameManager.instance.activeCanvas = gameManager.instance.pauseMenuCanvas; // set active menu to pause menu;
         }
-        else
+        else // if options is opened from main menu
         {
             optionsUI.sortingOrder = 0;
         }

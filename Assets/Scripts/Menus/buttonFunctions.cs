@@ -5,33 +5,34 @@ using UnityEngine.SceneManagement;
 
 public class buttonFunctions : MonoBehaviour
 {
-
-    [SerializeField] GameObject pauseMenu, optionsMenu;
-    [SerializeField] Canvas mainMenuUI, optionsUI, creditsUI, newOrLoadUI;
-    public void play()
+    [SerializeField] Canvas pauseMenuUI, optionsUI, creditsUI, newOrLoadUI;
+    public void Play()
     {
         newOrLoadUI.sortingOrder = 2;
     }
 
-    public void resume()
+    public void Resume()
     {
+        gameManager.instance.activeCanvas.enabled = false;
         gameManager.instance.stateUnpaused();
     }
 
-    public void respawn()
+    public void Respawn()
     {
+        gameManager.instance.activeCanvas.enabled = false;
         gameManager.instance.stateUnpaused();
         gameManager.instance.playerScript.spawnPlayer();
     }
 
-    public void restart()
+    public void Restart()
     {
+        gameManager.instance.activeCanvas.enabled = false;
         gameManager.instance.stateUnpaused();
         // Load Level 1
         SceneManager.LoadScene(1);
     }
 
-    public void mainMenu()
+    public void MainMenu()
     {
         // Make sure cursor is visible and time is unpaused if player presses "play" button 
         gameManager.instance.stateUnpaused();
@@ -41,21 +42,21 @@ public class buttonFunctions : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void quit()
+    public void Quit()
     {
         Application.Quit();
     }
 
     public void Options()
     {
-        //if opening from pause menu, hide the pause menu
-        if (pauseMenu != null && gameManager.instance.activeMenu == gameManager.instance.pauseMenu)
+        //if opening from in-game menus (paused, lose, or win menus)
+        if (gameManager.instance.activeCanvas != null)
         {
-            pauseMenu.SetActive(false);
-            optionsMenu.SetActive(true);
-            gameManager.instance.activeMenu = gameManager.instance.optionsMenu;
+            gameManager.instance.activeCanvas.enabled = false; // hide the current menu
+            gameManager.instance.optionsMenuCanvas.enabled = true; // show the options menu
+            gameManager.instance.activeCanvas = gameManager.instance.optionsMenuCanvas; // set active menu to options menu
         }
-        else
+        else // if opening from the main menu 
         {
             // display options by setting sorting order to 2;
             optionsUI.sortingOrder = 2;

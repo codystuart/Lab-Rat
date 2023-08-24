@@ -419,7 +419,8 @@ MonoBehaviour:
   m_text: Press Any Key To Continue
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e669dac5fcfc68d4db5d8fd69ba2e676, type: 2}
-  m_sharedMaterial: {fileID: 5852714830990868640, guid: e669dac5fcfc68d4db5d8fd69ba2e676, type: 2}
+  m_sharedMaterial: {fileID: 5852714830990868640, guid: e669dac5fcfc68d4db5d8fd69ba2e676,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -630,7 +631,8 @@ MonoBehaviour:
   m_text: LAB RAT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 970b1fd5af1593a41b0ebe7f33b2e77c, type: 2}
-  m_sharedMaterial: {fileID: -8090920440705807847, guid: 970b1fd5af1593a41b0ebe7f33b2e77c, type: 2}
+  m_sharedMaterial: {fileID: -8090920440705807847, guid: 970b1fd5af1593a41b0ebe7f33b2e77c,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -850,7 +852,8 @@ MonoBehaviour:
   m_text: Loading...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e669dac5fcfc68d4db5d8fd69ba2e676, type: 2}
-  m_sharedMaterial: {fileID: 5852714830990868640, guid: e669dac5fcfc68d4db5d8fd69ba2e676, type: 2}
+  m_sharedMaterial: {fileID: 5852714830990868640, guid: e669dac5fcfc68d4db5d8fd69ba2e676,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
