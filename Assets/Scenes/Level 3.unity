@@ -1708,6 +1708,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 326145683}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!82 &334494638 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6896906160882821997, guid: 7fc93665b6870c24bbf359da90aa989a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1539531585}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &334494639 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4302669198313574187, guid: 7fc93665b6870c24bbf359da90aa989a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1539531585}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &346435360
 GameObject:
   m_ObjectHideFlags: 0
@@ -3028,6 +3040,26 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1651409345}
+    - target: {fileID: 5970037848756842657, guid: e637f147805ed9a4fa7e88c8ef1425e3,
+        type: 3}
+      propertyPath: lockedText
+      value: 
+      objectReference: {fileID: 1165529174}
+    - target: {fileID: 5970037848756842657, guid: e637f147805ed9a4fa7e88c8ef1425e3,
+        type: 3}
+      propertyPath: doorOpenSound
+      value: 
+      objectReference: {fileID: 334494639}
+    - target: {fileID: 5970037848756842657, guid: e637f147805ed9a4fa7e88c8ef1425e3,
+        type: 3}
+      propertyPath: lockedDoorSound
+      value: 
+      objectReference: {fileID: 334494638}
+    - target: {fileID: 5970037848756842657, guid: e637f147805ed9a4fa7e88c8ef1425e3,
+        type: 3}
+      propertyPath: doorInteractText
+      value: 
+      objectReference: {fileID: 1275326019}
     - target: {fileID: 5970037848756842657, guid: e637f147805ed9a4fa7e88c8ef1425e3,
         type: 3}
       propertyPath: lockedFindCureText
@@ -6268,6 +6300,16 @@ PrefabInstance:
       propertyPath: lockedText
       value: 
       objectReference: {fileID: 1165529174}
+    - target: {fileID: 544076699006683972, guid: fa331e8c72280b542969bbbc6187b629,
+        type: 3}
+      propertyPath: doorOpenSound
+      value: 
+      objectReference: {fileID: 334494639}
+    - target: {fileID: 544076699006683972, guid: fa331e8c72280b542969bbbc6187b629,
+        type: 3}
+      propertyPath: lockedDoorSound
+      value: 
+      objectReference: {fileID: 334494638}
     - target: {fileID: 544076699006683972, guid: fa331e8c72280b542969bbbc6187b629,
         type: 3}
       propertyPath: doorInteractText

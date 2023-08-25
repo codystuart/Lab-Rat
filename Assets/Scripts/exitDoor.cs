@@ -6,15 +6,17 @@ using UnityEngine.UI;
 
 public class exitDoor : MonoBehaviour
 {
+    private bool playerInRange;
+    [SerializeField] GameObject doorInteractText;
+    [SerializeField] GameObject lockedText;
+    [SerializeField] AudioSource doorOpenSound;
+    [SerializeField] AudioSource lockedDoorSound;
+    public string sceneName;
+
+    //objects to change color of light
     [SerializeField] GameObject exitPointLight;
     [SerializeField] GameObject exitSignColor;
     [SerializeField] Material greenLight;
-    [SerializeField] GameObject exitDoorInteractText;
-    [SerializeField] GameObject lockedFindKeycardText;
-    [SerializeField] GameObject lockedFindCureText;
-    [SerializeField] GameObject lockedClearAreaText;
-    [SerializeField] AudioSource lockedDoor;
-    private bool playerInRange;
 
     void Update()
     {
@@ -50,9 +52,10 @@ public class exitDoor : MonoBehaviour
 
             }
         }
-        else if (playerInRange && !playerCanExit() && Input.GetKeyDown("e"))
+        else if (playerInRange && !playerCanExit() && Input.GetKeyDown(KeyCode.E))
         {
-            lockedDoor.Play();
+            lockedDoorSound.Play();
+            lockedText.SetActive(true);
         }
     }
 
@@ -61,7 +64,11 @@ public class exitDoor : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             playerInRange = true;
-            //showText();
+
+            if (playerCanExit())
+                doorInteractText.SetActive(true);
+            else
+                lockedText.SetActive(true);
         }
     }
 
@@ -70,7 +77,8 @@ public class exitDoor : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
-            //hideText();
+            doorInteractText.SetActive(false);
+            lockedText.SetActive(true);
         }
     }
     void changeLightColor()
@@ -82,10 +90,7 @@ public class exitDoor : MonoBehaviour
 
     bool keycardAcquired()
     {
-        if (gameManager.instance.keycardAcquired == true)
-            return true; 
-        else 
-            return false;
+        return gameManager.instance.keycardAcquired;
     }
 
     // bool cureCollected()
@@ -105,10 +110,12 @@ public class exitDoor : MonoBehaviour
     // }    
     
     bool playerCanExit()
-    { 
-        if (SceneManager.GetActiveScene().name == "Level 1")
+    {
+        sceneName = SceneManager.GetActiveScene().name;
+
+        if (sceneName == "Level 1")
         {
-            //forces player to pick up phone, flashlight, and first keycard to continue
+            //forces player to pick up phone, flashlight, and keycard to continue
             if (keycardAcquired() && gameManager.instance.playerScript.hasFlashlight
                 && gameManager.instance.playerScript.hasPhone)
             {
@@ -118,7 +125,7 @@ public class exitDoor : MonoBehaviour
             }
             else return false;
         }
-        else if (SceneManager.GetActiveScene().name == "Level 2")
+        else if (sceneName == "Level 2")
         {
             if (keycardAcquired())
             {
@@ -131,7 +138,7 @@ public class exitDoor : MonoBehaviour
             //    return true;
             //else return false;
         }
-        else if (SceneManager.GetActiveScene().name == "Level 3")
+        else if (sceneName == "Level 3")
         {
             if (keycardAcquired())
             {
@@ -144,7 +151,7 @@ public class exitDoor : MonoBehaviour
             //    return true;
             //else return false;
         }
-        //else if (SceneManager.GetActiveScene().name == "Level 4")
+        //else if (sceneName == "Level 4")
         //{
         //    if (keycardAcquired())
         //    {
@@ -158,7 +165,7 @@ public class exitDoor : MonoBehaviour
         //    //    return true;
         //    //else return false;
         //}
-        //else if (SceneManager.GetActiveScene().name == "Level 5")
+        //else if (sceneName == "Level 5")
         //{
         //    if (keycardAcquired())
         //    {
@@ -173,45 +180,4 @@ public class exitDoor : MonoBehaviour
         //}
         return false;
     }
-
-    // void showText()
-    // {
-    //     if (!keycardAcquired())
-    //     {
-    //         lockedFindKeycardText.SetActive(true);
-    //     }
-    //     else if (!cureCollected())
-    //     {
-    //         lockedFindCureText.SetActive(true);
-    //     }
-    //     else if (!zombiesEliminated())
-    //     {
-    //         lockedClearAreaText.SetActive(true);
-    //     }
-    //     else if (playerCanExit())
-    //     {
-    //         exitDoorInteractText.SetActive(true);
-    //     }
-    // }
-
-    // void hideText()
-    // {
-    //     if (!keycardAcquired())
-    //     {
-    //         lockedFindKeycardText.SetActive(false);
-    //     }
-    //     else if (!cureCollected())
-    //     {
-    //        lockedFindCureText.SetActive(false);
-    //     }
-    //     else if (!zombiesEliminated())
-    //     {
-    //         lockedClearAreaText.SetActive(false);
-    //     }
-    //     else if (playerCanExit())
-    //     {
-    //         exitDoorInteractText.SetActive(false);
-    //     }
-    // }
-    
 }

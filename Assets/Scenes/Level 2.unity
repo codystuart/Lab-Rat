@@ -5327,6 +5327,26 @@ PrefabInstance:
       objectReference: {fileID: 2014296079}
     - target: {fileID: 5970037848756842657, guid: e637f147805ed9a4fa7e88c8ef1425e3,
         type: 3}
+      propertyPath: lockedText
+      value: 
+      objectReference: {fileID: 1313333734}
+    - target: {fileID: 5970037848756842657, guid: e637f147805ed9a4fa7e88c8ef1425e3,
+        type: 3}
+      propertyPath: doorOpenSound
+      value: 
+      objectReference: {fileID: 1313333732}
+    - target: {fileID: 5970037848756842657, guid: e637f147805ed9a4fa7e88c8ef1425e3,
+        type: 3}
+      propertyPath: lockedDoorSound
+      value: 
+      objectReference: {fileID: 1313333732}
+    - target: {fileID: 5970037848756842657, guid: e637f147805ed9a4fa7e88c8ef1425e3,
+        type: 3}
+      propertyPath: doorInteractText
+      value: 
+      objectReference: {fileID: 1313333735}
+    - target: {fileID: 5970037848756842657, guid: e637f147805ed9a4fa7e88c8ef1425e3,
+        type: 3}
       propertyPath: lockedFindCureText
       value: 
       objectReference: {fileID: 0}
@@ -6597,6 +6617,24 @@ AudioSource:
 --- !u!82 &1313333731 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 7354267404069680477, guid: 7fc93665b6870c24bbf359da90aa989a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1313333727}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1313333732 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4302669198313574187, guid: 7fc93665b6870c24bbf359da90aa989a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1313333727}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1313333734 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 637502854995730914, guid: 7fc93665b6870c24bbf359da90aa989a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1313333727}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1313333735 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1178249059535714279, guid: 7fc93665b6870c24bbf359da90aa989a,
     type: 3}
   m_PrefabInstance: {fileID: 1313333727}
   m_PrefabAsset: {fileID: 0}

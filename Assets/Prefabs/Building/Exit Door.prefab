@@ -816,7 +816,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2647
+  m_VersionIndex: 2653
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1175,7 +1175,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1106
+  m_VersionIndex: 1112
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1324,7 +1324,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0.2216981, b: 0.2216981, a: 1}
   m_Intensity: 1
-  m_Range: 6.09
+  m_Range: 4.2
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -2189,7 +2189,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2647
+  m_VersionIndex: 2653
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2339,7 +2339,7 @@ Transform:
   - {fileID: 9159522626032432676}
   - {fileID: 2784185168187704005}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: -90}
 --- !u!114 &5970037848756842657
 MonoBehaviour:
@@ -2353,14 +2353,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92f7973e8b59cb140b2b636c38995533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorInteractText: {fileID: 0}
+  lockedText: {fileID: 0}
+  doorOpenSound: {fileID: 0}
+  lockedDoorSound: {fileID: 0}
+  sceneName: 
   exitPointLight: {fileID: 3415185646882111894}
   exitSignColor: {fileID: 2898871933536789345}
   greenLight: {fileID: 2100000, guid: 4108af014f89ec04295c3a20eef2c7ae, type: 2}
-  exitDoorInteractText: {fileID: 0}
-  lockedFindKeycardText: {fileID: 0}
-  lockedFindCureText: {fileID: 0}
-  lockedClearAreaText: {fileID: 0}
-  lockedDoor: {fileID: 2524197792117438523}
 --- !u!82 &2524197792117438523
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7045,7 +7045,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3947
+  m_VersionIndex: 3953
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -7097,7 +7097,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c22777d6e868e4f2fb421913386b154e, type: 2}
+  - {fileID: 2100000, guid: d0b63f259e747284f81d2c9302e0e533, type: 2}
   - {fileID: 2100000, guid: 5b8e255e023e04644ac82903b5d8b7f1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0

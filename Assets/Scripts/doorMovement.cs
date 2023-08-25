@@ -12,6 +12,7 @@ public class doorMovement : MonoBehaviour
     [SerializeField] GameObject doorInteractText;
     [SerializeField] GameObject lockedText;
     [SerializeField] AudioSource doorOpenSound;
+    [SerializeField] AudioSource lockedDoorSound;
     public string sceneName;
 
     private void Update()
@@ -36,9 +37,13 @@ public class doorMovement : MonoBehaviour
                 hideText();
                 transform.localRotation = Quaternion.Euler(0, 0, 90);
             }
+            else if (Input.GetKeyDown("e"))
+                lockedDoorSound.Play();
+
         }
         
     }
+
     private void OnTriggerStay(Collider other)
     {
         sceneName = SceneManager.GetActiveScene().name;
