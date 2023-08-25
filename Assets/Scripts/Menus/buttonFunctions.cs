@@ -49,14 +49,15 @@ public class buttonFunctions : MonoBehaviour
 
     public void Options()
     {
+        Scene sceneCurr = SceneManager.GetActiveScene();
         //if opening from in-game menus (paused, lose, or win menus)
-        if (gameManager.instance.activeCanvas != null)
+        if (sceneCurr.name != "Main Menu" && gameManager.instance.activeCanvas != null)
         {
             gameManager.instance.activeCanvas.enabled = false; // hide the current menu
             gameManager.instance.optionsMenuCanvas.enabled = true; // show the options menu
             gameManager.instance.activeCanvas = gameManager.instance.optionsMenuCanvas; // set active menu to options menu
         }
-        else // if opening from the main menu 
+        else if (sceneCurr.name == "Main Menu") // if opening from the main menu 
         {
             // display options by setting sorting order to 2;
             optionsUI.sortingOrder = 2;

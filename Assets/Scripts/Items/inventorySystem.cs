@@ -192,7 +192,7 @@ public class inventorySystem : MonoBehaviour
             dropSound.Play();
             clearInfo(selectedItem);
             Vector3 playerPos = new Vector3(gameManager.instance.player.transform.position.x - 0.3f,
-                gameManager.instance.player.transform.position.y,
+                gameManager.instance.player.transform.position.y - 0.9f,
                 gameManager.instance.player.transform.position.z + 0.5f);
             Instantiate(selectedItem.prefab, playerPos, selectedItem.prefab.transform.rotation);
             removeItem(selectedItem);

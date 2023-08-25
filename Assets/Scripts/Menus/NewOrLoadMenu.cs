@@ -7,7 +7,7 @@ public class NewOrLoadMenu : MonoBehaviour
     [SerializeField] Canvas newOrLoadUI;
     public void Back()
    {
-        // hide options by setting sorting order to 0;
+        // hide new game screen by setting sorting order to 0;
         newOrLoadUI.sortingOrder = 0;
    }
 }

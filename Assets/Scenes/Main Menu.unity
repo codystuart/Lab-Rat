@@ -135,6 +135,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e37dde844e6b1f84488d53cad4a032ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &340397669 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8275762124620963112, guid: b179555429837c64e86982e54edc0f58,
+    type: 3}
+  m_PrefabInstance: {fileID: 1702548948768836184}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &428255026
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,6 +689,11 @@ PrefabInstance:
       propertyPath: m_TextStyleHashCode
       value: -1183493901
       objectReference: {fileID: 0}
+    - target: {fileID: 275356653290346508, guid: b179555429837c64e86982e54edc0f58,
+        type: 3}
+      propertyPath: optionsMenu
+      value: 
+      objectReference: {fileID: 340397669}
     - target: {fileID: 332331635069288733, guid: b179555429837c64e86982e54edc0f58,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

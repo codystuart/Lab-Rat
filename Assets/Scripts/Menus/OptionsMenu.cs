@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class OptionsMenu : MonoBehaviour
@@ -32,14 +33,15 @@ public class OptionsMenu : MonoBehaviour
 
    public void Back()
    {
+        Scene sceneCurr = SceneManager.GetActiveScene();
         // if options is opened from in game
-        if (gameManager.instance.activeCanvas == gameManager.instance.optionsMenuCanvas)
+        if (sceneCurr.name != "Main Menu" && gameManager.instance.activeCanvas == gameManager.instance.optionsMenuCanvas)
         {
             gameManager.instance.optionsMenuCanvas.enabled = false; // hide the options menu
             gameManager.instance.pauseMenuCanvas.enabled = true; // show the pause menu
             gameManager.instance.activeCanvas = gameManager.instance.pauseMenuCanvas; // set active menu to pause menu;
         }
-        else // if options is opened from main menu
+        else if (sceneCurr.name == "Main Menu")// if options is opened from main menu
         {
             optionsUI.sortingOrder = 0;
         }
