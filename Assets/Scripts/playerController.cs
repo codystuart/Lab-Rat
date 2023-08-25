@@ -221,7 +221,7 @@ public class playerController : MonoBehaviour, IDamage
                 {
                     IDamage damageable = hit.collider.GetComponent<IDamage>();
 
-                    if (damageable != null)
+                    if (damageable != null && !gameManager.instance.player.CompareTag(tag))
                     {
                         damageable.TakeDamage(shootDamage);
                     }
