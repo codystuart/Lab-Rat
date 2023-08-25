@@ -47,11 +47,15 @@ public class inventorySystem : MonoBehaviour
     public void Awake()
     {
         inventory = this;
-        maxItemsLabel.text = maxItems.ToString();
-        inTab.interactable = false;
+
         Scene sceneCurr = SceneManager.GetActiveScene();
         if (sceneCurr.name == "Level 1")
+        {
             StartCoroutine(invHint());
+        }
+
+        maxItemsLabel.text = maxItems.ToString();
+        inTab.interactable = false;
         //livesRemaining.text = gameManager.instance.playerScript.lives.ToString();
     }
 
@@ -72,6 +76,7 @@ public class inventorySystem : MonoBehaviour
         if (items.Count > 0)
         {
             items.Remove(item);
+            currHeldItems.text = items.Count.ToString();
         }
     }
 

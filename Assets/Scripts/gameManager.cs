@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEditor.Search;
 
 public class gameManager : MonoBehaviour
 {
@@ -91,11 +92,12 @@ public class gameManager : MonoBehaviour
         }
         else
         {
-            save.saveGunList.Clear();
+            clearSave();
         }
 
         if (sceneCurr.name == "Level 1" || sceneCurr.name == "TestingWaveSpawner")
         {
+            playerScript.hasFlashlight = false;
             playerScript.gunList.Clear();
             inventorySystem.inventory.items.Clear();
             inventorySystem.inventory.notes.Clear();
@@ -118,7 +120,7 @@ public class gameManager : MonoBehaviour
     {
 
         // Opens pause menu
-        if(Input.GetButtonDown("Cancel") && activeCanvas == null) 
+        if(Input.GetButtonDown("Cancel") && activeMenu == null && activeCanvas == null) 
         {
             pauseMenuCanvas.enabled = true;
             //activeMenu = pauseMenu;
@@ -168,9 +170,9 @@ public class gameManager : MonoBehaviour
 
     public void clearSave()
     {
-        //save.saveGunList.Clear();
-        //save.saveInvItems.Clear();
-        //save.saveNotes.Clear();
+        save.saveGunList.Clear();
+        save.saveInvItems.Clear();
+        save.saveNotes.Clear();
         save.saveFlashlight = false;
     }
 
@@ -202,7 +204,7 @@ public class gameManager : MonoBehaviour
 
         //AudioListener.volume = 1; //this turns the volume back on
         isPaused = !isPaused;
-        //activeMenu.SetActive(false);
+        activeMenu.SetActive(false);
 
         //clean up
         if (displayName.text != string.Empty)

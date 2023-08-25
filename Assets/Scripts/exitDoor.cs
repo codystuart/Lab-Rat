@@ -22,7 +22,7 @@ public class exitDoor : MonoBehaviour
         {
             changeLightColor();
         }
-        if (playerInRange && playerCanExit() && Input.GetKeyDown("e"))
+        if (playerInRange && playerCanExit() && Input.GetKeyDown(KeyCode.E))
         {
             // If last level player wins
             if (SceneManager.GetActiveScene().buildIndex == 3)
@@ -31,13 +31,22 @@ public class exitDoor : MonoBehaviour
             }
             else // If more levels, load next level
             {
-                //Save Guns, Items, and notes to bring to the next level
+
+                //remove old keycard before switching scenes
+                for (int i = 0; i < inventorySystem.inventory.items.Count; ++i)
+                {
+                    if (inventorySystem.inventory.items[i].typeID == 'k')
+                    {
+                        inventorySystem.inventory.removeItem(inventorySystem.inventory.items[i]);
+                    }
+                }
+
+                //save guns, items, and notes to bring to the next level
                 gameManager.instance.save.saveGunList = gameManager.instance.playerScript.gunList;
                 gameManager.instance.save.saveInvItems = inventorySystem.inventory.items;
                 gameManager.instance.save.saveNotes = inventorySystem.inventory.notes;
 
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-                Debug.Log("Loading next level");
 
             }
         }
@@ -103,8 +112,7 @@ public class exitDoor : MonoBehaviour
             if (keycardAcquired() && gameManager.instance.playerScript.hasFlashlight
                 && gameManager.instance.playerScript.hasPhone)
             {
-                Debug.Log("Door will open.");
-                SceneManager.LoadScene("Level 2");
+                //SceneManager.LoadScene("Level 2");
                 KeyCardScript.PickedUpKeyCard = false;
                 return true;
             }
@@ -114,8 +122,7 @@ public class exitDoor : MonoBehaviour
         {
             if (keycardAcquired())
             {
-                Debug.Log("Door will open.");
-                SceneManager.LoadScene("Level 3");
+                //SceneManager.LoadScene("Level 3");
                 KeyCardScript.PickedUpKeyCard = false;
                 return true;
             }
@@ -128,7 +135,6 @@ public class exitDoor : MonoBehaviour
         {
             if (keycardAcquired())
             {
-                Debug.Log("Door will open.");
                 //SceneManager.LoadScene("Level 4");
                 KeyCardScript.PickedUpKeyCard = false;
                 return true;
