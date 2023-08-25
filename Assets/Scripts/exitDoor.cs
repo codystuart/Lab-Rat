@@ -31,7 +31,11 @@ public class exitDoor : MonoBehaviour
             }
             else // If more levels, load next level
             {
+                //Save Guns, Items, and notes to bring to the next level
                 gameManager.instance.save.saveGunList = gameManager.instance.playerScript.gunList;
+                gameManager.instance.save.saveInvItems = inventorySystem.inventory.items;
+                gameManager.instance.save.saveNotes = inventorySystem.inventory.notes;
+
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 Debug.Log("Loading next level");
 

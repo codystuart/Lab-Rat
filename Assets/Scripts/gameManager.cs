@@ -96,20 +96,16 @@ public class gameManager : MonoBehaviour
 
         if (sceneCurr.name == "Level 1" || sceneCurr.name == "TestingWaveSpawner")
         {
-            clearSave();
+            playerScript.gunList.Clear();
+            inventorySystem.inventory.items.Clear();
+            inventorySystem.inventory.notes.Clear();
         }
 
         playerScript.gunList = save.saveGunList;
-        playerScript.selectedGun = 0; //set selected gun to first in list
-
-
-        ////sets lists of saved items
-        //inventorySystem.inventory.items = save.saveInvItems;
-        //inventorySystem.inventory.notes = save.saveNotes;
-
-        ////sets flashlight meshes on next scene
-        //if (save.saveFlashlight)
-        //    playerScript.pickupFlashlight();
+        playerScript.selectedGun = 0;
+        inventorySystem.inventory.items = save.saveInvItems;
+        inventorySystem.inventory.notes = save.saveNotes;
+        
 
         batteryChargeBar.fillAmount = 0;
     }
