@@ -59,6 +59,8 @@ public class gameManager : MonoBehaviour
     public AudioSource flashlightOFF;
     [SerializeField] AudioSource source;
     [SerializeField] AudioClip menuBackSfx;
+    [SerializeField] AudioSource inGameMusic;
+    [SerializeField] GameObject inGameSFX;
 
     //class references
     //public int enemiesRemaining;
@@ -186,8 +188,12 @@ public class gameManager : MonoBehaviour
         reticle.SetActive(false);
 
         // pause IN GAME sound effects and IN GAME music
+        if(activeCanvas != null)
+        {
+            inGameMusic.Pause();
+            inGameSFX.SetActive(false);
+        }
 
-        //AudioListener.volume = 0; //this stops all sound/ sfx from being heard while paused
         isPaused = !isPaused;
     }
 
@@ -201,8 +207,12 @@ public class gameManager : MonoBehaviour
         reticle.SetActive(true);
 
         // unpause IN GAME sound effects and IN GAME music
+        if(activeCanvas == null)
+        {
+            inGameMusic.UnPause();
+            inGameSFX.SetActive(true);
+        }
 
-        //AudioListener.volume = 1; //this turns the volume back on
         isPaused = !isPaused;
         activeMenu.SetActive(false);
 

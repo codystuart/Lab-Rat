@@ -33943,6 +33943,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9054654097037428139, guid: 7fc93665b6870c24bbf359da90aa989a,
         type: 3}
+      propertyPath: inGameMusic
+      value: 
+      objectReference: {fileID: 1327813277}
+    - target: {fileID: 9054654097037428139, guid: 7fc93665b6870c24bbf359da90aa989a,
+        type: 3}
       propertyPath: winMenuCanvas
       value: 
       objectReference: {fileID: 270929256}
@@ -34334,6 +34339,12 @@ Transform:
   m_Father: {fileID: 608823003}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1327813277 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4245314282347638428, guid: 603d1cc59b0e7264aa3f8659210f0b68,
+    type: 3}
+  m_PrefabInstance: {fileID: 1221520918}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1340809204
 GameObject:
   m_ObjectHideFlags: 0
