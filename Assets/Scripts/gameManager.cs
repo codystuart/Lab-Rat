@@ -16,11 +16,6 @@ public class gameManager : MonoBehaviour
 
     [Header("----- UI Menus -----")]
     public GameObject activeMenu;
-    // public GameObject pauseMenu;
-    // public GameObject optionsMenu;
-    // public GameObject loseMenu;
-    // public GameObject winMenu;
-    // public GameObject respawnMenu;
     public Canvas activeCanvas;
     public Canvas pauseMenuCanvas, optionsMenuCanvas, respawnMenuCanvas, winMenuCanvas, gameOverMenuCanvas;
 
@@ -296,7 +291,7 @@ public class gameManager : MonoBehaviour
 
     public void RespawnLevel()
     {
-        respawnMenuCanvas.enabled = true;//opens respawn menu
+        respawnMenuCanvas.enabled = true; //opens respawn menu
         activeCanvas = respawnMenuCanvas;
         statePaused();
         // activeMenu = respawnMenu;

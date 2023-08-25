@@ -201,38 +201,42 @@ public class playerController : MonoBehaviour, IDamage
 
     IEnumerator shoot()
     {
-        if (gunList[selectedGun].currAmmo > 0)
+        if (Time.timeScale > 0) // if the game is not in pause menu
         {
-            isShooting = true;
-            gunShot.Play();
 
-            StartCoroutine(flashMuzzle());
-            --gunList[selectedGun].currAmmo;
-            updatePlayerUI();
-
-            RaycastHit hit;
-
-            if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
+            if (gunList[selectedGun].currAmmo > 0)
             {
-                IDamage damageable = hit.collider.GetComponent<IDamage>();
+                isShooting = true;
+                gunShot.Play();
 
-                if (damageable != null)
+                StartCoroutine(flashMuzzle());
+                --gunList[selectedGun].currAmmo;
+                updatePlayerUI();
+
+                RaycastHit hit;
+
+                if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
                 {
-                    damageable.TakeDamage(shootDamage);
-                }
-                else
-                    Instantiate(gunList[selectedGun].hitEffect, hit.point, Quaternion.identity);
-            }
+                    IDamage damageable = hit.collider.GetComponent<IDamage>();
 
-            yield return new WaitForSeconds(shootRate);
-            if (gunList[selectedGun].id == 's')
-                shotgunCock.Play();
-            isShooting = false;
-        }
-        else
-        {
-            empty.Play();
-            StartCoroutine(noAmmoLeft());
+                    if (damageable != null)
+                    {
+                        damageable.TakeDamage(shootDamage);
+                    }
+                    else
+                        Instantiate(gunList[selectedGun].hitEffect, hit.point, Quaternion.identity);
+                }
+
+                yield return new WaitForSeconds(shootRate);
+                if (gunList[selectedGun].id == 's')
+                    shotgunCock.Play();
+                isShooting = false;
+            }
+            else
+            {
+                empty.Play();
+                StartCoroutine(noAmmoLeft());
+            }
         }
     }
 
