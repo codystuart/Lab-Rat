@@ -19,6 +19,6 @@ MonoBehaviour:
   shootRate: 1.2
   shootDamage: 3
   shootDist: 15
-  currAmmo: 0
+  currAmmo: 5
   maxAmmo: 5
   id: 115

@@ -72,6 +72,7 @@ public class playerController : MonoBehaviour, IDamage
     float playerSpeedOrig;
     bool hasSpareAmmo;
     bool isSprinting;
+    public int availableReloads;
 
     void Start()
     {
@@ -80,6 +81,7 @@ public class playerController : MonoBehaviour, IDamage
         originalLives = lives;
         playerSpeedOrig = playerSpeed;
         isSprinting = false;
+        availableReloads = 0;
 
         //Reset Flashlight
         fLight.enabled = false;
@@ -112,7 +114,7 @@ public class playerController : MonoBehaviour, IDamage
                     StartCoroutine(shoot());
                 }
 
-                if (Input.GetButton("Reload") && !isShooting && gunList[selectedGun].currAmmo != gunList[selectedGun].maxAmmo)
+                if (Input.GetButton("Reload") && gunList[selectedGun].currAmmo < gunList[selectedGun].maxAmmo && availableReloads > 0)
                 {
                     fillAmmo();
                 }
@@ -406,18 +408,19 @@ public class playerController : MonoBehaviour, IDamage
 
     public void fillAmmo()
     {
-        for (int i = 0; i < inventorySystem.inventory.items.Count - 1; i--)
+        availableReloads--;
+        reload.Play();
+        gunList[selectedGun].currAmmo = gunList[selectedGun].maxAmmo;
+        updatePlayerUI();
+
+        for (int i = inventorySystem.inventory.items.Count - 1; i >= 0; --i)
         {
             if (inventorySystem.inventory.items[i].typeID == 'a')
             {
-                inventorySystem.inventory.items.Remove(inventorySystem.inventory.items[i]);
-                reload.Play();
-                gunList[selectedGun].currAmmo = gunList[selectedGun].maxAmmo;
-                updatePlayerUI();
+                inventorySystem.inventory.items.RemoveAt(i);
                 break;
             }
         }
-
     }
 
     public void replaceBattery(float amount)

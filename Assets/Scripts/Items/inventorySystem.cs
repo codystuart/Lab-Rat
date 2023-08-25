@@ -60,6 +60,11 @@ public class inventorySystem : MonoBehaviour
         pickupSound.Play();
         items.Add(item);
         currHeldItems.text = items.Count.ToString();
+
+        if (item.typeID == 'a')
+        {
+            gameManager.instance.playerScript.availableReloads++;
+        }
     }
 
     public void removeItem(itemData item)

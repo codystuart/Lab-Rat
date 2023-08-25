@@ -10,4 +10,9 @@ public class CreditsMenu : MonoBehaviour
         // hide options by setting sorting order to 0;
         creditsUI.sortingOrder = 0;
     }
+
+    public void Next()
+    {
+        
+    }
 }
