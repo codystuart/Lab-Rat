@@ -236,12 +236,6 @@ public class gameManager : MonoBehaviour
     // {
     //     enemiesRemaining += amount;
     //     //updateCounters();
-
-    //     if (enemiesRemaining <= 0 && secretWall != null)
-    //     {
-    //         secretWall.GetComponent<Renderer>().enabled = false;
-    //         secretWall.GetComponent<Collider>().enabled = false;
-    //     }
     // }
     
     public void openInventory()
@@ -271,16 +265,16 @@ public class gameManager : MonoBehaviour
     public void youWin()
     {
         //opens win menu
-        // activeMenu = winMenu;
-        // activeMenu.SetActive(true);
+        winMenuCanvas.enabled = true;
+        activeCanvas = winMenuCanvas;
         statePaused();
     }
     public void youLose()
     {
         //opens lose menu
+        gameOverMenuCanvas.enabled = true;
+        activeCanvas = gameOverMenuCanvas;
         statePaused();
-        // activeMenu = loseMenu;
-        //activeMenu.SetActive(true);
     }
 
     public void RespawnLevel()
