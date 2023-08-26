@@ -7098,6 +7098,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 603d1cc59b0e7264aa3f8659210f0b68, type: 3}
+--- !u!82 &1221520919 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4245314282347638428, guid: 603d1cc59b0e7264aa3f8659210f0b68,
+    type: 3}
+  m_PrefabInstance: {fileID: 1221520918}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1223734906
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9377,6 +9383,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9054654097037428139, guid: 7fc93665b6870c24bbf359da90aa989a,
+        type: 3}
+      propertyPath: inGameMusic
+      value: 
+      objectReference: {fileID: 1221520919}
     - target: {fileID: 9054654097037428139, guid: 7fc93665b6870c24bbf359da90aa989a,
         type: 3}
       propertyPath: winMenuCanvas
