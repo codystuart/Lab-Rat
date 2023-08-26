@@ -430,6 +430,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 2444475359461405495, guid: b179555429837c64e86982e54edc0f58,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2574700971629839316, guid: b179555429837c64e86982e54edc0f58,
         type: 3}
       propertyPath: m_text
@@ -468,6 +473,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontSizeBase
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063107031215992404, guid: b179555429837c64e86982e54edc0f58,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098831462106722628, guid: b179555429837c64e86982e54edc0f58,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3335717399601869763, guid: b179555429837c64e86982e54edc0f58,
         type: 3}
@@ -582,6 +597,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4783983025019538127, guid: 1c0ba099040d50f48b02a0a3578494f2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5239419707845395081, guid: 1c0ba099040d50f48b02a0a3578494f2,
         type: 3}
       propertyPath: m_Name
@@ -600,11 +620,6 @@ PrefabInstance:
     - target: {fileID: 5379446798599041481, guid: 1c0ba099040d50f48b02a0a3578494f2,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5656641534006087259, guid: 1c0ba099040d50f48b02a0a3578494f2,
-        type: 3}
-      propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6914650981830678364, guid: 1c0ba099040d50f48b02a0a3578494f2,

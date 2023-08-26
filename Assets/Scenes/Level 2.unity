@@ -2467,6 +2467,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 480582288}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &483813585 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6570660735929346419, guid: 57bbc1d2e3f5e1c4f9d1160a67ddf0e9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1182850746}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 098d95dea27e5b7418785ffdc1bba4e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &496935170
 GameObject:
   m_ObjectHideFlags: 0
@@ -2671,6 +2683,12 @@ LightingSettings:
   m_PVRTiledBaking: 0
   m_NumRaysToShootPerTexel: -1
   m_RespectSceneVisibilityWhenBakingGI: 0
+--- !u!82 &618223317 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4245314282347638428, guid: 603d1cc59b0e7264aa3f8659210f0b68,
+    type: 3}
+  m_PrefabInstance: {fileID: 1221520918}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &618796895
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5809,6 +5827,16 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 885575816160073342, guid: 57bbc1d2e3f5e1c4f9d1160a67ddf0e9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 483813585}
+    - target: {fileID: 885575816160073342, guid: 57bbc1d2e3f5e1c4f9d1160a67ddf0e9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Respawn
+      objectReference: {fileID: 0}
     - target: {fileID: 1320875586206087633, guid: 57bbc1d2e3f5e1c4f9d1160a67ddf0e9,
         type: 3}
       propertyPath: m_RootOrder
@@ -6566,6 +6594,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9054654097037428139, guid: 7fc93665b6870c24bbf359da90aa989a,
+        type: 3}
+      propertyPath: inGameMusic
+      value: 
+      objectReference: {fileID: 618223317}
     - target: {fileID: 9054654097037428139, guid: 7fc93665b6870c24bbf359da90aa989a,
         type: 3}
       propertyPath: winMenuCanvas

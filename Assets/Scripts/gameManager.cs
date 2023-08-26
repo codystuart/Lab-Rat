@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEditor.Search;
+// using UnityEditor.Search;
 
 public class gameManager : MonoBehaviour
 {
@@ -214,7 +214,10 @@ public class gameManager : MonoBehaviour
         }
 
         isPaused = !isPaused;
-        activeMenu.SetActive(false);
+        if (activeMenu != null)
+        {
+            activeMenu.SetActive(false);
+        }
 
         //clean up
         if (displayName.text != string.Empty)
