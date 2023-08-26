@@ -286,7 +286,7 @@ public class playerController : MonoBehaviour, IDamage
             }
         }
 
-        if (hasFlashlight && !fLightIsOn)
+        if (hasFlashlight && !fLightIsOn && gameManager.instance.inGameSFX.activeSelf)
             gameManager.instance.flashlightOFF.Play();
 
         if (hasFlashlight && Input.GetKeyDown(KeyCode.F))

@@ -60,7 +60,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] AudioSource source;
     [SerializeField] AudioClip menuBackSfx;
     [SerializeField] AudioSource inGameMusic;
-    [SerializeField] GameObject inGameSFX;
+    public GameObject inGameSFX;
 
     //class references
     //public int enemiesRemaining;
