@@ -59,7 +59,7 @@ public class exitDoor : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
         {
@@ -78,7 +78,7 @@ public class exitDoor : MonoBehaviour
         {
             playerInRange = false;
             doorInteractText.SetActive(false);
-            lockedText.SetActive(true);
+            lockedText.SetActive(false);
         }
     }
     void changeLightColor()
@@ -140,13 +140,7 @@ public class exitDoor : MonoBehaviour
         }
         else if (sceneName == "Level 3")
         {
-            if (keycardAcquired())
-            {
-                //SceneManager.LoadScene("Level 4");
-                KeyCardScript.PickedUpKeyCard = false;
-                return true;
-            }
-            else return false;
+            return gameManager.instance.cureCollected;
             //if (keycardAcquired() && cureCollected() && zombiesEliminated())
             //    return true;
             //else return false;

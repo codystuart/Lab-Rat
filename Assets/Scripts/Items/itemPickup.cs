@@ -31,7 +31,7 @@ public class itemPickup : MonoBehaviour
         else
         {
             if (item.typeID == 'c')
-                gameManager.instance.updateCureGameGoal(1);
+                gameManager.instance.cureCollected = true;
             if (item.typeID == 'k')
                 gameManager.instance.keycardAcquired = true;
 

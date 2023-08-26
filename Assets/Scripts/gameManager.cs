@@ -66,17 +66,11 @@ public class gameManager : MonoBehaviour
     //public int enemiesRemaining;
     public bool isPaused;
     public float timescaleOrig;
-    private float secondsCount;
-    private int minuteCount;
+    //private float secondsCount;
+    //private int minuteCount;
     //private bool pauseTimer;
     public bool keycardAcquired;
-    
-    //Cure collection and counting variables
-    public int totalCureCount;
-    int cureCollected;
-
-    public bool collectedAllCures;
-    private GameObject[] findCures;
+    public bool cureCollected; //win condition
 
     void Awake()
     {
@@ -94,6 +88,7 @@ public class gameManager : MonoBehaviour
         }
         else
         {
+            cureCollected = false;
             clearSave();
         }
 
@@ -250,17 +245,6 @@ public class gameManager : MonoBehaviour
     //     }
     // }
     
-    public void updateCureGameGoal(int amount) 
-    { 
-        cureCollected += amount;
-        //updateCounters();
-
-        if (cureCollected == totalCureCount)
-        {
-            collectedAllCures = true;
-        }
-    }
-
     public void openInventory()
     {
         //opens inventory screen
