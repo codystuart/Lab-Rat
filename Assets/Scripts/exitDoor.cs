@@ -33,7 +33,6 @@ public class exitDoor : MonoBehaviour
             }
             else // If more levels, load next level
             {
-
                 //remove old keycard before switching scenes
                 for (int i = 0; i < inventorySystem.inventory.items.Count; ++i)
                 {
@@ -145,33 +144,7 @@ public class exitDoor : MonoBehaviour
             //    return true;
             //else return false;
         }
-        //else if (sceneName == "Level 4")
-        //{
-        //    if (keycardAcquired())
-        //    {
-        //        Debug.Log("Door will open.");
-        //        SceneManager.LoadScene("Level 5");
-        //        KeyCardScript.PickedUpKeyCard = false;
-        //        return true;
-        //    }
-        //    else return false;
-        //    //if (keycardAcquired() && cureCollected() && zombiesEliminated())
-        //    //    return true;
-        //    //else return false;
-        //}
-        //else if (sceneName == "Level 5")
-        //{
-        //    if (keycardAcquired())
-        //    {
-        //        if(Objectives != null)
-        //        Objectives.text = "I hope this cure is enough.";
-        //        return true;
-        //    }
-        //    else return false;
-        //    //if (keycardAcquired() && cureCollected() && zombiesEliminated())
-        //    //    return true;
-        //    //else return false;
-        //}
+
         return false;
     }
 }
