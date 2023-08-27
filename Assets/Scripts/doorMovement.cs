@@ -37,7 +37,7 @@ public class doorMovement : MonoBehaviour
                 hideText();
                 transform.localRotation = Quaternion.Euler(0, 0, 90);
             }
-            else if (Input.GetKeyDown("e"))
+            else if (playerInRange && !PhoneScript.phone.phonePickedUp && Input.GetKeyDown("e"))
                 lockedDoorSound.Play();
 
         }

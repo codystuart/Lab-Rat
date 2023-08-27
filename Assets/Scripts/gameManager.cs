@@ -16,7 +16,7 @@ public class gameManager : MonoBehaviour
 
     [Header("----- UI Menus -----")]
     public GameObject activeMenu;
-    public Canvas activeCanvas;
+    public Canvas activeCanvas, previousCanvas;
     public Canvas pauseMenuCanvas, optionsMenuCanvas, respawnMenuCanvas, winMenuCanvas, gameOverMenuCanvas;
 
     [Header("----- UI Text -----")]
@@ -58,7 +58,7 @@ public class gameManager : MonoBehaviour
     public AudioSource flashlightOFF;
     [SerializeField] AudioSource source;
     [SerializeField] AudioClip menuBackSfx;
-    [SerializeField] AudioSource inGameMusic;
+    public AudioSource inGameMusic;
     public GameObject inGameSFX;
 
     //class references
@@ -99,12 +99,12 @@ public class gameManager : MonoBehaviour
             inventorySystem.inventory.notes.Clear();
         }
 
+
         playerScript.gunList = save.saveGunList;
         playerScript.selectedGun = 0;
         inventorySystem.inventory.items = save.saveInvItems;
         inventorySystem.inventory.notes = save.saveNotes;
         
-
         batteryChargeBar.fillAmount = 0;
     }
     private void Start() {
@@ -114,13 +114,12 @@ public class gameManager : MonoBehaviour
     }
     void Update()
     {
-
         // Opens pause menu
         if(Input.GetButtonDown("Cancel") && activeMenu == null && activeCanvas == null) 
         {
             pauseMenuCanvas.enabled = true;
-            //activeMenu = pauseMenu;
             activeCanvas = pauseMenuCanvas;
+            previousCanvas = activeCanvas;
             statePaused();
         }
         // Closes pause menu
@@ -128,18 +127,17 @@ public class gameManager : MonoBehaviour
         {
             source.PlayOneShot(menuBackSfx);
             pauseMenuCanvas.enabled = false;
-            //activeMenu = null;
             activeCanvas = null;
+            previousCanvas = null;
             stateUnpaused();
         }
-        // Closes options menu, returns to pause menu
+        // Closes options menu, returns to last menu
         else if (Input.GetButtonDown("Cancel") && activeCanvas == optionsMenuCanvas)
         {
             source.PlayOneShot(menuBackSfx);
             optionsMenuCanvas.enabled = false;
-            pauseMenuCanvas.enabled = true;
-            //activeMenu = pauseMenu;
-            activeCanvas = pauseMenuCanvas;
+            previousCanvas.enabled = true;
+            activeCanvas = previousCanvas;
         }
         else if (Input.GetButtonDown("Cancel") && activeMenu != null && activeMenu != dialog)
         {
@@ -223,6 +221,7 @@ public class gameManager : MonoBehaviour
 
         activeMenu = null;
         activeCanvas = null;
+        previousCanvas = null;
     }
     public IEnumerator playerFlashDamage()
     {
@@ -267,6 +266,7 @@ public class gameManager : MonoBehaviour
         //opens win menu
         winMenuCanvas.enabled = true;
         activeCanvas = winMenuCanvas;
+        previousCanvas = activeCanvas;
         statePaused();
     }
     public void youLose()
@@ -274,16 +274,17 @@ public class gameManager : MonoBehaviour
         //opens lose menu
         gameOverMenuCanvas.enabled = true;
         activeCanvas = gameOverMenuCanvas;
+        previousCanvas = activeCanvas;
         statePaused();
     }
 
     public void RespawnLevel()
     {
-        respawnMenuCanvas.enabled = true; //opens respawn menu
+        //opens respawn menu
+        respawnMenuCanvas.enabled = true; 
         activeCanvas = respawnMenuCanvas;
+        previousCanvas = activeCanvas;
         statePaused();
-        // activeMenu = respawnMenu;
-        //activeMenu.SetActive(true);
     }
 
     // void updateTimerUI()

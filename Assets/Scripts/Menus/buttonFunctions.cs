@@ -15,13 +15,20 @@ public class buttonFunctions : MonoBehaviour
     {
         gameManager.instance.activeCanvas.enabled = false;
         gameManager.instance.stateUnpaused();
+        EnableMusicAndSFX();
     }
 
     public void Respawn()
     {
+        // Respawn method can be called when the player dies and has lives remaining and the respawn canvas is active
+
         gameManager.instance.activeCanvas.enabled = false;
         gameManager.instance.stateUnpaused();
         gameManager.instance.playerScript.spawnPlayer();
+        EnableMusicAndSFX();
+        // Reset playerHadDied bool so zombies can track player when they're in sight and range again
+        gameManager.instance.playerScript.playerHadDied = false;
+        
     }
 
     public void Restart()
@@ -70,4 +77,9 @@ public class buttonFunctions : MonoBehaviour
         creditsUI.sortingOrder = 2;
     }
 
+    public void EnableMusicAndSFX()
+    {
+        gameManager.instance.inGameMusic.UnPause();
+        gameManager.instance.inGameSFX.SetActive(true);
+    }
 }

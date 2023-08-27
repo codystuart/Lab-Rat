@@ -63,6 +63,12 @@ public class rangedZombie : MonoBehaviour, IDamage
         else if (agent.destination != gameManager.instance.player.transform.position)
             StartCoroutine(roam());
 
+        // If the player had died before, make sure zombie forgets about player and reset its path
+        if(gameManager.instance.playerScript.playerHadDied == true)
+        {
+            playerInRange = false;
+            agent.ResetPath();
+        }
         enemyUI.transform.LookAt(gameManager.instance.player.transform.position);
     }
 
@@ -158,7 +164,6 @@ public class rangedZombie : MonoBehaviour, IDamage
             {
                 Instantiate(itemDrop, transform.position , Quaternion.identity);
             } 
-            Debug.Log("Zombie respawning");
             Destroy(gameObject); 
             //gameManager.instance.updateGameGoal(-1);
         }
@@ -188,18 +193,8 @@ public class rangedZombie : MonoBehaviour, IDamage
     {
         isShooting = true;
         Instantiate(spitBall, shootPos.transform.position, transform.rotation);
-
-        Debug.Log("Should play attack animation.");
         PlayZombieAnim("attack");
         //Animator anim = Zombie.GetComponent<Animator>();
-        //if (anim != null)
-        //{ 
-        //    Debug.Log("Should play Zombie Anim");
-        //}
-        //else if (anim == null)
-        //{
-        //    Debug.Log("Can't find anim");
-        //}
         yield return new WaitForSeconds(shootRate);
 
         isShooting = false;
@@ -210,17 +205,9 @@ public class rangedZombie : MonoBehaviour, IDamage
         if (Zombie != null)
         {
             //animator = Zombie.GetComponent<Animation>();
-            if (animator == null)
+        if (animator != null)
             {
-               // Debug.Log("Can't find animator.");
-            }
-            else if (animator != null)
-            {
-                if (AnimsArray.Length == 0)
-                {
-                    Debug.Log("Can't find animations.");
-                }
-                else if (AnimsArray.Length > 0)
+                if (AnimsArray.Length > 0)
                 {
                     for (int i = 0; i < AnimsArray.Length; i++)
                     {

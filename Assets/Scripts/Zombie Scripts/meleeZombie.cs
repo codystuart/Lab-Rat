@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Analytics;
 using UnityEngine.Animations;
 using UnityEngine.UI;
 
@@ -57,14 +58,19 @@ public class regularZombie : MonoBehaviour, IDamage
 
     void Update()
     {
-        if (playerInRange && !canSeePlayer())
+        if(playerInRange && !canSeePlayer())
         {
-            
             StartCoroutine(roam());
         }
         else if (agent.destination != gameManager.instance.player.transform.position)
             StartCoroutine(roam());
 
+        // If the player had died before, make sure zombie forgets about player and reset its path
+        if(gameManager.instance.playerScript.playerHadDied == true)
+        {
+            playerInRange = false;
+            agent.ResetPath();
+        }
 
         enemyUI.transform.LookAt(gameManager.instance.player.transform.position);
 
@@ -160,7 +166,6 @@ public class regularZombie : MonoBehaviour, IDamage
         agent.stoppingDistance = stoppingDistanceOrig;
         playerDir = gameManager.instance.player.transform.position - headPos.position;
         angleToPlayer = Vector3.Angle(new Vector3(playerDir.x, 0, playerDir.z), transform.forward);
-        
 
         Debug.DrawRay(headPos.position, playerDir);
 
@@ -198,7 +203,6 @@ public class regularZombie : MonoBehaviour, IDamage
     {//Method will activate when another object touches/collides with this one.
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log(transform.gameObject.name + " is in range of " + collision.gameObject.name);
             playerInRange = true; 
         } 
     }
@@ -207,7 +211,6 @@ public class regularZombie : MonoBehaviour, IDamage
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log(transform.gameObject.name+" is in range of "+other.name);
             playerInRange = true;
         }
 
@@ -217,7 +220,6 @@ public class regularZombie : MonoBehaviour, IDamage
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log(transform.gameObject.name + " is not in range of " + other.name);
             playerInRange = false;
         }
     }

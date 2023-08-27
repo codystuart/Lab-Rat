@@ -64,7 +64,13 @@ public class slamTank : MonoBehaviour, IDamage
         }
         else if (agent.destination != gameManager.instance.player.transform.position)
             StartCoroutine(roam());
-        
+
+        // If the player had died before, make sure zombie forgets about player and reset its path
+        if(gameManager.instance.playerScript.playerHadDied == true)
+        {
+            playerInRange = false;
+            agent.ResetPath();
+        }
         enemyUI.transform.LookAt(gameManager.instance.player.transform.position);
 
     }

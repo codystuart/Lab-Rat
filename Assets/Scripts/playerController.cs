@@ -74,6 +74,8 @@ public class playerController : MonoBehaviour, IDamage
     bool isSprinting;
     public int availableReloads;
 
+    public bool playerHadDied;
+
     void Start()
     {
         //reset player HP and speed
@@ -120,6 +122,7 @@ public class playerController : MonoBehaviour, IDamage
                 }
             }
         }
+
     }
 
     //movement function
@@ -266,6 +269,7 @@ public class playerController : MonoBehaviour, IDamage
         {
             lives--;
             gameManager.instance.RespawnLevel();
+            playerHadDied = true;
         }
         else if (HP <= 0 && lives <= 0)
         {

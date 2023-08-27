@@ -38,8 +38,8 @@ public class OptionsMenu : MonoBehaviour
         if (sceneCurr.name != "Main Menu" && gameManager.instance.activeCanvas == gameManager.instance.optionsMenuCanvas)
         {
             gameManager.instance.optionsMenuCanvas.enabled = false; // hide the options menu
-            gameManager.instance.pauseMenuCanvas.enabled = true; // show the pause menu
-            gameManager.instance.activeCanvas = gameManager.instance.pauseMenuCanvas; // set active menu to pause menu;
+            gameManager.instance.previousCanvas.enabled = true; // show the previous menu
+            gameManager.instance.activeCanvas = gameManager.instance.previousCanvas; // set active menu to previous menu;
         }
         else if (sceneCurr.name == "Main Menu")// if options is opened from main menu
         {
