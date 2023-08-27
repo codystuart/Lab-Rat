@@ -182,6 +182,8 @@ MonoBehaviour:
   hasFlashlight: 0
   fLightIsOn: 0
   hasPhone: 0
+  availableReloads: 0
+  playerHadDied: 0
 --- !u!143 &5105460330003665063
 CharacterController:
   m_ObjectHideFlags: 0
@@ -620,14 +622,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4788032459956083347}
-  m_LocalRotation: {x: -0.623111, y: -0.3219958, z: -0.29902652, w: 0.6470197}
-  m_LocalPosition: {x: 0.005, y: 1.026, z: 0.019}
+  m_LocalRotation: {x: -0.7882594, y: 0.0027776584, z: -0.022493567, w: 0.6149256}
+  m_LocalPosition: {x: -0.22, y: 0.85, z: 1.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 63328559812213553}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: -87.313, y: -69.908, z: 17.796}
+  m_LocalEulerAnglesHint: {x: -104.23, y: -9.1, z: 7.49}
 --- !u!108 &1367848819893317583
 Light:
   m_ObjectHideFlags: 0
@@ -639,14 +641,14 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.9764706, g: 0.76862746, b: 0.2784314, a: 1}
-  m_Intensity: 0.8
-  m_Range: 30
-  m_SpotAngle: 50
+  m_Color: {r: 1, g: 0.87718636, b: 0.5896226, a: 1}
+  m_Intensity: 7.5
+  m_Range: 45
+  m_SpotAngle: 82.8
   m_InnerSpotAngle: 5
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -682,7 +684,7 @@ Light:
   m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 2
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}

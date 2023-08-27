@@ -4337,7 +4337,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 8f22e6994a4475743a4caf5c4b947986, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6066,7 +6066,7 @@ RectTransform:
   - {fileID: 7422901295457537642}
   - {fileID: 3352482218010722831}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
