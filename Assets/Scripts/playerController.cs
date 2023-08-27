@@ -4,6 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -31,13 +32,13 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] float gravity;
     [SerializeField] int jumpMax;
 
-    [Header("----- Crouching -----")]
-    [SerializeField] Vector3 crouchCenter = new Vector3(0, 0.5f, 0);
-    [SerializeField] Vector3 standCenter = new Vector3(0, 0, 0);
-    [SerializeField] float crouchHeight = 0.5f;
-    [SerializeField] float standingHeight = 2f;
-    [SerializeField] float timeToCrouch = 0.25f;
-    public bool isCrouching; //enemies will need access for level 2 to despawn
+    //[Header("----- Crouching -----")]
+    //[SerializeField] Vector3 crouchCenter = new Vector3(0, 0.5f, 0);
+    //[SerializeField] Vector3 standCenter = new Vector3(0, 0, 0);
+    //[SerializeField] float crouchHeight = 0.5f;
+    //[SerializeField] float standingHeight = 2f;
+    //[SerializeField] float timeToCrouch = 0.25f;
+    //public bool isCrouching; //enemies will need access for level 2 to despawn
 
     [Header("----- Gun Stats -----")]
     public List<gunStats> gunList = new List<gunStats>();
@@ -50,7 +51,7 @@ public class playerController : MonoBehaviour, IDamage
     [Header("----- Flashlight -----")]
     [SerializeField] GameObject flashlightModel;
     public GameObject flashlight;
-    [SerializeField] Light fLight;
+    public Light fLight;
     public bool drainOverTime;
     public float maxBrightness;
     public float minBrightness;
@@ -85,10 +86,16 @@ public class playerController : MonoBehaviour, IDamage
         isSprinting = false;
         availableReloads = 0;
 
-        //Reset Flashlight
-        fLight.enabled = false;
-        fLightIsOn = false;
-        fLight.intensity = maxBrightness;
+        //reset flashlight on level one
+        if (SceneManager.GetActiveScene().name == "Level 1")
+        {
+            fLight.enabled = false;
+            fLightIsOn = false;
+            fLight.intensity = maxBrightness;
+        }
+
+        gameManager.instance.save.fLightIntensity = fLight.intensity;
+        gameManager.instance.batteryChargeBar.fillAmount = 0;
 
         spawnPlayer();
 
@@ -151,10 +158,11 @@ public class playerController : MonoBehaviour, IDamage
         velocity.y -= gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.C) && playerGrounded)
-        {
-            StartCoroutine(crouchStand());
-        }
+        //calls crouch ienum if grounded and press 'c'
+        //if (Input.GetKeyDown(KeyCode.C) && playerGrounded)
+        //{
+        //    StartCoroutine(crouchStand());
+        //}
 
         //make player sprint
         if (Input.GetButtonDown("Sprint"))
@@ -166,43 +174,44 @@ public class playerController : MonoBehaviour, IDamage
         }
     }
 
-    IEnumerator crouchStand()
-    {
-        //check to see if anything is above player
-        //limited to one unit above player so that ceiling doesn't count
-        if (isCrouching && Physics.Raycast(Camera.main.transform.position, Vector3.up, 1f))
-            yield break;
-
-        float timeElapsed = 0;
-
-        //change height bassed on crouching bool
-        float targetHeight = isCrouching ? standingHeight : crouchHeight;
-        float currHeight = controller.height;
-
-        //change center bassed on crouching bool
-        Vector3 targetCenter = isCrouching ? standCenter : crouchCenter;
-        Vector3 currCenter = controller.center;
-
-        //change height and center
-        while (timeElapsed < timeToCrouch)
-        {
-            controller.height = Mathf.Lerp(currHeight, targetHeight, timeElapsed / timeToCrouch);
-            controller.center = Vector3.Lerp(currCenter, targetCenter, timeElapsed / timeToCrouch);
-            timeElapsed += Time.deltaTime;
-            yield return null;
-        }
-
-        //ensure correct height and center
-        controller.height = targetHeight;
-        controller.center = targetCenter;
-
-        //set player collider to correct height and center
-        charCollider.height = targetHeight;
-        charCollider.center = targetCenter;
-
-        //toggle crouching bool
-        isCrouching = !isCrouching;
-    }
+    //crouching ienum
+    //IEnumerator crouchStand()
+    //{
+    //    //check to see if anything is above player
+    //    //limited to one unit above player so that ceiling doesn't count
+    //    if (isCrouching && Physics.Raycast(Camera.main.transform.position, Vector3.up, 1f))
+    //        yield break;
+    //
+    //    float timeElapsed = 0;
+    //
+    //    //change height bassed on crouching bool
+    //    float targetHeight = isCrouching ? standingHeight : crouchHeight;
+    //    float currHeight = controller.height;
+    //
+    //    //change center bassed on crouching bool
+    //    Vector3 targetCenter = isCrouching ? standCenter : crouchCenter;
+    //    Vector3 currCenter = controller.center;
+    //
+    //    //change height and center
+    //    while (timeElapsed < timeToCrouch)
+    //    {
+    //        controller.height = Mathf.Lerp(currHeight, targetHeight, timeElapsed / timeToCrouch);
+    //        controller.center = Vector3.Lerp(currCenter, targetCenter, timeElapsed / timeToCrouch);
+    //        timeElapsed += Time.deltaTime;
+    //        yield return null;
+    //    }
+    //
+    //    //ensure correct height and center
+    //    controller.height = targetHeight;
+    //    controller.center = targetCenter;
+    //
+    //    //set player collider to correct height and center
+    //    charCollider.height = targetHeight;
+    //    charCollider.center = targetCenter;
+    //
+    //    //toggle crouching bool
+    //    isCrouching = !isCrouching;
+    //}
 
     IEnumerator shoot()
     {
@@ -305,8 +314,10 @@ public class playerController : MonoBehaviour, IDamage
         }
 
         if (hasFlashlight)
+        {
             gameManager.instance.save.fLightIntensity = fLight.intensity;
-        updatePlayerUI();
+            updatePlayerUI();
+        }
     }
 
     IEnumerator recharge()
