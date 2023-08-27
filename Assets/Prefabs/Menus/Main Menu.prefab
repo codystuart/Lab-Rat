@@ -2239,7 +2239,21 @@ MonoBehaviour:
     https://pixabay.com/sound-effects/rifle-clip-empty-98832/
 
 
-    https://pixabay.com/sound-effects/flashlight-clicking-on-105809/'
+    https://pixabay.com/sound-effects/flashlight-clicking-on-105809/
+
+
+    "Pencil,
+    Writing, Close, A.wav" by InspectorJ (www.jshaw.co.uk) of Freesound.org
+
+    https://freesound.org/people/InspectorJ/sounds/398271/
+
+
+    "Pick
+    up Item 2.wav" by SilverIllusionist of Freesound.org
+
+    https://freesound.org/people/SilverIllusionist/sounds/411178/
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e669dac5fcfc68d4db5d8fd69ba2e676, type: 2}
   m_sharedMaterial: {fileID: 5852714830990868640, guid: e669dac5fcfc68d4db5d8fd69ba2e676,

@@ -277,7 +277,7 @@ public class playerController : MonoBehaviour, IDamage
     {
         fLight.intensity = Mathf.Clamp(fLight.intensity, minBrightness, maxBrightness);
 
-        if (drainOverTime && fLight.enabled)
+        if (drainOverTime && fLight.enabled && gameManager.instance.inGameSFX.activeSelf)
         {
             gameManager.instance.flashlightON.Play();
             if (fLight.intensity > minBrightness)

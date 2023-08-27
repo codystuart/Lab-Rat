@@ -24,6 +24,7 @@ public class notePickup : MonoBehaviour
     public void Pickup()
     {
         inventorySystem.inventory.pickupSound.Play();
+        inventorySystem.inventory.notePickupSound.Play();
         inventorySystem.inventory.addNote(note);
         //gameManager.instance.save.saveNotes.Add(note); //save the notes to the save list
         Destroy(gameObject);

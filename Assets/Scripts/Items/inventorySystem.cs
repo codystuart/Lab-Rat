@@ -20,6 +20,7 @@ public class inventorySystem : MonoBehaviour
 
     //SFX
     public AudioSource pickupSound;
+    public AudioSource notePickupSound;
     [SerializeField] AudioSource dropSound;
 
     //max inventory space
