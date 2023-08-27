@@ -3065,7 +3065,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press tab to open inventory
+  m_text: '"TAB" to open inventory
+
+    "ESC" or "P" to Pause'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e669dac5fcfc68d4db5d8fd69ba2e676, type: 2}
   m_sharedMaterial: {fileID: 5852714830990868640, guid: e669dac5fcfc68d4db5d8fd69ba2e676,
@@ -6088,6 +6090,7 @@ MonoBehaviour:
   playerSpawnPos: {fileID: 0}
   activeMenu: {fileID: 0}
   activeCanvas: {fileID: 0}
+  previousCanvas: {fileID: 0}
   pauseMenuCanvas: {fileID: 0}
   optionsMenuCanvas: {fileID: 0}
   respawnMenuCanvas: {fileID: 0}

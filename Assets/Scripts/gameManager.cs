@@ -115,7 +115,7 @@ public class gameManager : MonoBehaviour
     void Update()
     {
         // Opens pause menu
-        if(Input.GetButtonDown("Cancel") && activeMenu == null && activeCanvas == null) 
+        if((Input.GetButtonDown("Cancel") || (Input.GetKeyDown(KeyCode.P))) && activeMenu == null && activeCanvas == null) 
         {
             pauseMenuCanvas.enabled = true;
             activeCanvas = pauseMenuCanvas;
@@ -123,7 +123,7 @@ public class gameManager : MonoBehaviour
             statePaused();
         }
         // Closes pause menu
-        else if (Input.GetButtonDown("Cancel") && activeCanvas == pauseMenuCanvas)
+        else if ((Input.GetButtonDown("Cancel") || (Input.GetKeyDown(KeyCode.P))) && activeCanvas == pauseMenuCanvas)
         {
             source.PlayOneShot(menuBackSfx);
             pauseMenuCanvas.enabled = false;
@@ -132,14 +132,14 @@ public class gameManager : MonoBehaviour
             stateUnpaused();
         }
         // Closes options menu, returns to last menu
-        else if (Input.GetButtonDown("Cancel") && activeCanvas == optionsMenuCanvas)
+        else if ((Input.GetButtonDown("Cancel") || (Input.GetKeyDown(KeyCode.P))) && activeCanvas == optionsMenuCanvas)
         {
             source.PlayOneShot(menuBackSfx);
             optionsMenuCanvas.enabled = false;
             previousCanvas.enabled = true;
             activeCanvas = previousCanvas;
         }
-        else if (Input.GetButtonDown("Cancel") && activeMenu != null && activeMenu != dialog)
+        else if ((Input.GetButtonDown("Cancel") || (Input.GetKeyDown(KeyCode.P))) && activeMenu != null && activeMenu != dialog)
         {
             //closes menu with escape
             stateUnpaused();
