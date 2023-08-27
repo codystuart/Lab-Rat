@@ -82,36 +82,32 @@ public class gameManager : MonoBehaviour
         Scene sceneCurr = SceneManager.GetActiveScene();
         if (sceneCurr.name != "Level 1")
         {
+            //sets flashlight meshes after level 1
             if (save.saveFlashlight)
                 playerScript.pickupFlashlight();
         }
         else
         {
-            cureCollected = false;
+            //only clears on level 1
+            clearPlayer();
             clearSave();
         }
-
-        if (sceneCurr.name == "Level 1" || sceneCurr.name == "TestingWaveSpawner")
-        {
-            playerScript.hasFlashlight = false;
-            playerScript.gunList.Clear();
-            inventorySystem.inventory.items.Clear();
-            inventorySystem.inventory.notes.Clear();
-        }
-
-
+        
+        //sets player data to saved data
         playerScript.gunList = save.saveGunList;
         playerScript.selectedGun = 0;
         inventorySystem.inventory.items = save.saveInvItems;
         inventorySystem.inventory.notes = save.saveNotes;
-        
-        batteryChargeBar.fillAmount = 0;
+        playerScript.fLight.intensity = save.fLightIntensity;
+        playerScript.updatePlayerUI();
     }
+
     private void Start() {
         pauseMenuCanvas = pauseMenuCanvas.GetComponent<Canvas>();
         optionsMenuCanvas = optionsMenuCanvas.GetComponent<Canvas>();
         respawnMenuCanvas = respawnMenuCanvas.GetComponent<Canvas>();
     }
+
     void Update()
     {
         // Opens pause menu
@@ -162,12 +158,25 @@ public class gameManager : MonoBehaviour
         // }
     }
 
+    public void clearPlayer()
+    {
+        //clears player data
+        cureCollected = false;
+        playerScript.hasFlashlight = false;
+        playerScript.fLight.intensity = 0;
+        playerScript.gunList.Clear();
+        inventorySystem.inventory.items.Clear();
+        inventorySystem.inventory.notes.Clear();
+    }
+
     public void clearSave()
     {
+        //clears save data
+        save.saveFlashlight = false;
+        save.fLightIntensity = 0;
         save.saveGunList.Clear();
         save.saveInvItems.Clear();
         save.saveNotes.Clear();
-        save.saveFlashlight = false;
     }
 
     public void statePaused()
@@ -307,5 +316,4 @@ public class gameManager : MonoBehaviour
 
     //     gameTimer.text = "Time " + minuteCount.ToString("00") + ":" + secondsToInt.ToString("00");
     // }
-
 }

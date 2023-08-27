@@ -167,14 +167,9 @@ public class regularZombie : MonoBehaviour, IDamage
         playerDir = gameManager.instance.player.transform.position - headPos.position;
         angleToPlayer = Vector3.Angle(new Vector3(playerDir.x, 0, playerDir.z), transform.forward);
 
-        Debug.DrawRay(headPos.position, playerDir);
-
         RaycastHit hit;
         if (Physics.Raycast(headPos.position, playerDir, out hit))
         {
-            if (gameManager.instance.playerScript.isCrouching)
-                return false;
-
             if (hit.collider.CompareTag("Player") && angleToPlayer < viewAngle)
             {
                 agent.SetDestination(gameManager.instance.player.transform.position);
