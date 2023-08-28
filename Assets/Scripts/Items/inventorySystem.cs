@@ -57,7 +57,6 @@ public class inventorySystem : MonoBehaviour
 
         maxItemsLabel.text = maxItems.ToString();
         inTab.interactable = false;
-        //livesRemaining.text = gameManager.instance.playerScript.lives.ToString();
     }
 
     public void addItem(itemData item)
@@ -299,7 +298,6 @@ public class inventorySystem : MonoBehaviour
         if(gameManager.instance.playerScript.lives < gameManager.instance.playerScript.originalLives)
         {
             gameManager.instance.playerScript.lives++;
-            //livesRemaining.text = gameManager.instance.playerScript.lives.ToString("f0");
             items.Remove(selectedItem);
             ListItems();
         }

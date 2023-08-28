@@ -9,7 +9,6 @@ public class exitDoor : MonoBehaviour
     private bool playerInRange;
     [SerializeField] GameObject doorInteractText;
     [SerializeField] GameObject lockedText;
-    [SerializeField] AudioSource doorOpenSound;
     [SerializeField] AudioSource lockedDoorSound;
     public string sceneName;
 
@@ -90,23 +89,7 @@ public class exitDoor : MonoBehaviour
     bool keycardAcquired()
     {
         return gameManager.instance.keycardAcquired;
-    }
-
-    // bool cureCollected()
-    // {
-    //     if (gameManager.instance.collectedAllCures == true)
-    //         return true;
-    //     else
-    //         return false;
-    // }
-
-    // bool zombiesEliminated()
-    // {
-    //     if (gameManager.instance.enemiesRemaining <= 0)
-    //         return true;
-    //     else
-    //         return false;
-    // }    
+    }  
     
     bool playerCanExit()
     {
@@ -118,7 +101,6 @@ public class exitDoor : MonoBehaviour
             if (keycardAcquired() && gameManager.instance.playerScript.hasFlashlight
                 && gameManager.instance.playerScript.hasPhone)
             {
-                //SceneManager.LoadScene("Level 2");
                 KeyCardScript.PickedUpKeyCard = false;
                 return true;
             }
@@ -128,21 +110,14 @@ public class exitDoor : MonoBehaviour
         {
             if (keycardAcquired())
             {
-                //SceneManager.LoadScene("Level 3");
                 KeyCardScript.PickedUpKeyCard = false;
                 return true;
             }
             else return false;
-            //if (keycardAcquired() && cureCollected() && zombiesEliminated())
-            //    return true;
-            //else return false;
         }
         else if (sceneName == "Level 3")
         {
             return gameManager.instance.cureCollected;
-            //if (keycardAcquired() && cureCollected() && zombiesEliminated())
-            //    return true;
-            //else return false;
         }
 
         return false;

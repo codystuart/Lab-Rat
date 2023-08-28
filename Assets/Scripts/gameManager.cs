@@ -20,8 +20,6 @@ public class gameManager : MonoBehaviour
     public Canvas pauseMenuCanvas, optionsMenuCanvas, respawnMenuCanvas, winMenuCanvas, gameOverMenuCanvas;
 
     [Header("----- UI Text -----")]
-    //public TextMeshProUGUI enemiesRemainingText;
-    //public TextMeshProUGUI cureBottlesRemainingText;
     public TextMeshProUGUI gameTimer;
     public TextMeshProUGUI currAmmoText;
     public TextMeshProUGUI maxAmmoText;
@@ -60,14 +58,8 @@ public class gameManager : MonoBehaviour
     [SerializeField] AudioClip menuBackSfx;
     public AudioSource inGameMusic;
     public GameObject inGameSFX;
-
-    //class references
-    //public int enemiesRemaining;
     public bool isPaused;
     public float timescaleOrig;
-    //private float secondsCount;
-    //private int minuteCount;
-    //private bool pauseTimer;
     public bool keycardAcquired;
     public bool cureCollected; //win condition
 
@@ -152,10 +144,6 @@ public class gameManager : MonoBehaviour
             inventorySystem.inventory.selectedItem = null;
             closeInventory();
         }
-        // if (!pauseTimer)
-        // {
-        //     updateTimerUI();
-        // }
     }
 
     public void clearPlayer()
@@ -182,7 +170,6 @@ public class gameManager : MonoBehaviour
     public void statePaused()
     {
         //pauses game
-        //pauseTimer = true;
         Time.timeScale = 0;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
@@ -201,7 +188,6 @@ public class gameManager : MonoBehaviour
     public void stateUnpaused()
     {
         //unpauses game
-        //pauseTimer = false;
         Time.timeScale = timescaleOrig;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -240,11 +226,6 @@ public class gameManager : MonoBehaviour
         playerFlashDamagePanel.SetActive(false);
     }
 
-    // public void updateGameGoal(int amount)
-    // {
-    //     enemiesRemaining += amount;
-    //     //updateCounters();
-    // }
     
     public void openInventory()
     {
@@ -267,7 +248,6 @@ public class gameManager : MonoBehaviour
         //starts preset dialog
         activeMenu = dialog;
         activeMenu.SetActive(true);
-        //pauseTimer = true;
     }
 
     public void youWin()
@@ -295,25 +275,4 @@ public class gameManager : MonoBehaviour
         previousCanvas = activeCanvas;
         statePaused();
     }
-
-    // void updateTimerUI()
-    // {
-    //     //timer logic
-    //     secondsCount += Time.deltaTime;
-
-
-    //     if (secondsCount >= 60)
-    //     {
-    //         minuteCount++;
-    //         secondsCount = 0;
-    //     }
-    //     else if (minuteCount >= 60 && secondsCount >= 60)
-    //     {
-    //         youLose();
-    //     }
-
-    //     int secondsToInt = (int)secondsCount;
-
-    //     gameTimer.text = "Time " + minuteCount.ToString("00") + ":" + secondsToInt.ToString("00");
-    // }
 }

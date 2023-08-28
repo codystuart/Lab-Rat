@@ -16,26 +16,6 @@ public class KeyCardScript : MonoBehaviour
     { 
         player = gameManager.instance.player;
         PickedUpKeyCard = false; 
-        if (SceneManager.GetActiveScene().name == "Level 1")
-        {
-            gameManager.instance.objectiveText.text = "Search for supplies and find a way to exit.";
-        }
-        else if (SceneManager.GetActiveScene().name == "Level 2")
-        {
-            gameManager.instance.objectiveText.text = "Clear the area.";
-        }
-        else if (SceneManager.GetActiveScene().name == "Level 3")
-        {
-            gameManager.instance.objectiveText.text = "Escape from the hordes of zombies";
-        }
-        //else if (SceneManager.GetActiveScene().name == "Level 4")
-        //{
-        //    gameManager.instance.objectiveText.text = "Find the cure and leave.";
-        //}
-        //else if (SceneManager.GetActiveScene().name == "Level 5")
-        //{
-        //    gameManager.instance.objectiveText.text = "Get to the helipad and escape with the cure.";
-        //}
     }
 
     void Update()

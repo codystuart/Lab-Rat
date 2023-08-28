@@ -73,21 +73,6 @@ public class regularZombie : MonoBehaviour, IDamage
         }
 
         enemyUI.transform.LookAt(gameManager.instance.player.transform.position);
-
-        //float PlayerDistance = GetDistance(transform.position, gameManager.instance.player.transform.position);
-        //if (gameManager.instance.player != null && PlayerDistance <= 2)
-        //{
-        //    PlayZombieAnim("attack2");
-        //}
-        //else if (gameManager.instance.player != null && PlayerDistance > 5)
-        //{
-        //    if (anim != null)
-        //    {
-        //        anim.Stop();
-        //    }
-        //    PlayZombieAnim("idle");
-        //    Debug.Log("Playing idle. Distance: "+PlayerDistance);
-        //}
     }
 
     IEnumerator roam()
@@ -120,14 +105,12 @@ public class regularZombie : MonoBehaviour, IDamage
   
         if (animator == null)
         {
-            Debug.Log("Can't find animator.");
         }
 
         else if (animator != null)
         {
             if (AnimsArray.Length == 0)
             {
-                Debug.Log("Can't find animations.");
             }
             else if (AnimsArray.Length > 0)
             {
@@ -258,10 +241,6 @@ public class regularZombie : MonoBehaviour, IDamage
         isHitting = true;
         gameManager.instance.playerScript.TakeDamage(damage);
 
-        // Knock back the player by a space
-        //gameManager.instance.player.transform.position =
-        //    new Vector3(gameManager.instance.player.transform.position.x, gameManager.instance.player.transform.position.y, (gameManager.instance.player.transform.position.z - 1f));
-        
         yield return new WaitForSeconds(1f);
         isHitting = false;
     }
