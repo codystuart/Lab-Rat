@@ -242,7 +242,7 @@ public class inventorySystem : MonoBehaviour
         }
         if (id == 'm')
         {
-            giveHealth(50);
+            giveHealth();
         }
         if(id == 'f')
         {
@@ -283,11 +283,11 @@ public class inventorySystem : MonoBehaviour
     }
 
     //health function
-    public void giveHealth(int amount)
+    public void giveHealth()
     {
         if (gameManager.instance.playerScript.HP < gameManager.instance.playerScript.originalHP)
         {
-            gameManager.instance.playerScript.HP += amount;
+            gameManager.instance.playerScript.HP = gameManager.instance.playerScript.originalHP;
             gameManager.instance.playerScript.updatePlayerUI();
             items.Remove(selectedItem);
             ListItems();
