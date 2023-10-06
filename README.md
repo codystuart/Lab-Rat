@@ -9,7 +9,9 @@ In 'Lab Rat,' players embark on a thrilling adventure within the confines of a r
 
 ## Demo
 
-Play the beta [here](https://cornofthedog.itch.io/lab-rat)!
+Ready to try the game? Download Lab Rat for the best experience or play the browser version!
+
+[Download](https://github.com/CodeWithJazmine/Lab-Rat/releases/tag/v1.0-beta.1) | Play the beta in your browser [here](https://cornofthedog.itch.io/lab-rat)!
 
 ## Sneak Peak
 
