@@ -6,6 +6,18 @@ Lab Rat: A Student-Created First-Person Shooter Puzzle Adventure Game Set in a R
 
 In 'Lab Rat,' players embark on a thrilling adventure within the confines of a research lab as they search for a cure to a menacing zombie virus. Explore a world of challenges, puzzles, and heart-pounding action in this FPS puzzle adventure.
 
+## Lessons Learned
+
+Working on **Lab Rat** provided valuable learning experiences in various aspects of game development:
+
+- **Scrum & Sprints**: Gained practical experience in agile project management using Scrum methodologies and organizing work into sprints.
+- **Trello**: Utilized Trello for task management and project tracking, improving team collaboration and organization.
+- **Version Control with a Group**: Enhanced skills in using version control systems like Git for collaborative development and managing changes effectively.
+- **Game Design Document (GDD)**: Learned how to draft and refine a game design document to outline and communicate game concepts and mechanics.
+- **Prototyping**: Developed prototypes at various stages to test and iterate on game features, ensuring a solid foundation for the final product.
+
+These experiences have significantly contributed to my growth as a game developer and project manager.
+
 
 ## Demo
 
