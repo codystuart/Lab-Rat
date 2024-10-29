@@ -32,9 +32,11 @@ https://github.com/CodeWithJazmine/Lab-Rat/assets/71017555/079fc827-2a9f-47e5-88
 ## About the Team
 Lab Rat was brought to life by the collaborative efforts of our dedicated team of students at Full Sail University, the "Regal Krakens," each contributing their unique skills and talents:
 - [@CodeWithJazmine](https://github.com/CodeWithJazmine) **Jazmine Chargualaf** - UI Programming, Lighting Design, and Audio Design.
-- [@codykstuart](https://github.com/codykstuart) **Cody Stuart** - AI Programming and Level Design.
+- [@codykstuart](https://github.com/codystuart) **Cody Stuart** - Core Mechanics, Bug Fixing, AI Programming and Level Design.
 - [@koda-doka](https://github.com/koda-doka) **Koda Durbin** - Inventory Design, Collectible Items, and Level Design.
 - [@Raka777](https://github.com/Raka777) **Leon Mercer** - Level Design and Scene Management.
 
 
 ![Untitled design](https://github.com/CodeWithJazmine/Lab-Rat/assets/71017555/c41b4cd6-004a-4092-9bb6-1b4e0b8f0eb3)
+
+*This repository was forked due to a change in github accounts. Original repository is [@Lab Rat](https://github.com/CodeWithJazmine/Lab-Rat).*
